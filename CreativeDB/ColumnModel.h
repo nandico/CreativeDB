@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "BaseModel.h"
 
 @interface ColumnModel : BaseModel

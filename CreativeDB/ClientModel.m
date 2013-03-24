@@ -1,47 +1,45 @@
 //
-//  AgencyModel.m
+//  ClientModel.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "AgencyModel.h"
-#import "GroupModel.h"
+#import "ClientModel.h"
 #import "FMDBDataAccess.h"
 
-@implementation AgencyModel
+@implementation ClientModel
 
-+ (AgencyModel *) objectWithResults:(FMResultSet *)results
++ (ClientModel *) objectWithResults:(FMResultSet *)results
 {
-    AgencyModel *object = [[AgencyModel alloc] init];
+    ClientModel *object = [[ClientModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.group = [GroupModel loadModel:[results longForColumn:@"agency_group"]];
     object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
     object.name = [results stringForColumn:@"name"];
-
+    
     return object;
 }
 
-+ (AgencyModel *) loadModel:(NSInteger) pk
++ (ClientModel *) loadModel:(NSInteger) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    AgencyModel *model;
+    ClientModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
-                            " FROM aa_agency "
+                            " id, country, name "
+                            " FROM aa_client "
                             " WHERE "
                             " id = %ld ", pk ];
     
     if( [results next] )
     {
-        model = [AgencyModel objectWithResults:results];
+        model = [ClientModel objectWithResults:results];
     }
     
     [results close];
@@ -49,6 +47,5 @@
     
     return model;
 }
-
 
 @end

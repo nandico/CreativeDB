@@ -1,47 +1,45 @@
 //
-//  AgencyModel.m
+//  ProducerModel.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "AgencyModel.h"
-#import "GroupModel.h"
+#import "ProducerModel.h"
 #import "FMDBDataAccess.h"
 
-@implementation AgencyModel
+@implementation ProducerModel
 
-+ (AgencyModel *) objectWithResults:(FMResultSet *)results
++ (ProducerModel *) objectWithResults:(FMResultSet *)results
 {
-    AgencyModel *object = [[AgencyModel alloc] init];
+    ProducerModel *object = [[ProducerModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.group = [GroupModel loadModel:[results longForColumn:@"agency_group"]];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
+    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];    
     object.name = [results stringForColumn:@"name"];
-
+    
     return object;
 }
 
-+ (AgencyModel *) loadModel:(NSInteger) pk
++ (ProducerModel *) loadModel:(NSInteger) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    AgencyModel *model;
+    ProducerModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
-                            " FROM aa_agency "
+                            " id, country, name "
+                            " FROM aa_producer "
                             " WHERE "
                             " id = %ld ", pk ];
     
     if( [results next] )
     {
-        model = [AgencyModel objectWithResults:results];
+        model = [ProducerModel objectWithResults:results];
     }
     
     [results close];

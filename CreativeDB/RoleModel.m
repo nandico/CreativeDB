@@ -1,47 +1,45 @@
 //
-//  AgencyModel.m
+//  RoleModel.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "AgencyModel.h"
-#import "GroupModel.h"
+#import "RoleModel.h"
 #import "FMDBDataAccess.h"
 
-@implementation AgencyModel
+@implementation RoleModel
 
-+ (AgencyModel *) objectWithResults:(FMResultSet *)results
++ (RoleModel *) objectWithResults:(FMResultSet *)results
 {
-    AgencyModel *object = [[AgencyModel alloc] init];
+    RoleModel *object = [[RoleModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.group = [GroupModel loadModel:[results longForColumn:@"agency_group"]];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
     object.name = [results stringForColumn:@"name"];
-
+    object.obs = [results stringForColumn:@"obs"];
+    
     return object;
 }
 
-+ (AgencyModel *) loadModel:(NSInteger) pk
++ (RoleModel *) loadModel:(NSInteger) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    AgencyModel *model;
+    RoleModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
-                            " FROM aa_agency "
+                            " id, name, obs "
+                            " FROM aa_role "
                             " WHERE "
                             " id = %ld ", pk ];
     
     if( [results next] )
     {
-        model = [AgencyModel objectWithResults:results];
+        model = [RoleModel objectWithResults:results];
     }
     
     [results close];

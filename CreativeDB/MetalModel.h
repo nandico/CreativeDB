@@ -1,5 +1,5 @@
 //
-//  GroupModel.h
+//  MetalModel.h
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
@@ -8,12 +8,12 @@
 
 #import "BaseModel.h"
 
-@interface GroupModel : BaseModel
+@interface MetalModel : BaseModel
 
 @property (assign) NSInteger pk;
 @property (strong) NSString *name;
 
-+ (GroupModel *) objectWithResults:(FMResultSet *)results;
-+ (GroupModel *) loadModel:(NSInteger) pk;
++ (MetalModel *) objectWithResults:(FMResultSet *)results;
++ (MetalModel *) loadModel:(NSInteger) pk;
 
 @end

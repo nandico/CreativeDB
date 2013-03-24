@@ -1,5 +1,5 @@
 //
-//  GroupModel.h
+//  RoleModel.h
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
@@ -8,12 +8,14 @@
 
 #import "BaseModel.h"
 
-@interface GroupModel : BaseModel
+@interface RoleModel : BaseModel
 
 @property (assign) NSInteger pk;
 @property (strong) NSString *name;
+@property (strong) NSString *obs;
 
-+ (GroupModel *) objectWithResults:(FMResultSet *)results;
-+ (GroupModel *) loadModel:(NSInteger) pk;
++ (RoleModel *) objectWithResults:(FMResultSet *)results;
++ (RoleModel *) loadModel:(NSInteger) pk;
+
 
 @end

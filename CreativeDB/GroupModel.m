@@ -25,7 +25,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    GroupModel *group;
+    GroupModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
@@ -38,13 +38,13 @@
     
     if( [results next] )
     {
-        group = [GroupModel objectWithResults:results];
+        model = [GroupModel objectWithResults:results];
     }
     
     [results close];
     [db close];
     
-    return group;
+    return model;
 }
 
 @end

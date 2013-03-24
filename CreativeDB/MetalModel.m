@@ -1,47 +1,44 @@
 //
-//  AgencyModel.m
+//  MetalModel.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "AgencyModel.h"
-#import "GroupModel.h"
+#import "MetalModel.h"
 #import "FMDBDataAccess.h"
 
-@implementation AgencyModel
+@implementation MetalModel
 
-+ (AgencyModel *) objectWithResults:(FMResultSet *)results
++ (MetalModel *) objectWithResults:(FMResultSet *)results
 {
-    AgencyModel *object = [[AgencyModel alloc] init];
+    MetalModel *object = [[MetalModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.group = [GroupModel loadModel:[results longForColumn:@"agency_group"]];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
     object.name = [results stringForColumn:@"name"];
-
+    
     return object;
 }
 
-+ (AgencyModel *) loadModel:(NSInteger) pk
++ (MetalModel *) loadModel:(NSInteger) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    AgencyModel *model;
+    MetalModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
-                            " FROM aa_agency "
+                            " id, name "
+                            " FROM aa_metal "
                             " WHERE "
                             " id = %ld ", pk ];
     
     if( [results next] )
     {
-        model = [AgencyModel objectWithResults:results];
+        model = [MetalModel objectWithResults:results];
     }
     
     [results close];

@@ -30,7 +30,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    CountryModel *country;
+    CountryModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
@@ -43,13 +43,13 @@
     
     if( [results next] )
     {
-        country = [CountryModel objectWithResults:results];
+        model = [CountryModel objectWithResults:results];
     }
     
     [results close];
     [db close];
     
-    return country;
+    return model;
 }
 
 @end

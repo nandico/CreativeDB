@@ -13,6 +13,11 @@
 		BF0010A916FEBDD7007B8A80 /* AgencyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A816FEBDD7007B8A80 /* AgencyModel.m */; };
 		BF0010AC16FEBEBC007B8A80 /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AB16FEBEBC007B8A80 /* GroupModel.m */; };
 		BF0010AF16FECBE0007B8A80 /* CountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AE16FECBE0007B8A80 /* CountryModel.m */; };
+		BF0010B216FF21C2007B8A80 /* MetalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B116FF21C1007B8A80 /* MetalModel.m */; };
+		BF0010B516FF230E007B8A80 /* ProducerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B416FF230E007B8A80 /* ProducerModel.m */; };
+		BF0010B816FF252B007B8A80 /* ClientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B716FF252A007B8A80 /* ClientModel.m */; };
+		BF0010BB16FF2728007B8A80 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BA16FF2727007B8A80 /* ProductModel.m */; };
+		BF0010BE16FF30C3007B8A80 /* RoleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BD16FF30C3007B8A80 /* RoleModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -44,6 +49,16 @@
 		BF0010AB16FEBEBC007B8A80 /* GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupModel.m; sourceTree = "<group>"; };
 		BF0010AD16FECBDF007B8A80 /* CountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryModel.h; sourceTree = "<group>"; };
 		BF0010AE16FECBE0007B8A80 /* CountryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryModel.m; sourceTree = "<group>"; };
+		BF0010B016FF21C1007B8A80 /* MetalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalModel.h; sourceTree = "<group>"; };
+		BF0010B116FF21C1007B8A80 /* MetalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalModel.m; sourceTree = "<group>"; };
+		BF0010B316FF230D007B8A80 /* ProducerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerModel.h; sourceTree = "<group>"; };
+		BF0010B416FF230E007B8A80 /* ProducerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerModel.m; sourceTree = "<group>"; };
+		BF0010B616FF252A007B8A80 /* ClientModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientModel.h; sourceTree = "<group>"; };
+		BF0010B716FF252A007B8A80 /* ClientModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientModel.m; sourceTree = "<group>"; };
+		BF0010B916FF2727007B8A80 /* ProductModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductModel.h; sourceTree = "<group>"; };
+		BF0010BA16FF2727007B8A80 /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
+		BF0010BC16FF30C2007B8A80 /* RoleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleModel.h; sourceTree = "<group>"; };
+		BF0010BD16FF30C3007B8A80 /* RoleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -104,6 +119,16 @@
 				BF0010AB16FEBEBC007B8A80 /* GroupModel.m */,
 				BF0010AD16FECBDF007B8A80 /* CountryModel.h */,
 				BF0010AE16FECBE0007B8A80 /* CountryModel.m */,
+				BF0010B016FF21C1007B8A80 /* MetalModel.h */,
+				BF0010B116FF21C1007B8A80 /* MetalModel.m */,
+				BF0010B316FF230D007B8A80 /* ProducerModel.h */,
+				BF0010B416FF230E007B8A80 /* ProducerModel.m */,
+				BF0010B616FF252A007B8A80 /* ClientModel.h */,
+				BF0010B716FF252A007B8A80 /* ClientModel.m */,
+				BF0010B916FF2727007B8A80 /* ProductModel.h */,
+				BF0010BA16FF2727007B8A80 /* ProductModel.m */,
+				BF0010BC16FF30C2007B8A80 /* RoleModel.h */,
+				BF0010BD16FF30C3007B8A80 /* RoleModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -290,6 +315,11 @@
 				BF0010A916FEBDD7007B8A80 /* AgencyModel.m in Sources */,
 				BF0010AC16FEBEBC007B8A80 /* GroupModel.m in Sources */,
 				BF0010AF16FECBE0007B8A80 /* CountryModel.m in Sources */,
+				BF0010B216FF21C2007B8A80 /* MetalModel.m in Sources */,
+				BF0010B516FF230E007B8A80 /* ProducerModel.m in Sources */,
+				BF0010B816FF252B007B8A80 /* ClientModel.m in Sources */,
+				BF0010BB16FF2728007B8A80 /* ProductModel.m in Sources */,
+				BF0010BE16FF30C3007B8A80 /* RoleModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

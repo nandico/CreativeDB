@@ -1,5 +1,5 @@
 //
-//  AgencyModel.h
+//  ProducerModel.h
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
@@ -7,18 +7,15 @@
 //
 
 #import "BaseModel.h"
-#import "GroupModel.h"
 #import "CountryModel.h"
 
-@interface AgencyModel : BaseModel
+@interface ProducerModel : BaseModel
 
 @property (assign) NSInteger pk;
-@property (strong) NSString *type;
-@property (strong) GroupModel *group;
 @property (strong) CountryModel *country;
 @property (strong) NSString *name;
 
-+ (AgencyModel *) objectWithResults:(FMResultSet *)results;
-+ (AgencyModel *) loadModel:(NSInteger) pk;
++ (ProducerModel *) objectWithResults:(FMResultSet *)results;
++ (ProducerModel *) loadModel:(NSInteger) pk;
 
 @end
