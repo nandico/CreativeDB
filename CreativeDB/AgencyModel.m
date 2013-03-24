@@ -16,7 +16,7 @@
     AgencyModel *object = [[AgencyModel alloc] init];
     object.pk = [results longForColumn:@"id"];
     object.group = [GroupModel loadModel:[results longForColumn:@"agency_group"]];
-    object.country = [results longForColumn:@"country"];
+    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
     object.name = [results stringForColumn:@"name"];
 
     return object;

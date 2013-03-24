@@ -7,7 +7,10 @@
 //
 
 #import "AppDelegate.h"
+
+// tests
 #import "GroupModel.h"
+#import "CountryModel.h"
 
 @implementation AppDelegate
 
@@ -17,8 +20,12 @@
     [db getSchema];
     
     
-    GroupModel *test = [GroupModel loadModel:4];
-    NSLog( @"Test %@", test.name );
+    GroupModel *group = [GroupModel loadModel:4];
+    NSLog( @"Test %@", group.name );
+
+
+    CountryModel *country = [CountryModel loadModel:1];
+    NSLog( @"Test %@", country.name );
 }
 
 

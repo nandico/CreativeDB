@@ -11,6 +11,7 @@
 #import "FMResultSet.h"
 #import "FMDatabaseAdditions.h"
 #import "GroupModel.h"
+#import "CountryModel.h"
 
 #define SQLITE_FILE_NAME @"CreativeDB"
 
@@ -20,6 +21,5 @@
 
 - (void)getSchema;
 - (NSMutableArray *) getTableSchema:(NSString *)tableName;
-- (GroupModel *) loadGroup:(NSInteger) pk;
 
 @end

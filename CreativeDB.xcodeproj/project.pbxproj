@@ -12,6 +12,7 @@
 		BF0010A616FEB3DE007B8A80 /* ColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A516FEB3DE007B8A80 /* ColumnModel.m */; };
 		BF0010A916FEBDD7007B8A80 /* AgencyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A816FEBDD7007B8A80 /* AgencyModel.m */; };
 		BF0010AC16FEBEBC007B8A80 /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AB16FEBEBC007B8A80 /* GroupModel.m */; };
+		BF0010AF16FECBE0007B8A80 /* CountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AE16FECBE0007B8A80 /* CountryModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -41,6 +42,8 @@
 		BF0010A816FEBDD7007B8A80 /* AgencyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyModel.m; sourceTree = "<group>"; };
 		BF0010AA16FEBEBC007B8A80 /* GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupModel.h; sourceTree = "<group>"; };
 		BF0010AB16FEBEBC007B8A80 /* GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupModel.m; sourceTree = "<group>"; };
+		BF0010AD16FECBDF007B8A80 /* CountryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryModel.h; sourceTree = "<group>"; };
+		BF0010AE16FECBE0007B8A80 /* CountryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -99,6 +102,8 @@
 				BF0010A816FEBDD7007B8A80 /* AgencyModel.m */,
 				BF0010AA16FEBEBC007B8A80 /* GroupModel.h */,
 				BF0010AB16FEBEBC007B8A80 /* GroupModel.m */,
+				BF0010AD16FECBDF007B8A80 /* CountryModel.h */,
+				BF0010AE16FECBE0007B8A80 /* CountryModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,6 +289,7 @@
 				BF0010A616FEB3DE007B8A80 /* ColumnModel.m in Sources */,
 				BF0010A916FEBDD7007B8A80 /* AgencyModel.m in Sources */,
 				BF0010AC16FEBEBC007B8A80 /* GroupModel.m in Sources */,
+				BF0010AF16FECBE0007B8A80 /* CountryModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

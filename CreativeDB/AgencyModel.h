@@ -9,13 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "BaseModel.h"
 #import "GroupModel.h"
+#import "CountryModel.h"
 
 @interface AgencyModel : BaseModel
 
 @property (assign) NSInteger pk;
 @property (strong) NSString *type;
 @property (strong) GroupModel *group;
-@property (assign) NSInteger country;
+@property (strong) CountryModel *country;
 @property (strong) NSString *name;
 
 + (AgencyModel *) objectWithResults:(FMResultSet *)results;

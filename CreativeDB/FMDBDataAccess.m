@@ -76,34 +76,6 @@
     
 }
 
-- (GroupModel *) loadGroup:(NSInteger) pk
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
-                                                     ofType:@"sqlite"];
-    
-    GroupModel *group;
-    FMDatabase *db = [FMDatabase databaseWithPath:path];
-    
-    [db open];
-    
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, name "
-                            " FROM aa_group "
-                            " WHERE "
-                            " id = %ld ", pk ];
-    
-    if( [results next] )
-    {
-        group = [GroupModel objectWithResults:results];
-    }
-    
-    [results close];
-    [db close];
-    
-    return group;
-}
-
-
 
 
 @end
