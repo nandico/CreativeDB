@@ -7,12 +7,19 @@
 //
 
 #import "AppDelegate.h"
+#import "GroupModel.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    FMDBDataAccess *db = [FMDBDataAccess getInstance];
+    [db getSchema];
+    
+    
+    GroupModel *test = [GroupModel loadModel:4];
+    NSLog( @"Test %@", test.name );
 }
+
 
 @end

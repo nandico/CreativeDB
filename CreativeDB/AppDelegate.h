@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FMDBDataAccess.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 

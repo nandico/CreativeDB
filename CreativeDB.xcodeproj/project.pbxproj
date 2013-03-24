@@ -7,15 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF0010A016FEAD3D007B8A80 /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00109F16FEAD3D007B8A80 /* TableModel.m */; };
+		BF0010A316FEADA6007B8A80 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A216FEADA6007B8A80 /* BaseModel.m */; };
+		BF0010A616FEB3DE007B8A80 /* ColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A516FEB3DE007B8A80 /* ColumnModel.m */; };
+		BF0010A916FEBDD7007B8A80 /* AgencyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A816FEBDD7007B8A80 /* AgencyModel.m */; };
+		BF0010AC16FEBEBC007B8A80 /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AB16FEBEBC007B8A80 /* GroupModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
 		BF8D843416F7EEA5006906D8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BF8D843216F7EEA5006906D8 /* Credits.rtf */; };
 		BF8D843716F7EEA5006906D8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D843616F7EEA5006906D8 /* AppDelegate.m */; };
 		BF8D843A16F7EEA5006906D8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF8D843816F7EEA5006906D8 /* MainMenu.xib */; };
+		BF8D844116F7F746006906D8 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D844016F7F746006906D8 /* libsqlite3.0.dylib */; };
+		BF8D844E16F7F7BC006906D8 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844416F7F7BC006906D8 /* FMDatabase.m */; };
+		BF8D844F16F7F7BC006906D8 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844616F7F7BC006906D8 /* FMDatabaseAdditions.m */; };
+		BF8D845016F7F7BC006906D8 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844816F7F7BC006906D8 /* FMDatabasePool.m */; };
+		BF8D845116F7F7BC006906D8 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844A16F7F7BC006906D8 /* FMDatabaseQueue.m */; };
+		BF8D845316F7F7BC006906D8 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844D16F7F7BC006906D8 /* FMResultSet.m */; };
+		BF8D845716F7F82F006906D8 /* FMDBDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845616F7F82F006906D8 /* FMDBDataAccess.m */; };
+		BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
+		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
+		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF00109E16FEAD3D007B8A80 /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
+		BF00109F16FEAD3D007B8A80 /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
+		BF0010A116FEADA6007B8A80 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		BF0010A216FEADA6007B8A80 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		BF0010A416FEB3DE007B8A80 /* ColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnModel.h; sourceTree = "<group>"; };
+		BF0010A516FEB3DE007B8A80 /* ColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnModel.m; sourceTree = "<group>"; };
+		BF0010A716FEBDD7007B8A80 /* AgencyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyModel.h; sourceTree = "<group>"; };
+		BF0010A816FEBDD7007B8A80 /* AgencyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyModel.m; sourceTree = "<group>"; };
+		BF0010AA16FEBEBC007B8A80 /* GroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupModel.h; sourceTree = "<group>"; };
+		BF0010AB16FEBEBC007B8A80 /* GroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -29,6 +54,23 @@
 		BF8D843516F7EEA5006906D8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BF8D843616F7EEA5006906D8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BF8D843916F7EEA5006906D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BF8D844016F7F746006906D8 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		BF8D844316F7F7BC006906D8 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		BF8D844416F7F7BC006906D8 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		BF8D844516F7F7BC006906D8 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		BF8D844616F7F7BC006906D8 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		BF8D844716F7F7BC006906D8 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		BF8D844816F7F7BC006906D8 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		BF8D844916F7F7BC006906D8 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		BF8D844A16F7F7BC006906D8 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		BF8D844C16F7F7BC006906D8 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		BF8D844D16F7F7BC006906D8 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		BF8D845516F7F82F006906D8 /* FMDBDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDBDataAccess.h; sourceTree = "<group>"; };
+		BF8D845616F7F82F006906D8 /* FMDBDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDBDataAccess.m; sourceTree = "<group>"; };
+		BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = CreativeDB.sqlite; sourceTree = "<group>"; };
+		BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
+		BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
+		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF8D844116F7F746006906D8 /* libsqlite3.0.dylib in Frameworks */,
 				BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,9 +86,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF00109D16FEAD0A007B8A80 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF0010A116FEADA6007B8A80 /* BaseModel.h */,
+				BF0010A216FEADA6007B8A80 /* BaseModel.m */,
+				BF00109E16FEAD3D007B8A80 /* TableModel.h */,
+				BF00109F16FEAD3D007B8A80 /* TableModel.m */,
+				BF0010A416FEB3DE007B8A80 /* ColumnModel.h */,
+				BF0010A516FEB3DE007B8A80 /* ColumnModel.m */,
+				BF0010A716FEBDD7007B8A80 /* AgencyModel.h */,
+				BF0010A816FEBDD7007B8A80 /* AgencyModel.m */,
+				BF0010AA16FEBEBC007B8A80 /* GroupModel.h */,
+				BF0010AB16FEBEBC007B8A80 /* GroupModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		BF8D841716F7EEA2006906D8 = {
 			isa = PBXGroup;
 			children = (
+				BF8D844016F7F746006906D8 /* libsqlite3.0.dylib */,
 				BF8D842916F7EEA4006906D8 /* CreativeDB */,
 				BF8D842216F7EEA4006906D8 /* Frameworks */,
 				BF8D842116F7EEA4006906D8 /* Products */,
@@ -82,6 +143,10 @@
 		BF8D842916F7EEA4006906D8 /* CreativeDB */ = {
 			isa = PBXGroup;
 			children = (
+				BF00109D16FEAD0A007B8A80 /* Model */,
+				BF8D845A16F7FABC006906D8 /* Utils */,
+				BF8D845416F7F81C006906D8 /* DAO */,
+				BF8D844216F7F7A8006906D8 /* FMDB */,
 				BF8D843516F7EEA5006906D8 /* AppDelegate.h */,
 				BF8D843616F7EEA5006906D8 /* AppDelegate.m */,
 				BF8D843816F7EEA5006906D8 /* MainMenu.xib */,
@@ -93,6 +158,7 @@
 		BF8D842A16F7EEA4006906D8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */,
 				BF8D842B16F7EEA4006906D8 /* CreativeDB-Info.plist */,
 				BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */,
 				BF8D842F16F7EEA4006906D8 /* main.m */,
@@ -100,6 +166,42 @@
 				BF8D843216F7EEA5006906D8 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF8D844216F7F7A8006906D8 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D844316F7F7BC006906D8 /* FMDatabase.h */,
+				BF8D844416F7F7BC006906D8 /* FMDatabase.m */,
+				BF8D844516F7F7BC006906D8 /* FMDatabaseAdditions.h */,
+				BF8D844616F7F7BC006906D8 /* FMDatabaseAdditions.m */,
+				BF8D844716F7F7BC006906D8 /* FMDatabasePool.h */,
+				BF8D844816F7F7BC006906D8 /* FMDatabasePool.m */,
+				BF8D844916F7F7BC006906D8 /* FMDatabaseQueue.h */,
+				BF8D844A16F7F7BC006906D8 /* FMDatabaseQueue.m */,
+				BF8D844C16F7F7BC006906D8 /* FMResultSet.h */,
+				BF8D844D16F7F7BC006906D8 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			sourceTree = "<group>";
+		};
+		BF8D845416F7F81C006906D8 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D845516F7F82F006906D8 /* FMDBDataAccess.h */,
+				BF8D845616F7F82F006906D8 /* FMDBDataAccess.m */,
+			);
+			name = DAO;
+			sourceTree = "<group>";
+		};
+		BF8D845A16F7FABC006906D8 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */,
+				BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */,
+				BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +258,8 @@
 				BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */,
 				BF8D843416F7EEA5006906D8 /* Credits.rtf in Resources */,
 				BF8D843A16F7EEA5006906D8 /* MainMenu.xib in Resources */,
+				BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */,
+				BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +272,18 @@
 			files = (
 				BF8D843016F7EEA4006906D8 /* main.m in Sources */,
 				BF8D843716F7EEA5006906D8 /* AppDelegate.m in Sources */,
+				BF8D844E16F7F7BC006906D8 /* FMDatabase.m in Sources */,
+				BF8D844F16F7F7BC006906D8 /* FMDatabaseAdditions.m in Sources */,
+				BF8D845016F7F7BC006906D8 /* FMDatabasePool.m in Sources */,
+				BF8D845116F7F7BC006906D8 /* FMDatabaseQueue.m in Sources */,
+				BF8D845316F7F7BC006906D8 /* FMResultSet.m in Sources */,
+				BF8D845716F7F82F006906D8 /* FMDBDataAccess.m in Sources */,
+				BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */,
+				BF0010A016FEAD3D007B8A80 /* TableModel.m in Sources */,
+				BF0010A316FEADA6007B8A80 /* BaseModel.m in Sources */,
+				BF0010A616FEB3DE007B8A80 /* ColumnModel.m in Sources */,
+				BF0010A916FEBDD7007B8A80 /* AgencyModel.m in Sources */,
+				BF0010AC16FEBEBC007B8A80 /* GroupModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +344,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -255,7 +371,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -303,6 +419,7 @@
 				BF8D843F16F7EEA6006906D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
