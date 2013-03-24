@@ -18,6 +18,9 @@
 		BF0010B816FF252B007B8A80 /* ClientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B716FF252A007B8A80 /* ClientModel.m */; };
 		BF0010BB16FF2728007B8A80 /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BA16FF2727007B8A80 /* ProductModel.m */; };
 		BF0010BE16FF30C3007B8A80 /* RoleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BD16FF30C3007B8A80 /* RoleModel.m */; };
+		BF0010C116FF32D5007B8A80 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C016FF32D4007B8A80 /* CategoryModel.m */; };
+		BF0010C416FF3418007B8A80 /* SubcategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C316FF3417007B8A80 /* SubcategoryModel.m */; };
+		BF0010C716FF362E007B8A80 /* DisciplineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C616FF362D007B8A80 /* DisciplineModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -59,6 +62,12 @@
 		BF0010BA16FF2727007B8A80 /* ProductModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductModel.m; sourceTree = "<group>"; };
 		BF0010BC16FF30C2007B8A80 /* RoleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleModel.h; sourceTree = "<group>"; };
 		BF0010BD16FF30C3007B8A80 /* RoleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleModel.m; sourceTree = "<group>"; };
+		BF0010BF16FF32D4007B8A80 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		BF0010C016FF32D4007B8A80 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		BF0010C216FF3416007B8A80 /* SubcategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryModel.h; sourceTree = "<group>"; };
+		BF0010C316FF3417007B8A80 /* SubcategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryModel.m; sourceTree = "<group>"; };
+		BF0010C516FF362C007B8A80 /* DisciplineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisciplineModel.h; sourceTree = "<group>"; };
+		BF0010C616FF362D007B8A80 /* DisciplineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisciplineModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +138,12 @@
 				BF0010BA16FF2727007B8A80 /* ProductModel.m */,
 				BF0010BC16FF30C2007B8A80 /* RoleModel.h */,
 				BF0010BD16FF30C3007B8A80 /* RoleModel.m */,
+				BF0010BF16FF32D4007B8A80 /* CategoryModel.h */,
+				BF0010C016FF32D4007B8A80 /* CategoryModel.m */,
+				BF0010C216FF3416007B8A80 /* SubcategoryModel.h */,
+				BF0010C316FF3417007B8A80 /* SubcategoryModel.m */,
+				BF0010C516FF362C007B8A80 /* DisciplineModel.h */,
+				BF0010C616FF362D007B8A80 /* DisciplineModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -320,6 +335,9 @@
 				BF0010B816FF252B007B8A80 /* ClientModel.m in Sources */,
 				BF0010BB16FF2728007B8A80 /* ProductModel.m in Sources */,
 				BF0010BE16FF30C3007B8A80 /* RoleModel.m in Sources */,
+				BF0010C116FF32D5007B8A80 /* CategoryModel.m in Sources */,
+				BF0010C416FF3418007B8A80 /* SubcategoryModel.m in Sources */,
+				BF0010C716FF362E007B8A80 /* DisciplineModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

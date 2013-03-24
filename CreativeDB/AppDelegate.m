@@ -17,6 +17,9 @@
 #import "ProductModel.h"
 #import "AgencyModel.h"
 #import "RoleModel.h"
+#import "CategoryModel.h"
+#import "SubcategoryModel.h"
+#import "DisciplineModel.h"
 
 @implementation AppDelegate
 
@@ -48,6 +51,15 @@
     
     RoleModel *role = [RoleModel loadModel:7];
     NSLog( @"Role: %@", role.name );
+    
+    CategoryModel *category = [CategoryModel loadModel:7];
+    NSLog( @"Category: %@", category.name );
+    
+    SubcategoryModel *subcategory = [SubcategoryModel loadModel:9];
+    NSLog( @"Subcategory: %@", subcategory.name );
+    
+    DisciplineModel *discipline = [DisciplineModel loadModel:9];
+    NSLog( @"Discipline: %@", discipline.name );
 }
 
 
