@@ -23,6 +23,9 @@
 		BF0010C716FF362E007B8A80 /* DisciplineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C616FF362D007B8A80 /* DisciplineModel.m */; };
 		BF0010CA16FF3862007B8A80 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C916FF3860007B8A80 /* PersonModel.m */; };
 		BF0010CD16FF3BB1007B8A80 /* FestivalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */; };
+		BF0010D016FF9C46007B8A80 /* EntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CF16FF9C45007B8A80 /* EntryModel.m */; };
+		BF0010D316FFA062007B8A80 /* AwardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D216FFA060007B8A80 /* AwardModel.m */; };
+		BF0010D616FFA57A007B8A80 /* CreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D516FFA578007B8A80 /* CreditModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -74,6 +77,12 @@
 		BF0010C916FF3860007B8A80 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
 		BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalModel.h; sourceTree = "<group>"; };
 		BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalModel.m; sourceTree = "<group>"; };
+		BF0010CE16FF9C44007B8A80 /* EntryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryModel.h; sourceTree = "<group>"; };
+		BF0010CF16FF9C45007B8A80 /* EntryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryModel.m; sourceTree = "<group>"; };
+		BF0010D116FFA05F007B8A80 /* AwardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardModel.h; sourceTree = "<group>"; };
+		BF0010D216FFA060007B8A80 /* AwardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardModel.m; sourceTree = "<group>"; };
+		BF0010D416FFA577007B8A80 /* CreditModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditModel.h; sourceTree = "<group>"; };
+		BF0010D516FFA578007B8A80 /* CreditModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -154,6 +163,12 @@
 				BF0010C916FF3860007B8A80 /* PersonModel.m */,
 				BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */,
 				BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */,
+				BF0010CE16FF9C44007B8A80 /* EntryModel.h */,
+				BF0010CF16FF9C45007B8A80 /* EntryModel.m */,
+				BF0010D116FFA05F007B8A80 /* AwardModel.h */,
+				BF0010D216FFA060007B8A80 /* AwardModel.m */,
+				BF0010D416FFA577007B8A80 /* CreditModel.h */,
+				BF0010D516FFA578007B8A80 /* CreditModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -350,6 +365,9 @@
 				BF0010C716FF362E007B8A80 /* DisciplineModel.m in Sources */,
 				BF0010CA16FF3862007B8A80 /* PersonModel.m in Sources */,
 				BF0010CD16FF3BB1007B8A80 /* FestivalModel.m in Sources */,
+				BF0010D016FF9C46007B8A80 /* EntryModel.m in Sources */,
+				BF0010D316FFA062007B8A80 /* AwardModel.m in Sources */,
+				BF0010D616FFA57A007B8A80 /* CreditModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

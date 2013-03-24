@@ -1,47 +1,46 @@
 //
-//  ProducerModel.m
+//  CreditModel.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 3/24/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "ProducerModel.h"
+#import "CreditModel.h"
 #import "FMDBDataAccess.h"
 
-@implementation ProducerModel
+@implementation CreditModel
 
-+ (ProducerModel *) objectWithResults:(FMResultSet *)results
++ (CreditModel *) objectWithResults:(FMResultSet *)results
 {
-    ProducerModel *object = [[ProducerModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];    
-    object.name = [results stringForColumn:@"name"];
-    if([[results resultDictionary] objectForKey:@"siteURL"] != nil)
-        object.siteURL = [[NSURL alloc] initWithString:[results stringForColumn:@"siteURL"]];
+    CreditModel *object = [[CreditModel alloc] init];
+    object.pk = [results longForColumn:@"rowid"];
+    object.person = [PersonModel loadModel:[results longForColumn:@"person"]];
+    object.entry = [EntryModel loadModel:[results longForColumn:@"entry"]];
+    object.role = [RoleModel loadModel:[results longForColumn:@"role"]];
     
     return object;
 }
 
-+ (ProducerModel *) loadModel:(NSInteger) pk
++ (CreditModel *) loadModel:(NSInteger) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    ProducerModel *model;
+    CreditModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, country, name, siteURL "
-                            " FROM aa_producer "
+                            " rowid, person, entry, role "
+                            " FROM aa_credit "
                             " WHERE "
                             " id = %ld ", pk ];
     
     if( [results next] )
     {
-        model = [ProducerModel objectWithResults:results];
+        model = [CreditModel objectWithResults:results];
     }
     
     [results close];
@@ -55,23 +54,21 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    ProducerModel *model;
+    CreditModel *model;
     NSMutableArray *collection = [[NSMutableArray alloc] init];
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
-    //TODO: In progress.
-    
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, country, name, siteURL "
-                            " FROM aa_producer "
+                            " rowid, person, entry, role "
+                            " FROM aa_credit "
                             " WHERE "
                             " entry = %ld ", entryPK ];
     
     while( [results next] )
     {
-        model = [ProducerModel objectWithResults:results];
+        model = [CreditModel objectWithResults:results];
         [collection addObject:model];
     }
     
@@ -80,8 +77,5 @@
     
     return collection;
 }
-
-
-
 
 @end

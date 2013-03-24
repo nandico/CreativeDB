@@ -22,6 +22,10 @@
 #import "DisciplineModel.h"
 #import "PersonModel.h"
 #import "FestivalModel.h"
+#import "EntryModel.h"
+#import "AwardModel.h"
+#import "CreditModel.h"
+#import "AwardModel.h"
 
 @implementation AppDelegate
 
@@ -39,16 +43,16 @@
     MetalModel *metal = [MetalModel loadModel:4];
     NSLog( @"Metal: %@", metal.name );
     
-    ProducerModel *producer = [ProducerModel loadModel:3];
+    ProducerModel *producer = [ProducerModel loadModel:2];
     NSLog( @"Producer: %@", producer.name );
     
-    ClientModel *client = [ClientModel loadModel:3];
+    ClientModel *client = [ClientModel loadModel:1];
     NSLog( @"Client: %@", client.name );
     
     ProductModel *product = [ProductModel loadModel:2];
     NSLog( @"Product: %@", product.name );
     
-    AgencyModel *agency = [AgencyModel loadModel:7];
+    AgencyModel *agency = [AgencyModel loadModel:1];
     NSLog( @"Agency: %@", agency.name );
     
     RoleModel *role = [RoleModel loadModel:7];
@@ -66,8 +70,22 @@
     PersonModel *person = [PersonModel loadModel:2];
     NSLog( @"Person: %@", person.name );
     
-    FestivalModel *festival = [FestivalModel loadModel:4];
+    FestivalModel *festival = [FestivalModel loadModel:13];
     NSLog( @"Festival: %@", festival.name );
+    
+    EntryModel *entry = [EntryModel loadModel:1];
+    NSLog( @"Entry: %@", entry.name );
+    
+    AwardModel *award = [AwardModel loadModel:1];
+    NSLog( @"Award: %@, %@, %@", award.metal.name, award.entry.name, award.festival.name );
+    
+    NSMutableArray *credits = award.credits;
+    
+    for( CreditModel *credit in credits )
+    {
+        NSLog( @"Credits: %@, %@", credit.person.name, credit.role.name );
+    }
+       
 }
 
 

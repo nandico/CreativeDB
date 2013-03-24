@@ -14,6 +14,7 @@
 @property (assign) NSInteger pk;
 @property (strong) CountryModel *country;
 @property (strong) NSString *name;
+@property (strong) NSURL *siteURL;
 
 + (ProducerModel *) objectWithResults:(FMResultSet *)results;
 + (ProducerModel *) loadModel:(NSInteger) pk;
