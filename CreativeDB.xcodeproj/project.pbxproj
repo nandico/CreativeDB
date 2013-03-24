@@ -21,6 +21,8 @@
 		BF0010C116FF32D5007B8A80 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C016FF32D4007B8A80 /* CategoryModel.m */; };
 		BF0010C416FF3418007B8A80 /* SubcategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C316FF3417007B8A80 /* SubcategoryModel.m */; };
 		BF0010C716FF362E007B8A80 /* DisciplineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C616FF362D007B8A80 /* DisciplineModel.m */; };
+		BF0010CA16FF3862007B8A80 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C916FF3860007B8A80 /* PersonModel.m */; };
+		BF0010CD16FF3BB1007B8A80 /* FestivalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -68,6 +70,10 @@
 		BF0010C316FF3417007B8A80 /* SubcategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryModel.m; sourceTree = "<group>"; };
 		BF0010C516FF362C007B8A80 /* DisciplineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisciplineModel.h; sourceTree = "<group>"; };
 		BF0010C616FF362D007B8A80 /* DisciplineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisciplineModel.m; sourceTree = "<group>"; };
+		BF0010C816FF385F007B8A80 /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
+		BF0010C916FF3860007B8A80 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
+		BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalModel.h; sourceTree = "<group>"; };
+		BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -144,6 +150,10 @@
 				BF0010C316FF3417007B8A80 /* SubcategoryModel.m */,
 				BF0010C516FF362C007B8A80 /* DisciplineModel.h */,
 				BF0010C616FF362D007B8A80 /* DisciplineModel.m */,
+				BF0010C816FF385F007B8A80 /* PersonModel.h */,
+				BF0010C916FF3860007B8A80 /* PersonModel.m */,
+				BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */,
+				BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -338,6 +348,8 @@
 				BF0010C116FF32D5007B8A80 /* CategoryModel.m in Sources */,
 				BF0010C416FF3418007B8A80 /* SubcategoryModel.m in Sources */,
 				BF0010C716FF362E007B8A80 /* DisciplineModel.m in Sources */,
+				BF0010CA16FF3862007B8A80 /* PersonModel.m in Sources */,
+				BF0010CD16FF3BB1007B8A80 /* FestivalModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

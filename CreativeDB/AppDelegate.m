@@ -20,6 +20,8 @@
 #import "CategoryModel.h"
 #import "SubcategoryModel.h"
 #import "DisciplineModel.h"
+#import "PersonModel.h"
+#import "FestivalModel.h"
 
 @implementation AppDelegate
 
@@ -60,6 +62,12 @@
     
     DisciplineModel *discipline = [DisciplineModel loadModel:9];
     NSLog( @"Discipline: %@", discipline.name );
+    
+    PersonModel *person = [PersonModel loadModel:2];
+    NSLog( @"Person: %@", person.name );
+    
+    FestivalModel *festival = [FestivalModel loadModel:4];
+    NSLog( @"Festival: %@", festival.name );
 }
 
 
