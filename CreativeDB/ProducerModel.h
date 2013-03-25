@@ -19,4 +19,5 @@
 + (ProducerModel *) objectWithResults:(FMResultSet *)results;
 + (ProducerModel *) loadModel:(NSInteger) pk;
 
+
 @end

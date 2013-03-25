@@ -12,20 +12,18 @@
 #import "GroupModel.h"
 #import "CountryModel.h"
 #import "MetalModel.h"
-#import "ProducerModel.h"
 #import "ClientModel.h"
 #import "ProductModel.h"
 #import "AgencyModel.h"
 #import "RoleModel.h"
 #import "CategoryModel.h"
 #import "SubcategoryModel.h"
-#import "DisciplineModel.h"
 #import "PersonModel.h"
 #import "FestivalModel.h"
-#import "EntryModel.h"
 #import "AwardModel.h"
 #import "CreditModel.h"
 #import "AwardModel.h"
+#import "ProducerCreditModel.h"
 
 @implementation AppDelegate
 
@@ -84,6 +82,13 @@
     for( CreditModel *credit in credits )
     {
         NSLog( @"Credits: %@, %@", credit.person.name, credit.role.name );
+    }
+    
+    NSMutableArray *producerCredits = award.producers;
+    
+    for( ProducerCreditModel *producerCredit in producerCredits )
+    {
+        NSLog( @"Producer: %@, %@", producerCredit.producer.name, producerCredit.discipline.name );
     }
        
 }

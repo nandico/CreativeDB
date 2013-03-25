@@ -9,7 +9,7 @@
 #import "AwardModel.h"
 #import "FMDBDataAccess.h"
 #import "CreditModel.h"
-#import "ProducerModel.h"
+#import "ProducerCreditModel.h"
 
 @implementation AwardModel
 
@@ -61,8 +61,7 @@
 
 - (NSMutableArray *) producers
 {
-    //return [ProducerModel loadByEntryId:self.entry.pk];
-    return nil;
+    return [ProducerCreditModel loadByEntryId:self.entry.pk];
 }
 
 @end
