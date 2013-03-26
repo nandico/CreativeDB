@@ -54,14 +54,4 @@
     return model;
 }
 
-- (NSMutableArray *) credits
-{
-    return [CreditModel loadByEntryId:self.entry.pk];
-}
-
-- (NSMutableArray *) producers
-{
-    return [ProducerCreditModel loadByEntryId:self.entry.pk];
-}
-
 @end

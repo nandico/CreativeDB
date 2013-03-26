@@ -24,6 +24,9 @@
 #import "CreditModel.h"
 #import "AwardModel.h"
 #import "ProducerCreditModel.h"
+#import "AnnotationModel.h"
+#import "CalendarTypeModel.h"
+#import "CalendarModel.h"
 
 @implementation AppDelegate
 
@@ -77,20 +80,33 @@
     AwardModel *award = [AwardModel loadModel:1];
     NSLog( @"Award: %@, %@, %@", award.metal.name, award.entry.name, award.festival.name );
     
-    NSMutableArray *credits = award.credits;
+    NSMutableArray *credits = entry.credits;
     
     for( CreditModel *credit in credits )
     {
         NSLog( @"Credits: %@, %@", credit.person.name, credit.role.name );
     }
     
-    NSMutableArray *producerCredits = award.producers;
+    NSMutableArray *producerCredits = entry.producers;
     
     for( ProducerCreditModel *producerCredit in producerCredits )
     {
         NSLog( @"Producer: %@, %@", producerCredit.producer.name, producerCredit.discipline.name );
     }
-       
+    
+    NSMutableArray *annotations = entry.annotations;
+    
+    for( AnnotationModel *annotation in annotations )
+    {
+        NSLog( @"Annotation: %@, %@", annotation.user.name, annotation.comment );
+    }
+    
+    CalendarTypeModel *calendarType = [CalendarTypeModel loadModel:1];
+    NSLog( @"Calendar type: %@", calendarType.name );
+
+    CalendarModel *calendar = [CalendarModel loadModel:1];
+    NSLog( @"Calendar: %@, %@", calendar.type.name, calendar.date );
+    
 }
 
 

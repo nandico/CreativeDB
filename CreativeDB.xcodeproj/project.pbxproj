@@ -27,6 +27,10 @@
 		BF0010D316FFA062007B8A80 /* AwardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D216FFA060007B8A80 /* AwardModel.m */; };
 		BF0010D616FFA57A007B8A80 /* CreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D516FFA578007B8A80 /* CreditModel.m */; };
 		BF0010D91700CCB9007B8A80 /* ProducerCreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D81700CCA4007B8A80 /* ProducerCreditModel.m */; };
+		BF0010DC1700F8BE007B8A80 /* AnnotationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DB1700F8B9007B8A80 /* AnnotationModel.m */; };
+		BF0010DF1701281C007B8A80 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DE1701280E007B8A80 /* UserModel.m */; };
+		BF0010E217012BA9007B8A80 /* CalendarTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */; };
+		BF0010E517012CDC007B8A80 /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E417012CD8007B8A80 /* CalendarModel.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -86,6 +90,14 @@
 		BF0010D516FFA578007B8A80 /* CreditModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditModel.m; sourceTree = "<group>"; };
 		BF0010D71700CC95007B8A80 /* ProducerCreditModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditModel.h; sourceTree = "<group>"; };
 		BF0010D81700CCA4007B8A80 /* ProducerCreditModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditModel.m; sourceTree = "<group>"; };
+		BF0010DA1700F8B1007B8A80 /* AnnotationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnotationModel.h; sourceTree = "<group>"; };
+		BF0010DB1700F8B9007B8A80 /* AnnotationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnotationModel.m; sourceTree = "<group>"; };
+		BF0010DD1701280C007B8A80 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		BF0010DE1701280E007B8A80 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
+		BF0010E017012BA4007B8A80 /* CalendarTypeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarTypeModel.h; sourceTree = "<group>"; };
+		BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTypeModel.m; sourceTree = "<group>"; };
+		BF0010E317012CD7007B8A80 /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarModel.h; sourceTree = "<group>"; };
+		BF0010E417012CD8007B8A80 /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarModel.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -174,6 +186,14 @@
 				BF0010D516FFA578007B8A80 /* CreditModel.m */,
 				BF0010D71700CC95007B8A80 /* ProducerCreditModel.h */,
 				BF0010D81700CCA4007B8A80 /* ProducerCreditModel.m */,
+				BF0010DA1700F8B1007B8A80 /* AnnotationModel.h */,
+				BF0010DB1700F8B9007B8A80 /* AnnotationModel.m */,
+				BF0010DD1701280C007B8A80 /* UserModel.h */,
+				BF0010DE1701280E007B8A80 /* UserModel.m */,
+				BF0010E017012BA4007B8A80 /* CalendarTypeModel.h */,
+				BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */,
+				BF0010E317012CD7007B8A80 /* CalendarModel.h */,
+				BF0010E417012CD8007B8A80 /* CalendarModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -374,6 +394,10 @@
 				BF0010D316FFA062007B8A80 /* AwardModel.m in Sources */,
 				BF0010D616FFA57A007B8A80 /* CreditModel.m in Sources */,
 				BF0010D91700CCB9007B8A80 /* ProducerCreditModel.m in Sources */,
+				BF0010DC1700F8BE007B8A80 /* AnnotationModel.m in Sources */,
+				BF0010DF1701281C007B8A80 /* UserModel.m in Sources */,
+				BF0010E217012BA9007B8A80 /* CalendarTypeModel.m in Sources */,
+				BF0010E517012CDC007B8A80 /* CalendarModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

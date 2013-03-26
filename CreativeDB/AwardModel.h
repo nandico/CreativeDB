@@ -26,7 +26,6 @@
 + (AwardModel *) objectWithResults:(FMResultSet *)results;
 + (AwardModel *) loadModel:(NSInteger) pk;
 
-- (NSMutableArray *) credits;
-- (NSMutableArray *) producers;
+
 
 @end

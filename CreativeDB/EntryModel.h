@@ -26,4 +26,8 @@
 + (EntryModel *) objectWithResults:(FMResultSet *)results;
 + (EntryModel *) loadModel:(NSInteger) pk;
 
+- (NSMutableArray *) credits;
+- (NSMutableArray *) producers;
+- (NSMutableArray *) annotations;
+
 @end

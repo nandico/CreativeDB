@@ -8,6 +8,9 @@
 
 #import "EntryModel.h"
 #import "FMDBDataAccess.h"
+#import "CreditModel.h"
+#import "ProducerCreditModel.h"
+#import "AnnotationModel.h"
 
 @implementation EntryModel
 
@@ -54,6 +57,21 @@
     [db close];
     
     return model;
+}
+
+- (NSMutableArray *) credits
+{
+    return [CreditModel loadByEntryId:self.pk];
+}
+
+- (NSMutableArray *) producers
+{
+    return [ProducerCreditModel loadByEntryId:self.pk];
+}
+
+- (NSMutableArray *) annotations
+{
+    return [AnnotationModel loadByEntryId:self.pk];
 }
 
 
