@@ -52,7 +52,8 @@
 		BFF4C592170546080098A633 /* ManagerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C591170546080098A633 /* ManagerTextField.m */; };
 		BFF4C595170549D50098A633 /* ManagerComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C594170549D50098A633 /* ManagerComboBox.m */; };
 		BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59817054B980098A633 /* ManagerLabel.m */; };
-		BFF4C59C1705525E0098A633 /* ManagerLayoutEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59B1705525E0098A633 /* ManagerLayoutEngine.m */; };
+		BFF4C59C1705525E0098A633 /* ManagerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59B1705525E0098A633 /* ManagerEngine.m */; };
+		BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59E170553910098A633 /* ManagerFieldContainer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,8 +145,10 @@
 		BFF4C594170549D50098A633 /* ManagerComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerComboBox.m; sourceTree = "<group>"; };
 		BFF4C59717054B980098A633 /* ManagerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerLabel.h; sourceTree = "<group>"; };
 		BFF4C59817054B980098A633 /* ManagerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerLabel.m; sourceTree = "<group>"; };
-		BFF4C59A1705525E0098A633 /* ManagerLayoutEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerLayoutEngine.h; sourceTree = "<group>"; };
-		BFF4C59B1705525E0098A633 /* ManagerLayoutEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerLayoutEngine.m; sourceTree = "<group>"; };
+		BFF4C59A1705525E0098A633 /* ManagerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerEngine.h; sourceTree = "<group>"; };
+		BFF4C59B1705525E0098A633 /* ManagerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerEngine.m; sourceTree = "<group>"; };
+		BFF4C59D170553900098A633 /* ManagerFieldContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFieldContainer.h; sourceTree = "<group>"; };
+		BFF4C59E170553910098A633 /* ManagerFieldContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFieldContainer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,18 +222,11 @@
 		BF46CF5F170391EB009AACA8 /* ContentManager */ = {
 			isa = PBXGroup;
 			children = (
+				BFF4C5A01705539A0098A633 /* Engine */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
 				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
 				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
 				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
-				BFF4C590170546080098A633 /* ManagerTextField.h */,
-				BFF4C591170546080098A633 /* ManagerTextField.m */,
-				BFF4C593170549D50098A633 /* ManagerComboBox.h */,
-				BFF4C594170549D50098A633 /* ManagerComboBox.m */,
-				BFF4C59717054B980098A633 /* ManagerLabel.h */,
-				BFF4C59817054B980098A633 /* ManagerLabel.m */,
-				BFF4C59A1705525E0098A633 /* ManagerLayoutEngine.h */,
-				BFF4C59B1705525E0098A633 /* ManagerLayoutEngine.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -337,6 +333,23 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		BFF4C5A01705539A0098A633 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				BFF4C59A1705525E0098A633 /* ManagerEngine.h */,
+				BFF4C59B1705525E0098A633 /* ManagerEngine.m */,
+				BFF4C590170546080098A633 /* ManagerTextField.h */,
+				BFF4C591170546080098A633 /* ManagerTextField.m */,
+				BFF4C593170549D50098A633 /* ManagerComboBox.h */,
+				BFF4C594170549D50098A633 /* ManagerComboBox.m */,
+				BFF4C59717054B980098A633 /* ManagerLabel.h */,
+				BFF4C59817054B980098A633 /* ManagerLabel.m */,
+				BFF4C59D170553900098A633 /* ManagerFieldContainer.h */,
+				BFF4C59E170553910098A633 /* ManagerFieldContainer.m */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -441,7 +454,8 @@
 				BFF4C592170546080098A633 /* ManagerTextField.m in Sources */,
 				BFF4C595170549D50098A633 /* ManagerComboBox.m in Sources */,
 				BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */,
-				BFF4C59C1705525E0098A633 /* ManagerLayoutEngine.m in Sources */,
+				BFF4C59C1705525E0098A633 /* ManagerEngine.m in Sources */,
+				BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

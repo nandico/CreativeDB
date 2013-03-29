@@ -7,7 +7,19 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AgencyModel.h"
+#import "ManagerFieldContainer.h"
 
-@interface AgencyManagerView : NSView
+@protocol AgencyDataSource <NSObject>
+
+- (AgencyModel *)baseModel;
+
+@end
+
+@interface AgencyManagerView : NSView 
+
+@property (assign) id <AgencyDataSource> dataSource;
+
+- (void)createForm;
 
 @end

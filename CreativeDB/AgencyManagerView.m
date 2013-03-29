@@ -7,15 +7,15 @@
 //
 
 #import "AgencyManagerView.h"
-#import "ManagerTextField.h"
 #import "ManagerComboBox.h"
-#import "ManagerLabel.h"
+#import "ManagerEngine.h"
 
 @interface  AgencyManagerView()
 
-@property (nonatomic, strong) ManagerTextField *name;
-@property (nonatomic, strong) ManagerComboBox *group;
-@property (nonatomic, strong) ManagerLabel *testLabel;
+@property (nonatomic, strong) ManagerEngine *engine;
+@property (nonatomic, strong) ManagerFieldContainer *name;
+@property (nonatomic, strong) ManagerFieldContainer *group;
+@property (nonatomic, strong) ManagerFieldContainer *country;
 
 @end
 
@@ -26,41 +26,87 @@
     self = [super init];
     if (self)
     {
-        [self name];
-        [self group];
-        [self testLabel];
+        _engine = [[ManagerEngine alloc] init];
     }
     return self;
 }
 
-- (ManagerTextField *)name
+- (void) createForm
 {
-    if (!_name) {
-        _name = [[ManagerTextField alloc] init];
+    [_engine addFieldContainer:[self name]];
+    [_engine addFieldContainer:[self group]];
+    [_engine addFieldContainer:[self country]];
+    
+    [_engine arrangeContainers];
+}
+
+- (AgencyModel *)baseModel
+{
+    return [self.dataSource baseModel];
+}
+
+- (ManagerFieldContainer *)name
+{
+    if(!_name)
+    {
+        
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
+                                 @"name", MLE_FIELD_NAME_KEY,
+                                 @"Name", MLE_FIELD_LABEL_KEY,
+                                 [[self.dataSource baseModel] name], MLE_FIELD_VALUE_KEY,
+                                 nil];
+        
+        _name = [[ManagerFieldContainer alloc] initWithOptions:options];
+        
         [self addSubview:_name];
     }
     
     return _name;
 }
 
-- (ManagerComboBox *)group
+- (ManagerFieldContainer *)group
 {
-    if (!_group) {
-        _group = [[ManagerComboBox alloc] init];
+    if(!_group)
+    {
+        
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                                 @"group", MLE_FIELD_NAME_KEY,
+                                 @"Group", MLE_FIELD_LABEL_KEY,
+                                 @"name", MLE_FIELD_NAME_SELECTOR,
+                                 [[self.dataSource baseModel] group], MLE_FIELD_MODEL_KEY,
+                                 nil];
+        
+        _group = [[ManagerFieldContainer alloc] initWithOptions:options];
+        
         [self addSubview:_group];
     }
     
     return _group;
 }
 
-- (ManagerLabel *)testLabel
+- (ManagerFieldContainer *)country
 {
-    if (!_testLabel) {
-        _testLabel = [[ManagerLabel alloc] init];
-        [self addSubview:_testLabel];
+    if(!_country)
+    {
+        
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                                 @"country", MLE_FIELD_NAME_KEY,
+                                 @"Country", MLE_FIELD_LABEL_KEY,
+                                 [[self.dataSource baseModel] country], MLE_FIELD_MODEL_KEY,
+                                 nil];
+        
+        _country = [[ManagerFieldContainer alloc] initWithOptions:options];
+        
+        [self addSubview:_country];
     }
     
-    return _testLabel;
+    return _country;
 }
+
+
+
 
 @end

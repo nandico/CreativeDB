@@ -7,7 +7,7 @@
 //
 
 #import "ManagerComboBox.h"
-#import "ManagerLayoutEngine.h"
+#import "ManagerEngine.h"
 
 @implementation ManagerComboBox
 
@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        self.frame = NSMakeRect( 0.0f, 40.0f, MLE_FIELD_WIDTH, MLE_FIELD_HEIGHT );
+        self.frame = NSMakeRect( MLE_FIELD_OFFSET_X, MLE_FIELD_OFFSET_Y, MLE_FIELD_WIDTH, MLE_FIELD_HEIGHT );
     }
     
     return self;

@@ -9,7 +9,9 @@
 #import "AppDelegate.h"
 
 // temporary data
+#import "ManagerEngine.h"
 #import "AgencyManagerViewController.h"
+#import "AgencyModel.h"
  
 // test data
 /*
@@ -114,8 +116,11 @@
     NSLog( @"Calendar: %@, %@", calendar.type.name, calendar.date );
     */
     
+    NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   [AgencyModel loadModel:1], MLE_FIELDSET_MODEL_KEY,
+                                   nil];
     
-    AgencyManagerViewController *agencyManager = [[AgencyManagerViewController alloc] init];
+    AgencyManagerViewController *agencyManager = [[AgencyManagerViewController alloc] initWithOptions:agencyOptions];
     agencyManager.view.frame = self.window.frame;
     agencyManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     self.window.contentView = agencyManager.view;

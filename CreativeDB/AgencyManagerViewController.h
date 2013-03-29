@@ -7,7 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "AgencyManagerView.h"
+#import "AgencyModel.h"
 
-@interface AgencyManagerViewController : NSViewController
+@interface AgencyManagerViewController : NSViewController <AgencyDataSource>
+
+@property (strong) AgencyModel *baseModel;
+
+- (id)initWithOptions:(NSDictionary *)options;
 
 @end

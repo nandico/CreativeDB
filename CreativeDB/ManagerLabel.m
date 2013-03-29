@@ -7,7 +7,7 @@
 //
 
 #import "ManagerLabel.h"
-#import "ManagerLayoutEngine.h"
+#import "ManagerEngine.h"
 
 @implementation ManagerLabel
 
@@ -15,8 +15,8 @@
 {
     self = [super init];
     if (self) {
-        self.frame = NSMakeRect( 0.0f, 80.0f, MLE_FIELD_WIDTH, MLE_FIELD_HEIGHT );
-        [self setStringValue:@"My Label"];
+        self.frame = NSMakeRect(MLE_LABEL_OFFSET_X, MLE_LABEL_OFFSET_Y, MLE_LABEL_WIDTH, MLE_LABEL_HEIGHT);
+        [self setAlignment:NSRightTextAlignment];
         [self setBezeled:NO];
         [self setDrawsBackground:NO];
         [self setEditable:NO];

@@ -8,20 +8,32 @@
 
 #import "AgencyManagerViewController.h"
 #import "AgencyManagerView.h"
+#import "ManagerEngine.h"
+
 
 @interface AgencyManagerViewController ()
 
+@property (nonatomic, strong) NSDictionary *options;
 @property (nonatomic, strong) AgencyManagerView *agencyView;
+
 
 @end
 
 @implementation AgencyManagerViewController
 
-- (id)init
+- (id)initWithOptions:(NSDictionary *)options;
 {
     self = [super init];
     if (self) {
+        _options = options;
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
+        {
+            _baseModel = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        }
         self.view = self.agencyView = [[AgencyManagerView alloc] init];
+        self.agencyView.dataSource = self;
+        [self.agencyView createForm];
     }
     
     return self;
