@@ -47,6 +47,12 @@
 		BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
 		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
+		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
+		BFF4C58F1705450E0098A633 /* AgencyManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58E1705450E0098A633 /* AgencyManagerView.m */; };
+		BFF4C592170546080098A633 /* ManagerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C591170546080098A633 /* ManagerTextField.m */; };
+		BFF4C595170549D50098A633 /* ManagerComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C594170549D50098A633 /* ManagerComboBox.m */; };
+		BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59817054B980098A633 /* ManagerLabel.m */; };
+		BFF4C59C1705525E0098A633 /* ManagerLayoutEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59B1705525E0098A633 /* ManagerLayoutEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +134,18 @@
 		BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
 		BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
 		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
+		BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerViewController.h; sourceTree = "<group>"; };
+		BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyManagerViewController.m; sourceTree = "<group>"; };
+		BFF4C58D1705450E0098A633 /* AgencyManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerView.h; sourceTree = "<group>"; };
+		BFF4C58E1705450E0098A633 /* AgencyManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyManagerView.m; sourceTree = "<group>"; };
+		BFF4C590170546080098A633 /* ManagerTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerTextField.h; sourceTree = "<group>"; };
+		BFF4C591170546080098A633 /* ManagerTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerTextField.m; sourceTree = "<group>"; };
+		BFF4C593170549D50098A633 /* ManagerComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerComboBox.h; sourceTree = "<group>"; };
+		BFF4C594170549D50098A633 /* ManagerComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerComboBox.m; sourceTree = "<group>"; };
+		BFF4C59717054B980098A633 /* ManagerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerLabel.h; sourceTree = "<group>"; };
+		BFF4C59817054B980098A633 /* ManagerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerLabel.m; sourceTree = "<group>"; };
+		BFF4C59A1705525E0098A633 /* ManagerLayoutEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerLayoutEngine.h; sourceTree = "<group>"; };
+		BFF4C59B1705525E0098A633 /* ManagerLayoutEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerLayoutEngine.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +216,25 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		BF46CF5F170391EB009AACA8 /* ContentManager */ = {
+			isa = PBXGroup;
+			children = (
+				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
+				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
+				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
+				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
+				BFF4C590170546080098A633 /* ManagerTextField.h */,
+				BFF4C591170546080098A633 /* ManagerTextField.m */,
+				BFF4C593170549D50098A633 /* ManagerComboBox.h */,
+				BFF4C594170549D50098A633 /* ManagerComboBox.m */,
+				BFF4C59717054B980098A633 /* ManagerLabel.h */,
+				BFF4C59817054B980098A633 /* ManagerLabel.m */,
+				BFF4C59A1705525E0098A633 /* ManagerLayoutEngine.h */,
+				BFF4C59B1705525E0098A633 /* ManagerLayoutEngine.m */,
+			);
+			name = ContentManager;
+			sourceTree = "<group>";
+		};
 		BF8D841716F7EEA2006906D8 = {
 			isa = PBXGroup;
 			children = (
@@ -238,6 +275,7 @@
 		BF8D842916F7EEA4006906D8 /* CreativeDB */ = {
 			isa = PBXGroup;
 			children = (
+				BF46CF5F170391EB009AACA8 /* ContentManager */,
 				BF00109D16FEAD0A007B8A80 /* Model */,
 				BF8D845A16F7FABC006906D8 /* Utils */,
 				BF8D845416F7F81C006906D8 /* DAO */,
@@ -398,6 +436,12 @@
 				BF0010DF1701281C007B8A80 /* UserModel.m in Sources */,
 				BF0010E217012BA9007B8A80 /* CalendarTypeModel.m in Sources */,
 				BF0010E517012CDC007B8A80 /* CalendarModel.m in Sources */,
+				BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */,
+				BFF4C58F1705450E0098A633 /* AgencyManagerView.m in Sources */,
+				BFF4C592170546080098A633 /* ManagerTextField.m in Sources */,
+				BFF4C595170549D50098A633 /* ManagerComboBox.m in Sources */,
+				BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */,
+				BFF4C59C1705525E0098A633 /* ManagerLayoutEngine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +538,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CreativeDB/CreativeDB-Prefix.pch";
 				INFOPLIST_FILE = "CreativeDB/CreativeDB-Info.plist";
@@ -506,6 +554,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CreativeDB/CreativeDB-Prefix.pch";
 				INFOPLIST_FILE = "CreativeDB/CreativeDB-Info.plist";

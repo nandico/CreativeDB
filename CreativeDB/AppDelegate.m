@@ -8,7 +8,11 @@
 
 #import "AppDelegate.h"
 
-// tests
+// temporary data
+#import "AgencyManagerViewController.h"
+ 
+// test data
+/*
 #import "GroupModel.h"
 #import "CountryModel.h"
 #import "MetalModel.h"
@@ -27,11 +31,13 @@
 #import "AnnotationModel.h"
 #import "CalendarTypeModel.h"
 #import "CalendarModel.h"
+*/
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    /*
     FMDBDataAccess *db = [FMDBDataAccess getInstance];
     [db getSchema];
     
@@ -106,7 +112,13 @@
 
     CalendarModel *calendar = [CalendarModel loadModel:1];
     NSLog( @"Calendar: %@, %@", calendar.type.name, calendar.date );
+    */
     
+    
+    AgencyManagerViewController *agencyManager = [[AgencyManagerViewController alloc] init];
+    agencyManager.view.frame = self.window.frame;
+    agencyManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    self.window.contentView = agencyManager.view;
 }
 
 
