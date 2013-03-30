@@ -20,5 +20,6 @@
 
 + (CountryModel *) objectWithResults:(FMResultSet *)results;
 + (CountryModel *) loadModel:(NSInteger) pk;
++ (NSMutableArray *) loadAll;
 
 @end

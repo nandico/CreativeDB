@@ -83,6 +83,15 @@
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
 
+- (NSMutableArray *) lookupData
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadAll" );
+    id lookupModel = NSClassFromString( _fieldLookupModel );
+    
+    return [lookupModel performSelector:staticLoadSelector withObject:nil];
+    
+}
+
 - (ManagerLabel *) label
 {
     if(!_label)
@@ -113,12 +122,24 @@
 
 }
 
+- (void) bindCombo
+{
+    NSMutableArray *comboItems = [self lookupData];
+    for( NSInteger comboIndex = 0; comboIndex < comboItems.count; comboIndex ++ )
+    {
+        id baseLookupClass = [comboItems objectAtIndex:comboIndex];
+        [_comboField addItemWithObjectValue:baseLookupClass];
+    }
+}
+
 - (ManagerComboBox *) comboField
 {
     if(!_comboField)
     {
         _comboField = [[ManagerComboBox alloc] init];
         [self addSubview:_comboField];
+        
+        [self bindCombo];
         
         NSString *fieldValue = [self bindLookupValue];
         if( fieldValue ) [_comboField setStringValue:fieldValue];

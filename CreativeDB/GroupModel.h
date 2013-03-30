@@ -15,5 +15,6 @@
 
 + (GroupModel *) objectWithResults:(FMResultSet *)results;
 + (GroupModel *) loadModel:(NSInteger) pk;
++ (NSMutableArray *) loadAll;
 
 @end
