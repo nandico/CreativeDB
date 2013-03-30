@@ -12,7 +12,8 @@
 
 @interface AgencyManagerViewController : NSViewController <AgencyDataSource>
 
-@property (strong) AgencyModel *baseModel;
+@property (nonatomic, strong) NSString *modelName;
+@property (nonatomic, strong) NSNumber *modelItem;
 
 - (id)initWithOptions:(NSDictionary *)options;
 

@@ -40,21 +40,16 @@
     [_engine arrangeContainers];
 }
 
-- (AgencyModel *)baseModel
-{
-    return [self.dataSource baseModel];
-}
-
 - (ManagerFieldContainer *)name
 {
     if(!_name)
     {
-        
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
                                  @"name", MLE_FIELD_NAME_KEY,
                                  @"Name", MLE_FIELD_LABEL_KEY,
-                                 [[self.dataSource baseModel] name], MLE_FIELD_VALUE_KEY,
+                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
+                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
                                  nil];
         
         _name = [[ManagerFieldContainer alloc] initWithOptions:options];
@@ -65,6 +60,7 @@
     return _name;
 }
 
+
 - (ManagerFieldContainer *)group
 {
     if(!_group)
@@ -74,8 +70,9 @@
                                  [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
                                  @"group", MLE_FIELD_NAME_KEY,
                                  @"Group", MLE_FIELD_LABEL_KEY,
-                                 @"name", MLE_FIELD_NAME_SELECTOR,
-                                 [[self.dataSource baseModel] group], MLE_FIELD_MODEL_KEY,
+                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
+                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
                                  nil];
         
         _group = [[ManagerFieldContainer alloc] initWithOptions:options];
@@ -95,7 +92,9 @@
                                  [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
                                  @"country", MLE_FIELD_NAME_KEY,
                                  @"Country", MLE_FIELD_LABEL_KEY,
-                                 [[self.dataSource baseModel] country], MLE_FIELD_MODEL_KEY,
+                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
+                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
                                  nil];
         
         _country = [[ManagerFieldContainer alloc] initWithOptions:options];

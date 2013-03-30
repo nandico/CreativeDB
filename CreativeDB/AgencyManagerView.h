@@ -12,7 +12,8 @@
 
 @protocol AgencyDataSource <NSObject>
 
-- (AgencyModel *)baseModel;
+- (NSString *) modelName;
+- (NSNumber *) modelItem;
 
 @end
 

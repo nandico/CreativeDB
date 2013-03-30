@@ -8,14 +8,18 @@
 
 #import "ManagerFieldContainer.h"
 #import "ManagerEngine.h"
+#import "AgencyModel.h"
 
 @interface ManagerFieldContainer()
 
 @property (nonatomic,strong) NSDictionary *options;
 @property (nonatomic,strong) NSNumber *fieldType;
-@property (nonatomic,strong) NSString *stringValue;
-@property (nonatomic,strong) BaseModel *baseModel;
 @property (nonatomic,strong) NSString *nameSelector;
+@property (nonatomic, strong) NSString *modelName;
+@property (nonatomic, strong) NSNumber *modelItem;
+@property (nonatomic, strong) NSString *fieldName;
+@property (nonatomic, strong) NSString *fieldLabel;
+@property (nonatomic, strong) NSString *fieldLookupName;
 
 @end
 
@@ -32,12 +36,13 @@
         self.frame = NSMakeRect(0.0f, 0.0f, MLE_CONTAINER_WIDTH, MLE_CONTAINER_HEIGHT);
         
         _options = options;
-        _fieldType = [self.options objectForKey:MLE_FIELD_TYPE_KEY];
+        if( [self.options objectForKey:MLE_FIELD_TYPE_KEY] ) _fieldType = [self.options objectForKey:MLE_FIELD_TYPE_KEY];
+        if( [self.options objectForKey:MLE_FIELD_NAME_KEY] ) _fieldName = [self.options objectForKey:MLE_FIELD_NAME_KEY];
+        if( [self.options objectForKey:MLE_FIELD_LABEL_KEY] ) _fieldLabel = [self.options objectForKey:MLE_FIELD_LABEL_KEY];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        if( [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY] ) _fieldLookupName = [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY];
         
-        if( [self.options objectForKey:MLE_FIELD_VALUE_KEY] ) _stringValue = [self.options objectForKey:MLE_FIELD_VALUE_KEY];
-        if( [self.options objectForKey:MLE_FIELD_MODEL_KEY] ) _baseModel = [self.options objectForKey:MLE_FIELD_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELD_NAME_SELECTOR] ) _nameSelector = [self.options objectForKey:MLE_FIELD_NAME_SELECTOR];
-                
         [self label];
         
         switch([_fieldType integerValue])
@@ -54,13 +59,37 @@
     return self;
 }
 
+- (NSString *) bindValue
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
+    id baseModelClass = NSClassFromString( _modelName );
+    id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelItem];
+    SEL nameSelector = NSSelectorFromString( _fieldName );
+    
+    return [baseModel performSelector:nameSelector withObject:nil];
+}
+
+- (NSString *) bindLookupValue
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
+    id baseModelClass = NSClassFromString( _modelName );
+    id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelItem];
+    SEL nameSelector = NSSelectorFromString( _fieldName );
+    id lookupModel = [baseModel performSelector:nameSelector withObject:nil];
+    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
+
+    NSLog( @"Lookup model: %@", lookupModel );
+    
+    return [lookupModel performSelector:lookupNameSelector withObject:nil];
+}
+
 - (ManagerLabel *) label
 {
     if(!_label)
     {
         _label = [[ManagerLabel alloc] init];
         
-        NSString *labelValue = [NSString stringWithFormat:@"%@:", [self.options objectForKey:MLE_FIELD_LABEL_KEY]];
+        NSString *labelValue = [NSString stringWithFormat:@"%@:", _fieldLabel];
         [_label setStringValue:labelValue];
         
         [self addSubview:_label];
@@ -76,10 +105,12 @@
         _textField = [[ManagerTextField alloc] init];
         [self addSubview:_textField];
         
-        if( _stringValue ) [self setStringValue:_stringValue];
+        NSString *fieldValue = [self bindValue];
+        if( fieldValue ) [_textField setStringValue:fieldValue];
     }
     
     return _textField;
+
 }
 
 - (ManagerComboBox *) comboField
@@ -89,15 +120,11 @@
         _comboField = [[ManagerComboBox alloc] init];
         [self addSubview:_comboField];
         
-        NSLog( @"base model de dentro: %@", _baseModel );
+        NSString *fieldValue = [self bindLookupValue];
         
-        if( _baseModel )
-        {
-            NSLog( @"processando. %@", _nameSelector );
-            
-            SEL realSelector = NSSelectorFromString(_nameSelector);
-            NSLog( @"Result: %@", [_baseModel performSelector:realSelector] );
-        }
+        NSLog( @"Field value: %@", fieldValue );
+        if( fieldValue ) [_comboField setStringValue:fieldValue];
+ 
     }
     
     return _comboField;

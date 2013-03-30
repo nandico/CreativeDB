@@ -18,7 +18,7 @@
 {
     EntryModel *object = [[EntryModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.agency = [AgencyModel loadModel:[results longForColumn:@"agency"]];
+    object.agency = [AgencyModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"agency"]]];
     object.client = [ClientModel loadModel:[results longForColumn:@"client"]];
     object.product = [ProductModel loadModel:[results longForColumn:@"product"]];
     if([[results resultDictionary] objectForKey:@"accessURL"] != nil)

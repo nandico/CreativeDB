@@ -117,7 +117,8 @@
     */
     
     NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   [AgencyModel loadModel:1], MLE_FIELDSET_MODEL_KEY,
+                                   @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
+                                   [NSNumber numberWithInt:2], MLE_FIELDSET_MODEL_ITEM,
                                    nil];
     
     AgencyManagerViewController *agencyManager = [[AgencyManagerViewController alloc] initWithOptions:agencyOptions];

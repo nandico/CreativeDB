@@ -13,9 +13,8 @@
 
 @interface AgencyManagerViewController ()
 
-@property (nonatomic, strong) NSDictionary *options;
 @property (nonatomic, strong) AgencyManagerView *agencyView;
-
+@property (nonatomic, strong) NSDictionary *options;
 
 @end
 
@@ -27,10 +26,9 @@
     if (self) {
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
-        {
-            _baseModel = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        }
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+
         self.view = self.agencyView = [[AgencyManagerView alloc] init];
         self.agencyView.dataSource = self;
         [self.agencyView createForm];

@@ -19,6 +19,6 @@
 @property (strong) NSString *name;
 
 + (AgencyModel *) objectWithResults:(FMResultSet *)results;
-+ (AgencyModel *) loadModel:(NSInteger) pk;
++ (AgencyModel *) loadModel:(NSNumber *) pk;
 
 @end
