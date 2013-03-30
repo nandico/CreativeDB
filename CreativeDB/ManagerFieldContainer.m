@@ -125,10 +125,12 @@
 - (void) bindCombo
 {
     NSMutableArray *comboItems = [self lookupData];
+    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );    
+    
     for( NSInteger comboIndex = 0; comboIndex < comboItems.count; comboIndex ++ )
     {
-        id baseLookupClass = [comboItems objectAtIndex:comboIndex];
-        [_comboField addItemWithObjectValue:baseLookupClass];
+        id lookupModel = [comboItems objectAtIndex:comboIndex];
+        [_comboField addItemWithObjectValue:[lookupModel performSelector:lookupNameSelector withObject:nil]];
     }
 }
 
