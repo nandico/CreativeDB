@@ -20,5 +20,6 @@
 
 + (AgencyModel *) objectWithResults:(FMResultSet *)results;
 + (AgencyModel *) loadModel:(NSNumber *) pk;
++ (NSMutableArray *) loadAll;
 
 @end

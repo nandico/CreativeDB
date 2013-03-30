@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSString *fieldName;
 @property (nonatomic, strong) NSString *fieldLabel;
 @property (nonatomic, strong) NSString *fieldLookupName;
+@property (nonatomic, strong) NSString *fieldLookupModel;
 
 @end
 
@@ -42,6 +43,7 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY] ) _fieldLookupName = [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY];
+        if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] ) _fieldLookupModel = [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
         
         [self label];
         
@@ -77,8 +79,6 @@
     SEL nameSelector = NSSelectorFromString( _fieldName );
     id lookupModel = [baseModel performSelector:nameSelector withObject:nil];
     SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
-
-    NSLog( @"Lookup model: %@", lookupModel );
     
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
@@ -121,8 +121,6 @@
         [self addSubview:_comboField];
         
         NSString *fieldValue = [self bindLookupValue];
-        
-        NSLog( @"Field value: %@", fieldValue );
         if( fieldValue ) [_comboField setStringValue:fieldValue];
  
     }
