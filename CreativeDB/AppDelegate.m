@@ -140,6 +140,11 @@
     self.window.contentView = entryManager.view;
     
 }
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
+{
+    return YES;
+}
      
 
 

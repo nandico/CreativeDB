@@ -224,10 +224,25 @@
     return _blurb;
 }
 
+- (NSNumber *) getActualYear
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy"];
+    NSString *yearString = [formatter stringFromDate:[NSDate date]];
+    
+    return [NSNumber numberWithInteger:[yearString integerValue]];
+}
+
 - (ManagerFieldContainer *)year
 {
     if(!_year)
     {
+        NSMutableArray *years = [[NSMutableArray alloc] init];
+        
+        for( NSInteger i = 1970; i < [[self getActualYear] integerValue]; i ++ )
+        {
+            [years addObject:[NSString stringWithFormat:@"%ld", i ]];
+        }
         
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithInteger:MLEStaticComboFieldType], MLE_FIELD_TYPE_KEY,
@@ -236,6 +251,7 @@
                                  [NSNumber numberWithInteger:MLENumericDataType], MLE_FIELD_DATATYPE_KEY,
                                  [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
                                  [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
+                                 years, MLE_FIELD_STATIC_DOMAIN_KEY,
                                  nil];
         
         _year = [[ManagerFieldContainer alloc] initWithOptions:options];

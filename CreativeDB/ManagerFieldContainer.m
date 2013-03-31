@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSString *fieldLookupName;
 @property (nonatomic, strong) NSString *fieldLookupModel;
 @property (nonatomic,strong) NSNumber *fieldDataType;
+@property (nonatomic, strong) NSMutableArray *staticDomainData;
 
 @end
 
@@ -45,6 +46,7 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY] ) _fieldLookupName = [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY];
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] ) _fieldLookupModel = [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
+        if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] ) _staticDomainData = [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY];        
         
         [self label];
         
@@ -165,6 +167,16 @@
     }
 }
 
+- (void) bindStaticCombo
+{
+    if( !_staticDomainData ) return;
+    
+    for( NSInteger comboIndex = 0; comboIndex < _staticDomainData.count; comboIndex ++ )
+    {
+        [_comboField addItemWithObjectValue:[_staticDomainData objectAtIndex:comboIndex] ];
+    }
+}
+
 - (ManagerComboBox *) comboField
 {
     if(!_comboField)
@@ -188,6 +200,8 @@
     {
         _comboField = [[ManagerComboBox alloc] init];
         [self addSubview:_comboField];
+        
+        [self bindStaticCombo];
         
         if( [_fieldDataType integerValue] == MLENumericDataType )
         {
