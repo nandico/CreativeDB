@@ -17,7 +17,7 @@
 {
     AnnotationModel *object = [[AnnotationModel alloc] init];
     object.user = [UserModel loadModel:[results longForColumn:@"user"]];
-    object.entry = [EntryModel loadModel:[results longForColumn:@"entry"]];
+    object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
     object.comment = [results stringForColumn:@"comment"];
     object.i_like = [results boolForColumn:@"i_like"];
     object.i_rate = [results boolForColumn:@"i_rate"];

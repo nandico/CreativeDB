@@ -54,6 +54,8 @@
 		BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59817054B980098A633 /* ManagerLabel.m */; };
 		BFF4C59C1705525E0098A633 /* ManagerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59B1705525E0098A633 /* ManagerEngine.m */; };
 		BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59E170553910098A633 /* ManagerFieldContainer.m */; };
+		BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */; };
+		BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -149,6 +151,10 @@
 		BFF4C59B1705525E0098A633 /* ManagerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerEngine.m; sourceTree = "<group>"; };
 		BFF4C59D170553900098A633 /* ManagerFieldContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFieldContainer.h; sourceTree = "<group>"; };
 		BFF4C59E170553910098A633 /* ManagerFieldContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFieldContainer.m; sourceTree = "<group>"; };
+		BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerViewController.h; sourceTree = "<group>"; };
+		BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerViewController.m; sourceTree = "<group>"; };
+		BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerView.h; sourceTree = "<group>"; };
+		BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,10 +229,14 @@
 			isa = PBXGroup;
 			children = (
 				BFF4C5A01705539A0098A633 /* Engine */,
+				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
+				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
 				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
 				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
 				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
+				BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */,
+				BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -456,6 +466,8 @@
 				BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */,
 				BFF4C59C1705525E0098A633 /* ManagerEngine.m in Sources */,
 				BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */,
+				BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */,
+				BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

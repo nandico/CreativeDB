@@ -10,9 +10,10 @@
 
 // temporary data
 #import "ManagerEngine.h"
+
 #import "AgencyManagerViewController.h"
-#import "AgencyModel.h"
- 
+#import "EntryManagerViewController.h"
+
 // test data
 /*
 #import "GroupModel.h"
@@ -116,6 +117,7 @@
     NSLog( @"Calendar: %@, %@", calendar.type.name, calendar.date );
     */
     
+    /*
     NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
                                    [NSNumber numberWithInt:2], MLE_FIELDSET_MODEL_ITEM,
@@ -125,7 +127,20 @@
     agencyManager.view.frame = self.window.frame;
     agencyManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     self.window.contentView = agencyManager.view;
+    */
+    
+    NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"EntryModel", MLE_FIELDSET_MODEL_KEY,
+                                  [NSNumber numberWithInt:1], MLE_FIELDSET_MODEL_ITEM,
+                                  nil];
+    
+    EntryManagerViewController *entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
+    entryManager.view.frame = self.window.frame;
+    entryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    self.window.contentView = entryManager.view;
+    
 }
+     
 
 
 @end

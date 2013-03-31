@@ -16,7 +16,7 @@
     CreditModel *object = [[CreditModel alloc] init];
     object.pk = [results longForColumn:@"rowid"];
     object.person = [PersonModel loadModel:[results longForColumn:@"person"]];
-    object.entry = [EntryModel loadModel:[results longForColumn:@"entry"]];
+    object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
     object.role = [RoleModel loadModel:[results longForColumn:@"role"]];
     
     return object;

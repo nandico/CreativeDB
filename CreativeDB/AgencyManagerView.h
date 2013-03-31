@@ -7,8 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "AgencyModel.h"
-#import "ManagerFieldContainer.h"
 
 @protocol AgencyDataSource <NSObject>
 

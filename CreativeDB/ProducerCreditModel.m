@@ -14,7 +14,7 @@
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results
 {
     ProducerCreditModel *object = [[ProducerCreditModel alloc] init];
-    object.entry = [EntryModel loadModel:[results longForColumn:@"entry"]];
+    object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
     object.producer = [ProducerModel loadModel:[results longForColumn:@"producer"]];
     object.discipline = [DisciplineModel loadModel:[results longForColumn:@"discipline"]];
    

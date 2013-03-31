@@ -1,24 +1,30 @@
 //
-//  AgencyManagerView.m
+//  EntryManagerView.m
 //  CreativeDB
 //
-//  Created by Fernando Aquino on 3/29/13.
+//  Created by Fernando Aquino on 3/30/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "AgencyManagerView.h"
+#import "EntryManagerView.h"
 #import "ManagerEngine.h"
 
-@interface  AgencyManagerView()
+@interface  EntryManagerView()
 
 @property (nonatomic, strong) ManagerEngine *engine;
-@property (nonatomic, strong) ManagerFieldContainer *name;
-@property (nonatomic, strong) ManagerFieldContainer *group;
+@property (nonatomic, strong) ManagerFieldContainer *agency;
+@property (nonatomic, strong) ManagerFieldContainer *client;
 @property (nonatomic, strong) ManagerFieldContainer *country;
+@property (nonatomic, strong) ManagerFieldContainer *product;
+@property (nonatomic, strong) ManagerFieldContainer *accessURL;
+@property (nonatomic, strong) ManagerFieldContainer *caseURL;
+@property (nonatomic, strong) ManagerFieldContainer *blurb;
+@property (nonatomic, strong) ManagerFieldContainer *name;
+@property (nonatomic, strong) ManagerFieldContainer *year;
 
 @end
 
-@implementation AgencyManagerView
+@implementation EntryManagerView
 
 - (id)init
 {
@@ -33,7 +39,8 @@
 - (void) createForm
 {
     [_engine addFieldContainer:[self name]];
-    [_engine addFieldContainer:[self group]];
+    [_engine addFieldContainer:[self agency]];
+    [_engine addFieldContainer:[self client]];
     [_engine addFieldContainer:[self country]];
     
     [_engine arrangeContainers];
@@ -59,29 +66,52 @@
     return _name;
 }
 
-
-- (ManagerFieldContainer *)group
+- (ManagerFieldContainer *)agency
 {
-    if(!_group)
+    if(!_agency)
     {
         
         NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"group", MLE_FIELD_NAME_KEY,
-                                 @"Group", MLE_FIELD_LABEL_KEY,
-                                 @"GroupModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                                 @"agency", MLE_FIELD_NAME_KEY,
+                                 @"Agency", MLE_FIELD_LABEL_KEY,
+                                 @"AgencyModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                                  @"name", MLE_FIELD_LOOKUP_NAME_KEY,
                                  [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
                                  [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
                                  nil];
         
-        _group = [[ManagerFieldContainer alloc] initWithOptions:options];
+        _agency = [[ManagerFieldContainer alloc] initWithOptions:options];
         
-        [self addSubview:_group];
+        [self addSubview:_agency];
     }
     
-    return _group;
+    return _agency;
 }
+
+- (ManagerFieldContainer *)client
+{
+    if(!_client)
+    {
+        
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                                 @"client", MLE_FIELD_NAME_KEY,
+                                 @"Client", MLE_FIELD_LABEL_KEY,
+                                 @"ClientModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
+                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
+                                 nil];
+        
+        _client = [[ManagerFieldContainer alloc] initWithOptions:options];
+        
+        [self addSubview:_client];
+    }
+    
+    return _client;
+}
+
 
 - (ManagerFieldContainer *)country
 {
@@ -105,8 +135,5 @@
     
     return _country;
 }
-
-
-
 
 @end

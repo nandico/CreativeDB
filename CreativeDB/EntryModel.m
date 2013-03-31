@@ -20,6 +20,7 @@
     object.pk = [results longForColumn:@"id"];
     object.agency = [AgencyModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"agency"]]];
     object.client = [ClientModel loadModel:[results longForColumn:@"client"]];
+    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
     object.product = [ProductModel loadModel:[results longForColumn:@"product"]];
     if([[results resultDictionary] objectForKey:@"accessURL"] != nil)
         object.accessURL = [[NSURL alloc] initWithString:[results stringForColumn:@"accessURL"]];
@@ -32,7 +33,7 @@
     return object;
 }
 
-+ (EntryModel *) loadModel:(NSInteger) pk
++ (EntryModel *) loadModel:(NSNumber *)pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -46,7 +47,7 @@
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
                             " FROM aa_entry "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {
