@@ -17,5 +17,6 @@
 
 + (ProductModel *) objectWithResults:(FMResultSet *)results;
 + (ProductModel *) loadModel:(NSInteger) pk;
++ (NSMutableArray *) loadAll;
 
 @end

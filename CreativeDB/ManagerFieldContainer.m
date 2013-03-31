@@ -13,7 +13,6 @@
 @interface ManagerFieldContainer()
 
 @property (nonatomic,strong) NSDictionary *options;
-@property (nonatomic,strong) NSNumber *fieldType;
 @property (nonatomic,strong) NSString *nameSelector;
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
@@ -21,6 +20,7 @@
 @property (nonatomic, strong) NSString *fieldLabel;
 @property (nonatomic, strong) NSString *fieldLookupName;
 @property (nonatomic, strong) NSString *fieldLookupModel;
+@property (nonatomic,strong) NSNumber *fieldDataType;
 
 @end
 
@@ -38,6 +38,7 @@
         
         _options = options;
         if( [self.options objectForKey:MLE_FIELD_TYPE_KEY] ) _fieldType = [self.options objectForKey:MLE_FIELD_TYPE_KEY];
+        if( [self.options objectForKey:MLE_FIELD_DATATYPE_KEY] ) _fieldDataType = [self.options objectForKey:MLE_FIELD_DATATYPE_KEY];
         if( [self.options objectForKey:MLE_FIELD_NAME_KEY] ) _fieldName = [self.options objectForKey:MLE_FIELD_NAME_KEY];
         if( [self.options objectForKey:MLE_FIELD_LABEL_KEY] ) _fieldLabel = [self.options objectForKey:MLE_FIELD_LABEL_KEY];
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
@@ -55,21 +56,36 @@
             case MLEComboFieldType:
                 [self comboField];
                 break;
+            case MLEStaticComboFieldType:
+                [self staticComboField];
+                break;
+            case MLETextAreaFieldType:
+                [self textAreaField];
+                break;
         }
     }
     
     return self;
 }
 
-- (NSString *) bindValue
+- (NSString *) bindForString
 {
     SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
     id baseModelClass = NSClassFromString( _modelName );
     id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelItem];
     SEL nameSelector = NSSelectorFromString( _fieldName );
-    
     return [baseModel performSelector:nameSelector withObject:nil];
 }
+
+- (NSInteger) bindForInteger
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
+    id baseModelClass = NSClassFromString( _modelName );
+    id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelItem];
+    SEL nameSelector = NSSelectorFromString( _fieldName );
+    return [baseModel performSelector:nameSelector withObject:nil];
+}
+
 
 - (NSString *) bindLookupValue
 {
@@ -114,12 +130,27 @@
         _textField = [[ManagerTextField alloc] init];
         [self addSubview:_textField];
         
-        NSString *fieldValue = [self bindValue];
+        NSString *fieldValue = [self bindForString];
         if( fieldValue ) [_textField setStringValue:fieldValue];
     }
     
     return _textField;
 
+}
+
+- (ManagerTextAreaField *) textAreaField
+{
+    if(!_textAreaField)
+    {
+        _textAreaField = [[ManagerTextAreaField alloc] init];
+        [self addSubview:_textAreaField];
+        
+        NSString *fieldValue = [self bindForString];
+        if( fieldValue ) [_textAreaField setStringValue:fieldValue];
+    }
+    
+    return _textAreaField;
+    
 }
 
 - (void) bindCombo
@@ -146,6 +177,28 @@
         NSString *fieldValue = [self bindLookupValue];
         if( fieldValue ) [_comboField setStringValue:fieldValue];
  
+    }
+    
+    return _comboField;
+}
+
+- (ManagerComboBox *) staticComboField
+{
+    if(!_comboField)
+    {
+        _comboField = [[ManagerComboBox alloc] init];
+        [self addSubview:_comboField];
+        
+        if( [_fieldDataType integerValue] == MLENumericDataType )
+        {
+            NSInteger fieldValue = [self bindForInteger];
+            if( fieldValue ) [_comboField setStringValue:[[NSNumber numberWithInteger:fieldValue] stringValue]];
+        }
+        else
+        {
+            NSString *fieldValue = [self bindForString];
+            if( fieldValue ) [_comboField setStringValue:fieldValue];
+        }
     }
     
     return _comboField;

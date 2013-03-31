@@ -56,6 +56,7 @@
 		BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59E170553910098A633 /* ManagerFieldContainer.m */; };
 		BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */; };
 		BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */; };
+		BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -155,6 +156,8 @@
 		BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerViewController.m; sourceTree = "<group>"; };
 		BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerView.h; sourceTree = "<group>"; };
 		BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerView.m; sourceTree = "<group>"; };
+		BFF4C5A71707C2010098A633 /* ManagerTextAreaField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerTextAreaField.h; sourceTree = "<group>"; };
+		BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerTextAreaField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -356,6 +359,8 @@
 				BFF4C59817054B980098A633 /* ManagerLabel.m */,
 				BFF4C59D170553900098A633 /* ManagerFieldContainer.h */,
 				BFF4C59E170553910098A633 /* ManagerFieldContainer.m */,
+				BFF4C5A71707C2010098A633 /* ManagerTextAreaField.h */,
+				BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */,
 				BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */,
 				BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */,
+				BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

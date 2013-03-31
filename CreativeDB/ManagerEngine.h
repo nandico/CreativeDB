@@ -12,13 +12,22 @@
 typedef enum ManagerFieldType : NSInteger ManagerFieldType;
 enum ManagerFieldType : NSInteger {
     MLETextFieldType,
-    MLEComboFieldType
+    MLEComboFieldType,
+    MLEStaticComboFieldType,
+    MLETextAreaFieldType
+};
+
+typedef enum ManagerFieldDataType : NSInteger ManagerFieldDataType;
+enum ManagerFieldDataType : NSInteger {
+    MLEGenericDataType,
+    MLENumericDataType
 };
 
 #define MLE_FIELDSET_OFFSET_Y 100.0f
 
 #define MLE_CONTAINER_WIDTH 500.0f
 #define MLE_CONTAINER_HEIGHT 32.0f
+#define MLE_TEXTAREA_CONTAINER_HEIGHT 108.0f
 #define MLE_CONTAINER_CORNER_RADIUS 5.0f
 #define MLE_CONTAINER_SPACING 5.0f
 
@@ -26,6 +35,7 @@ enum ManagerFieldType : NSInteger {
 #define MLE_FIELD_OFFSET_Y 3.0f
 #define MLE_FIELD_WIDTH 350.0f
 #define MLE_FIELD_HEIGHT 25.0f
+#define MLE_TEXT_FIELD_HEIGHT 100.0f
 
 #define MLE_LABEL_OFFSET_X 5.0f
 #define MLE_LABEL_OFFSET_Y 0.0f
@@ -35,6 +45,7 @@ enum ManagerFieldType : NSInteger {
 #define MLE_FIELD_NAME_KEY @"FIELD_NAME_KEY"
 #define MLE_FIELD_LABEL_KEY @"FIELD_LABEL_KEY"
 #define MLE_FIELD_TYPE_KEY @"FIELD_TYPE_KEY"
+#define MLE_FIELD_DATATYPE_KEY @"FIELD_DATATYPE_KEY"
 #define MLE_FIELD_LOOKUP_NAME_KEY @"FIELD_LOOKUP_NAME_KEY"
 #define MLE_FIELD_LOOKUP_MODEL_KEY @"FIELD_LOOKUP_MODEL_KEY"
 

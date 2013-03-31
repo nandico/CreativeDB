@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ManagerTextField.h"
+#import "ManagerTextAreaField.h"
 #import "ManagerComboBox.h"
 #import "ManagerLabel.h"
 #import "BaseModel.h"
@@ -15,7 +16,9 @@
 @interface ManagerFieldContainer : NSView
 
 @property (nonatomic, strong) ManagerLabel *label;
+@property (nonatomic,strong) NSNumber *fieldType;
 @property (nonatomic, strong) ManagerTextField *textField;
+@property (nonatomic, strong) ManagerTextAreaField *textAreaField;
 @property (nonatomic, strong) ManagerComboBox *comboField;
 
 - (id)initWithOptions:(NSDictionary *)options;

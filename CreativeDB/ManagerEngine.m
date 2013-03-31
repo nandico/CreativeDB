@@ -31,21 +31,55 @@
     [_fieldContainers addObject:fieldContainer];
 }
 
+- (NSInteger) containerHeight:(ManagerFieldContainer *)fieldContainer withSpacing:(BOOL) spacing
+{
+    NSInteger height;
+    
+    if( [fieldContainer.fieldType integerValue] == MLETextAreaFieldType )
+    {
+        height = MLE_TEXTAREA_CONTAINER_HEIGHT;
+    }
+    else
+    {
+        height = MLE_CONTAINER_HEIGHT;
+    }
+    
+    if( spacing )
+    {
+        return height + MLE_CONTAINER_SPACING;
+    }
+    else
+    {
+        return height;
+    }
+}
+
 - (void) arrangeContainers
 {
     NSInteger containerCount = [_fieldContainers count];
-    NSInteger totalHeight =  MLE_FIELDSET_OFFSET_Y + ( ( MLE_CONTAINER_HEIGHT + MLE_CONTAINER_SPACING ) * ( containerCount - 1 ) );
+    NSInteger totalHeight = MLE_FIELDSET_OFFSET_Y;
+    NSInteger actualHeight = 0;
     
-    ManagerFieldContainer *container;
+    ManagerFieldContainer *container;    
     
-    for( NSInteger itemIndex = 0; itemIndex < containerCount; itemIndex ++ )
+    NSInteger itemIndex;
+    
+    for( itemIndex = 0; itemIndex < containerCount; itemIndex ++ )
+    {
+        container = [_fieldContainers objectAtIndex:itemIndex];
+        totalHeight += [self containerHeight:container withSpacing:YES];
+    }
+    
+    for( itemIndex = 0; itemIndex < containerCount; itemIndex ++ )
     {
         container = [_fieldContainers objectAtIndex:itemIndex];
         
+        actualHeight += [self containerHeight:container withSpacing:YES];
+        
         container.frame = NSMakeRect(container.frame.origin.x,
-                                     totalHeight - ( itemIndex * ( MLE_CONTAINER_HEIGHT + MLE_CONTAINER_SPACING ) ),
+                                     totalHeight - actualHeight,
                                      container.frame.size.width,
-                                     container.frame.size.height);
+                                     [self containerHeight:container withSpacing:NO]);
     }
 }
 
