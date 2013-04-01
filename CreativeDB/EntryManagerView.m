@@ -8,6 +8,7 @@
 
 #import "EntryManagerView.h"
 #import "ManagerEngine.h"
+#import "ManagerActionBar.h"
 
 @interface  EntryManagerView()
 
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) ManagerFieldContainer *blurb;
 @property (nonatomic, strong) ManagerFieldContainer *name;
 @property (nonatomic, strong) ManagerFieldContainer *year;
+@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 @end
 
@@ -48,7 +50,25 @@
     [_engine addFieldContainer:[self blurb]];
     [_engine addFieldContainer:[self year]];
     
+    [_engine addActionBar:[self actionBar]];
+    
     [_engine arrangeContainers];
+
+}
+
+- (ManagerActionBar *) actionBar
+{
+    if(!_actionBar)
+    {
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 nil];
+        
+        _actionBar = [[ManagerActionBar alloc] initWithOptions:options];
+        
+        [self addSubview:_actionBar];
+    }
+    
+    return _actionBar;
 }
 
 - (ManagerFieldContainer *)name

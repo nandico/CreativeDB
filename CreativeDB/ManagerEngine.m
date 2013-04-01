@@ -10,7 +10,8 @@
 
 @interface ManagerEngine()
 
-@property (nonatomic,strong) NSMutableArray *fieldContainers;
+@property (nonatomic, strong) NSMutableArray *fieldContainers;
+@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 @end
 
@@ -29,6 +30,11 @@
 - (void) addFieldContainer:(ManagerFieldContainer *)fieldContainer
 {
     [_fieldContainers addObject:fieldContainer];
+}
+
+- (void) addActionBar:(ManagerActionBar *) actionBar;
+{
+    _actionBar = actionBar;
 }
 
 - (NSInteger) containerHeight:(ManagerFieldContainer *)fieldContainer withSpacing:(BOOL) spacing
@@ -82,5 +88,6 @@
                                      [self containerHeight:container withSpacing:NO]);
     }
 }
+
 
 @end

@@ -57,6 +57,8 @@
 		BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */; };
 		BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */; };
 		BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */; };
+		BFF4C5AC1708FEBA0098A633 /* ManagerActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */; };
+		BFF4C5AF170902E30098A633 /* ManagerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5AE170902E20098A633 /* ManagerButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +160,10 @@
 		BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerView.m; sourceTree = "<group>"; };
 		BFF4C5A71707C2010098A633 /* ManagerTextAreaField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerTextAreaField.h; sourceTree = "<group>"; };
 		BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerTextAreaField.m; sourceTree = "<group>"; };
+		BFF4C5AA1708FEB90098A633 /* ManagerActionBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerActionBar.h; sourceTree = "<group>"; };
+		BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerActionBar.m; sourceTree = "<group>"; };
+		BFF4C5AD170902E10098A633 /* ManagerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerButton.h; sourceTree = "<group>"; };
+		BFF4C5AE170902E20098A633 /* ManagerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +367,10 @@
 				BFF4C59E170553910098A633 /* ManagerFieldContainer.m */,
 				BFF4C5A71707C2010098A633 /* ManagerTextAreaField.h */,
 				BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */,
+				BFF4C5AA1708FEB90098A633 /* ManagerActionBar.h */,
+				BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */,
+				BFF4C5AD170902E10098A633 /* ManagerButton.h */,
+				BFF4C5AE170902E20098A633 /* ManagerButton.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -474,6 +484,8 @@
 				BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */,
 				BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */,
 				BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */,
+				BFF4C5AC1708FEBA0098A633 /* ManagerActionBar.m in Sources */,
+				BFF4C5AF170902E30098A633 /* ManagerButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

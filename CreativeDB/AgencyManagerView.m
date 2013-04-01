@@ -8,6 +8,7 @@
 
 #import "AgencyManagerView.h"
 #import "ManagerEngine.h"
+#import "ManagerActionBar.h"
 
 @interface  AgencyManagerView()
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) ManagerFieldContainer *name;
 @property (nonatomic, strong) ManagerFieldContainer *group;
 @property (nonatomic, strong) ManagerFieldContainer *country;
+@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 @end
 
@@ -35,6 +37,7 @@
     [_engine addFieldContainer:[self name]];
     [_engine addFieldContainer:[self group]];
     [_engine addFieldContainer:[self country]];
+    
     
     [_engine arrangeContainers];
 }

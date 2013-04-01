@@ -17,7 +17,7 @@
 
 @interface EntryManagerView : NSView
 
-@property (assign) id <EntryDataSource> dataSource;
+@property (strong) id <EntryDataSource> dataSource;
 
 - (void)createForm;
 

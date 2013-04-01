@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ManagerFieldContainer.h"
+#import "ManagerActionBar.h"
 
 typedef enum ManagerFieldType : NSInteger ManagerFieldType;
 enum ManagerFieldType : NSInteger {
@@ -42,6 +43,9 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_LABEL_WIDTH 130.0f
 #define MLE_LABEL_HEIGHT 25.0f
 
+#define MLE_BUTTON_WIDTH 100.0f
+#define MLE_BUTTON_HEIGHT 25.0f
+
 #define MLE_FIELD_NAME_KEY @"FIELD_NAME_KEY"
 #define MLE_FIELD_LABEL_KEY @"FIELD_LABEL_KEY"
 #define MLE_FIELD_TYPE_KEY @"FIELD_TYPE_KEY"
@@ -55,9 +59,12 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_CONTAINER_COLOR colorWithCalibratedRed:150.0f / 255.0f green:150.0f / 255.0f blue :150.0f / 255.0f alpha:0.2f
 
+#define MLE_NOTIFICATION_SAVE @"NOTIFICATION_SAVE"
+
 @interface ManagerEngine : NSObject
 
-- (void) addFieldContainer:(ManagerFieldContainer *)container;
+- (void) addFieldContainer:(ManagerFieldContainer *) container;
+- (void) addActionBar:(ManagerActionBar *) actionBar;
 - (void) arrangeContainers;
 
 @end

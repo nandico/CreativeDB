@@ -9,6 +9,7 @@
 #import "EntryManagerViewController.h"
 #import "EntryManagerView.h"
 #import "ManagerEngine.h"
+#import "EntryModel.h"
 
 @interface EntryManagerViewController ()
 
@@ -31,9 +32,20 @@
         self.view = self.entryView = [[EntryManagerView alloc] init];
         self.entryView.dataSource = self;
         [self.entryView createForm];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(saveAction)
+                                                     name:MLE_NOTIFICATION_SAVE object:nil];
     }
     
     return self;
+}
+
+- (void) saveAction
+{
+    EntryModel *model = [EntryModel loadModel:_modelItem];
+
+    NSLog( @"Model: %@", model );
 }
 
 @end
