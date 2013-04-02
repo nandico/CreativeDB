@@ -7,11 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ManagerFieldContainer.h"
+#import "ManagerActionBar.h"
+#import "ManagerEngine.h"
 
 @protocol EntryDataSource <NSObject>
 
 - (NSString *) modelName;
 - (NSNumber *) modelItem;
+- (NSMutableDictionary *) fieldData;
 
 @end
 

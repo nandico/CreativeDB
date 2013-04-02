@@ -8,7 +8,7 @@
 
 #import "EntryManagerView.h"
 #import "ManagerEngine.h"
-#import "ManagerActionBar.h"
+
 
 @interface  EntryManagerView()
 
@@ -49,7 +49,7 @@
     [_engine addFieldContainer:[self caseURL]];
     [_engine addFieldContainer:[self blurb]];
     [_engine addFieldContainer:[self year]];
-    
+     
     [_engine addActionBar:[self actionBar]];
     
     [_engine arrangeContainers];
@@ -75,16 +75,8 @@
 {
     if(!_name)
     {
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"name", MLE_FIELD_NAME_KEY,
-                                 @"Name", MLE_FIELD_LABEL_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"name"];
         _name = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_name];
     }
     
@@ -95,19 +87,8 @@
 {
     if(!_agency)
     {
-        
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"agency", MLE_FIELD_NAME_KEY,
-                                 @"Agency", MLE_FIELD_LABEL_KEY,
-                                 @"AgencyModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"agency"];
         _agency = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_agency];
     }
     
@@ -118,19 +99,8 @@
 {
     if(!_client)
     {
-        
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"client", MLE_FIELD_NAME_KEY,
-                                 @"Client", MLE_FIELD_LABEL_KEY,
-                                 @"ClientModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"client"];
         _client = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_client];
     }
     
@@ -142,19 +112,8 @@
 {
     if(!_country)
     {
-        
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"country", MLE_FIELD_NAME_KEY,
-                                 @"Country", MLE_FIELD_LABEL_KEY,
-                                 @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"country"];
         _country = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_country];
     }
     
@@ -165,19 +124,8 @@
 {
     if(!_product)
     {
-        
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"product", MLE_FIELD_NAME_KEY,
-                                 @"Product", MLE_FIELD_LABEL_KEY,
-                                 @"ProductModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"product"];
         _product = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_product];
     }
     
@@ -188,16 +136,8 @@
 {
     if(!_accessURL)
     {
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"accessURL", MLE_FIELD_NAME_KEY,
-                                 @"Access URL", MLE_FIELD_LABEL_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"accessURL"];
         _accessURL = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_accessURL];
     }
     
@@ -208,16 +148,8 @@
 {
     if(!_caseURL)
     {
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"caseURL", MLE_FIELD_NAME_KEY,
-                                 @"Case URL", MLE_FIELD_LABEL_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"caseURL"];
         _caseURL = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_caseURL];
     }
     
@@ -228,60 +160,24 @@
 {
     if(!_blurb)
     {
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLETextAreaFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"blurb", MLE_FIELD_NAME_KEY,
-                                 @"Case description", MLE_FIELD_LABEL_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"blurb"];
         _blurb = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_blurb];
     }
     
     return _blurb;
 }
 
-- (NSNumber *) getActualYear
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy"];
-    NSString *yearString = [formatter stringFromDate:[NSDate date]];
-    
-    return [NSNumber numberWithInteger:[yearString integerValue]];
-}
-
 - (ManagerFieldContainer *)year
 {
     if(!_year)
     {
-        NSMutableArray *years = [[NSMutableArray alloc] init];
-        
-        for( NSInteger i = 1970; i < [[self getActualYear] integerValue]; i ++ )
-        {
-            [years addObject:[NSString stringWithFormat:@"%ld", i ]];
-        }
-        
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEStaticComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"year", MLE_FIELD_NAME_KEY,
-                                 @"Year", MLE_FIELD_LABEL_KEY,
-                                 [NSNumber numberWithInteger:MLENumericDataType], MLE_FIELD_DATATYPE_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 years, MLE_FIELD_STATIC_DOMAIN_KEY,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"year"];
         _year = [[ManagerFieldContainer alloc] initWithOptions:options];
-        
         [self addSubview:_year];
     }
     
     return _year;
 }
-
-
 
 @end

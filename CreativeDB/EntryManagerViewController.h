@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
+@property (nonatomic, strong) NSMutableDictionary *fieldData;
+
 
 - (id)initWithOptions:(NSDictionary *)options;
 
