@@ -12,7 +12,7 @@
 
 @interface AgencyModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *type;
 @property (strong) GroupModel *group;
 @property (strong) CountryModel *country;
@@ -20,6 +20,7 @@
 
 + (AgencyModel *) objectWithResults:(FMResultSet *)results;
 + (AgencyModel *) loadModel:(NSNumber *) pk;
++ (AgencyModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 
 @end

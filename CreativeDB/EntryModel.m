@@ -17,7 +17,7 @@
 + (EntryModel *) objectWithResults:(FMResultSet *)results
 {
     EntryModel *object = [[EntryModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.agency = [AgencyModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"agency"]]];
     object.client = [ClientModel loadModel:[results longForColumn:@"client"]];
     object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
@@ -58,6 +58,11 @@
     [db close];
     
     return model;
+}
+
+- (void) save
+{
+    
 }
 
 - (NSMutableArray *) credits

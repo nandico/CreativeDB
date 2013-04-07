@@ -171,8 +171,42 @@
 - (void) saveAction
 {
     EntryModel *model = [EntryModel loadModel:_modelItem];
-
-    NSLog( @"Model: %@", model );
+    
+    for( NSString *key in _fieldData )
+    {
+        NSDictionary *options = [_fieldData objectForKey:key];
+        NSString *fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
+        NSNumber *fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
+        NSString *fieldLookupModel = [options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
+        
+        ManagerFieldContainer *fieldContainer = [self.entryView valueForKey:fieldName];
+        
+        NSString *stringValue = [fieldContainer stringValue];
+     
+        switch([fieldType integerValue])
+        {
+            case MLETextFieldType:
+                [model setValue:stringValue forKey:fieldName];
+                break;
+            case MLEComboFieldType:
+                if( [fieldName isEqualToString:@"agency"] )
+                {
+                    SEL numericValueSelector = NSSelectorFromString( @"loadModelByStringValue:" );
+                    id lookupModelClass = NSClassFromString( fieldLookupModel );
+                    id lookupModel = [lookupModelClass performSelector:numericValueSelector withObject:stringValue];
+                    [model setValue:[lookupModel valueForKey:@"pk" ] forKey:fieldName];
+                }
+                break;
+            case MLEStaticComboFieldType:
+                [model setValue:stringValue forKey:fieldName];
+                break;
+            case MLETextAreaFieldType:
+                [model setValue:stringValue forKey:fieldName];
+                break;
+        }
+    }
+    
+    [model save];
 }
 
 @end

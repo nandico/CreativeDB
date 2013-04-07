@@ -70,13 +70,30 @@
     return self;
 }
 
+- (NSString *) stringValue
+{
+    switch([_fieldType integerValue])
+    {
+        case MLETextFieldType:
+            return [[self textField] stringValue];
+        case MLEComboFieldType:
+            return [[self comboField] stringValue];
+        case MLEStaticComboFieldType:
+            return [[self staticComboField] stringValue];
+        case MLETextAreaFieldType:
+            return [[self textAreaField] stringValue];
+    }
+    
+    return nil;
+}
+
 - (NSString *) bindForString
 {
     SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
     id baseModelClass = NSClassFromString( _modelName );
     id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelItem];
-    SEL nameSelector = NSSelectorFromString( _fieldName );
-    return [baseModel performSelector:nameSelector withObject:nil];
+    
+    return [baseModel valueForKey:_fieldName];
 }
 
 - (NSInteger) bindForInteger
@@ -101,13 +118,24 @@
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
 
+/*
+- (NSInteger) findLookupValueByString:(NSString *) stringValue
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadModelByStringValue:" );
+    id lookupModelClass = NSClassFromString( _fieldLookupModel );
+    id lookupModel = [lookupModelClass performSelector:staticLoadSelector withObject:stringValue];
+    
+    return (NSInteger) [lookupModel valueForKey:@"pk"];
+}
+*/
+
+
 - (NSMutableArray *) lookupData
 {
     SEL staticLoadSelector = NSSelectorFromString( @"loadAll" );
     id lookupModel = NSClassFromString( _fieldLookupModel );
     
     return [lookupModel performSelector:staticLoadSelector withObject:nil];
-    
 }
 
 - (ManagerLabel *) label

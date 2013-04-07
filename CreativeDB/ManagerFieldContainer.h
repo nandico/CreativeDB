@@ -22,5 +22,6 @@
 @property (nonatomic, strong) ManagerComboBox *comboField;
 
 - (id)initWithOptions:(NSDictionary *)options;
+- (NSString *) stringValue;
 
 @end

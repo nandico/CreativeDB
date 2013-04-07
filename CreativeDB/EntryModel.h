@@ -14,7 +14,7 @@
 
 @interface EntryModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) AgencyModel *agency;
 @property (strong) ClientModel *client;
 @property (strong) CountryModel *country;
@@ -31,5 +31,7 @@
 - (NSMutableArray *) credits;
 - (NSMutableArray *) producers;
 - (NSMutableArray *) annotations;
+- (void) save;
+
 
 @end
