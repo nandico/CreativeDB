@@ -15,7 +15,7 @@
 {
     ClientModel *object = [[ClientModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
+    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.name = [results stringForColumn:@"name"];
     
     return object;
@@ -36,6 +36,33 @@
                             " FROM aa_client "
                             " WHERE "
                             " id = %ld ", pk ];
+    
+    if( [results next] )
+    {
+        model = [ClientModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return model;
+}
+
++ (ClientModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    ClientModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, country, name "
+                            " FROM aa_client "
+                            " WHERE "
+                            " name = %@ ", stringValue ];
     
     if( [results next] )
     {

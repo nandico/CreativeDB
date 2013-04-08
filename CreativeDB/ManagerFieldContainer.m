@@ -96,7 +96,7 @@
     return [baseModel valueForKey:_fieldName];
 }
 
-- (NSInteger) bindForInteger
+- (NSNumber *) bindForNumber
 {
     SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
     id baseModelClass = NSClassFromString( _modelName );
@@ -233,8 +233,8 @@
         
         if( [_fieldDataType integerValue] == MLENumericDataType )
         {
-            NSInteger fieldValue = [self bindForInteger];
-            if( fieldValue ) [_comboField setStringValue:[[NSNumber numberWithInteger:fieldValue] stringValue]];
+            NSNumber *fieldValue = [self bindForNumber];
+            if( fieldValue ) [_comboField setStringValue:[fieldValue stringValue]];
         }
         else
         {

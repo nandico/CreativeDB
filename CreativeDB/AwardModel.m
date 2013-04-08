@@ -19,7 +19,7 @@
     object.pk = [results longForColumn:@"id"];
     object.metal = [MetalModel loadModel:[results longForColumn:@"metal"]];
     object.category = [CategoryModel loadModel:[results longForColumn:@"category"]];
-    object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
+    object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
     object.festival = [FestivalModel loadModel:[results longForColumn:@"festival"]];
     object.subcategory = [SubcategoryModel loadModel:[results longForColumn:@"subcategory"]];
     object.year = [results longForColumn:@"year"];

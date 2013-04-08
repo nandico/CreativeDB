@@ -11,12 +11,13 @@
 
 @interface ProductModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) ClientModel *client;
 @property (strong) NSString *name;
 
 + (ProductModel *) objectWithResults:(FMResultSet *)results;
-+ (ProductModel *) loadModel:(NSInteger) pk;
++ (ProductModel *) loadModel:(NSNumber *) pk;
++ (ProductModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 
 @end

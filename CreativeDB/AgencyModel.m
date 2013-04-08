@@ -17,7 +17,7 @@
     AgencyModel *object = [[AgencyModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.group = [GroupModel loadModel:[results longForColumn:@"agency_group"]];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
+    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.name = [results stringForColumn:@"name"];
 
     return object;

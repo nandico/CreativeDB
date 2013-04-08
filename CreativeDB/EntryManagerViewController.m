@@ -89,7 +89,7 @@
                              @"country", MLE_FIELD_NAME_KEY,
                              @"Country", MLE_FIELD_LABEL_KEY,
                              @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                             @"printable_name", MLE_FIELD_LOOKUP_NAME_KEY,
+                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
                              _modelName, MLE_FIELDSET_MODEL_KEY,
                              _modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
@@ -189,12 +189,12 @@
                 [model setValue:stringValue forKey:fieldName];
                 break;
             case MLEComboFieldType:
-                if( [fieldName isEqualToString:@"agency"] )
+                if( YES )
                 {
                     SEL numericValueSelector = NSSelectorFromString( @"loadModelByStringValue:" );
                     id lookupModelClass = NSClassFromString( fieldLookupModel );
                     id lookupModel = [lookupModelClass performSelector:numericValueSelector withObject:stringValue];
-                    [model setValue:[lookupModel valueForKey:@"pk" ] forKey:fieldName];
+                    [model setValue:lookupModel forKey:fieldName];
                 }
                 break;
             case MLEStaticComboFieldType:

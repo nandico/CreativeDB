@@ -15,7 +15,7 @@
 {
     PersonModel *object = [[PersonModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.country = [CountryModel loadModel:[results longForColumn:@"country"]];
+    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.name = [results stringForColumn:@"name"];
     if([[results resultDictionary] objectForKey:@"portfolioURL"] != nil)
         object.portfolioURL = [[NSURL alloc] initWithString:[results stringForColumn:@"portfolioURL"]];

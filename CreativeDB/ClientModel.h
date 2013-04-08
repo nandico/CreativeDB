@@ -16,6 +16,7 @@
 
 + (ClientModel *) objectWithResults:(FMResultSet *)results;
 + (ClientModel *) loadModel:(NSInteger) pk;
++ (ClientModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 
 @end

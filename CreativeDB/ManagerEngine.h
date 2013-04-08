@@ -45,6 +45,9 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_BUTTON_WIDTH 100.0f
 #define MLE_BUTTON_HEIGHT 25.0f
+#define MLE_BUTTON_OFFSET_X 10.0f
+#define MLE_BUTTON_OFSSET_Y 3.0f
+
 
 #define MLE_FIELD_NAME_KEY @"FIELD_NAME_KEY"
 #define MLE_FIELD_LABEL_KEY @"FIELD_LABEL_KEY"
@@ -59,7 +62,10 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_CONTAINER_COLOR colorWithCalibratedRed:150.0f / 255.0f green:150.0f / 255.0f blue :150.0f / 255.0f alpha:0.2f
 
+#define MLE_NOTIFICATION_NEW @"NOTIFICATION_NEW"
 #define MLE_NOTIFICATION_SAVE @"NOTIFICATION_SAVE"
+#define MLE_NOTIFICATION_PREVIOUS @"NOTIFICATION_PREVIOUS"
+#define MLE_NOTIFICATION_NEXT @"NOTIFICATION_NEXT"
 
 @interface ManagerEngine : NSObject
 

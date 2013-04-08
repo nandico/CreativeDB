@@ -23,7 +23,7 @@
 @property (strong) NSURL *caseURL;
 @property (strong) NSString *blurb;
 @property (strong) NSString *name;
-@property (assign) NSInteger year;
+@property (assign) NSNumber *year;
 
 + (EntryModel *) objectWithResults:(FMResultSet *)results;
 + (EntryModel *) loadModel:(NSNumber *) pk;

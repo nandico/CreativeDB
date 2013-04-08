@@ -10,7 +10,7 @@
 
 @interface CountryModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *iso;
 @property (strong) NSString *language;
 @property (assign) NSInteger numcode;
@@ -19,7 +19,8 @@
 @property (strong) NSString *name;
 
 + (CountryModel *) objectWithResults:(FMResultSet *)results;
-+ (CountryModel *) loadModel:(NSInteger) pk;
++ (CountryModel *) loadModel:(NSNumber *) pk;
++ (CountryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 
 @end
