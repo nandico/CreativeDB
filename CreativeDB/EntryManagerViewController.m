@@ -29,7 +29,15 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
         
-        [self prepareForm];
+        self.view = self.entryView = [[EntryManagerView alloc] init];
+        self.entryView.dataSource = self;
+        
+        _fieldData = [[NSMutableDictionary alloc] init];
+        
+        [self prepareEntity];
+        
+        [self.entryView createForm];
+
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(saveAction)
@@ -49,30 +57,6 @@
     }
     
     return self;
-}
-
-- (void) prepareForm
-{
-    self.view = self.entryView = [[EntryManagerView alloc] init];
-    self.entryView.dataSource = self;
-    
-    _fieldData = [[NSMutableDictionary alloc] init];
-    
-    [self prepareEntity];
-    
-    [self.entryView createForm];
-}
-
-- (void) prepareFormDebug
-{
-    self.entryView = [[EntryManagerView alloc] init];
-    self.entryView.dataSource = self;
-    
-    _fieldData = [[NSMutableDictionary alloc] init];
-    
-    [self prepareEntity];
-    
-    [self.entryView createForm];
 }
 
 - (void) prepareEntity
@@ -244,18 +228,20 @@
 
 - (void) previousAction
 {
-    NSLog( @"previous" );
+    self.modelItem = @( [self.modelItem intValue] - 1 );
+    
+    [self.entryView destroyForm];
+    [self prepareEntity];
+    [self.entryView createForm];
 }
 
 - (void) nextAction
 {
-    [self.view removeFromSuperview];
-    self.view = nil;
-    self.entryView = nil;
-    
     self.modelItem = @( [self.modelItem intValue] + 1 );
     
-    [self prepareFormDebug];
+    [self.entryView destroyForm];
+    [self prepareEntity];
+    [self.entryView createForm];
 }
 
 @end

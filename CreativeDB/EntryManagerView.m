@@ -56,6 +56,30 @@
 
 }
 
+- (void) destroyForm
+{
+    [self.name removeFromSuperview];
+    [self.agency removeFromSuperview];
+    [self.client removeFromSuperview];
+    [self.country removeFromSuperview];
+    [self.product removeFromSuperview];
+    [self.accessURL removeFromSuperview];
+    [self.caseURL removeFromSuperview];
+    [self.blurb removeFromSuperview];
+    [self.year removeFromSuperview];
+    
+    _name = nil;
+    _agency = nil;
+    _client = nil;
+    _country = nil;
+    _product = nil;
+    _accessURL = nil;
+    _name = nil;
+    _caseURL = nil;
+    _blurb = nil;
+    _year = nil;
+}
+
 - (ManagerActionBar *) actionBar
 {
     if(!_actionBar)

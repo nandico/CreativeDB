@@ -23,6 +23,7 @@
 
 @property (strong) id <EntryDataSource> dataSource;
 
-- (void)createForm;
+- (void) createForm;
+- (void) destroyForm;
 
 @end
