@@ -16,7 +16,7 @@
 + (AnnotationModel *) objectWithResults:(FMResultSet *)results
 {
     AnnotationModel *object = [[AnnotationModel alloc] init];
-    object.user = [UserModel loadModel:[results longForColumn:@"user"]];
+    object.user = [UserModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"user"]]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
     object.comment = [results stringForColumn:@"comment"];
     object.i_like = [results boolForColumn:@"i_like"];
@@ -27,7 +27,7 @@
     return object;
 }
 
-+ (NSMutableArray *) loadByEntryId:(NSInteger) entryPK
++ (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -42,7 +42,7 @@
                             " user, entry, comment, i_like, i_rate, i_made, update_request "
                             " FROM aa_annotation "
                             " WHERE "
-                            " entry = %ld ", entryPK ];
+                            " entry = %ld ", [entryPK integerValue] ];
     
     while( [results next] )
     {

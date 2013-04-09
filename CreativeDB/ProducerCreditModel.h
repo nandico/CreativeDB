@@ -19,6 +19,6 @@
 @property (strong) DisciplineModel *discipline;
 
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results;
-+ (NSMutableArray *) loadByEntryId:(NSInteger) entryPK;
++ (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 
 @end

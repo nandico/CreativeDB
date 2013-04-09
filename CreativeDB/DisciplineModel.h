@@ -14,7 +14,7 @@
 @property (strong) NSString *name;
 
 + (DisciplineModel *) objectWithResults:(FMResultSet *)results;
-+ (DisciplineModel *) loadModel:(NSInteger) pk;
++ (DisciplineModel *) loadModel:(NSNumber *) pk;
 
 
 @end

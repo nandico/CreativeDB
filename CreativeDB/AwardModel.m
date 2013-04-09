@@ -17,17 +17,17 @@
 {
     AwardModel *object = [[AwardModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.metal = [MetalModel loadModel:[results longForColumn:@"metal"]];
-    object.category = [CategoryModel loadModel:[results longForColumn:@"category"]];
+    object.metal = [MetalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"metal"]]];
+    object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
-    object.festival = [FestivalModel loadModel:[results longForColumn:@"festival"]];
-    object.subcategory = [SubcategoryModel loadModel:[results longForColumn:@"subcategory"]];
+    object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
+    object.subcategory = [SubcategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"subcategory"]]];
     object.year = [results longForColumn:@"year"];
     
     return object;
 }
 
-+ (AwardModel *) loadModel:(NSInteger) pk
++ (AwardModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -41,7 +41,7 @@
                             " id, metal, category, entry, festival, subcategory, year "
                             " FROM aa_award "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

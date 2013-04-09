@@ -16,12 +16,12 @@
     SubcategoryModel *object = [[SubcategoryModel alloc] init];
     object.pk = [results longForColumn:@"id"];
     object.name = [results stringForColumn:@"name"];
-    object.category = [CategoryModel loadModel:[results longForColumn:@"category"]];
+    object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];
     
     return object;
 }
 
-+ (SubcategoryModel *) loadModel:(NSInteger) pk
++ (SubcategoryModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -35,7 +35,7 @@
                             " id, name, category "
                             " FROM aa_subcategory "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

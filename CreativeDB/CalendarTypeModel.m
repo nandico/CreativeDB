@@ -20,7 +20,7 @@
     return object;
 }
 
-+ (CalendarTypeModel *) loadModel:(NSInteger) pk
++ (CalendarTypeModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -34,7 +34,7 @@
                             " id, name "
                             " FROM aa_calendar_type "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

@@ -17,6 +17,6 @@
 @property (strong) NSString *email;
 
 + (UserModel *) objectWithResults:(FMResultSet *)results;
-+ (UserModel *) loadModel:(NSInteger) pk;
++ (UserModel *) loadModel:(NSNumber *) pk;
 
 @end

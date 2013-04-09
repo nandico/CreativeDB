@@ -21,7 +21,7 @@
     return object;
 }
 
-+ (ClientModel *) loadModel:(NSInteger) pk
++ (ClientModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -35,7 +35,7 @@
                             " id, country, name "
                             " FROM aa_client "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

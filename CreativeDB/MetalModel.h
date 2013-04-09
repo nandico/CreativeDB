@@ -14,6 +14,6 @@
 @property (strong) NSString *name;
 
 + (MetalModel *) objectWithResults:(FMResultSet *)results;
-+ (MetalModel *) loadModel:(NSInteger) pk;
++ (MetalModel *) loadModel:(NSNumber *) pk;
 
 @end

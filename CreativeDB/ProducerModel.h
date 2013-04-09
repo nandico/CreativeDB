@@ -17,7 +17,7 @@
 @property (strong) NSURL *siteURL;
 
 + (ProducerModel *) objectWithResults:(FMResultSet *)results;
-+ (ProducerModel *) loadModel:(NSInteger) pk;
++ (ProducerModel *) loadModel:(NSNumber *) pk;
 
 
 @end

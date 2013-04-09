@@ -21,7 +21,7 @@
     return object;
 }
 
-+ (RoleModel *) loadModel:(NSInteger) pk
++ (RoleModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -35,7 +35,7 @@
                             " id, name, obs "
                             " FROM aa_role "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

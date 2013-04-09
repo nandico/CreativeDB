@@ -15,14 +15,14 @@
 {
     CreditModel *object = [[CreditModel alloc] init];
     object.pk = [results longForColumn:@"rowid"];
-    object.person = [PersonModel loadModel:[results longForColumn:@"person"]];
+    object.person = [PersonModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"person"]]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
-    object.role = [RoleModel loadModel:[results longForColumn:@"role"]];
+    object.role = [RoleModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"role"]]];
     
     return object;
 }
 
-+ (CreditModel *) loadModel:(NSInteger) pk
++ (CreditModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -36,7 +36,7 @@
                             " rowid, person, entry, role "
                             " FROM aa_credit "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {
@@ -49,7 +49,7 @@
     return model;
 }
 
-+ (NSMutableArray *) loadByEntryId:(NSInteger) entryPK
++ (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -64,7 +64,7 @@
                             " rowid, person, entry, role "
                             " FROM aa_credit "
                             " WHERE "
-                            " entry = %ld ", entryPK ];
+                            " entry = %ld ", [entryPK integerValue] ];
     
     while( [results next] )
     {

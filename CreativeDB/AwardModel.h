@@ -24,7 +24,7 @@
 @property (assign) NSInteger year;
 
 + (AwardModel *) objectWithResults:(FMResultSet *)results;
-+ (AwardModel *) loadModel:(NSInteger) pk;
++ (AwardModel *) loadModel:(NSNumber *) pk;
 
 
 

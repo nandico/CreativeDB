@@ -19,8 +19,8 @@
 @property (strong) RoleModel *role;
 
 + (CreditModel *) objectWithResults:(FMResultSet *)results;
-+ (CreditModel *) loadModel:(NSInteger) pk;
-+ (NSMutableArray *) loadByEntryId:(NSInteger) entryPK;
++ (CreditModel *) loadModel:(NSNumber *) pk;
++ (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 
 
 @end

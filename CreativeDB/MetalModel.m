@@ -20,7 +20,7 @@
     return object;
 }
 
-+ (MetalModel *) loadModel:(NSInteger) pk
++ (MetalModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -34,7 +34,7 @@
                             " id, name "
                             " FROM aa_metal "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

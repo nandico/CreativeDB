@@ -18,6 +18,6 @@
 @property (assign) NSInteger classify;
 
 + (FestivalModel *) objectWithResults:(FMResultSet *)results;
-+ (FestivalModel *) loadModel:(NSInteger) pk;
++ (FestivalModel *) loadModel:(NSNumber *) pk;
 
 @end

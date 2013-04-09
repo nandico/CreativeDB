@@ -16,16 +16,16 @@
 {
     CalendarModel *object = [[CalendarModel alloc] init];
     object.pk = [results longForColumn:@"id"];
-    object.festival = [FestivalModel loadModel:[results longForColumn:@"festival"]];
-    object.type = [CalendarTypeModel loadModel:[results longForColumn:@"type"]];
-    object.category = [CategoryModel loadModel:[results longForColumn:@"category"]];
+    object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
+    object.type = [CalendarTypeModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"type"]]];
+    object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];
     object.date = [results dateForColumn:@"date"];
     object.year = [results longForColumn:@"year"];
     
     return object;
 }
 
-+ (CalendarModel *) loadModel:(NSInteger) pk
++ (CalendarModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -39,7 +39,7 @@
                             " id, festival, type, category, date, year "
                             " FROM aa_calendar "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

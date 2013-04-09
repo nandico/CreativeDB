@@ -14,6 +14,6 @@
 @property (strong) NSString *name;
 
 + (CalendarTypeModel *) objectWithResults:(FMResultSet *)results;
-+ (CalendarTypeModel *) loadModel:(NSInteger) pk;
++ (CalendarTypeModel *) loadModel:(NSNumber *) pk;
 
 @end

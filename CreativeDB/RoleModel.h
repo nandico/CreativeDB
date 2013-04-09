@@ -15,7 +15,7 @@
 @property (strong) NSString *obs;
 
 + (RoleModel *) objectWithResults:(FMResultSet *)results;
-+ (RoleModel *) loadModel:(NSInteger) pk;
++ (RoleModel *) loadModel:(NSNumber *) pk;
 
 
 @end

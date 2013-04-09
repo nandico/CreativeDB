@@ -15,13 +15,13 @@
 {
     ProducerCreditModel *object = [[ProducerCreditModel alloc] init];
     object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
-    object.producer = [ProducerModel loadModel:[results longForColumn:@"producer"]];
-    object.discipline = [DisciplineModel loadModel:[results longForColumn:@"discipline"]];
+    object.producer = [ProducerModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"producer"]]];
+    object.discipline = [DisciplineModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"discipline"]]];
    
     return object;
 }
 
-+ (NSMutableArray *) loadByEntryId:(NSInteger) entryPK
++ (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -36,7 +36,7 @@
                             " entry, producer, discipline "
                             " FROM aa_entry_producer "
                             " WHERE "
-                            " entry = %ld ", entryPK ];
+                            " entry = %ld ", [entryPK integerValue] ];
         
     while( [results next] )
     {

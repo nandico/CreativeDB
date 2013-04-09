@@ -17,7 +17,7 @@
 @property (strong) NSURL *portfolioURL;
 
 + (PersonModel *) objectWithResults:(FMResultSet *)results;
-+ (PersonModel *) loadModel:(NSInteger) pk;
++ (PersonModel *) loadModel:(NSNumber *) pk;
 
 
 @end

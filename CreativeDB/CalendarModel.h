@@ -21,6 +21,6 @@
 @property (assign) NSInteger year;
 
 + (CalendarModel *) objectWithResults:(FMResultSet *)results;
-+ (CalendarModel *) loadModel:(NSInteger) pk;
++ (CalendarModel *) loadModel:(NSNumber *) pk;
 
 @end

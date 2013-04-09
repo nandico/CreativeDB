@@ -15,7 +15,7 @@
 {
     ProductModel *object = [[ProductModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
-    object.client = [ClientModel loadModel:[results longForColumn:@"client"]];
+    object.client = [ClientModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"client"]]];
     object.name = [results stringForColumn:@"name"];
     
     return object;

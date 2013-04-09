@@ -21,6 +21,6 @@
 @property (strong) NSString *update_request;
 
 + (AnnotationModel *) objectWithResults:(FMResultSet *)results;
-+ (NSMutableArray *) loadByEntryId:(NSInteger) entryPK;
++ (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 
 @end

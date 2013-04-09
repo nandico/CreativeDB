@@ -15,7 +15,7 @@
 @property (strong) NSString *name;
 
 + (ClientModel *) objectWithResults:(FMResultSet *)results;
-+ (ClientModel *) loadModel:(NSInteger) pk;
++ (ClientModel *) loadModel:(NSNumber *) pk;
 + (ClientModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 

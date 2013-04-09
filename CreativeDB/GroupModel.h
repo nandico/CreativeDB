@@ -14,7 +14,7 @@
 @property (strong) NSString *name;
 
 + (GroupModel *) objectWithResults:(FMResultSet *)results;
-+ (GroupModel *) loadModel:(NSInteger) pk;
++ (GroupModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
 
 @end

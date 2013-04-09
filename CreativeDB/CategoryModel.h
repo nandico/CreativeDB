@@ -14,6 +14,6 @@
 @property (strong) NSString *name;
 
 + (CategoryModel *) objectWithResults:(FMResultSet *)results;
-+ (CategoryModel *) loadModel:(NSInteger) pk;
++ (CategoryModel *) loadModel:(NSNumber *) pk;
 
 @end

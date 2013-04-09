@@ -25,7 +25,7 @@
     return object;
 }
 
-+ (FestivalModel *) loadModel:(NSInteger) pk
++ (FestivalModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -39,7 +39,7 @@
                             " id, name, siteURL, weight, obs, classify "
                             " FROM aa_festival "
                             " WHERE "
-                            " id = %ld ", pk ];
+                            " id = %ld ", [pk integerValue] ];
     
     if( [results next] )
     {

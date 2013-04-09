@@ -16,6 +16,6 @@
 @property (strong) CategoryModel *category;
 
 + (SubcategoryModel *) objectWithResults:(FMResultSet *)results;
-+ (SubcategoryModel *) loadModel:(NSInteger) pk;
++ (SubcategoryModel *) loadModel:(NSNumber *) pk;
 
 @end
