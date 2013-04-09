@@ -29,22 +29,50 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
         
-        self.view = self.entryView = [[EntryManagerView alloc] init];
-        self.entryView.dataSource = self;
-        
-        _fieldData = [[NSMutableDictionary alloc] init];
-        
-        [self prepareEntity];
-        
-        
-        [self.entryView createForm];
+        [self prepareForm];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(saveAction)
                                                      name:MLE_NOTIFICATION_SAVE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(newAction)
+                                                     name:MLE_NOTIFICATION_NEW object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(nextAction)
+                                                     name:MLE_NOTIFICATION_NEXT object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(previousAction)
+                                                     name:MLE_NOTIFICATION_PREVIOUS object:nil];
     }
     
     return self;
+}
+
+- (void) prepareForm
+{
+    self.view = self.entryView = [[EntryManagerView alloc] init];
+    self.entryView.dataSource = self;
+    
+    _fieldData = [[NSMutableDictionary alloc] init];
+    
+    [self prepareEntity];
+    
+    [self.entryView createForm];
+}
+
+- (void) prepareFormDebug
+{
+    self.entryView = [[EntryManagerView alloc] init];
+    self.entryView.dataSource = self;
+    
+    _fieldData = [[NSMutableDictionary alloc] init];
+    
+    [self prepareEntity];
+    
+    [self.entryView createForm];
 }
 
 - (void) prepareEntity
@@ -207,6 +235,27 @@
     }
     
     [model save];
+}
+
+- (void) newAction
+{
+    NSLog( @"new" );
+}
+
+- (void) previousAction
+{
+    NSLog( @"previous" );
+}
+
+- (void) nextAction
+{
+    [self.view removeFromSuperview];
+    self.view = nil;
+    self.entryView = nil;
+    
+    self.modelItem = @( [self.modelItem intValue] + 1 );
+    
+    [self prepareFormDebug];
 }
 
 @end

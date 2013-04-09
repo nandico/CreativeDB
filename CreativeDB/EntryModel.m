@@ -23,10 +23,11 @@
     object.client = [ClientModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"client"]]];
     object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.product = [ProductModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"product"]]];
-    if([[results resultDictionary] objectForKey:@"accessURL"] != nil)
+    if([[results resultDictionary] objectForKey:@"accessURL"])
         object.accessURL = [[NSURL alloc] initWithString:[results stringForColumn:@"accessURL"]];
-    if([[results resultDictionary] objectForKey:@"caseURL"] != nil)
+    if([[results resultDictionary] objectForKey:@"caseURL"])
         object.caseURL = [[NSURL alloc] initWithString:[results stringForColumn:@"caseURL"]];
+    
     object.blurb = [results stringForColumn:@"blurb"];
     object.name = [results stringForColumn:@"name"];
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
