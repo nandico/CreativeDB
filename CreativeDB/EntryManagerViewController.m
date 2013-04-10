@@ -44,6 +44,10 @@
                                                      name:MLE_NOTIFICATION_SAVE object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deleteAction)
+                                                     name:MLE_NOTIFICATION_DELETE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(newAction)
                                                      name:MLE_NOTIFICATION_NEW object:nil];
         
@@ -228,6 +232,17 @@
     }
     
     [model save];
+}
+
+- (void) deleteAction
+{
+    if( _modelItem )
+    {
+        EntryModel *model = [EntryModel loadModel:_modelItem];
+        [model deleteModel];
+        
+        [self previousAction];
+    }
 }
 
 - (void) newAction

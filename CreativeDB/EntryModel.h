@@ -32,6 +32,7 @@
 - (NSMutableArray *) producers;
 - (NSMutableArray *) annotations;
 - (void) save;
+- (void) deleteModel;
 
 
 @end

@@ -15,6 +15,7 @@
 @property (nonatomic,strong) ManagerButton *previous;
 @property (nonatomic,strong) ManagerButton *new;
 @property (nonatomic,strong) ManagerButton *save;
+@property (nonatomic,strong) ManagerButton *delete;
 @property (nonatomic,strong) ManagerButton *next;
 
 @property (nonatomic,strong) NSMutableArray *buttons;
@@ -39,6 +40,7 @@
         [_buttons addObject:[self previous]];
         [_buttons addObject:[self new]];
         [_buttons addObject:[self save]];
+        [_buttons addObject:[self delete]];
         [_buttons addObject:[self next]];
         
         [self arrangeButtons];
@@ -104,6 +106,49 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:MLE_NOTIFICATION_SAVE
                                                         object:self
                                                       userInfo:nil];
+}
+
+- (ManagerButton *) delete
+{
+    if(!_delete)
+    {
+        _delete = [[ManagerButton alloc] init];
+        _delete.title = @"Delete";
+        
+        [_delete setTarget:self];
+        [_delete setAction:@selector(deleteAction)];
+        
+        [self addSubview:_delete];
+    }
+    
+    return _delete;
+}
+
+- (IBAction) deleteAction
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+ 
+    [alert setMessageText:@"Are you sure?" ];
+    
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert addButtonWithTitle:@"Ok"];    
+    
+    [alert beginSheetModalForWindow:self.window
+                      modalDelegate:self
+                     didEndSelector:@selector(alertDidEnd:returnCode:contextInfo:)
+                        contextInfo:nil];
+}
+
+- (void) alertDidEnd:(NSAlert *)a returnCode:(NSInteger)rc contextInfo:(void *)ci
+{
+    switch(rc)
+    {
+        case NSAlertSecondButtonReturn:
+            [[NSNotificationCenter defaultCenter] postNotificationName:MLE_NOTIFICATION_DELETE
+                                                                object:self
+                                                              userInfo:nil];
+            break;
+    }
 }
 
 - (ManagerButton *) previous

@@ -66,14 +66,29 @@
 {
     if( self.pk )
     {
-        NSLog( @"UPDATE" );
         [self update];
     }
     else
     {
-        NSLog( @"INSERT" );
         [self insert];
     }
+}
+
+- (void) deleteModel
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = @" DELETE FROM aa_entry "
+    " WHERE id = ? ";
+    
+    [db executeUpdate:sql, self.pk];
+    [db close];
+    
 }
 
 - (void) insert
