@@ -10,7 +10,7 @@
 
 @interface CalendarTypeModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
 + (CalendarTypeModel *) objectWithResults:(FMResultSet *)results;

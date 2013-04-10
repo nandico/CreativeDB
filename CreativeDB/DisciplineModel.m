@@ -14,7 +14,7 @@
 + (DisciplineModel *) objectWithResults:(FMResultSet *)results
 {
     DisciplineModel *object = [[DisciplineModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     
     return object;

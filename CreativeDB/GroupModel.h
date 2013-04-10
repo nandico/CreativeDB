@@ -10,7 +10,7 @@
 
 @interface GroupModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
 + (GroupModel *) objectWithResults:(FMResultSet *)results;

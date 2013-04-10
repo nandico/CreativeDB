@@ -64,6 +64,49 @@
 
 - (void) save
 {
+    if( self.pk )
+    {
+        NSLog( @"UPDATE" );
+        [self update];
+    }
+    else
+    {
+        NSLog( @"INSERT" );
+        [self insert];
+    }
+}
+
+- (void) insert
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = @" INSERT INTO aa_entry "
+                        " ( agency, client, country, product, accessURL, caseURL, blurb, name, year ) "
+                        " VALUES "
+                        " ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) ";
+    
+    [db executeUpdate:sql,
+     self.agency.pk,
+     self.client.pk,
+     self.country.pk,
+     self.product.pk,
+     self.accessURL,
+     self.caseURL,
+     self.blurb,
+     self.name,
+     self.year];
+     
+    [db close];
+    
+}
+
+- (void) update
+{
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
@@ -75,6 +118,11 @@
     {
         [db executeUpdate:@"UPDATE aa_entry SET agency = ? WHERE id = ?",
          self.agency.pk, self.pk ];
+    }
+    if( self.client )
+    {
+        [db executeUpdate:@"UPDATE aa_entry SET client = ? WHERE id = ?",
+         self.client.pk, self.pk ];
     }
     if( self.country )
     {
@@ -111,8 +159,9 @@
         [db executeUpdate:@"UPDATE aa_entry SET year = ? WHERE id = ?",
          self.year, self.pk ];
     }
-      
+    
     [db close];
+    
 }
 
 - (NSMutableArray *) credits

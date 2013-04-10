@@ -14,7 +14,7 @@
 + (ClientModel *) objectWithResults:(FMResultSet *)results
 {
     ClientModel *object = [[ClientModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.name = [results stringForColumn:@"name"];
     

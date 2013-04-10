@@ -10,7 +10,7 @@
 
 @interface RoleModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 @property (strong) NSString *obs;
 

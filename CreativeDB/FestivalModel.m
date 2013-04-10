@@ -14,7 +14,7 @@
 + (FestivalModel *) objectWithResults:(FMResultSet *)results
 {
     FestivalModel *object = [[FestivalModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     if([[results resultDictionary] objectForKey:@"siteURL"] != nil)
         object.siteURL = [[NSURL alloc] initWithString:[results stringForColumn:@"siteURL"]];

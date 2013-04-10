@@ -14,7 +14,7 @@
 + (ProducerModel *) objectWithResults:(FMResultSet *)results
 {
     ProducerModel *object = [[ProducerModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.name = [results stringForColumn:@"name"];
     if([[results resultDictionary] objectForKey:@"siteURL"] != nil)

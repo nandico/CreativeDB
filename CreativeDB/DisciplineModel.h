@@ -10,7 +10,7 @@
 
 @interface DisciplineModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
 + (DisciplineModel *) objectWithResults:(FMResultSet *)results;

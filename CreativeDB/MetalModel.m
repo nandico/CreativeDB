@@ -14,7 +14,7 @@
 + (MetalModel *) objectWithResults:(FMResultSet *)results
 {
     MetalModel *object = [[MetalModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     
     return object;

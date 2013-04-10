@@ -14,7 +14,7 @@
 + (SubcategoryModel *) objectWithResults:(FMResultSet *)results
 {
     SubcategoryModel *object = [[SubcategoryModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];
     

@@ -15,7 +15,7 @@
 + (CalendarModel *) objectWithResults:(FMResultSet *)results
 {
     CalendarModel *object = [[CalendarModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
     object.type = [CalendarTypeModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"type"]]];
     object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];

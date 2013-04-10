@@ -10,7 +10,7 @@
 
 @interface MetalModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
 + (MetalModel *) objectWithResults:(FMResultSet *)results;

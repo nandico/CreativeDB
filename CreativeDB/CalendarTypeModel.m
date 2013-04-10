@@ -14,7 +14,7 @@
 + (CalendarTypeModel *) objectWithResults:(FMResultSet *)results
 {
     CalendarTypeModel *object = [[CalendarTypeModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     
     return object;

@@ -14,7 +14,7 @@
 + (CategoryModel *) objectWithResults:(FMResultSet *)results
 {
     CategoryModel *object = [[CategoryModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     
     return object;

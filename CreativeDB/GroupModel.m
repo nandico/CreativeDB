@@ -14,7 +14,7 @@
 + (GroupModel *) objectWithResults:(FMResultSet *)results
 {
     GroupModel *object = [[GroupModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     
     return object;

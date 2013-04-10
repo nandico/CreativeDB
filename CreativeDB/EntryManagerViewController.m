@@ -182,8 +182,17 @@
 
 - (void) saveAction
 {
-    EntryModel *model = [EntryModel loadModel:_modelItem];
+    EntryModel *model;
     
+    if(_modelItem)
+    {
+        model = [EntryModel loadModel:_modelItem];
+    }
+    else
+    {
+        model = [[EntryModel alloc] init];
+    }
+        
     for( NSString *key in _fieldData )
     {
         NSDictionary *options = [_fieldData objectForKey:key];
@@ -223,7 +232,11 @@
 
 - (void) newAction
 {
-    NSLog( @"new" );
+    self.modelItem = nil;
+    
+    [self.entryView destroyForm];
+    [self prepareEntity];
+    [self.entryView createForm];
 }
 
 - (void) previousAction

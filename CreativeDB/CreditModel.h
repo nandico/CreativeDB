@@ -13,7 +13,7 @@
 
 @interface CreditModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) PersonModel *person;
 @property (strong) EntryModel *entry;
 @property (strong) RoleModel *role;

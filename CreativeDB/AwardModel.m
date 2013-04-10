@@ -16,7 +16,7 @@
 + (AwardModel *) objectWithResults:(FMResultSet *)results
 {
     AwardModel *object = [[AwardModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.metal = [MetalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"metal"]]];
     object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];

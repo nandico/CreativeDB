@@ -13,7 +13,7 @@
 
 @interface ProducerCreditModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) EntryModel *entry;
 @property (strong) ProducerModel *producer;
 @property (strong) DisciplineModel *discipline;

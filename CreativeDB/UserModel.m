@@ -14,7 +14,7 @@
 + (UserModel *) objectWithResults:(FMResultSet *)results
 {
     UserModel *object = [[UserModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.fb_id = [results stringForColumn:@"fb_id"];
     object.tw_id = [results stringForColumn:@"tw_id"];
     object.name = [results stringForColumn:@"name"];

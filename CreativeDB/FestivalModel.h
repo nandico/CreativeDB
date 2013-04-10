@@ -10,7 +10,7 @@
 
 @interface FestivalModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 @property (strong) NSURL *siteURL;
 @property (assign) NSInteger weight;

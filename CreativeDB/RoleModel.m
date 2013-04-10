@@ -14,7 +14,7 @@
 + (RoleModel *) objectWithResults:(FMResultSet *)results
 {
     RoleModel *object = [[RoleModel alloc] init];
-    object.pk = [results longForColumn:@"id"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
     object.obs = [results stringForColumn:@"obs"];
     

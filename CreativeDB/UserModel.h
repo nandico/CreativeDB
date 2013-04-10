@@ -10,7 +10,7 @@
 
 @interface UserModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *fb_id;
 @property (strong) NSString *tw_id;
 @property (strong) NSString *name;

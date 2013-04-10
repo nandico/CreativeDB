@@ -14,7 +14,7 @@
 + (CreditModel *) objectWithResults:(FMResultSet *)results
 {
     CreditModel *object = [[CreditModel alloc] init];
-    object.pk = [results longForColumn:@"rowid"];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"rowid"]];
     object.person = [PersonModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"person"]]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
     object.role = [RoleModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"role"]]];

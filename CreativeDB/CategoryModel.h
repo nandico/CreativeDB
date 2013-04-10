@@ -10,7 +10,7 @@
 
 @interface CategoryModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
 + (CategoryModel *) objectWithResults:(FMResultSet *)results;

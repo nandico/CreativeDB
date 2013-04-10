@@ -11,7 +11,7 @@
 
 @interface SubcategoryModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 @property (strong) CategoryModel *category;
 

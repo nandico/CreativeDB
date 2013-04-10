@@ -15,7 +15,7 @@
 
 @interface AwardModel : BaseModel
 
-@property (assign) NSInteger pk;
+@property (assign) NSNumber *pk;
 @property (strong) MetalModel *metal;
 @property (strong) CategoryModel *category;
 @property (strong) EntryModel *entry;
