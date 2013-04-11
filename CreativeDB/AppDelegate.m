@@ -13,6 +13,7 @@
 
 #import "AgencyManagerViewController.h"
 #import "EntryManagerViewController.h"
+#import "EntryModel.h"
 
 // test data
 /*
@@ -131,7 +132,7 @@
     
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"EntryModel", MLE_FIELDSET_MODEL_KEY,
-                                  [NSNumber numberWithInt:1], MLE_FIELDSET_MODEL_ITEM,
+                                  [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
                                   nil];
     
     EntryManagerViewController *entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];

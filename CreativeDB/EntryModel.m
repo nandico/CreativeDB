@@ -62,6 +62,123 @@
     return model;
 }
 
+- (NSNumber *) next
+{
+    if( !_pk ) return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " FROM aa_entry "
+                            " WHERE "
+                            " id > %ld "
+                            " ORDER BY id " , [_pk integerValue] ];
+    
+    if( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return model.pk;
+}
+
+- (NSNumber *) previous
+{
+    if( !_pk ) return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSLog( @"previous search from: %@", _pk );
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " FROM aa_entry "
+                            " WHERE "
+                            " aa_entry.id < %ld "
+                            " ORDER BY id DESC ", [_pk integerValue] ];
+    
+    if( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+    }
+    
+    
+    [results close];
+    [db close];
+    
+    return model.pk;
+}
+
++ (NSNumber *) first
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " FROM aa_entry "
+                            " ORDER BY id ASC " ];
+    
+    if( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        NSLog( @"My result: %@", model.pk );
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( model.pk ) ? model.pk : nil;
+}
+
++ (NSNumber *) last
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " FROM aa_entry "
+                            " ORDER BY id DESC " ];
+    
+    if( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( model.pk ) ? model.pk : nil;
+}
+
+
 - (void) save
 {
     if( self.pk )

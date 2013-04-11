@@ -27,6 +27,10 @@
 
 + (EntryModel *) objectWithResults:(FMResultSet *)results;
 + (EntryModel *) loadModel:(NSNumber *) pk;
+- (NSNumber *) next;
+- (NSNumber *) previous;
++ (NSNumber *) first;
++ (NSNumber *) last;
 
 - (NSMutableArray *) credits;
 - (NSMutableArray *) producers;

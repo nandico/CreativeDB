@@ -65,6 +65,8 @@
 
 - (void) prepareEntity
 {
+    
+    NSLog( @"Form for %@", _modelItem );
 
     NSDictionary *name = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
@@ -256,20 +258,56 @@
 
 - (void) previousAction
 {
-    self.modelItem = @( [self.modelItem intValue] - 1 );
-    
-    [self.entryView destroyForm];
-    [self prepareEntity];
-    [self.entryView createForm];
+    if( _modelItem )
+    {
+        EntryModel *model = [EntryModel loadModel:_modelItem];
+        
+        if( model.previous )
+        {
+            self.modelItem = model.previous;
+            [self.entryView destroyForm];
+            [self prepareEntity];
+            [self.entryView createForm];
+        }
+        else
+        {
+            self.modelItem = [EntryModel first];
+            [self.entryView destroyForm];
+            [self prepareEntity];
+            [self.entryView createForm];
+        }
+    }
+    else
+    {
+        self.modelItem = [EntryModel last];
+        [self.entryView destroyForm];
+        [self prepareEntity];
+        [self.entryView createForm];
+    }
 }
 
 - (void) nextAction
 {
-    self.modelItem = @( [self.modelItem intValue] + 1 );
-    
-    [self.entryView destroyForm];
-    [self prepareEntity];
-    [self.entryView createForm];
+    if( _modelItem )
+    {
+        EntryModel *model = [EntryModel loadModel:_modelItem];
+        
+        if( model.next )
+        {
+            self.modelItem = model.next;
+            [self.entryView destroyForm];
+            [self prepareEntity];
+            [self.entryView createForm];
+        }
+        else
+        {
+            [self newAction];
+        }
+    }
+    else
+    {
+        [self newAction];
+    }
 }
 
 @end
