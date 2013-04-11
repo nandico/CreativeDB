@@ -14,6 +14,16 @@
 
 @implementation EntryModel
 
++ (NSString *) tableName
+{
+    return @"aa_entry";
+}
+
+- (NSString *) tableName
+{
+    return [EntryModel tableName];
+}
+
 + (EntryModel *) objectWithResults:(FMResultSet *)results
 {
     EntryModel *object = [[EntryModel alloc] init];
@@ -45,11 +55,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
-                            " FROM aa_entry "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -74,12 +84,12 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
-                            " FROM aa_entry "
+                            " FROM %@ "
                             " WHERE "
                             " id > %ld "
-                            " ORDER BY id " , [_pk integerValue] ];
+                            " ORDER BY id " , [self tableName], [_pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -106,12 +116,12 @@
     
     NSLog( @"previous search from: %@", _pk );
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
-                            " FROM aa_entry "
+                            " FROM %@ "
                             " WHERE "
-                            " aa_entry.id < %ld "
-                            " ORDER BY id DESC ", [_pk integerValue] ];
+                            " id < %ld "
+                            " ORDER BY id DESC ", [self tableName], [_pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -134,16 +144,19 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+        
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
-                            " FROM aa_entry "
-                            " ORDER BY id ASC " ];
-    
+                            " FROM %@ "
+                            " ORDER BY id ASC ", [self tableName] ] ];    
     if( [results next] )
     {
         model = [EntryModel objectWithResults:results];
         NSLog( @"My result: %@", model.pk );
+    }
+    else
+    {
+        NSLog( @"NO results" );
     }
     
     [results close];
@@ -162,10 +175,10 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
-                            " FROM aa_entry "
-                            " ORDER BY id DESC " ];
+                            " FROM %@ "
+                            " ORDER BY id DESC ", [self tableName] ] ];
     
     if( [results next] )
     {
@@ -200,8 +213,9 @@
     
     [db open];
     
-    NSString *sql = @" DELETE FROM aa_entry "
-    " WHERE id = ? ";
+    db.traceExecution = YES;
+    
+    NSString *sql = [NSString stringWithFormat:@" DELETE FROM %@ WHERE id = ? ", [self tableName]];
     
     [db executeUpdate:sql, self.pk];
     [db close];
@@ -217,10 +231,10 @@
     
     [db open];
     
-    NSString *sql = @" INSERT INTO aa_entry "
+    NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                         " ( agency, client, country, product, accessURL, caseURL, blurb, name, year ) "
                         " VALUES "
-                        " ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) ";
+                        " ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) ", [self tableName] ];
     
     [db executeUpdate:sql,
      self.agency.pk,
@@ -248,47 +262,47 @@
     
     if( self.agency )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET agency = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET agency = ? WHERE id = ?", [self tableName]],
          self.agency.pk, self.pk ];
     }
     if( self.client )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET client = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET client = ? WHERE id = ?", [self tableName]],
          self.client.pk, self.pk ];
     }
     if( self.country )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET country = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = ? WHERE id = ?", [self tableName]],
          self.country.pk, self.pk ];
     }
     if( self.product )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET product = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET product = ? WHERE id = ?", [self tableName]],
          self.product.pk, self.pk ];
     }
     if( self.accessURL )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET accessURL = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET accessURL = ? WHERE id = ?", [self tableName]],
          self.accessURL, self.pk ];
     }
     if( self.caseURL )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET caseURL = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET caseURL = ? WHERE id = ?", [self tableName]],
          self.caseURL, self.pk ];
     }
     if( self.blurb )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET blurb = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET blurb = ? WHERE id = ?", [self tableName]],
          self.blurb, self.pk ];
     }
     if( self.name )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET name = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET name = ? WHERE id = ?", [self tableName]],
          self.name, self.pk ];
     }
     if( self.year )
     {
-        [db executeUpdate:@"UPDATE aa_entry SET year = ? WHERE id = ?",
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET year = ? WHERE id = ?", [self tableName]],
          self.year, self.pk ];
     }
     

@@ -130,6 +130,8 @@
     self.window.contentView = agencyManager.view;
     */
     
+    NSLog( @"First: %@", [EntryModel first] );
+    
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"EntryModel", MLE_FIELDSET_MODEL_KEY,
                                   [EntryModel first], MLE_FIELDSET_MODEL_ITEM,

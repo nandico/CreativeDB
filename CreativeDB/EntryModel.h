@@ -25,6 +25,7 @@
 @property (strong) NSString *name;
 @property (assign) NSNumber *year;
 
++ (NSString *) tableName;
 + (EntryModel *) objectWithResults:(FMResultSet *)results;
 + (EntryModel *) loadModel:(NSNumber *) pk;
 - (NSNumber *) next;
