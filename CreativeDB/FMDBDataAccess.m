@@ -76,6 +76,34 @@
     
 }
 
+- (ColumnModel *) getColumnSchema:(NSString *)tableName withColumnName:(NSString *) columnName;
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    [db open];
+    
+    FMResultSet *results = [db getTableSchema:tableName];
+    
+    while([results next])
+    {
+        ColumnModel *column = [ColumnModel objectWithResults:results];
+        
+        if( [column.name isEqualToString:columnName] )
+        {
+            [results close];
+            [db close];
+            return column;
+        }
+    }
+    
+    [results close];
+    [db close];
+    
+    return nil;
+}
+
 
 
 @end

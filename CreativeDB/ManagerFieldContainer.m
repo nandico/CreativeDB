@@ -8,7 +8,7 @@
 
 #import "ManagerFieldContainer.h"
 #import "ManagerEngine.h"
-#import "AgencyModel.h"
+#import "FMDBDataAccess.h"
 
 @interface ManagerFieldContainer()
 
@@ -22,6 +22,11 @@
 @property (nonatomic, strong) NSString *fieldLookupModel;
 @property (nonatomic,strong) NSNumber *fieldDataType;
 @property (nonatomic, strong) NSMutableArray *staticDomainData;
+
+@property (nonatomic, strong) ColumnModel *column;
+@property (nonatomic, assign) BOOL notnull;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, assign) BOOL ispk;
 
 @end
 
@@ -65,9 +70,22 @@
                 [self textAreaField];
                 break;
         }
+        
+        [self processColumnSchema];
+        
     }
-    
+
     return self;
+}
+
+- (void) processColumnSchema
+{
+    _column = [[FMDBDataAccess getInstance] getColumnSchema:[self tableName] withColumnName:_fieldName];
+   
+    _notnull = self.column.notnull;
+    _type = self.column.type;
+    _ispk = self.column.pk;
+    
 }
 
 - (NSString *) stringValue
@@ -85,6 +103,14 @@
     }
     
     return nil;
+}
+
+- (NSString *) tableName
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"tableName" );
+    id baseModelClass = NSClassFromString( _modelName );
+    
+    return [baseModelClass performSelector:staticLoadSelector withObject:nil];
 }
 
 - (NSString *) bindForString
