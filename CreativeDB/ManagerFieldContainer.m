@@ -24,9 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *staticDomainData;
 
 @property (nonatomic, strong) ColumnModel *column;
-@property (nonatomic, assign) BOOL notnull;
-@property (nonatomic, strong) NSString *type;
-@property (nonatomic, assign) BOOL ispk;
+
 
 @end
 
@@ -82,9 +80,9 @@
 {
     _column = [[FMDBDataAccess getInstance] getColumnSchema:[self tableName] withColumnName:_fieldName];
    
-    _notnull = self.column.notnull;
+    _isNullable = self.column.notnull;
     _type = self.column.type;
-    _ispk = self.column.pk;
+    _isPk = self.column.pk;
     
 }
 

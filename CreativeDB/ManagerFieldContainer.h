@@ -21,6 +21,10 @@
 @property (nonatomic, strong) ManagerTextAreaField *textAreaField;
 @property (nonatomic, strong) ManagerComboBox *comboField;
 
+@property (nonatomic, assign) BOOL isNullable;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, assign) BOOL isPk;
+
 - (id)initWithOptions:(NSDictionary *)options;
 - (NSString *) stringValue;
 

@@ -198,17 +198,56 @@
     {
         model = [[EntryModel alloc] init];
     }
-        
-    for( NSString *key in _fieldData )
+    
+    NSString *key;
+    NSString *fieldName;
+    NSString *fieldType;
+    NSString *fieldLookupModel;
+    NSDictionary *options;
+    ManagerFieldContainer *fieldContainer;
+    NSString *stringValue;
+    
+    NSMutableString *requiredMessage = [NSMutableString new];
+    
+    // validating
+    for( key in _fieldData )
     {
-        NSDictionary *options = [_fieldData objectForKey:key];
-        NSString *fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
-        NSNumber *fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
-        NSString *fieldLookupModel = [options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
+        options = [_fieldData objectForKey:key];
+        fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
+        fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
+        fieldLookupModel = [options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
         
-        ManagerFieldContainer *fieldContainer = [self.entryView valueForKey:fieldName];
+        fieldContainer = [self.entryView valueForKey:fieldName];
         
-        NSString *stringValue = [fieldContainer stringValue];
+        stringValue = [fieldContainer stringValue];
+        
+        if( [stringValue isEqualToString:@"" ] && [fieldContainer isNullable] )
+        {
+            [requiredMessage appendString:[NSString stringWithFormat:@"The %@ is required. \n", fieldName ]];
+        }
+    }
+    
+    if( [requiredMessage length] > 0 )
+    {
+        NSAlert *alert = [[NSAlert alloc] init];
+        
+        [alert setMessageText:requiredMessage];
+        [alert runModal];
+        
+        return;
+    }
+    
+    // saving
+    for( key in _fieldData )
+    {
+        options = [_fieldData objectForKey:key];
+        fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
+        fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
+        fieldLookupModel = [options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
+        
+        fieldContainer = [self.entryView valueForKey:fieldName];
+        
+        stringValue = [fieldContainer stringValue];
      
         switch([fieldType integerValue])
         {
@@ -234,6 +273,8 @@
     }
     
     [model save];
+    
+    [self newAction];
 }
 
 - (void) deleteAction
