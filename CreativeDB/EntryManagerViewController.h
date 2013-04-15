@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "EntryManagerView.h"
+#import "BaseManagerViewController.h"
 
-@interface EntryManagerViewController : NSViewController <EntryDataSource>
+@interface EntryManagerViewController : BaseManagerViewController <EntryDataSource>
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;

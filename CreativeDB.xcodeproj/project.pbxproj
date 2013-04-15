@@ -47,6 +47,8 @@
 		BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
 		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
+		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
+		BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2EA2171BA2360044262E /* BaseManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
 		BFF4C58F1705450E0098A633 /* AgencyManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58E1705450E0098A633 /* AgencyManagerView.m */; };
 		BFF4C592170546080098A633 /* ManagerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C591170546080098A633 /* ManagerTextField.m */; };
@@ -140,6 +142,10 @@
 		BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
 		BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
 		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
+		BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerViewController.h; sourceTree = "<group>"; };
+		BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerViewController.m; sourceTree = "<group>"; };
+		BFAD2EA1171BA2350044262E /* BaseManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerView.h; sourceTree = "<group>"; };
+		BFAD2EA2171BA2360044262E /* BaseManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerView.m; sourceTree = "<group>"; };
 		BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerViewController.h; sourceTree = "<group>"; };
 		BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyManagerViewController.m; sourceTree = "<group>"; };
 		BFF4C58D1705450E0098A633 /* AgencyManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerView.h; sourceTree = "<group>"; };
@@ -371,6 +377,10 @@
 				BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */,
 				BFF4C5AD170902E10098A633 /* ManagerButton.h */,
 				BFF4C5AE170902E20098A633 /* ManagerButton.m */,
+				BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */,
+				BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */,
+				BFAD2EA1171BA2350044262E /* BaseManagerView.h */,
+				BFAD2EA2171BA2360044262E /* BaseManagerView.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -486,6 +496,8 @@
 				BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */,
 				BFF4C5AC1708FEBA0098A633 /* ManagerActionBar.m in Sources */,
 				BFF4C5AF170902E30098A633 /* ManagerButton.m in Sources */,
+				BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */,
+				BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,7 +13,7 @@
 
 @interface EntryManagerViewController ()
 
-@property (nonatomic, strong) EntryManagerView *entryView;
+@property (nonatomic, strong) EntryManagerView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
 
 @end
@@ -26,17 +26,17 @@
     if (self) {
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
         
-        self.view = self.entryView = [[EntryManagerView alloc] init];
-        self.entryView.dataSource = self;
+        self.view = self.viewInstance = [[EntryManagerView alloc] init];
+        self.viewInstance.dataSource = self;
         
-        _fieldData = [[NSMutableDictionary alloc] init];
+        self.fieldData = [[NSMutableDictionary alloc] init];
         
         [self prepareEntity];
         
-        [self.entryView createForm];
+        [self.viewInstance createForm];
 
         
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -65,18 +65,15 @@
 
 - (void) prepareEntity
 {
-    
-    NSLog( @"Form for %@", _modelItem );
-
     NSDictionary *name = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
                              @"name", MLE_FIELD_NAME_KEY,
                              @"Name", MLE_FIELD_LABEL_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:name forKey:@"name"];
+    [self.fieldData setObject:name forKey:@"name"];
  
     NSDictionary *agency = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
@@ -84,11 +81,11 @@
                              @"Agency", MLE_FIELD_LABEL_KEY,
                              @"AgencyModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:agency forKey:@"agency"];
+    [self.fieldData setObject:agency forKey:@"agency"];
 
     NSDictionary *client = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
@@ -96,11 +93,11 @@
                              @"Client", MLE_FIELD_LABEL_KEY,
                              @"ClientModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:client forKey:@"client"];
+    [self.fieldData setObject:client forKey:@"client"];
     
     NSDictionary *country = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
@@ -108,11 +105,11 @@
                              @"Country", MLE_FIELD_LABEL_KEY,
                              @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:country forKey:@"country"];
+    [self.fieldData setObject:country forKey:@"country"];
 
     NSDictionary *product = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
@@ -120,41 +117,41 @@
                              @"Product", MLE_FIELD_LABEL_KEY,
                              @"ProductModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:product forKey:@"product"];
+    [self.fieldData setObject:product forKey:@"product"];
     
     NSDictionary *accessURL = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
                              @"accessURL", MLE_FIELD_NAME_KEY,
                              @"Access URL", MLE_FIELD_LABEL_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:accessURL forKey:@"accessURL"];
+    [self.fieldData setObject:accessURL forKey:@"accessURL"];
     
     NSDictionary *caseURL = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
                              @"caseURL", MLE_FIELD_NAME_KEY,
                              @"Case URL", MLE_FIELD_LABEL_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:caseURL forKey:@"caseURL"];
+    [self.fieldData setObject:caseURL forKey:@"caseURL"];
     
     NSDictionary *blurb = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextAreaFieldType], MLE_FIELD_TYPE_KEY,
                              @"blurb", MLE_FIELD_NAME_KEY,
                              @"Case description", MLE_FIELD_LABEL_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [_fieldData setObject:blurb forKey:@"blurb"];
+    [self.fieldData setObject:blurb forKey:@"blurb"];
     
     NSMutableArray *years = [[NSMutableArray alloc] init];
     
@@ -168,12 +165,12 @@
                              @"year", MLE_FIELD_NAME_KEY,
                              @"Year", MLE_FIELD_LABEL_KEY,
                              [NSNumber numberWithInteger:MLENumericDataType], MLE_FIELD_DATATYPE_KEY,
-                             _modelName, MLE_FIELDSET_MODEL_KEY,
-                             _modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             self.modelName, MLE_FIELDSET_MODEL_KEY,
+                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              years, MLE_FIELD_STATIC_DOMAIN_KEY,
                              nil];
 
-    [_fieldData setObject:year forKey:@"year"];
+    [self.fieldData setObject:year forKey:@"year"];
     
 }
 
@@ -186,169 +183,6 @@
     return [NSNumber numberWithInteger:[yearString integerValue]];
 }
 
-- (void) saveAction
-{
-    EntryModel *model;
-    
-    if(_modelItem)
-    {
-        model = [EntryModel loadModel:_modelItem];
-    }
-    else
-    {
-        model = [[EntryModel alloc] init];
-    }
-    
-    NSString *key;
-    NSString *fieldName;
-    NSString *fieldType;
-    NSString *fieldLookupModel;
-    NSDictionary *options;
-    ManagerFieldContainer *fieldContainer;
-    NSString *stringValue;
-    
-    NSMutableString *requiredMessage = [NSMutableString new];
-    
-    // validating
-    for( key in _fieldData )
-    {
-        options = [_fieldData objectForKey:key];
-        fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
-        fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
-        fieldLookupModel = [options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
-        
-        fieldContainer = [self.entryView valueForKey:fieldName];
-        
-        stringValue = [fieldContainer stringValue];
-        
-        if( [stringValue isEqualToString:@"" ] && [fieldContainer isNullable] )
-        {
-            [requiredMessage appendString:[NSString stringWithFormat:@"The %@ is required. \n", fieldName ]];
-        }
-    }
-    
-    if( [requiredMessage length] > 0 )
-    {
-        NSAlert *alert = [[NSAlert alloc] init];
-        
-        [alert setMessageText:requiredMessage];
-        [alert runModal];
-        
-        return;
-    }
-    
-    // saving
-    for( key in _fieldData )
-    {
-        options = [_fieldData objectForKey:key];
-        fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
-        fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
-        fieldLookupModel = [options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
-        
-        fieldContainer = [self.entryView valueForKey:fieldName];
-        
-        stringValue = [fieldContainer stringValue];
-     
-        switch([fieldType integerValue])
-        {
-            case MLETextFieldType:
-                [model setValue:stringValue forKey:fieldName];
-                break;
-            case MLEComboFieldType:
-                if( YES )
-                {
-                    SEL numericValueSelector = NSSelectorFromString( @"loadModelByStringValue:" );
-                    id lookupModelClass = NSClassFromString( fieldLookupModel );
-                    id lookupModel = [lookupModelClass performSelector:numericValueSelector withObject:stringValue];
-                    [model setValue:lookupModel forKey:fieldName];
-                }
-                break;
-            case MLEStaticComboFieldType:
-                [model setValue:stringValue forKey:fieldName];
-                break;
-            case MLETextAreaFieldType:
-                [model setValue:stringValue forKey:fieldName];
-                break;
-        }
-    }
-    
-    [model save];
-    
-    [self newAction];
-}
 
-- (void) deleteAction
-{
-    if( _modelItem )
-    {
-        EntryModel *model = [EntryModel loadModel:_modelItem];
-        [model deleteModel];
-        
-        [self previousAction];
-    }
-}
-
-- (void) newAction
-{
-    self.modelItem = nil;
-    
-    [self.entryView destroyForm];
-    [self prepareEntity];
-    [self.entryView createForm];
-}
-
-- (void) previousAction
-{
-    if( _modelItem )
-    {
-        EntryModel *model = [EntryModel loadModel:_modelItem];
-        
-        if( model.previous )
-        {
-            self.modelItem = model.previous;
-            [self.entryView destroyForm];
-            [self prepareEntity];
-            [self.entryView createForm];
-        }
-        else
-        {
-            self.modelItem = [EntryModel first];
-            [self.entryView destroyForm];
-            [self prepareEntity];
-            [self.entryView createForm];
-        }
-    }
-    else
-    {
-        self.modelItem = [EntryModel last];
-        [self.entryView destroyForm];
-        [self prepareEntity];
-        [self.entryView createForm];
-    }
-}
-
-- (void) nextAction
-{
-    if( _modelItem )
-    {
-        EntryModel *model = [EntryModel loadModel:_modelItem];
-        
-        if( model.next )
-        {
-            self.modelItem = model.next;
-            [self.entryView destroyForm];
-            [self prepareEntity];
-            [self.entryView createForm];
-        }
-        else
-        {
-            [self newAction];
-        }
-    }
-    else
-    {
-        [self newAction];
-    }
-}
 
 @end

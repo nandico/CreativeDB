@@ -10,6 +10,7 @@
 #import "ManagerFieldContainer.h"
 #import "ManagerActionBar.h"
 #import "ManagerEngine.h"
+#import "BaseManagerView.h"
 
 @protocol EntryDataSource <NSObject>
 
