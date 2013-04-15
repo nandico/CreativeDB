@@ -60,6 +60,8 @@
 
 - (void) destroyForm
 {
+    [_engine removeContainers];
+    
     [self.name removeFromSuperview];
     [self.agency removeFromSuperview];
     [self.client removeFromSuperview];

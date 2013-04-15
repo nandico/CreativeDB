@@ -57,6 +57,8 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_BUTTON_OFSSET_Y 3.0f
 #define MLE_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
 
+#define MLE_COMBO_WIDTH 350.0f
+#define MLE_COMBO_HEIGHT 27.0f
 #define MLE_COMBO_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
 #define MLE_COMBO_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
@@ -84,5 +86,6 @@ enum ManagerFieldDataType : NSInteger {
 - (void) addFieldContainer:(ManagerFieldContainer *) container;
 - (void) addActionBar:(ManagerActionBar *) actionBar;
 - (void) arrangeContainers;
+- (void) removeContainers;
 
 @end

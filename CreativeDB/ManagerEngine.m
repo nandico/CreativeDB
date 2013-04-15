@@ -66,6 +66,8 @@
     NSInteger totalHeight = MLE_FIELDSET_OFFSET_Y;
     NSInteger actualHeight = 0;
     
+    NSInteger originalX;
+    
     ManagerFieldContainer *container;    
     
     NSInteger itemIndex;
@@ -74,6 +76,9 @@
     {
         container = [_fieldContainers objectAtIndex:itemIndex];
         totalHeight += [self containerHeight:container withSpacing:YES];
+        [container setAlphaValue:0.0f];
+        
+        originalX = container.frame.origin.x;
     }
     
     for( itemIndex = 0; itemIndex < containerCount; itemIndex ++ )
@@ -82,11 +87,50 @@
         
         actualHeight += [self containerHeight:container withSpacing:YES];
         
-        container.frame = NSMakeRect(container.frame.origin.x,
-                                     totalHeight - actualHeight,
-                                     container.frame.size.width,
-                                     [self containerHeight:container withSpacing:NO]);
+        container.frame = NSMakeRect(originalX - 10.0f,
+                                                  totalHeight - actualHeight,
+                                                  container.frame.size.width,
+                                                  [self containerHeight:container withSpacing:NO]);
+        
+        NSMutableDictionary *containerDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                                    container, @"container",
+                                                    [NSNumber numberWithInteger:originalX], @"originalX",
+                                                    nil];
+        
+        float timerCalc = (float) itemIndex;
+        timerCalc = timerCalc / 50;
+        
+        [NSTimer scheduledTimerWithTimeInterval:timerCalc
+                                         target:self
+                                       selector:@selector(animateContainer:)
+                                       userInfo:containerDictionary
+                                        repeats:NO];
     }
+}
+
+- (void) removeContainers
+{
+    _fieldContainers = [[NSMutableArray alloc] init];
+}
+
+- (void) animateContainer:(NSTimer *) timer
+{
+    NSDictionary *containerDictionary = [timer userInfo];
+    
+    ManagerFieldContainer *container = [containerDictionary objectForKey:@"container"];
+    NSNumber *originalX = [containerDictionary objectForKey:@"originalX"];
+    
+    [NSAnimationContext runAnimationGroup:^(NSAnimationContext * context){
+        [context setDuration:0.1f ];
+        
+        [[container animator] setFrame:NSMakeRect([originalX floatValue],
+                                                  container.frame.origin.y,
+                                                  container.frame.size.width,
+                                                  container.frame.size.height)];
+        
+        [[container animator] setAlphaValue:1.0f];
+    } completionHandler:^{
+    }];
 }
 
 
