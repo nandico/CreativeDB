@@ -24,6 +24,8 @@ enum ManagerFieldDataType : NSInteger {
     MLENumericDataType
 };
 
+#define MLE_BACKGROUND_COLOR [NSColor whiteColor]
+
 #define MLE_FIELDSET_OFFSET_Y 100.0f
 
 #define MLE_CONTAINER_WIDTH 500.0f
@@ -32,22 +34,31 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_CONTAINER_CORNER_RADIUS 5.0f
 #define MLE_CONTAINER_SPACING 5.0f
 
+#define MLE_FIELD_ALPHA 1.0f
+
 #define MLE_FIELD_OFFSET_X 140.0f
 #define MLE_FIELD_OFFSET_Y 3.0f
 #define MLE_FIELD_WIDTH 350.0f
 #define MLE_FIELD_HEIGHT 25.0f
 #define MLE_TEXT_FIELD_HEIGHT 100.0f
+#define MLE_FIELD_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_FIELD_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
 #define MLE_LABEL_OFFSET_X 5.0f
 #define MLE_LABEL_OFFSET_Y 0.0f
 #define MLE_LABEL_WIDTH 130.0f
 #define MLE_LABEL_HEIGHT 25.0f
+#define MLE_LABEL_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_LABEL_COLOR [NSColor colorWithCalibratedRed:0.3f green:0.3f blue:0.3f alpha:1.0f]
 
 #define MLE_BUTTON_WIDTH 80.0f
 #define MLE_BUTTON_HEIGHT 25.0f
 #define MLE_BUTTON_OFFSET_X 10.0f
 #define MLE_BUTTON_OFSSET_Y 3.0f
+#define MLE_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
 
+#define MLE_COMBO_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_COMBO_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
 #define MLE_FIELD_NAME_KEY @"FIELD_NAME_KEY"
 #define MLE_FIELD_LABEL_KEY @"FIELD_LABEL_KEY"
@@ -60,7 +71,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_FIELDSET_MODEL_KEY @"FIELDSET_MODEL_KEY"
 #define MLE_FIELDSET_MODEL_ITEM @"FIELDSET_MODEL_ITEM"
 
-#define MLE_CONTAINER_COLOR colorWithCalibratedRed:150.0f / 255.0f green:150.0f / 255.0f blue :150.0f / 255.0f alpha:0.2f
+#define MLE_CONTAINER_COLOR [NSColor colorWithCalibratedRed:0.58f green:0.58f blue :0.58f alpha:0.2f]
 
 #define MLE_NOTIFICATION_NEW @"NOTIFICATION_NEW"
 #define MLE_NOTIFICATION_SAVE @"NOTIFICATION_SAVE"

@@ -30,7 +30,7 @@
     if (self)
     {
         self.wantsLayer = YES;
-        self.layer.backgroundColor = [[NSColor MLE_CONTAINER_COLOR] CGColor];
+        self.layer.backgroundColor = [MLE_CONTAINER_COLOR CGColor];
         self.layer.cornerRadius = MLE_CONTAINER_CORNER_RADIUS;
         
         self.frame = NSMakeRect(0.0f, 0.0f, MLE_CONTAINER_WIDTH, MLE_CONTAINER_HEIGHT);

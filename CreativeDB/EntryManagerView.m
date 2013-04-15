@@ -33,6 +33,8 @@
     self = [super init];
     if (self)
     {
+        self.wantsLayer = YES;
+        self.layer.backgroundColor = [MLE_BACKGROUND_COLOR CGColor];
         _engine = [[ManagerEngine alloc] init];
     }
     return self;

@@ -16,6 +16,8 @@
     self = [super init];
     if (self) {
         self.frame = NSMakeRect( MLE_FIELD_OFFSET_X, MLE_FIELD_OFFSET_Y, MLE_FIELD_WIDTH, MLE_FIELD_HEIGHT );
+        [self setFont:MLE_COMBO_FONT];
+        [self setTextColor:MLE_COMBO_COLOR];
         [self setCompletes:YES];
     }
     
