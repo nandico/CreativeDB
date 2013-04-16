@@ -37,7 +37,6 @@
         [self prepareEntity];
         
         [self.viewInstance createForm];
-
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(saveAction)

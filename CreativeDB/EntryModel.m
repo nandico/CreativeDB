@@ -152,11 +152,6 @@
     if( [results next] )
     {
         model = [EntryModel objectWithResults:results];
-        NSLog( @"My result: %@", model.pk );
-    }
-    else
-    {
-        NSLog( @"NO results" );
     }
     
     [results close];
