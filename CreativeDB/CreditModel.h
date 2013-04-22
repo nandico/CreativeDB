@@ -22,5 +22,10 @@
 + (CreditModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 
+- (NSNumber *) next;
+- (NSNumber *) previous;
++ (NSNumber *) first;
++ (NSNumber *) last;
+
 
 @end
