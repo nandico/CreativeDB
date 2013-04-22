@@ -15,7 +15,8 @@ enum ManagerFieldType : NSInteger {
     MLETextFieldType,
     MLEComboFieldType,
     MLEStaticComboFieldType,
-    MLETextAreaFieldType
+    MLETextAreaFieldType,
+    MLEManyComboFieldType
 };
 
 typedef enum ManagerFieldDataType : NSInteger ManagerFieldDataType;

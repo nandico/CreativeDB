@@ -20,7 +20,7 @@
 
 @end
 
-@interface EntryManagerView : NSView
+@interface EntryManagerView : BaseManagerView
 
 @property (strong) id <EntryDataSource> dataSource;
 

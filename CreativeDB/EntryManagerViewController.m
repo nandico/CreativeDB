@@ -170,7 +170,6 @@
                              nil];
 
     [self.fieldData setObject:year forKey:@"year"];
-    
 }
 
 - (NSNumber *) getActualYear

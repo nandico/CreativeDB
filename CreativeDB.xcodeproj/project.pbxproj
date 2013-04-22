@@ -49,6 +49,8 @@
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
 		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
 		BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2EA2171BA2360044262E /* BaseManagerView.m */; };
+		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
+		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
 		BFF4C58F1705450E0098A633 /* AgencyManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58E1705450E0098A633 /* AgencyManagerView.m */; };
 		BFF4C592170546080098A633 /* ManagerTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C591170546080098A633 /* ManagerTextField.m */; };
@@ -146,6 +148,10 @@
 		BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerViewController.m; sourceTree = "<group>"; };
 		BFAD2EA1171BA2350044262E /* BaseManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerView.h; sourceTree = "<group>"; };
 		BFAD2EA2171BA2360044262E /* BaseManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerView.m; sourceTree = "<group>"; };
+		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
+		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
+		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
+		BFE703391724F29C0030E255 /* CreditManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerView.m; sourceTree = "<group>"; };
 		BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerViewController.h; sourceTree = "<group>"; };
 		BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyManagerViewController.m; sourceTree = "<group>"; };
 		BFF4C58D1705450E0098A633 /* AgencyManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerView.h; sourceTree = "<group>"; };
@@ -252,6 +258,10 @@
 				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
 				BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */,
 				BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */,
+				BFE703351724F24A0030E255 /* CreditManagerViewController.h */,
+				BFE703361724F24B0030E255 /* CreditManagerViewController.m */,
+				BFE703381724F29B0030E255 /* CreditManagerView.h */,
+				BFE703391724F29C0030E255 /* CreditManagerView.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -498,6 +508,8 @@
 				BFF4C5AF170902E30098A633 /* ManagerButton.m in Sources */,
 				BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */,
 				BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */,
+				BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */,
+				BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
