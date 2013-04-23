@@ -21,17 +21,19 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    /*
-    NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"EntryModel", MLE_FIELDSET_MODEL_KEY,
-                                  [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
-                                  nil];
     
-    EntryManagerViewController *entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
-    entryManager.view.frame = self.window.frame;
-    entryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    self.window.contentView = entryManager.view;
-    */
+//    NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                  @"EntryModel", MLE_FIELDSET_MODEL_KEY,
+//                                  [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
+//                                  nil];
+//    
+//    EntryManagerViewController *entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
+//    entryManager.view.frame = self.window.frame;
+//    entryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+//    self.window.contentView = entryManager.view;
+    
+    
+    
     
     NSDictionary *creditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"CreditModel", MLE_FIELDSET_MODEL_KEY,
@@ -39,6 +41,7 @@
                                   nil];
     
     CreditManagerViewController *creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
+
     creditManager.view.frame = self.window.frame;
     creditManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     self.window.contentView = creditManager.view;

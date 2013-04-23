@@ -14,8 +14,11 @@
 @property (strong) NSString *name;
 @property (strong) NSString *obs;
 
++ (NSString *) tableName;
 + (RoleModel *) objectWithResults:(FMResultSet *)results;
 + (RoleModel *) loadModel:(NSNumber *) pk;
++ (RoleModel *) loadModelByStringValue:(NSString *) stringValue;
++ (NSMutableArray *) loadAll;
 
 
 @end

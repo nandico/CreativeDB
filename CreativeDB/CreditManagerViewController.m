@@ -26,10 +26,10 @@
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
-        
+
         self.view = self.viewInstance = [[CreditManagerView alloc] init];
         self.viewInstance.dataSource = self;
-        
+
         self.fieldData = [[NSMutableDictionary alloc] init];
         
         [self prepareEntity];

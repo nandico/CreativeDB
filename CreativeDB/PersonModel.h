@@ -18,6 +18,7 @@
 
 + (PersonModel *) objectWithResults:(FMResultSet *)results;
 + (PersonModel *) loadModel:(NSNumber *) pk;
++ (NSMutableArray *) loadAll;
 
 
 @end

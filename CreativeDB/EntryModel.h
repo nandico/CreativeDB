@@ -28,6 +28,9 @@
 + (NSString *) tableName;
 + (EntryModel *) objectWithResults:(FMResultSet *)results;
 + (EntryModel *) loadModel:(NSNumber *) pk;
++ (EntryModel *) loadModelByStringValue:(NSString *) stringValue;
++ (NSMutableArray *) loadAll;
+
 - (NSNumber *) next;
 - (NSNumber *) previous;
 + (NSNumber *) first;

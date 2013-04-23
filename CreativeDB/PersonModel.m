@@ -50,5 +50,63 @@
     return model;
 }
 
++ (PersonModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    PersonModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, country, name, portfolioURL "
+                            " FROM aa_person "
+                            " WHERE "
+                            " name = %@ ", stringValue ];
+    
+    if( [results next] )
+    {
+        model = [PersonModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    NSLog( @"Model PERSON: %@", model );
+    
+    return model;
+}
+
++ (NSMutableArray *) loadAll
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    PersonModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+                            " id, country, name, portfolioURL "
+                            " FROM aa_person " ];
+    
+    while( [results next] )
+    {
+        model = [PersonModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
+
 
 @end

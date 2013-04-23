@@ -27,5 +27,8 @@
 + (NSNumber *) first;
 + (NSNumber *) last;
 
+- (void) save;
+- (void) deleteModel;
+
 
 @end

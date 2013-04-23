@@ -11,10 +11,20 @@
 
 @implementation CreditModel
 
++ (NSString *) tableName
+{
+    return @"aa_credit";
+}
+
+- (NSString *) tableName
+{
+    return [CreditModel tableName];
+}
+
 + (CreditModel *) objectWithResults:(FMResultSet *)results
 {
     CreditModel *object = [[CreditModel alloc] init];
-    object.pk = [NSNumber numberWithLong:[results longForColumn:@"rowid"]];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.person = [PersonModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"person"]]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
     object.role = [RoleModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"role"]]];
@@ -32,11 +42,15 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " rowid, person, entry, role "
-                            " FROM aa_credit "
-                            " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+    NSLog( @"CREDIT MODEL LOAD" );
+    db.traceExecution = YES;
+
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " id, person, entry, role "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " id = %ld ", [self tableName], [pk integerValue] ] ];
+
     
     if( [results next] )
     {
@@ -61,10 +75,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " rowid, person, entry, role "
-                            " FROM aa_credit "
+                            " id, person, entry, role "
+                            " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [entryPK integerValue] ];
+                            " entry = %ld ", [self tableName], [entryPK integerValue] ];
     
     while( [results next] )
     {
@@ -85,13 +99,13 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    EntryModel *model;
+    CreditModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
-                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                                       " id, person, entry, role  "
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id > %ld "
@@ -99,7 +113,7 @@
     
     if( [results next] )
     {
-        model = [EntryModel objectWithResults:results];
+        model = [CreditModel objectWithResults:results];
     }
     
     [results close];
@@ -115,7 +129,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    EntryModel *model;
+    CreditModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
@@ -123,7 +137,7 @@
     NSLog( @"previous search from: %@", _pk );
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                                       " id, person, entry, role  "
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id < %ld "
@@ -131,7 +145,7 @@
     
     if( [results next] )
     {
-        model = [EntryModel objectWithResults:results];
+        model = [CreditModel objectWithResults:results];
     }
     
     
@@ -146,18 +160,18 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    EntryModel *model;
+    CreditModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
-                                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                             " id, person, entry, role  "
                                              " FROM %@ "
                                              " ORDER BY id ASC ", [self tableName] ] ];
+    
     if( [results next] )
     {
-        model = [EntryModel objectWithResults:results];
+        model = [CreditModel objectWithResults:results];
     }
     
     [results close];
@@ -171,25 +185,111 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
-    EntryModel *model;
+    CreditModel *model;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                                       " id, person, entry, role "
                                                        " FROM %@ "
                                                        " ORDER BY id DESC ", [self tableName] ] ];
     
     if( [results next] )
     {
-        model = [EntryModel objectWithResults:results];
+        model = [CreditModel objectWithResults:results];
     }
     
     [results close];
     [db close];
     
     return ( model.pk ) ? model.pk : nil;
+}
+
+- (void) save
+{
+    NSLog( @"Activating save." );
+    
+    if( self.pk )
+    {
+        [self update];
+    }
+    else
+    {
+        [self insert];
+    }
+}
+
+- (void) insert
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
+                     " ( person, entry, role ) "
+                     " VALUES "
+                     " ( ?, ?, ? ) ", [self tableName] ];
+    
+    db.traceExecution = YES;
+    
+    NSLog( @"Inserting %@", sql );
+    
+    [db executeUpdate:sql,
+     self.person.pk,
+     self.entry.pk,
+     self.role.pk];
+    
+    [db close];
+    
+}
+
+- (void) update
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    if( self.person )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET person = ? WHERE id = ?", [self tableName]],
+         self.person.pk, self.pk ];
+    }
+    if( self.entry )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET entry = ? WHERE id = ?", [self tableName]],
+         self.entry.pk, self.pk ];
+    }
+    if( self.role )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET role = ? WHERE id = ?", [self tableName]],
+         self.role.pk, self.pk ];
+    }
+    
+    [db close];
+    
+}
+
+- (void) deleteModel
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = [NSString stringWithFormat:@" DELETE FROM %@ WHERE id = ? ", [self tableName]];
+    
+    [db executeUpdate:sql, self.pk];
+    [db close];
+    
 }
 
 @end

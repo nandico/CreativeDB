@@ -39,6 +39,9 @@
         model = [baseModelClass performSelector:newSelector withObject:nil];
     }
     
+    NSLog( @"Item --- %@", _modelItem );
+    NSLog( @"Model --- %@", model );
+    
     NSString *key;
     NSString *fieldName;
     NSString *fieldType;
@@ -113,6 +116,8 @@
     }
     
     //[model save];
+    NSLog( @"model: %@", model );
+    
     [model performSelector:saveSelector];
     
     if( _modelItem )
@@ -157,7 +162,6 @@
 {
     id model;
     
-    SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
     SEL previousSelector = NSSelectorFromString( @"previous" );
     SEL firstSelector = NSSelectorFromString( @"first" );
     SEL lastSelector = NSSelectorFromString( @"last" );

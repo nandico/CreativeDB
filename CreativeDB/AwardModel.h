@@ -23,6 +23,7 @@
 @property (strong) SubcategoryModel *subcategory;
 @property (assign) NSInteger year;
 
++ (NSString *) tableName;
 + (AwardModel *) objectWithResults:(FMResultSet *)results;
 + (AwardModel *) loadModel:(NSNumber *) pk;
 

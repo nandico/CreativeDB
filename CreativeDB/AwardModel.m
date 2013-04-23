@@ -13,6 +13,16 @@
 
 @implementation AwardModel
 
++ (NSString *) tableName
+{
+    return @"aa_award";
+}
+
+- (NSString *) tableName
+{
+    return [AwardModel tableName];
+}
+
 + (AwardModel *) objectWithResults:(FMResultSet *)results
 {
     AwardModel *object = [[AwardModel alloc] init];

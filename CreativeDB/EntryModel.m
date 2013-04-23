@@ -72,6 +72,35 @@
     return model;
 }
 
++ (EntryModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " name = '%@' ", [self tableName], stringValue] ];
+    
+    if( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    NSLog( @"Model ENTRY: %@", model );
+    
+    return model;
+}
+
 - (NSNumber *) next
 {
     if( !_pk ) return nil;
@@ -208,8 +237,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSString *sql = [NSString stringWithFormat:@" DELETE FROM %@ WHERE id = ? ", [self tableName]];
     
     [db executeUpdate:sql, self.pk];
@@ -318,6 +345,34 @@
 - (NSMutableArray *) annotations
 {
     return [AnnotationModel loadByEntryId:self.pk];
+}
+
++ (NSMutableArray *) loadAll
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                                       " FROM %@ ", [self tableName]] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
 }
 
 

@@ -10,6 +10,11 @@
 
 @implementation BaseManagerView
 
-
+- (void) createForm
+{
+}
+- (void) destroyForm
+{
+}
 
 @end
