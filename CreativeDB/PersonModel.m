@@ -74,8 +74,6 @@
     [results close];
     [db close];
     
-    NSLog( @"Model PERSON: %@", model );
-    
     return model;
 }
 

@@ -95,9 +95,7 @@
     
     [results close];
     [db close];
-    
-    NSLog( @"Model ENTRY: %@", model );
-    
+
     return model;
 }
 
@@ -142,8 +140,6 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    NSLog( @"previous search from: %@", _pk );
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "

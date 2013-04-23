@@ -41,9 +41,6 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    NSLog( @"CREDIT MODEL LOAD" );
-    db.traceExecution = YES;
 
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " id, person, entry, role "
@@ -134,8 +131,6 @@
     
     [db open];
     
-    NSLog( @"previous search from: %@", _pk );
-    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " id, person, entry, role  "
                                                        " FROM %@ "
@@ -207,9 +202,7 @@
 }
 
 - (void) save
-{
-    NSLog( @"Activating save." );
-    
+{ 
     if( self.pk )
     {
         [self update];
@@ -233,10 +226,6 @@
                      " ( person, entry, role ) "
                      " VALUES "
                      " ( ?, ?, ? ) ", [self tableName] ];
-    
-    db.traceExecution = YES;
-    
-    NSLog( @"Inserting %@", sql );
     
     [db executeUpdate:sql,
      self.person.pk,

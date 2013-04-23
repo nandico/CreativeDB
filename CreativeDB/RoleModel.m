@@ -83,8 +83,6 @@
     [results close];
     [db close];
     
-    NSLog( @"Model ROLE: %@", model );
-    
     return model;
 }
 

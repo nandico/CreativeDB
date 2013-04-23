@@ -39,9 +39,6 @@
         model = [baseModelClass performSelector:newSelector withObject:nil];
     }
     
-    NSLog( @"Item --- %@", _modelItem );
-    NSLog( @"Model --- %@", model );
-    
     NSString *key;
     NSString *fieldName;
     NSString *fieldType;
@@ -114,9 +111,6 @@
                 break;
         }
     }
-    
-    //[model save];
-    NSLog( @"model: %@", model );
     
     [model performSelector:saveSelector];
     
