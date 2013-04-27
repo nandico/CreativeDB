@@ -14,6 +14,7 @@
 @property (strong) CountryModel *country;
 @property (strong) NSString *name;
 
++ (NSString *) tableName;
 + (ClientModel *) objectWithResults:(FMResultSet *)results;
 + (ClientModel *) loadModel:(NSNumber *) pk;
 + (ClientModel *) loadModelByStringValue:(NSString *) stringValue;

@@ -12,6 +12,17 @@
 
 @implementation CalendarModel
 
++ (NSString *) tableName
+{
+    return @"aa_calendar";
+}
+
+- (NSString *) tableName
+{
+    return [CalendarModel tableName];
+}
+
+
 + (CalendarModel *) objectWithResults:(FMResultSet *)results
 {
     CalendarModel *object = [[CalendarModel alloc] init];
@@ -35,11 +46,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, festival, type, category, date, year "
-                            " FROM aa_calendar "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

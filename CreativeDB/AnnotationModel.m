@@ -13,6 +13,17 @@
 
 @implementation AnnotationModel
 
++ (NSString *) tableName
+{
+    return @"aa_anotation";
+}
+
+- (NSString *) tableName
+{
+    return [AnnotationModel tableName];
+}
+
+
 + (AnnotationModel *) objectWithResults:(FMResultSet *)results
 {
     AnnotationModel *object = [[AnnotationModel alloc] init];
@@ -38,11 +49,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " user, entry, comment, i_like, i_rate, i_made, update_request "
-                            " FROM aa_annotation "
+                            " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [entryPK integerValue] ];
+                            " entry = %ld ", [self tableName], [entryPK integerValue] ] ];
     
     while( [results next] )
     {

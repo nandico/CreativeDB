@@ -11,6 +11,17 @@
 
 @implementation ProducerModel
 
++ (NSString *) tableName
+{
+    return @"aa_producer";
+}
+
+- (NSString *) tableName
+{
+    return [ProducerModel tableName];
+}
+
+
 + (ProducerModel *) objectWithResults:(FMResultSet *)results
 {
     ProducerModel *object = [[ProducerModel alloc] init];
@@ -33,11 +44,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, country, name, siteURL "
-                            " FROM aa_producer "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -49,9 +60,5 @@
     
     return model;
 }
-
-
-
-
 
 @end

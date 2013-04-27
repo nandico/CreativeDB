@@ -11,6 +11,17 @@
 
 @implementation FestivalModel
 
++ (NSString *) tableName
+{
+    return @"aa_festival";
+}
+
+- (NSString *) tableName
+{
+    return [FestivalModel tableName];
+}
+
+
 + (FestivalModel *) objectWithResults:(FMResultSet *)results
 {
     FestivalModel *object = [[FestivalModel alloc] init];
@@ -35,11 +46,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name, siteURL, weight, obs, classify "
-                            " FROM aa_festival "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

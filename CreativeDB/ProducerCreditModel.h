@@ -18,6 +18,7 @@
 @property (strong) ProducerModel *producer;
 @property (strong) DisciplineModel *discipline;
 
++ (NSString *) tableName;
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 

@@ -11,6 +11,17 @@
 
 @implementation MetalModel
 
++ (NSString *) tableName
+{
+    return @"aa_metal";
+}
+
+- (NSString *) tableName
+{
+    return [MetalModel tableName];
+}
+
+
 + (MetalModel *) objectWithResults:(FMResultSet *)results
 {
     MetalModel *object = [[MetalModel alloc] init];
@@ -30,11 +41,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name "
-                            " FROM aa_metal "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

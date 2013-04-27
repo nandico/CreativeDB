@@ -20,6 +20,7 @@
 @property (strong) NSDate *date;
 @property (assign) NSInteger year;
 
++ (NSString *) tableName;
 + (CalendarModel *) objectWithResults:(FMResultSet *)results;
 + (CalendarModel *) loadModel:(NSNumber *) pk;
 

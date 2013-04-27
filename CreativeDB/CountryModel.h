@@ -18,6 +18,7 @@
 @property (strong) NSString *iso3;
 @property (strong) NSString *name;
 
++ (NSString *) tableName;
 + (CountryModel *) objectWithResults:(FMResultSet *)results;
 + (CountryModel *) loadModel:(NSNumber *) pk;
 + (CountryModel *) loadModelByStringValue:(NSString *) stringValue;

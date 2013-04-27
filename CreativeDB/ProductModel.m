@@ -11,6 +11,17 @@
 
 @implementation ProductModel
 
++ (NSString *) tableName
+{
+    return @"aa_product";
+}
+
+- (NSString *) tableName
+{
+    return [ProductModel tableName];
+}
+
+
 + (ProductModel *) objectWithResults:(FMResultSet *)results
 {
     ProductModel *object = [[ProductModel alloc] init];
@@ -31,11 +42,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, client, name "
-                            " FROM aa_product "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -58,11 +69,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, client, name "
-                            " FROM aa_product "
+                            " FROM %@ "
                             " WHERE "
-                            " name = %@ ", stringValue ];
+                            " name = '%@' ", [self tableName], stringValue ] ];
     
     if( [results next] )
     {
@@ -88,9 +99,9 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, client, name "
-                            " FROM aa_product " ];
+                            " FROM %@ ", [self tableName] ] ];
     
     while( [results next] )
     {
@@ -103,6 +114,5 @@
     
     return collection;
 }
-
 
 @end

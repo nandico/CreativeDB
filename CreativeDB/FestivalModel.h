@@ -17,6 +17,7 @@
 @property (strong) NSString *obs;
 @property (assign) NSInteger classify;
 
++ (NSString *) tableName;
 + (FestivalModel *) objectWithResults:(FMResultSet *)results;
 + (FestivalModel *) loadModel:(NSNumber *) pk;
 

@@ -16,6 +16,7 @@
 @property (strong) NSString *name;
 @property (strong) NSURL *siteURL;
 
++ (NSString *) tableName;
 + (ProducerModel *) objectWithResults:(FMResultSet *)results;
 + (ProducerModel *) loadModel:(NSNumber *) pk;
 

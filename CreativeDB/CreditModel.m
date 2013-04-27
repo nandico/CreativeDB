@@ -159,6 +159,7 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
+    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
                                              " id, person, entry, role  "
                                              " FROM %@ "

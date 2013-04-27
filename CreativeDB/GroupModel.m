@@ -11,6 +11,16 @@
 
 @implementation GroupModel
 
++ (NSString *) tableName
+{
+    return @"aa_group";
+}
+
+- (NSString *) tableName
+{
+    return [GroupModel tableName];
+}
+
 + (GroupModel *) objectWithResults:(FMResultSet *)results
 {
     GroupModel *object = [[GroupModel alloc] init];
@@ -30,11 +40,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name "
-                            " FROM aa_group "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -59,9 +69,9 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name "
-                            " FROM aa_group " ];
+                            " FROM %@ ", [self tableName] ] ];
     
     while( [results next] )
     {

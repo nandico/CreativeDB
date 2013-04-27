@@ -15,6 +15,7 @@
 @property (strong) ClientModel *client;
 @property (strong) NSString *name;
 
++ (NSString *) tableName;
 + (ProductModel *) objectWithResults:(FMResultSet *)results;
 + (ProductModel *) loadModel:(NSNumber *) pk;
 + (ProductModel *) loadModelByStringValue:(NSString *) stringValue;

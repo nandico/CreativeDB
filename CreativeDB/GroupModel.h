@@ -13,6 +13,7 @@
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
++ (NSString *) tableName;
 + (GroupModel *) objectWithResults:(FMResultSet *)results;
 + (GroupModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;

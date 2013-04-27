@@ -16,6 +16,7 @@
 @property (strong) NSString *name;
 @property (strong) NSString *email;
 
++ (NSString *) tableName;
 + (UserModel *) objectWithResults:(FMResultSet *)results;
 + (UserModel *) loadModel:(NSNumber *) pk;
 

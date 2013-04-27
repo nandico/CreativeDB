@@ -11,6 +11,17 @@
 
 @implementation DisciplineModel
 
++ (NSString *) tableName
+{
+    return @"aa_discipline";
+}
+
+- (NSString *) tableName
+{
+    return [DisciplineModel tableName];
+}
+
+
 + (DisciplineModel *) objectWithResults:(FMResultSet *)results
 {
     DisciplineModel *object = [[DisciplineModel alloc] init];
@@ -30,11 +41,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name "
-                            " FROM aa_discipline "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

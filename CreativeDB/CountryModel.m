@@ -11,6 +11,16 @@
 
 @implementation CountryModel
 
++ (NSString *) tableName
+{
+    return @"aa_country";
+}
+
+- (NSString *) tableName
+{
+    return [CountryModel tableName];
+}
+
 + (CountryModel *) objectWithResults:(FMResultSet *)results
 {
     CountryModel *object = [[CountryModel alloc] init];
@@ -35,11 +45,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, iso, language, numcode, printable_name, iso3, name "
-                            " FROM aa_country "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -62,11 +72,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, iso, language, numcode, printable_name, iso3, name "
-                            " FROM aa_country "
+                            " FROM %@ "
                             " WHERE "
-                            " name = %@ ", stringValue ];
+                            " name = '%@' ", [self tableName], stringValue ] ];
     
     if( [results next] )
     {
@@ -92,9 +102,9 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, iso, language, numcode, printable_name, iso3, name "
-                            " FROM aa_country " ];
+                            " FROM %@ ", [self tableName] ] ];
     
     while( [results next] )
     {

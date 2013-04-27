@@ -11,6 +11,17 @@
 
 @implementation SubcategoryModel
 
++ (NSString *) tableName
+{
+    return @"aa_subcategory";
+}
+
+- (NSString *) tableName
+{
+    return [SubcategoryModel tableName];
+}
+
+
 + (SubcategoryModel *) objectWithResults:(FMResultSet *)results
 {
     SubcategoryModel *object = [[SubcategoryModel alloc] init];
@@ -31,11 +42,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name, category "
-                            " FROM aa_subcategory "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

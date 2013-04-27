@@ -20,6 +20,7 @@
 @property (assign) BOOL i_made;
 @property (strong) NSString *update_request;
 
++ (NSString *) tableName;
 + (AnnotationModel *) objectWithResults:(FMResultSet *)results;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 

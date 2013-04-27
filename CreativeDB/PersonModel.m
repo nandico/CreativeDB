@@ -11,6 +11,17 @@
 
 @implementation PersonModel
 
++ (NSString *) tableName
+{
+    return @"aa_person";
+}
+
+- (NSString *) tableName
+{
+    return [PersonModel tableName];
+}
+
+
 + (PersonModel *) objectWithResults:(FMResultSet *)results
 {
     PersonModel *object = [[PersonModel alloc] init];
@@ -33,11 +44,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, country, name, portfolioURL "
-                            " FROM aa_person "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -60,11 +71,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, country, name, portfolioURL "
-                            " FROM aa_person "
+                            " FROM %@ "
                             " WHERE "
-                            " name = %@ ", stringValue ];
+                            " name = '%@' ", [self tableName], stringValue ] ];
     
     if( [results next] )
     {
@@ -89,9 +100,9 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, country, name, portfolioURL "
-                            " FROM aa_person " ];
+                            " FROM %@ ", [self tableName] ] ];
     
     while( [results next] )
     {

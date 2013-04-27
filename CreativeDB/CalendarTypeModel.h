@@ -13,6 +13,7 @@
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 
++ (NSString *) tableName;
 + (CalendarTypeModel *) objectWithResults:(FMResultSet *)results;
 + (CalendarTypeModel *) loadModel:(NSNumber *) pk;
 

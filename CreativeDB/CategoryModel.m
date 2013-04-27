@@ -11,6 +11,17 @@
 
 @implementation CategoryModel
 
++ (NSString *) tableName
+{
+    return @"aa_category";
+}
+
+- (NSString *) tableName
+{
+    return [CategoryModel tableName];
+}
+
+
 + (CategoryModel *) objectWithResults:(FMResultSet *)results
 {
     CategoryModel *object = [[CategoryModel alloc] init];
@@ -30,11 +41,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " id, name "
-                            " FROM aa_category "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

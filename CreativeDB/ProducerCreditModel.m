@@ -11,6 +11,17 @@
 
 @implementation ProducerCreditModel
 
++ (NSString *) tableName
+{
+    return @"aa_entry_producer";
+}
+
+- (NSString *) tableName
+{
+    return [ProducerCreditModel tableName];
+}
+
+
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results
 {
     ProducerCreditModel *object = [[ProducerCreditModel alloc] init];
@@ -32,11 +43,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " entry, producer, discipline "
-                            " FROM aa_entry_producer "
+                            " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [entryPK integerValue] ];
+                            " entry = %ld ", [self tableName], [entryPK integerValue] ] ];
         
     while( [results next] )
     {
