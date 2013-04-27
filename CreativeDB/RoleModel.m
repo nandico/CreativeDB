@@ -21,6 +21,15 @@
     return [RoleModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, name, obs";
+}
+
+- (NSString *) fields
+{
+    return [RoleModel fields];
+}
 
 + (RoleModel *) objectWithResults:(FMResultSet *)results
 {
@@ -44,9 +53,9 @@
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
                             " id, name, obs "
-                            " FROM aa_role "
+                            " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self fields], [pk integerValue] ];
     
     if( [results next] )
     {
@@ -70,10 +79,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, name, obs "
+                                                       " %@ "
                                                        " FROM %@ "
                                                        " WHERE "
-                                                       " name = '%@' ", [self tableName], stringValue] ];
+                                                       " name = '%@' ", [self fields], [self tableName], stringValue] ];
     
     if( [results next] )
     {
@@ -98,9 +107,9 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, name, obs "
-                            " FROM aa_role " ];
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                            " %@ "
+                            " FROM %@ ", [self fields], [self tableName] ] ];
     
     while( [results next] )
     {

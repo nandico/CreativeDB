@@ -23,6 +23,15 @@
     return [AnnotationModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"user, entry, comment, i_like, i_rate, i_made, update_request";
+}
+
+- (NSString *) fields
+{
+    return [AnnotationModel fields];
+}
 
 + (AnnotationModel *) objectWithResults:(FMResultSet *)results
 {
@@ -50,10 +59,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " user, entry, comment, i_like, i_rate, i_made, update_request "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [self tableName], [entryPK integerValue] ] ];
+                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ] ];
     
     while( [results next] )
     {

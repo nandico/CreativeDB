@@ -18,6 +18,8 @@
 @property (strong) EntryModel *entry;
 @property (strong) RoleModel *role;
 
++ (NSString *) tableName;
++ (NSString *) fields;
 + (CreditModel *) objectWithResults:(FMResultSet *)results;
 + (CreditModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;

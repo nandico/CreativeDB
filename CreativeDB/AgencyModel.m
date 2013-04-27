@@ -22,6 +22,16 @@
     return [AgencyModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, agency_group, country, name";
+}
+
+- (NSString *) fields
+{
+    return [AgencyModel fields];
+}
+
 + (AgencyModel *) objectWithResults:(FMResultSet *)results
 {
     AgencyModel *object = [[AgencyModel alloc] init];
@@ -44,10 +54,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat: [NSString stringWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -71,10 +81,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " name = '%@' ", [self tableName], stringValue ] ];
+                            " name = '%@' ", [self fields], [self tableName], stringValue ] ];
     
     if( [results next] )
     {
@@ -100,8 +110,8 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, agency_group, country, name "
-                            " FROM %@ ", [self tableName] ] ];
+                            " %@ "
+                            " FROM %@ ", [self fields], [self tableName] ] ];
     
     while( [results next] )
     {

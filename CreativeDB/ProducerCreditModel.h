@@ -19,6 +19,7 @@
 @property (strong) DisciplineModel *discipline;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 

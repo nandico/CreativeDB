@@ -24,6 +24,7 @@
 @property (assign) NSInteger year;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (AwardModel *) objectWithResults:(FMResultSet *)results;
 + (AwardModel *) loadModel:(NSNumber *) pk;
 

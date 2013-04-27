@@ -21,6 +21,17 @@
     return [CreditModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, person, entry, role";
+}
+
+- (NSString *) fields
+{
+    return [CreditModel fields];
+}
+
+
 + (CreditModel *) objectWithResults:(FMResultSet *)results
 {
     CreditModel *object = [[CreditModel alloc] init];
@@ -43,10 +54,10 @@
     [db open];
 
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, person, entry, role "
+                                                       " %@ "
                                                        " FROM %@ "
                                                        " WHERE "
-                                                       " id = %ld ", [self tableName], [pk integerValue] ] ];
+                                                       " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
 
     
     if( [results next] )
@@ -72,10 +83,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, person, entry, role "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [self tableName], [entryPK integerValue] ];
+                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ];
     
     while( [results next] )
     {
@@ -102,11 +113,11 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
-                                                       " id, person, entry, role  "
+                                                       " %@ "
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id > %ld "
-                                                       " ORDER BY id " , [self tableName], [_pk integerValue] ] ];
+                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -132,11 +143,11 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, person, entry, role  "
+                                                       " %@  "
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id < %ld "
-                                                       " ORDER BY id DESC ", [self tableName], [_pk integerValue] ] ];
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -161,9 +172,9 @@
     [db open];
     
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
-                                             " id, person, entry, role  "
+                                             " %@  "
                                              " FROM %@ "
-                                             " ORDER BY id ASC ", [self tableName] ] ];
+                                             " ORDER BY id ASC ", [self fields], [self tableName] ] ];
     
     if( [results next] )
     {
@@ -187,9 +198,9 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, person, entry, role "
+                                                       " %@ "
                                                        " FROM %@ "
-                                                       " ORDER BY id DESC ", [self tableName] ] ];
+                                                       " ORDER BY id DESC ", [self fields], [self tableName] ] ];
     
     if( [results next] )
     {
@@ -224,9 +235,9 @@
     [db open];
     
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
-                     " ( person, entry, role ) "
+                     " ( %@ ) "
                      " VALUES "
-                     " ( ?, ?, ? ) ", [self tableName] ];
+                     " ( null, ?, ?, ? ) ", [self fields], [self tableName] ];
     
     [db executeUpdate:sql,
      self.person.pk,

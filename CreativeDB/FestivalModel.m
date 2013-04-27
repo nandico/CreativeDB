@@ -21,6 +21,15 @@
     return [FestivalModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, name, siteURL, weight, obs, classify";
+}
+
+- (NSString *) fields
+{
+    return [FestivalModel fields];
+}
 
 + (FestivalModel *) objectWithResults:(FMResultSet *)results
 {
@@ -47,10 +56,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, name, siteURL, weight, obs, classify "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

@@ -22,6 +22,15 @@
     return [CalendarModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, festival, type, category, date, year";
+}
+
+- (NSString *) fields
+{
+    return [CalendarModel fields];
+}
 
 + (CalendarModel *) objectWithResults:(FMResultSet *)results
 {
@@ -47,10 +56,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, festival, type, category, date, year "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

@@ -24,6 +24,16 @@
     return [EntryModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, agency, client, country, product, accessURL, caseURL, blurb, name, year";
+}
+
+- (NSString *) fields
+{
+    return [EntryModel fields];
+}
+
 + (EntryModel *) objectWithResults:(FMResultSet *)results
 {
     EntryModel *object = [[EntryModel alloc] init];
@@ -56,10 +66,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -83,10 +93,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                                                       " %@ "
                                                        " FROM %@ "
                                                        " WHERE "
-                                                       " name = '%@' ", [self tableName], stringValue] ];
+                                                       " name = '%@' ", [self fields], [self tableName], stringValue] ];
     
     if( [results next] )
     {
@@ -112,11 +122,11 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
-                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
                             " id > %ld "
-                            " ORDER BY id " , [self tableName], [_pk integerValue] ] ];
+                            " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -142,11 +152,11 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
                             " id < %ld "
-                            " ORDER BY id DESC ", [self tableName], [_pk integerValue] ] ];
+                            " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -171,9 +181,9 @@
     [db open];
         
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
-                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " %@ "
                             " FROM %@ "
-                            " ORDER BY id ASC ", [self tableName] ] ];    
+                            " ORDER BY id ASC ", [self fields], [self tableName] ] ];
     if( [results next] )
     {
         model = [EntryModel objectWithResults:results];
@@ -196,9 +206,9 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
+                            " %@ "
                             " FROM %@ "
-                            " ORDER BY id DESC ", [self tableName] ] ];
+                            " ORDER BY id DESC ", [self fields], [self tableName] ] ];
     
     if( [results next] )
     {
@@ -250,9 +260,9 @@
     [db open];
     
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
-                        " ( agency, client, country, product, accessURL, caseURL, blurb, name, year ) "
+                        " ( %@ ) "
                         " VALUES "
-                        " ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) ", [self tableName] ];
+                        " ( null, ?, ?, ?, ?, ?, ?, ?, ?, ? ) ", [self tableName], [self fields] ];
     
     [db executeUpdate:sql,
      self.agency.pk,
@@ -264,7 +274,7 @@
      self.blurb,
      self.name,
      self.year];
-     
+    
     [db close];
     
 }
@@ -356,8 +366,8 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
-                                                       " id, agency, client, country, product, accessURL, caseURL, blurb, name, year "
-                                                       " FROM %@ ", [self tableName]] ];
+                                                       " %@ "
+                                                       " FROM %@ ", [self fields], [self tableName]] ];
     
     while( [results next] )
     {

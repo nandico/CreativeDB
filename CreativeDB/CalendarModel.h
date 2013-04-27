@@ -21,6 +21,7 @@
 @property (assign) NSInteger year;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (CalendarModel *) objectWithResults:(FMResultSet *)results;
 + (CalendarModel *) loadModel:(NSNumber *) pk;
 

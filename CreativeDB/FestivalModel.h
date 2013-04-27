@@ -18,6 +18,7 @@
 @property (assign) NSInteger classify;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (FestivalModel *) objectWithResults:(FMResultSet *)results;
 + (FestivalModel *) loadModel:(NSNumber *) pk;
 

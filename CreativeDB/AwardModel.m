@@ -23,6 +23,16 @@
     return [AwardModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, metal, category, entry, festival, subcategory, year";
+}
+
+- (NSString *) fields
+{
+    return [AwardModel fields];
+}
+
 + (AwardModel *) objectWithResults:(FMResultSet *)results
 {
     AwardModel *object = [[AwardModel alloc] init];
@@ -47,11 +57,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, metal, category, entry, festival, subcategory, year "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                            " %@ "
                             " FROM aa_award "
                             " WHERE "
-                            " id = %ld ", [pk integerValue] ];
+                            " id = %ld ", [self fields], [pk integerValue] ] ];
     
     if( [results next] )
     {

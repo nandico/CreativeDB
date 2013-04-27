@@ -17,6 +17,7 @@
 @property (strong) NSURL *portfolioURL;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (PersonModel *) objectWithResults:(FMResultSet *)results;
 + (PersonModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;

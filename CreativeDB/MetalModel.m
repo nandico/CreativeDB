@@ -21,6 +21,15 @@
     return [MetalModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, name";
+}
+
+- (NSString *) fields
+{
+    return [MetalModel fields];
+}
 
 + (MetalModel *) objectWithResults:(FMResultSet *)results
 {
@@ -42,10 +51,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, name "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

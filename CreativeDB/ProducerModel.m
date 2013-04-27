@@ -21,6 +21,15 @@
     return [ProducerModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, country, name, siteURL";
+}
+
+- (NSString *) fields
+{
+    return [ProducerModel fields];
+}
 
 + (ProducerModel *) objectWithResults:(FMResultSet *)results
 {
@@ -45,10 +54,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, country, name, siteURL "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

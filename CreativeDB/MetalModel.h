@@ -14,6 +14,7 @@
 @property (strong) NSString *name;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (MetalModel *) objectWithResults:(FMResultSet *)results;
 + (MetalModel *) loadModel:(NSNumber *) pk;
 

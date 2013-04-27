@@ -15,6 +15,7 @@
 @property (strong) NSString *obs;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (RoleModel *) objectWithResults:(FMResultSet *)results;
 + (RoleModel *) loadModel:(NSNumber *) pk;
 + (RoleModel *) loadModelByStringValue:(NSString *) stringValue;

@@ -16,6 +16,7 @@
 @property (strong) CategoryModel *category;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (SubcategoryModel *) objectWithResults:(FMResultSet *)results;
 + (SubcategoryModel *) loadModel:(NSNumber *) pk;
 

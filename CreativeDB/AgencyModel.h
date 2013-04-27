@@ -19,6 +19,7 @@
 @property (strong) NSString *name;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (AgencyModel *) objectWithResults:(FMResultSet *)results;
 + (AgencyModel *) loadModel:(NSNumber *) pk;
 + (AgencyModel *) loadModelByStringValue:(NSString *) stringValue;

@@ -21,6 +21,15 @@
     return [ProducerCreditModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"entry, producer, discipline";
+}
+
+- (NSString *) fields
+{
+    return [ProducerCreditModel fields];
+}
 
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results
 {
@@ -44,10 +53,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " entry, producer, discipline "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [self tableName], [entryPK integerValue] ] ];
+                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ] ];
         
     while( [results next] )
     {

@@ -14,6 +14,7 @@
 @property (strong) NSString *name;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (CalendarTypeModel *) objectWithResults:(FMResultSet *)results;
 + (CalendarTypeModel *) loadModel:(NSNumber *) pk;
 

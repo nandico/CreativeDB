@@ -21,6 +21,16 @@
     return [GroupModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, name";
+}
+
+- (NSString *) fields
+{
+    return [GroupModel fields];
+}
+
 + (GroupModel *) objectWithResults:(FMResultSet *)results
 {
     GroupModel *object = [[GroupModel alloc] init];
@@ -41,10 +51,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, name "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
@@ -70,8 +80,8 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, name "
-                            " FROM %@ ", [self tableName] ] ];
+                            " %@ "
+                            " FROM %@ ", [self fields], [self tableName] ] ];
     
     while( [results next] )
     {

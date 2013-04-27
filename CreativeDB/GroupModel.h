@@ -14,6 +14,7 @@
 @property (strong) NSString *name;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (GroupModel *) objectWithResults:(FMResultSet *)results;
 + (GroupModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;

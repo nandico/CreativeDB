@@ -21,6 +21,7 @@
 @property (strong) NSString *update_request;
 
 + (NSString *) tableName;
++ (NSString *) fields;
 + (AnnotationModel *) objectWithResults:(FMResultSet *)results;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 

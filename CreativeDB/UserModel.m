@@ -21,6 +21,15 @@
     return [UserModel tableName];
 }
 
++ (NSString *) fields
+{
+    return @"id, fb_id, tw_id, name, email";
+}
+
+- (NSString *) fields
+{
+    return [UserModel fields];
+}
 
 + (UserModel *) objectWithResults:(FMResultSet *)results
 {
@@ -45,10 +54,10 @@
     [db open];
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                            " id, fb_id, tw_id, name, email "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {
