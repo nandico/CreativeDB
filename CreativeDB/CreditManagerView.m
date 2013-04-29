@@ -40,7 +40,7 @@
     [_engine addFieldContainer:[self entry]];
     [_engine addFieldContainer:[self role]];
     
-    [_engine addActionBar:[self actionBar]];
+    //[_engine addActionBar:[self actionBar]];
     
     [_engine arrangeContainers];
     

@@ -10,7 +10,32 @@
 
 @implementation BaseModel
 
++ (NSString *) tableName
+{
+    return nil;
+}
+
++ (NSString *) fields
+{
+    return nil;
+}
+
 + (BaseModel *) objectWithResults:(FMResultSet *)results
+{
+    return nil;
+}
+
++ (BaseModel *) loadModel:(NSNumber *) pk
+{
+    return nil;
+}
+
++ (BaseModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    return nil;
+}
+
++ (NSMutableArray *) loadAll
 {
     return nil;
 }

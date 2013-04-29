@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@interface MetalModel : BaseModel
+@interface MetalModel : BaseModel 
 
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;

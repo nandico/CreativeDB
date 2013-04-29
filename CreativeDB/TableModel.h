@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@interface TableModel : BaseModel
+@interface TableModel : BaseModel <BaseModelProtocol>
 
 @property (strong) NSString *type;
 @property (strong) NSString *name;

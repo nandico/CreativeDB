@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-@interface FestivalModel : BaseModel
+@interface FestivalModel : BaseModel <BaseModelProtocol>
 
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;

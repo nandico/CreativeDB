@@ -13,8 +13,13 @@
 
 @protocol BaseModelProtocol
 
++ (NSString *) tableName;
++ (NSString *) fields;
 + (BaseModel *) objectWithResults:(FMResultSet *)results;
-
++ (BaseModel *) loadModel:(NSNumber *) pk;
++ (BaseModel *) loadModelByStringValue:(NSString *) stringValue;
++ (NSMutableArray *) loadAll;
+ 
 @end
 
 @interface BaseModel : NSObject <BaseModelProtocol>
