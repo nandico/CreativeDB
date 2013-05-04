@@ -16,6 +16,10 @@
 
 @property (nonatomic, strong) EntryManagerCompleteView *viewInstance;
 
+@property (nonatomic, strong) EntryManagerViewController *entryManager;
+@property (nonatomic, strong) CreditManagerViewController *creditManager;
+@property (nonatomic, strong) CreditManagerListViewController *creditListManager;
+
 @end
 
 @implementation EntryManagerCompleteViewController
@@ -39,9 +43,9 @@
                                   [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
                                   nil];
     
-    EntryManagerViewController *entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
-    entryManager.view.frame = NSMakeRect(0, 0, 500, 500);
-    [self.view addSubview:entryManager.view];
+    _entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
+    _entryManager.view.frame = NSMakeRect(0, 0, 500, 500);
+    [self.view addSubview:_entryManager.view];
     
     
     
@@ -50,15 +54,20 @@
                                    [CreditModel first], MLE_FIELDSET_MODEL_ITEM,
                                    nil];
     
-    CreditManagerViewController *creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
-    creditManager.view.frame = NSMakeRect(500, 0, 500, 500);
-    [self.view addSubview:creditManager.view];
+    _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
+    _creditManager.view.frame = NSMakeRect(500, 0, 500, 500);
+    [self.view addSubview:_creditManager.view];
     
     
+    NSDictionary *entryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"CreditModel", MLE_FIELDSET_MODEL_KEY,
+                                        [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
+                                        nil];
     
-    CreditManagerListViewController *creditListManager = [[CreditManagerListViewController alloc] init];
-    creditListManager.view.frame = NSMakeRect(1000, 0, 500, 500);
-    [self.view addSubview:creditListManager.view];
+    _creditListManager = [[CreditManagerListViewController alloc]
+                                                          initWithOptions:entryCreditOptions];
+    _creditListManager.view.frame = NSMakeRect(1000, 0, 500, 500);
+    [self.view addSubview:_creditListManager.view];
     
     
     
