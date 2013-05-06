@@ -9,11 +9,13 @@
 #import <Cocoa/Cocoa.h>
 #import "AgencyManagerView.h"
 #import "AgencyModel.h"
+#import "BaseManagerViewController.h"
 
-@interface AgencyManagerViewController : NSViewController <AgencyDataSource>
+@interface AgencyManagerViewController : BaseManagerViewController <AgencyDataSource>
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
+@property (nonatomic, strong) NSMutableDictionary *fieldData;
 
 - (id)initWithOptions:(NSDictionary *)options;
 

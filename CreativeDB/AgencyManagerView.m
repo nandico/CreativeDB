@@ -38,22 +38,44 @@
     [_engine addFieldContainer:[self group]];
     [_engine addFieldContainer:[self country]];
     
+    [_engine addActionBar:[self actionBar]];
     
     [_engine arrangeContainers];
+}
+
+- (void) destroyForm
+{
+    [_engine removeContainers];
+    
+    [self.name removeFromSuperview];
+    [self.group removeFromSuperview];
+    [self.country removeFromSuperview];
+    
+    _name = nil;
+    _group = nil;
+    _country = nil;
+}
+
+- (ManagerActionBar *) actionBar
+{
+    if(!_actionBar)
+    {
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 nil];
+        
+        _actionBar = [[ManagerActionBar alloc] initWithOptions:options];
+        
+        [self addSubview:_actionBar];
+    }
+    
+    return _actionBar;
 }
 
 - (ManagerFieldContainer *)name
 {
     if(!_name)
     {
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"name", MLE_FIELD_NAME_KEY,
-                                 @"Name", MLE_FIELD_LABEL_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"name"];
         _name = [[ManagerFieldContainer alloc] initWithOptions:options];
         
         [self addSubview:_name];
@@ -67,17 +89,7 @@
 {
     if(!_group)
     {
-        
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"group", MLE_FIELD_NAME_KEY,
-                                 @"Group", MLE_FIELD_LABEL_KEY,
-                                 @"GroupModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"group"];
         _group = [[ManagerFieldContainer alloc] initWithOptions:options];
         
         [self addSubview:_group];
@@ -91,16 +103,7 @@
     if(!_country)
     {
         
-        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                                 @"country", MLE_FIELD_NAME_KEY,
-                                 @"Country", MLE_FIELD_LABEL_KEY,
-                                 @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                                 @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                                 [self.dataSource modelName], MLE_FIELDSET_MODEL_KEY,
-                                 [self.dataSource modelItem], MLE_FIELDSET_MODEL_ITEM,
-                                 nil];
-        
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"country"];
         _country = [[ManagerFieldContainer alloc] initWithOptions:options];
         
         [self addSubview:_country];

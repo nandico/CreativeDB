@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "EntryManagerCompleteViewController.h"
+#import "AgencyManagerViewController.h"
+
+#import "AgencyModel.h"
 
 @implementation AppDelegate
 
@@ -15,7 +18,17 @@
 {
     EntryManagerCompleteViewController *entryManager = [[EntryManagerCompleteViewController alloc] init];
     self.window.contentView = entryManager.view;
-     
+
+//    NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+//                                  @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
+//                                  [AgencyModel first], MLE_FIELDSET_MODEL_ITEM,
+//                                  nil];
+//    
+//    AgencyManagerViewController *agencyManager = [[AgencyManagerViewController alloc] initWithOptions:agencyOptions];
+//    agencyManager.view.frame = NSMakeRect(0, 0, 500, 500);
+//    self.window.contentView = agencyManager.view;
+//
+    
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication

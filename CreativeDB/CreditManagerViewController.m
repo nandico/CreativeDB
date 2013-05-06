@@ -36,6 +36,9 @@
         
         [self.viewInstance createForm];
         
+        /*
+        // disabled actionbar
+         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(saveAction)
                                                      name:MLE_NOTIFICATION_SAVE object:nil];
@@ -55,6 +58,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(previousAction)
                                                      name:MLE_NOTIFICATION_PREVIOUS object:nil];
+        */
     }
     
     return self;

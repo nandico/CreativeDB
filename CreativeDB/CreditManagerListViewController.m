@@ -22,6 +22,8 @@
 @property (nonatomic, strong) NSTableColumn *personColumn;
 @property (nonatomic, strong) NSTableColumn *roleColumn;
 
+@property (nonatomic, strong) NSMutableArray *items;
+
 @end
 
 @implementation CreditManagerListViewController
@@ -70,33 +72,54 @@
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
     
+    if( self.modelItem )
+    {
+        _items = [CreditModel loadByEntryId:self.modelItem];
+    }
+        
     [_tableView reloadData];
 
 }
-
-/*
-
 - (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView
 {
-    NSInteger teste = 100000;
-    
-    NSLog( @"number of rows! tableview %@", tableView );
-    return teste;
-    
-    if( _modelItem )
+    if( _items )
     {
-        return [[CreditModel loadByEntryId:_modelItem] count];
+        return _items.count;
     }
 
     return 0;
 }
-*/
 
-/*
 - (id) tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
+
+    // get an existing cell with the MyView identifier if it exists
+    NSTextField *result = [tableView makeViewWithIdentifier:@"MyView" owner:self];
+    
+    // There is no existing cell to reuse so we will create a new one
+    if (result == nil) {
+        
+        // create the new NSTextField with a frame of the {0,0} with the width of the table
+        // note that the height of the frame is not really relevant, the row-height will modify the height
+        // the new text field is then returned as an autoreleased object
+        result = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100.0f, 30.0f)];
+        
+        // the identifier of the NSTextField instance is set to MyView. This
+        // allows it to be re-used
+        result.identifier = @"MyView";
+    }
+    
+    // result is now guaranteed to be valid, either as a re-used cell
+    // or as a new cell, so set the stringValue of the cell to the
+    // nameArray value at row
+    CreditModel *item = [_items objectAtIndex:row];
+    
+    result.stringValue = item.person.name;
+    
+    // return the result.
+    return result;
+
 }
-*/
 
 
 

@@ -12,6 +12,7 @@
 
 - (NSString *) modelName;
 - (NSNumber *) modelItem;
+- (NSMutableDictionary *) fieldData;
 
 @end
 
@@ -19,6 +20,7 @@
 
 @property (assign) id <AgencyDataSource> dataSource;
 
-- (void)createForm;
+- (void) createForm;
+- (void) destroyForm;
 
 @end

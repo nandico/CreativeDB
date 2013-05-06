@@ -103,6 +103,7 @@
 {
     if(!_name)
     {
+        
         NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"name"];
         _name = [[ManagerFieldContainer alloc] initWithOptions:options];
         [self addSubview:_name];

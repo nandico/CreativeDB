@@ -70,6 +70,7 @@
     return model;
 }
 
+
 + (AgencyModel *) loadModelByStringValue:(NSString *) stringValue
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
@@ -124,6 +125,119 @@
     
     return collection;
 }
+
+- (NSNumber *) next
+{
+    if( !_pk ) return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    AgencyModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " id > %ld "
+                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
+    
+    if( [results next] )
+    {
+        model = [AgencyModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return model.pk;
+}
+
+- (NSNumber *) previous
+{
+    if( !_pk ) return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    AgencyModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " id < %ld "
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
+    
+    if( [results next] )
+    {
+        model = [AgencyModel objectWithResults:results];
+    }
+    
+    
+    [results close];
+    [db close];
+    
+    return model.pk;
+}
+
++ (NSNumber *) first
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    AgencyModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
+                                             " %@ "
+                                             " FROM %@ "
+                                             " ORDER BY id ASC ", [self fields], [self tableName] ] ];
+    if( [results next] )
+    {
+        model = [AgencyModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( model.pk ) ? model.pk : nil;
+}
+
++ (NSNumber *) last
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    AgencyModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " ORDER BY id DESC ", [self fields], [self tableName] ] ];
+    
+    if( [results next] )
+    {
+        model = [AgencyModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( model.pk ) ? model.pk : nil;
+}
+
 
 
 @end

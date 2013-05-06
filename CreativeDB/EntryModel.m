@@ -343,6 +343,7 @@
     return [CreditModel loadByEntryId:self.pk];
 }
 
+
 - (NSMutableArray *) producers
 {
     return [ProducerCreditModel loadByEntryId:self.pk];
