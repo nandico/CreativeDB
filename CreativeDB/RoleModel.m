@@ -51,11 +51,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
-                            " id, name, obs "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                            " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self fields], [pk integerValue] ];
+                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
     if( [results next] )
     {

@@ -239,6 +239,7 @@
         [self bindCombo];
         
         NSString *fieldValue = [self bindLookupValue];
+        
         if( fieldValue ) [_comboField setStringValue:fieldValue];
  
     }

@@ -72,55 +72,43 @@
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
     
+    
     if( self.modelItem )
     {
         _items = [CreditModel loadByEntryId:self.modelItem];
     }
-        
+    
     [_tableView reloadData];
 
 }
-- (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView
-{
-    if( _items )
-    {
-        return _items.count;
-    }
 
-    return 0;
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+    return _items.count;
 }
 
-- (id) tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
-{
-
-    // get an existing cell with the MyView identifier if it exists
-    NSTextField *result = [tableView makeViewWithIdentifier:@"MyView" owner:self];
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{   
+    NSTextField *cell = [tableView makeViewWithIdentifier:@"CreditView" owner:self];
     
-    // There is no existing cell to reuse so we will create a new one
-    if (result == nil) {
-        
-        // create the new NSTextField with a frame of the {0,0} with the width of the table
-        // note that the height of the frame is not really relevant, the row-height will modify the height
-        // the new text field is then returned as an autoreleased object
-        result = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 100.0f, 30.0f)];
-        
-        // the identifier of the NSTextField instance is set to MyView. This
-        // allows it to be re-used
-        result.identifier = @"MyView";
+    if (nil == cell) {
+        cell = [[NSTextField alloc] initWithFrame:CGRectZero];
+        cell.identifier = @"CreditView";
+        [cell setBezeled:NO];
     }
     
-    // result is now guaranteed to be valid, either as a re-used cell
-    // or as a new cell, so set the stringValue of the cell to the
-    // nameArray value at row
     CreditModel *item = [_items objectAtIndex:row];
+ 
+    //tableColumn.identifier
+    if( [tableColumn.identifier isEqualToString:@"person"] )
+    {
+        [cell setStringValue:item.person.name];
+    }
+    else if( [tableColumn.identifier isEqualToString:@"role"] )
+    {
+        [cell setStringValue:item.role.name];
+    }
     
-    result.stringValue = item.person.name;
-    
-    // return the result.
-    return result;
-
+    return cell;
 }
-
-
 
 @end

@@ -82,11 +82,11 @@
     
     [db open];
     
-    FMResultSet *results = [db executeQueryWithFormat:@"SELECT "
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ];
+                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ] ];
     
     while( [results next] )
     {
