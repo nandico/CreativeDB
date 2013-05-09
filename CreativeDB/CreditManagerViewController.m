@@ -7,6 +7,7 @@
 //
 
 #import "CreditManagerViewController.h"
+#import "EntryManagerViewController.h"
 #import "ManagerEngine.h"
 
 @interface CreditManagerViewController ()
@@ -24,9 +25,18 @@
     if (self) {
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
-
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
+            self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
+            self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
+            self.modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
+            self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+        
         self.view = self.viewInstance = [[CreditManagerView alloc] init];
         self.viewInstance.dataSource = self;
 
@@ -55,7 +65,12 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(previousAction)
                                                      name:MLE_NOTIFICATION_PREVIOUS object:self.viewInstance.actionBar];
-    
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateCredits:)
+                                                     name:ENTRY_MANAGER_UPDATE_CREDITS object:nil];
+        
+        
     }
     
     return self;
@@ -75,10 +90,34 @@
 
 - (void) updateList
 {
+
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:CREDIT_MANAGER_UPDATE_LIST
                                                         object:self
                                                       userInfo:nil];
 
+}
+
+- (void) updateCredits:(NSNotification *) notification
+{
+    NSNumber *item = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_ITEM];
+    
+    if( item != (id)[NSNull null] )
+    {
+        [self.viewInstance setHidden:NO];
+        
+        self.modelItem = item;
+        
+        [self.viewInstance destroyForm];
+        [self prepareEntity];
+        [self.viewInstance createForm];
+        
+        [self updateList];
+    }
+    else
+    {
+        [self.viewInstance setHidden:YES];
+    }
 }
 
 - (void) prepareEntity
@@ -92,6 +131,8 @@
                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
                             self.modelName, MLE_FIELDSET_MODEL_KEY,
                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
+                            self.modelFilterName, MLE_FIELDSET_MODEL_FILTERNAME,
+                            self.modelFilterValue, MLE_FIELDSET_MODEL_FILTERVALUE,
                             nil];
     
     [self.fieldData setObject:person forKey:@"person"];
@@ -104,6 +145,8 @@
                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
                             self.modelName, MLE_FIELDSET_MODEL_KEY,
                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
+                            self.modelFilterName, MLE_FIELDSET_MODEL_FILTERNAME,
+                            self.modelFilterValue, MLE_FIELDSET_MODEL_FILTERVALUE,
                             nil];
     
     [self.fieldData setObject:entry forKey:@"entry"];
@@ -116,6 +159,8 @@
                            @"name", MLE_FIELD_LOOKUP_NAME_KEY,
                            self.modelName, MLE_FIELDSET_MODEL_KEY,
                            self.modelItem, MLE_FIELDSET_MODEL_ITEM,
+                           self.modelFilterName, MLE_FIELDSET_MODEL_FILTERNAME,
+                           self.modelFilterValue, MLE_FIELDSET_MODEL_FILTERVALUE,
                            nil];
     
     [self.fieldData setObject:role forKey:@"role"];

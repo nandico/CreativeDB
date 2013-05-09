@@ -10,6 +10,9 @@
 #import "EntryManagerView.h"
 #import "BaseManagerViewController.h"
 
+#define ENTRY_MANAGER_UPDATE_CREDITS @"ENTRY_MANAGER_UPDATE_CREDITS"
+
+
 @interface EntryManagerViewController : BaseManagerViewController <EntryDataSource>
 
 @property (nonatomic, strong) NSString *modelName;

@@ -12,10 +12,13 @@
 
 #define CREDIT_MANAGER_UPDATE_LIST @"CREDIT_MANAGER_UPDATE_LIST"
 
+
 @interface CreditManagerViewController : BaseManagerViewController <CreditDataSource>
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
+@property (nonatomic, strong) NSString *modelFilterName;
+@property (nonatomic, strong) NSNumber *modelFilterValue;
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
 
 - (id)initWithOptions:(NSDictionary *)options;

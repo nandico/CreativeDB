@@ -15,7 +15,5 @@
 @property (nonatomic, strong) NSNumber *modelItem;
 
 - (id)initWithOptions:(NSDictionary *) options;
-- (NSInteger) numberOfRowsInTableView:(NSTableView *)tableView;
-- (id) tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 
 @end

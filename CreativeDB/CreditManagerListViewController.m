@@ -54,15 +54,12 @@
 
 - (void) updateList
 {
-    NSLog( @"UPDATE!" );
-    
     if( self.modelItem )
     {
         _items = [CreditModel loadByEntryId:self.modelItem];
     }
-    
+
     [_tableView reloadData];
-    
 }
 
 

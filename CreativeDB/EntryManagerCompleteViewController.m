@@ -52,6 +52,8 @@
     NSDictionary *creditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"CreditModel", MLE_FIELDSET_MODEL_KEY,
                                    [CreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
+                                   [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
                                    nil];
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];

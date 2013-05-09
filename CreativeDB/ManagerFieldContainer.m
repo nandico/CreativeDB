@@ -16,6 +16,8 @@
 @property (nonatomic,strong) NSString *nameSelector;
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
+@property (nonatomic, strong) NSString *modelFilterName;
+@property (nonatomic, strong) NSNumber *modelFilterValue;
 @property (nonatomic, strong) NSString *fieldName;
 @property (nonatomic, strong) NSString *fieldLabel;
 @property (nonatomic, strong) NSString *fieldLookupName;
@@ -41,15 +43,38 @@
         self.frame = NSMakeRect(0.0f, 0.0f, MLE_CONTAINER_WIDTH, MLE_CONTAINER_HEIGHT);
         
         _options = options;
-        if( [self.options objectForKey:MLE_FIELD_TYPE_KEY] ) _fieldType = [self.options objectForKey:MLE_FIELD_TYPE_KEY];
-        if( [self.options objectForKey:MLE_FIELD_DATATYPE_KEY] ) _fieldDataType = [self.options objectForKey:MLE_FIELD_DATATYPE_KEY];
-        if( [self.options objectForKey:MLE_FIELD_NAME_KEY] ) _fieldName = [self.options objectForKey:MLE_FIELD_NAME_KEY];
-        if( [self.options objectForKey:MLE_FIELD_LABEL_KEY] ) _fieldLabel = [self.options objectForKey:MLE_FIELD_LABEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
-        if( [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY] ) _fieldLookupName = [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY];
-        if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] ) _fieldLookupModel = [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] ) _staticDomainData = [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY];        
+        if( [self.options objectForKey:MLE_FIELD_TYPE_KEY] )
+            _fieldType = [self.options objectForKey:MLE_FIELD_TYPE_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELD_DATATYPE_KEY] )
+            _fieldDataType = [self.options objectForKey:MLE_FIELD_DATATYPE_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELD_NAME_KEY] )
+            _fieldName = [self.options objectForKey:MLE_FIELD_NAME_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELD_LABEL_KEY] )
+            _fieldLabel = [self.options objectForKey:MLE_FIELD_LABEL_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
+            _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
+            _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
+            _modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
+            _modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+        
+        if( [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY] )
+            _fieldLookupName = [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] )
+            _fieldLookupModel = [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] )
+            _staticDomainData = [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY];
         
         [self label];
         
@@ -141,18 +166,6 @@
     
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
-
-/*
-- (NSInteger) findLookupValueByString:(NSString *) stringValue
-{
-    SEL staticLoadSelector = NSSelectorFromString( @"loadModelByStringValue:" );
-    id lookupModelClass = NSClassFromString( _fieldLookupModel );
-    id lookupModel = [lookupModelClass performSelector:staticLoadSelector withObject:stringValue];
-    
-    return (NSInteger) [lookupModel valueForKey:@"pk"];
-}
-*/
-
 
 - (NSMutableArray *) lookupData
 {

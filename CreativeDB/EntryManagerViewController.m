@@ -62,10 +62,49 @@
     return self;
 }
 
+- (void) deleteAction
+{
+    [super deleteAction];
+    [self updateCredits];
+}
+
+- (void) newAction
+{
+    [super newAction];
+    [self updateCredits];
+}
+
+- (void) nextAction
+{
+    [super nextAction];
+    [self updateCredits];
+}
+
+- (void) previousAction
+{
+    [super previousAction];
+    [self updateCredits];
+}
+
+- (void) updateCredits
+{
+    NSDictionary *entryMessage;
+    if( self.modelItem )
+    {
+        entryMessage = [NSDictionary dictionaryWithObject:self.modelItem forKey:MLE_FIELDSET_MODEL_ITEM];
+    }
+    else
+    {
+        entryMessage = [NSDictionary dictionaryWithObject:[NSNull null] forKey:MLE_FIELDSET_MODEL_ITEM];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:ENTRY_MANAGER_UPDATE_CREDITS
+                                                        object:self
+                                                      userInfo:entryMessage];
+}
+
 - (void) prepareEntity
 {
-    
-    
     
     NSDictionary *name = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
