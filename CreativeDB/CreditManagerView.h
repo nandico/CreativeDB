@@ -7,6 +7,7 @@
 //
 
 #import "BaseManagerView.h"
+#import "ManagerEngine.h"
 
 @protocol CreditDataSource <NSObject>
 
@@ -19,6 +20,8 @@
 @interface CreditManagerView : BaseManagerView
 
 @property (strong) id <CreditDataSource> dataSource;
+@property (nonatomic, strong) ManagerEngine *engine;
+@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 - (void) createForm;
 - (void) destroyForm;

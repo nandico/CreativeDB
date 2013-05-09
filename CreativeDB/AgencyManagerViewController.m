@@ -63,11 +63,6 @@
     return self;
 }
 
-- (void) tempSel
-{
-    NSLog( @"Save action!" );
-}
-
 - (void) prepareEntity
 {
     NSDictionary *name = [NSDictionary dictionaryWithObjectsAndKeys:

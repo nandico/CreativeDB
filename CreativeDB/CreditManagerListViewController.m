@@ -98,7 +98,6 @@
     
     CreditModel *item = [_items objectAtIndex:row];
  
-    //tableColumn.identifier
     if( [tableColumn.identifier isEqualToString:@"person"] )
     {
         [cell setStringValue:item.person.name];

@@ -14,4 +14,11 @@
 @property (nonatomic, strong) NSNumber *modelItem;
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
 
+- (void) saveAction;
+- (void) deleteAction;
+- (void) newAction;
+- (void) previousAction;
+- (void) nextAction;
+- (void) prepareEntity;
+
 @end

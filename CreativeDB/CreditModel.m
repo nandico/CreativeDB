@@ -214,7 +214,7 @@
 }
 
 - (void) save
-{ 
+{
     if( self.pk )
     {
         [self update];
@@ -234,15 +234,16 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, ?, ?, ? ) ", [self fields], [self tableName] ];
+                     " ( null, %@, %@, %@ ) ",[self tableName], [self fields], self.person.pk,
+                     self.entry.pk,
+                     self.role.pk ];
     
-    [db executeUpdate:sql,
-     self.person.pk,
-     self.entry.pk,
-     self.role.pk];
+    [db executeUpdate:sql];
     
     [db close];
     
@@ -257,20 +258,22 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     if( self.person )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET person = ? WHERE id = ?", [self tableName]],
-         self.person.pk, self.pk ];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET person = %@ WHERE id = %@", [self tableName],
+         self.person.pk, self.pk ] ];
     }
     if( self.entry )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET entry = ? WHERE id = ?", [self tableName]],
-         self.entry.pk, self.pk ];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET entry = %@ WHERE id = %@", [self tableName],
+         self.entry.pk, self.pk ] ];
     }
     if( self.role )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET role = ? WHERE id = ?", [self tableName]],
-         self.role.pk, self.pk ];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET role = %@ WHERE id = %@", [self tableName],
+         self.role.pk, self.pk ] ];
     }
     
     [db close];

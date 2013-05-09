@@ -10,6 +10,7 @@
 #import "BaseManagerViewController.h"
 #import "CreditManagerView.h"
 
+
 @interface CreditManagerViewController : BaseManagerViewController <CreditDataSource>
 
 @property (nonatomic, strong) NSString *modelName;

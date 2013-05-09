@@ -40,23 +40,23 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(saveAction)
-                                                     name:MLE_NOTIFICATION_SAVE object:nil];
+                                                     name:MLE_NOTIFICATION_SAVE object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(deleteAction)
-                                                     name:MLE_NOTIFICATION_DELETE object:nil];
+                                                     name:MLE_NOTIFICATION_DELETE object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(newAction)
-                                                     name:MLE_NOTIFICATION_NEW object:nil];
+                                                     name:MLE_NOTIFICATION_NEW object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(nextAction)
-                                                     name:MLE_NOTIFICATION_NEXT object:nil];
+                                                     name:MLE_NOTIFICATION_NEXT object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(previousAction)
-                                                     name:MLE_NOTIFICATION_PREVIOUS object:nil];
+                                                     name:MLE_NOTIFICATION_PREVIOUS object:self.viewInstance.actionBar];
     }
     
     return self;
@@ -64,6 +64,9 @@
 
 - (void) prepareEntity
 {
+    
+    
+    
     NSDictionary *name = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
                              @"name", MLE_FIELD_NAME_KEY,

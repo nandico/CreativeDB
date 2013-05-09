@@ -23,6 +23,8 @@
 @interface EntryManagerView : BaseManagerView
 
 @property (strong) id <EntryDataSource> dataSource;
+@property (nonatomic, strong) ManagerEngine *engine;
+@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 - (void) createForm;
 - (void) destroyForm;

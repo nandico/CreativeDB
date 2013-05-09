@@ -12,7 +12,7 @@
 
 @interface  EntryManagerView()
 
-@property (nonatomic, strong) ManagerEngine *engine;
+
 @property (nonatomic, strong) ManagerFieldContainer *agency;
 @property (nonatomic, strong) ManagerFieldContainer *client;
 @property (nonatomic, strong) ManagerFieldContainer *country;
@@ -22,7 +22,6 @@
 @property (nonatomic, strong) ManagerFieldContainer *blurb;
 @property (nonatomic, strong) ManagerFieldContainer *name;
 @property (nonatomic, strong) ManagerFieldContainer *year;
-@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 @end
 

@@ -12,11 +12,9 @@
 
 @interface  CreditManagerView()
 
-@property (nonatomic, strong) ManagerEngine *engine;
 @property (nonatomic, strong) ManagerFieldContainer *person;
 @property (nonatomic, strong) ManagerFieldContainer *entry;
 @property (nonatomic, strong) ManagerFieldContainer *role;
-@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 @end
 
@@ -40,7 +38,7 @@
     [_engine addFieldContainer:[self entry]];
     [_engine addFieldContainer:[self role]];
     
-    //[_engine addActionBar:[self actionBar]];
+    [_engine addActionBar:[self actionBar]];
     
     [_engine arrangeContainers];
     
