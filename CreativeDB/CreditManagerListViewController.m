@@ -8,6 +8,7 @@
 
 #import "CreditManagerListViewController.h"
 #import "CreditManagerListView.h"
+#import "CreditManagerViewController.h"
 #import "ManagerEngine.h"
 #import "CreditModel.h"
 
@@ -40,6 +41,10 @@
         
         self.view = self.viewInstance = [[CreditManagerListView alloc] init];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateList)
+                                                     name:CREDIT_MANAGER_UPDATE_LIST object:nil];
+
         
         [self createList];
     }
@@ -47,8 +52,27 @@
     return self;
 }
 
+- (void) updateList
+{
+    NSLog( @"UPDATE!" );
+    
+    if( self.modelItem )
+    {
+        _items = [CreditModel loadByEntryId:self.modelItem];
+    }
+    
+    [_tableView reloadData];
+    
+}
+
+
 - (void) createList
 {
+    if( self.modelItem )
+    {
+        _items = [CreditModel loadByEntryId:self.modelItem];
+    }
+    
     _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(10, 10, 380, 200)];
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 364, 200)];
 
@@ -70,19 +94,14 @@
     [self.view addSubview:_tableContainer];
 
     [_tableView setDelegate:self];
-    [_tableView setDataSource:self];
-    
-    
-    if( self.modelItem )
-    {
-        _items = [CreditModel loadByEntryId:self.modelItem];
-    }
+    [_tableView setDataSource:self];    
     
     [_tableView reloadData];
 
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
     return _items.count;
 }
 

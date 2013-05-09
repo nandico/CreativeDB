@@ -61,6 +61,26 @@
     return self;
 }
 
+- (void) saveAction
+{    
+    [super saveAction];
+    [self updateList];
+}
+
+- (void) deleteAction
+{
+    [super deleteAction];
+    [self updateList];
+}
+
+- (void) updateList
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:CREDIT_MANAGER_UPDATE_LIST
+                                                        object:self
+                                                      userInfo:nil];
+
+}
+
 - (void) prepareEntity
 {
    

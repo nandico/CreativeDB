@@ -234,8 +234,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
@@ -257,8 +255,6 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    db.traceExecution = YES;
     
     if( self.person )
     {
