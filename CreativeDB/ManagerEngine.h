@@ -27,7 +27,7 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_BACKGROUND_COLOR [NSColor whiteColor]
 
-#define MLE_FIELDSET_OFFSET_Y 100.0f
+#define MLE_FIELDSET_OFFSET_Y 50.0f
 
 #define MLE_CONTAINER_WIDTH 500.0f
 #define MLE_CONTAINER_HEIGHT 32.0f

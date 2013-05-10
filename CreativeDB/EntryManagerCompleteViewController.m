@@ -58,7 +58,7 @@
                                    nil];
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
-    _creditManager.view.frame = NSMakeRect(520, 0, 500, 1000);
+    _creditManager.view.frame = NSMakeRect(520, 298, 500, 1000);
     [self.view addSubview:_creditManager.view];
     
     
@@ -71,7 +71,7 @@
     
     _creditListManager = [[CreditManagerListViewController alloc]
                                                           initWithOptions:entryCreditOptions];
-    _creditListManager.view.frame = NSMakeRect(1040, 0, 500, 1000);
+    _creditListManager.view.frame = NSMakeRect(520, 20, 500, 1000);
     [self.view addSubview:_creditListManager.view];
     
     

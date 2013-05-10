@@ -87,14 +87,14 @@
         _items = [CreditModel loadByEntryId:self.modelItem];
     }
     
-    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(10, 10, 380, 200)];
-    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 364, 200)];
+    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(10.0f, 10.0f, 500.0f, 250.0f)];
+    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 500.0f, 200.0f)];
 
     _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];
     _roleColumn = [[NSTableColumn alloc] initWithIdentifier:@"role"];
     
     [_personColumn setWidth:252.0f];
-    [_roleColumn setWidth:198.0f];
+    [_roleColumn setWidth:252.0f];
     
     [_personColumn.headerCell setStringValue:@"Person"];
     [_roleColumn.headerCell setStringValue:@"Role"];
