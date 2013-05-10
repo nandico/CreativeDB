@@ -127,6 +127,9 @@
         cell = [[NSTextField alloc] initWithFrame:CGRectZero];
         cell.identifier = @"CreditView";
         [cell setBezeled:NO];
+        cell.backgroundColor = MLE_CONTAINER_COLOR;
+        cell.wantsLayer = YES;
+        cell.layer.cornerRadius = 4.0f;
     }
     
     CreditModel *item = [_items objectAtIndex:row];

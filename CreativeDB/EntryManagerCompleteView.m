@@ -10,6 +10,14 @@
 
 @implementation EntryManagerCompleteView
 
-
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.wantsLayer = YES;
+        self.layer.backgroundColor = [[NSColor whiteColor] CGColor];
+    }
+    return self;
+}
 
 @end
