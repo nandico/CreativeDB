@@ -24,6 +24,12 @@
 + (CreditModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 
++ (NSString *) modelFilterName;
++ (void) setModelFilterName:(NSString *) filterName;
+
++ (NSNumber *) modelFilterValue;
++ (void) setModelFilterValue:(NSNumber *) filterNumber;
+
 - (NSNumber *) next;
 - (NSNumber *) previous;
 + (NSNumber *) first;

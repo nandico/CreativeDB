@@ -11,6 +11,9 @@
 
 @implementation CreditModel
 
+static NSString *modelFilterName;
+static NSNumber *modelFilterValue;
+
 + (NSString *) tableName
 {
     return @"aa_credit";
@@ -100,6 +103,38 @@
     return collection;
 }
 
++ (NSString *) modelFilterName
+{
+    @synchronized( self )
+    {
+        return modelFilterName;
+    }
+}
+
++ (void) setModelFilterName:(NSString *) filterName
+{
+    @synchronized( self )
+    {
+        modelFilterName = filterName;
+    }
+}
+
++ (NSNumber *) modelFilterValue
+{
+    @synchronized( self )
+    {
+        return modelFilterValue;
+    }
+}
+
++ (void) setModelFilterValue:(NSNumber *) filterValue
+{
+    @synchronized( self )
+    {
+        modelFilterValue = filterValue;
+    }
+}
+
 - (NSNumber *) next
 {
     if( !_pk ) return nil;
@@ -117,7 +152,8 @@
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id > %ld "
-                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
+                                                       " AND %@ = %@ "
+                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue], modelFilterName, modelFilterValue ] ];
     
     if( [results next] )
     {
@@ -147,7 +183,8 @@
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id < %ld "
-                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
+                                                       " AND %@ = %@ "
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue], modelFilterName, modelFilterValue ] ];
     
     if( [results next] )
     {
@@ -174,7 +211,8 @@
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
                                              " %@  "
                                              " FROM %@ "
-                                             " ORDER BY id ASC ", [self fields], [self tableName] ] ];
+                                             " WHERE %@ = %@ "
+                                             " ORDER BY id ASC ", [self fields], [self tableName], modelFilterName, modelFilterValue ] ];
     
     if( [results next] )
     {
@@ -200,7 +238,8 @@
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " %@ "
                                                        " FROM %@ "
-                                                       " ORDER BY id DESC ", [self fields], [self tableName] ] ];
+                                                       " WHERE %@ = %@ "
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], modelFilterName, modelFilterValue ] ];
     
     if( [results next] )
     {

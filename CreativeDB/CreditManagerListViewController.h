@@ -13,6 +13,9 @@
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
+@property (nonatomic, strong) NSString *modelFilterName;
+@property (nonatomic, strong) NSNumber *modelFilterValue;
+
 
 - (id)initWithOptions:(NSDictionary *) options;
 

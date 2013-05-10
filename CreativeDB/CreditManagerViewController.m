@@ -8,6 +8,7 @@
 
 #import "CreditManagerViewController.h"
 #import "EntryManagerViewController.h"
+#import "CreditModel.h"
 #import "ManagerEngine.h"
 
 @interface CreditManagerViewController ()
@@ -69,8 +70,6 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateCredits:)
                                                      name:ENTRY_MANAGER_UPDATE_CREDITS object:nil];
-        
-        
     }
     
     return self;
@@ -90,23 +89,34 @@
 
 - (void) updateList
 {
-
-    
+    NSDictionary *updateMessage;
+    if( self.modelFilterValue )
+    {
+        updateMessage = [NSDictionary dictionaryWithObject:self.modelFilterValue forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+    }
+    else
+    {
+        updateMessage = [NSDictionary dictionaryWithObject:[NSNull null] forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+    }
+        
     [[NSNotificationCenter defaultCenter] postNotificationName:CREDIT_MANAGER_UPDATE_LIST
                                                         object:self
-                                                      userInfo:nil];
+                                                      userInfo:updateMessage];
 
 }
 
 - (void) updateCredits:(NSNotification *) notification
 {
-    NSNumber *item = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_ITEM];
+    NSNumber *modelFilterValue = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
     
-    if( item != (id)[NSNull null] )
+    if( modelFilterValue != (id)[NSNull null] )
     {
         [self.viewInstance setHidden:NO];
         
-        self.modelItem = item;
+        self.modelFilterValue = modelFilterValue;
+        CreditModel.modelFilterName = self.modelFilterName;
+        CreditModel.modelFilterValue = self.modelFilterValue;
+        self.modelItem = [CreditModel first];
         
         [self.viewInstance destroyForm];
         [self prepareEntity];
@@ -116,7 +126,9 @@
     }
     else
     {
+        self.modelFilterValue = nil;
         [self.viewInstance setHidden:YES];
+        [self updateList];
     }
 }
 

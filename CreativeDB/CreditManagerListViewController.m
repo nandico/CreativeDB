@@ -36,13 +36,22 @@
 
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
+            self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
+            self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
+            self.modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
+            self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+
         self.view = self.viewInstance = [[CreditManagerListView alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateList)
+                                                 selector:@selector(updateList:)
                                                      name:CREDIT_MANAGER_UPDATE_LIST object:nil];
 
         
@@ -52,14 +61,22 @@
     return self;
 }
 
-- (void) updateList
+- (void) updateList:(NSNotification *) notification
 {
-    if( self.modelItem )
-    {
-        _items = [CreditModel loadByEntryId:self.modelItem];
-    }
+    NSNumber *modelFilterValue = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
 
-    [_tableView reloadData];
+    if( modelFilterValue != (id)[NSNull null] )
+    {
+        self.modelFilterValue = modelFilterValue;
+
+        [self.viewInstance setHidden:NO];
+        _items = [CreditModel loadByEntryId:self.modelFilterValue];
+        [_tableView reloadData];
+    }
+    else
+    {
+        [self.viewInstance setHidden:YES];
+    }
 }
 
 

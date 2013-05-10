@@ -47,7 +47,8 @@
     _entryManager.view.frame = NSMakeRect(0, 0, 500, 500);
     [self.view addSubview:_entryManager.view];
     
-    
+    CreditModel.modelFilterName = @"entry";
+    CreditModel.modelFilterValue = [EntryModel first];
     
     NSDictionary *creditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"CreditModel", MLE_FIELDSET_MODEL_KEY,
@@ -64,6 +65,8 @@
     NSDictionary *entryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                         @"CreditModel", MLE_FIELDSET_MODEL_KEY,
                                         [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
+                                        @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
+                                        [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
                                         nil];
     
     _creditListManager = [[CreditManagerListViewController alloc]

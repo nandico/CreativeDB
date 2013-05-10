@@ -91,11 +91,11 @@
     NSDictionary *entryMessage;
     if( self.modelItem )
     {
-        entryMessage = [NSDictionary dictionaryWithObject:self.modelItem forKey:MLE_FIELDSET_MODEL_ITEM];
+        entryMessage = [NSDictionary dictionaryWithObject:self.modelItem forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
     }
     else
     {
-        entryMessage = [NSDictionary dictionaryWithObject:[NSNull null] forKey:MLE_FIELDSET_MODEL_ITEM];
+        entryMessage = [NSDictionary dictionaryWithObject:[NSNull null] forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:ENTRY_MANAGER_UPDATE_CREDITS
