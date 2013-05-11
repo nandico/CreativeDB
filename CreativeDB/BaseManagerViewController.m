@@ -102,16 +102,9 @@
             case MLEComboFieldType:
                 if( YES )
                 {
-                    NSLog( @"model: %@", model );
-                    NSLog( @"fieldName: %@", fieldName );
-
-                    
                     SEL numericValueSelector = NSSelectorFromString( @"loadModelByStringValue:" );
                     id lookupModelClass = NSClassFromString( fieldLookupModel );
                     id lookupModel = [lookupModelClass performSelector:numericValueSelector withObject:stringValue];
-                    
-                    NSLog( @"Lookup model class: %@", lookupModelClass );
-                    NSLog( @"Lookup model: %@", lookupModel );
                     
                     [model setValue:lookupModel forKey:fieldName];
                 }

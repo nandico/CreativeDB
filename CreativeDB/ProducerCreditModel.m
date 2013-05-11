@@ -37,16 +37,16 @@ static NSNumber *modelFilterValue;
 + (ProducerCreditModel *) objectWithResults:(FMResultSet *)results
 {
     ProducerCreditModel *object = [[ProducerCreditModel alloc] init];
+    object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
     object.producer = [ProducerModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"producer"]]];
-    NSLog( @"Producer: %ld %@", [results longForColumn:@"producer"], object.producer );
     object.discipline = [DisciplineModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"discipline"]]];
    
     return object;
 }
 
 + (ProducerCreditModel *) loadModel:(NSNumber *) pk
-{
+{    
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
@@ -274,8 +274,6 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
@@ -298,8 +296,6 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
-    db.traceExecution = YES;
-
     if( self.entry )
     {
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET entry = %@ WHERE id = %@", [self tableName],
