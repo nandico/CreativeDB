@@ -10,6 +10,7 @@
 #import "EntryManagerCompleteView.h"
 #import "CreditManagerListViewController.h"
 #import "ProducerCreditManagerViewController.h"
+#import "ProducerCreditManagerListViewController.h"
 
 #import "EntryModel.h"
 #import "CreditModel.h"
@@ -23,6 +24,7 @@
 @property (nonatomic, strong) CreditManagerViewController *creditManager;
 @property (nonatomic, strong) CreditManagerListViewController *creditListManager;
 @property (nonatomic, strong) ProducerCreditManagerViewController *producerCreditManager;
+@property (nonatomic, strong) ProducerCreditManagerListViewController *producerCreditListManager;
 
 @end
 
@@ -68,7 +70,7 @@
     
     NSDictionary *entryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                         @"CreditModel", MLE_FIELDSET_MODEL_KEY,
-                                        [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
+                                        [CreditModel first], MLE_FIELDSET_MODEL_ITEM,
                                         @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
                                         [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
                                         nil];
@@ -92,6 +94,19 @@
     _producerCreditManager = [[ProducerCreditManagerViewController alloc] initWithOptions:producerCreditOptions];
     _producerCreditManager.view.frame = NSMakeRect(1040, 298, 500, 1000);
     [self.view addSubview:_producerCreditManager.view];
+    
+    
+    NSDictionary *producerEntryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        @"ProducerCreditModel", MLE_FIELDSET_MODEL_KEY,
+                                        [ProducerCreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                        @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
+                                        [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                        nil];
+    
+    _producerCreditListManager = [[ProducerCreditManagerListViewController alloc]
+                          initWithOptions:producerEntryCreditOptions];
+    _producerCreditListManager.view.frame = NSMakeRect(1040, 20, 500, 1000);
+    [self.view addSubview:_producerCreditListManager.view];
 
 
 }
