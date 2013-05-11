@@ -1,18 +1,17 @@
 //
-//  CreditManagerViewController.h
+//  ProducerCreditManagerViewController.h
 //  CreativeDB
 //
-//  Created by Fernando Aquino on 4/22/13.
+//  Created by Fernando Aquino on 5/10/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import "BaseManagerViewController.h"
-#import "CreditManagerView.h"
+#import "ProducerCreditManagerView.h"
 
-#define CREDIT_MANAGER_UPDATE_LIST @"CREDIT_MANAGER_UPDATE_LIST"
+#define PRODUCERCREDIT_MANAGER_UPDATE_LIST @"PRODUCER_CREDIT_MANAGER_UPDATE_LIST"
 
-@interface CreditManagerViewController : BaseManagerViewController <CreditDataSource>
+@interface ProducerCreditManagerViewController : BaseManagerViewController <ProducerCreditDataSource>
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;

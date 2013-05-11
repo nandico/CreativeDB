@@ -9,6 +9,7 @@
 #import "EntryManagerCompleteViewController.h"
 #import "EntryManagerCompleteView.h"
 #import "CreditManagerListViewController.h"
+
 #import "EntryModel.h"
 #import "CreditModel.h"
 
@@ -19,6 +20,7 @@
 @property (nonatomic, strong) EntryManagerViewController *entryManager;
 @property (nonatomic, strong) CreditManagerViewController *creditManager;
 @property (nonatomic, strong) CreditManagerListViewController *creditListManager;
+
 
 @end
 

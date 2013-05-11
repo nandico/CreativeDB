@@ -36,6 +36,8 @@
 		BF2F32A4172E049A00C0CB1B /* EntryManagerCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A3172E049A00C0CB1B /* EntryManagerCompleteView.m */; };
 		BF2F32A7172E0B7E00C0CB1B /* CreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */; };
 		BF2F32AA172E0F8600C0CB1B /* CreditManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A9172E0F8300C0CB1B /* CreditManagerListView.m */; };
+		BF62E8C0173DC05E00B75C07 /* ProducerCreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */; };
+		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -129,6 +131,10 @@
 		BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerListViewController.m; sourceTree = "<group>"; };
 		BF2F32A8172E0F8200C0CB1B /* CreditManagerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerListView.h; sourceTree = "<group>"; };
 		BF2F32A9172E0F8300C0CB1B /* CreditManagerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerListView.m; sourceTree = "<group>"; };
+		BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerViewController.h; sourceTree = "<group>"; };
+		BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerViewController.m; sourceTree = "<group>"; };
+		BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerView.h; sourceTree = "<group>"; };
+		BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerView.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -264,27 +270,20 @@
 		BF46CF5F170391EB009AACA8 /* ContentManager */ = {
 			isa = PBXGroup;
 			children = (
+				BFD3A373173DB8F10015E04F /* View */,
 				BFF4C5A01705539A0098A633 /* Engine */,
-				BF2F32A2172E049A00C0CB1B /* EntryManagerCompleteView.h */,
-				BF2F32A3172E049A00C0CB1B /* EntryManagerCompleteView.m */,
 				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
 				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
 				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
-				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
-				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
-				BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */,
-				BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */,
-				BFE703351724F24A0030E255 /* CreditManagerViewController.h */,
-				BFE703361724F24B0030E255 /* CreditManagerViewController.m */,
-				BFE703381724F29B0030E255 /* CreditManagerView.h */,
-				BFE703391724F29C0030E255 /* CreditManagerView.m */,
 				BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */,
 				BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */,
 				BF2F32A5172E0B7A00C0CB1B /* CreditManagerListViewController.h */,
 				BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */,
-				BF2F32A8172E0F8200C0CB1B /* CreditManagerListView.h */,
-				BF2F32A9172E0F8300C0CB1B /* CreditManagerListView.m */,
+				BFE703351724F24A0030E255 /* CreditManagerViewController.h */,
+				BFE703361724F24B0030E255 /* CreditManagerViewController.m */,
+				BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */,
+				BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -389,6 +388,25 @@
 				BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		BFD3A373173DB8F10015E04F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF2F32A2172E049A00C0CB1B /* EntryManagerCompleteView.h */,
+				BF2F32A3172E049A00C0CB1B /* EntryManagerCompleteView.m */,
+				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
+				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
+				BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */,
+				BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */,
+				BF2F32A8172E0F8200C0CB1B /* CreditManagerListView.h */,
+				BF2F32A9172E0F8300C0CB1B /* CreditManagerListView.m */,
+				BFE703381724F29B0030E255 /* CreditManagerView.h */,
+				BFE703391724F29C0030E255 /* CreditManagerView.m */,
+				BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */,
+				BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		BFF4C5A01705539A0098A633 /* Engine */ = {
@@ -540,6 +558,8 @@
 				BF2F32A4172E049A00C0CB1B /* EntryManagerCompleteView.m in Sources */,
 				BF2F32A7172E0B7E00C0CB1B /* CreditManagerListViewController.m in Sources */,
 				BF2F32AA172E0F8600C0CB1B /* CreditManagerListView.m in Sources */,
+				BF62E8C0173DC05E00B75C07 /* ProducerCreditManagerViewController.m in Sources */,
+				BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
