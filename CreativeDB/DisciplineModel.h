@@ -17,6 +17,8 @@
 + (NSString *) fields;
 + (DisciplineModel *) objectWithResults:(FMResultSet *)results;
 + (DisciplineModel *) loadModel:(NSNumber *) pk;
++ (DisciplineModel *) loadModelByStringValue:(NSString *) stringValue;
++ (NSMutableArray *) loadAll;
 
 
 @end

@@ -215,12 +215,7 @@
 		BF00109D16FEAD0A007B8A80 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				BF0010A116FEADA6007B8A80 /* BaseModel.h */,
-				BF0010A216FEADA6007B8A80 /* BaseModel.m */,
-				BF00109E16FEAD3D007B8A80 /* TableModel.h */,
-				BF00109F16FEAD3D007B8A80 /* TableModel.m */,
-				BF0010A416FEB3DE007B8A80 /* ColumnModel.h */,
-				BF0010A516FEB3DE007B8A80 /* ColumnModel.m */,
+				BF62E8C4173DC98200B75C07 /* Engine */,
 				BF0010A716FEBDD7007B8A80 /* AgencyModel.h */,
 				BF0010A816FEBDD7007B8A80 /* AgencyModel.m */,
 				BF0010AA16FEBEBC007B8A80 /* GroupModel.h */,
@@ -229,8 +224,6 @@
 				BF0010AE16FECBE0007B8A80 /* CountryModel.m */,
 				BF0010B016FF21C1007B8A80 /* MetalModel.h */,
 				BF0010B116FF21C1007B8A80 /* MetalModel.m */,
-				BF0010B316FF230D007B8A80 /* ProducerModel.h */,
-				BF0010B416FF230E007B8A80 /* ProducerModel.m */,
 				BF0010B616FF252A007B8A80 /* ClientModel.h */,
 				BF0010B716FF252A007B8A80 /* ClientModel.m */,
 				BF0010B916FF2727007B8A80 /* ProductModel.h */,
@@ -245,6 +238,8 @@
 				BF0010C616FF362D007B8A80 /* DisciplineModel.m */,
 				BF0010C816FF385F007B8A80 /* PersonModel.h */,
 				BF0010C916FF3860007B8A80 /* PersonModel.m */,
+				BF0010B316FF230D007B8A80 /* ProducerModel.h */,
+				BF0010B416FF230E007B8A80 /* ProducerModel.m */,
 				BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */,
 				BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */,
 				BF0010CE16FF9C44007B8A80 /* EntryModel.h */,
@@ -286,6 +281,19 @@
 				BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */,
 			);
 			name = ContentManager;
+			sourceTree = "<group>";
+		};
+		BF62E8C4173DC98200B75C07 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				BF0010A116FEADA6007B8A80 /* BaseModel.h */,
+				BF0010A216FEADA6007B8A80 /* BaseModel.m */,
+				BF00109E16FEAD3D007B8A80 /* TableModel.h */,
+				BF00109F16FEAD3D007B8A80 /* TableModel.m */,
+				BF0010A416FEB3DE007B8A80 /* ColumnModel.h */,
+				BF0010A516FEB3DE007B8A80 /* ColumnModel.m */,
+			);
+			name = Engine;
 			sourceTree = "<group>";
 		};
 		BF8D841716F7EEA2006906D8 = {

@@ -26,7 +26,7 @@ static NSNumber *modelFilterValue;
 
 + (NSString *) fields
 {
-    return @"entry, producer, discipline";
+    return @"id, entry, producer, discipline";
 }
 
 - (NSString *) fields
@@ -39,6 +39,7 @@ static NSNumber *modelFilterValue;
     ProducerCreditModel *object = [[ProducerCreditModel alloc] init];
     object.entry = [EntryModel loadModel:[NSNumber numberWithInteger:[results longForColumn:@"entry"]]];
     object.producer = [ProducerModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"producer"]]];
+    NSLog( @"Producer: %ld %@", [results longForColumn:@"producer"], object.producer );
     object.discipline = [DisciplineModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"discipline"]]];
    
     return object;
@@ -252,6 +253,8 @@ static NSNumber *modelFilterValue;
 
 - (void) save
 {
+    NSLog( @"Save invoked" );
+    
     if( self.pk )
     {
         [self update];
@@ -270,6 +273,8 @@ static NSNumber *modelFilterValue;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
+    
+    db.traceExecution = YES;
     
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
@@ -292,6 +297,8 @@ static NSNumber *modelFilterValue;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
+    
+    db.traceExecution = YES;
 
     if( self.entry )
     {

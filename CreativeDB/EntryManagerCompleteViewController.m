@@ -9,9 +9,11 @@
 #import "EntryManagerCompleteViewController.h"
 #import "EntryManagerCompleteView.h"
 #import "CreditManagerListViewController.h"
+#import "ProducerCreditManagerViewController.h"
 
 #import "EntryModel.h"
 #import "CreditModel.h"
+#import "ProducerCreditModel.h"
 
 @interface EntryManagerCompleteViewController ()
 
@@ -20,7 +22,7 @@
 @property (nonatomic, strong) EntryManagerViewController *entryManager;
 @property (nonatomic, strong) CreditManagerViewController *creditManager;
 @property (nonatomic, strong) CreditManagerListViewController *creditListManager;
-
+@property (nonatomic, strong) ProducerCreditManagerViewController *producerCreditManager;
 
 @end
 
@@ -77,7 +79,19 @@
     [self.view addSubview:_creditListManager.view];
     
     
+    ProducerCreditModel.modelFilterName = @"entry";
+    ProducerCreditModel.modelFilterValue = [EntryModel first];
     
+    NSDictionary *producerCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"ProducerCreditModel", MLE_FIELDSET_MODEL_KEY,
+                                   [ProducerCreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
+                                   [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                   nil];
+    
+    _producerCreditManager = [[ProducerCreditManagerViewController alloc] initWithOptions:producerCreditOptions];
+    _producerCreditManager.view.frame = NSMakeRect(1040, 298, 500, 1000);
+    [self.view addSubview:_producerCreditManager.view];
 
 
 }

@@ -70,4 +70,61 @@
     return model;
 }
 
++ (ProducerModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    ProducerModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " name = '%@' ", [self fields], [self tableName], stringValue] ];
+    
+    if( [results next] )
+    {
+        model = [ProducerModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return model;
+}
+
+
++ (NSMutableArray *) loadAll
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    ProducerModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ ", [self fields], [self tableName] ] ];
+    
+    while( [results next] )
+    {
+        model = [ProducerModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
+
 @end

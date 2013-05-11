@@ -20,6 +20,8 @@
 + (NSString *) fields;
 + (ProducerModel *) objectWithResults:(FMResultSet *)results;
 + (ProducerModel *) loadModel:(NSNumber *) pk;
++ (ProducerModel *) loadModelByStringValue:(NSString *) stringValue;
++ (NSMutableArray *) loadAll;
 
 
 @end
