@@ -18,6 +18,7 @@
         self.frame = NSMakeRect( MLE_FIELD_OFFSET_X, MLE_FIELD_OFFSET_Y, MLE_FIELD_WIDTH, MLE_FIELD_HEIGHT );
         [self setFont:MLE_FIELD_FONT];
         [self setTextColor:MLE_FIELD_COLOR];
+        [self setBezelStyle:NSTextFieldRoundedBezel];
     }
 
     return self;

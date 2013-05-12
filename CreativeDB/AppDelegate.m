@@ -27,7 +27,7 @@
 //    agencyManager.view.frame = NSMakeRect(0, 0, 500, 500);
 //    self.window.contentView = agencyManager.view;
 //
-    
+     
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication

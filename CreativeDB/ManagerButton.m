@@ -17,6 +17,7 @@
     if (self) {
         self.frame = NSMakeRect( MLE_BUTTON_OFFSET_X, MLE_BUTTON_OFSSET_Y, MLE_BUTTON_WIDTH, MLE_BUTTON_HEIGHT );
         [self setFont:MLE_BUTTON_FONT];
+        [self setBezelStyle:NSTextFieldRoundedBezel];
     }
     
     return self;

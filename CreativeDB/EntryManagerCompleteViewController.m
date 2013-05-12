@@ -108,7 +108,11 @@
     _producerCreditListManager.view.frame = NSMakeRect(1040, 20, 500, 1000);
     [self.view addSubview:_producerCreditListManager.view];
 
+}
 
+- (BOOL) acceptsFirstResponder
+{
+    return YES;
 }
 
 @end

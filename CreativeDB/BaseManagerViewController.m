@@ -80,8 +80,6 @@
     // saving
     for( key in _fieldData )
     {
-        NSLog( @"key: %@", key );
-        
         options = [_fieldData objectForKey:key];
         fieldName = [options objectForKey:MLE_FIELD_NAME_KEY];
         fieldType = [options objectForKey:MLE_FIELD_TYPE_KEY];
@@ -90,9 +88,6 @@
         fieldContainer = [self.view valueForKey:fieldName];
         
         stringValue = [fieldContainer stringValue];
-        
-        NSLog( @"fieldContainer: %@", stringValue );
-        NSLog( @"String value: %@", stringValue );
         
         switch([fieldType integerValue])
         {
