@@ -38,6 +38,7 @@
 		BF2F32AA172E0F8600C0CB1B /* CreditManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A9172E0F8300C0CB1B /* CreditManagerListView.m */; };
 		BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */; };
 		BF302AD4173DF65700195DE8 /* ProducerCreditManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD3173DF65700195DE8 /* ProducerCreditManagerListView.m */; };
+		BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */; };
 		BF62E8C0173DC05E00B75C07 /* ProducerCreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */; };
 		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
@@ -137,6 +138,8 @@
 		BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerListViewController.m; sourceTree = "<group>"; };
 		BF302AD2173DF65700195DE8 /* ProducerCreditManagerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerListView.h; sourceTree = "<group>"; };
 		BF302AD3173DF65700195DE8 /* ProducerCreditManagerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerListView.m; sourceTree = "<group>"; };
+		BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerCompleteScrollView.h; sourceTree = "<group>"; };
+		BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerCompleteScrollView.m; sourceTree = "<group>"; };
 		BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerViewController.h; sourceTree = "<group>"; };
 		BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerViewController.m; sourceTree = "<group>"; };
 		BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerView.h; sourceTree = "<group>"; };
@@ -279,6 +282,8 @@
 				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
 				BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */,
 				BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */,
+				BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */,
+				BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */,
 				BF2F32A5172E0B7A00C0CB1B /* CreditManagerListViewController.h */,
 				BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */,
 				BF302ACF173DF57500195DE8 /* ProducerCreditManagerListViewController.h */,
@@ -580,6 +585,7 @@
 				BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */,
 				BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */,
 				BF302AD4173DF65700195DE8 /* ProducerCreditManagerListView.m in Sources */,
+				BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

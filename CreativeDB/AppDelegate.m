@@ -17,6 +17,7 @@
 {
     _entryManager = [[EntryManagerCompleteViewController alloc] init];
     self.window.contentView = _entryManager.view;
+    
 
 //    NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
 //                                  @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
