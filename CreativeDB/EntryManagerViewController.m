@@ -187,7 +187,7 @@
     NSDictionary *blurb = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextAreaFieldType], MLE_FIELD_TYPE_KEY,
                              @"blurb", MLE_FIELD_NAME_KEY,
-                             @"Case description", MLE_FIELD_LABEL_KEY,
+                             @"Description", MLE_FIELD_LABEL_KEY,
                              self.modelName, MLE_FIELDSET_MODEL_KEY,
                              self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];

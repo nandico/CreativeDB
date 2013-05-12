@@ -50,7 +50,10 @@
                                   nil];
     
     _entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
-    _entryManager.view.frame = NSMakeRect(10, 0, 500, 1000);
+    _entryManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
+                                          COMPLETE_VIEW_OFFSET_Y,
+                                          COMPLETE_VIEW_CONTAINER_WIDTH,
+                                          COMPLETE_VIEW_CONTAINER_HEIGHT );
     [self.view addSubview:_entryManager.view];
     
     CreditModel.modelFilterName = @"entry";
@@ -64,7 +67,10 @@
                                    nil];
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
-    _creditManager.view.frame = NSMakeRect(520, 298, 500, 1000);
+    _creditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
+                                           COMPLETE_VIEW_OFFSET_Y + 298.0f,
+                                           COMPLETE_VIEW_CONTAINER_WIDTH,
+                                           COMPLETE_VIEW_CONTAINER_HEIGHT );
     [self.view addSubview:_creditManager.view];
     
     
@@ -77,7 +83,10 @@
     
     _creditListManager = [[CreditManagerListViewController alloc]
                                                           initWithOptions:entryCreditOptions];
-    _creditListManager.view.frame = NSMakeRect(520, 20, 500, 1000);
+    _creditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
+                                               COMPLETE_VIEW_OFFSET_Y + 20.0f,
+                                               COMPLETE_VIEW_CONTAINER_WIDTH,
+                                               COMPLETE_VIEW_CONTAINER_HEIGHT );
     [self.view addSubview:_creditListManager.view];
     
     
@@ -92,7 +101,10 @@
                                    nil];
     
     _producerCreditManager = [[ProducerCreditManagerViewController alloc] initWithOptions:producerCreditOptions];
-    _producerCreditManager.view.frame = NSMakeRect(1040, 298, 500, 1000);
+    _producerCreditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
+                                                   COMPLETE_VIEW_OFFSET_Y + 298.0f,
+                                                   COMPLETE_VIEW_CONTAINER_WIDTH,
+                                                   COMPLETE_VIEW_CONTAINER_HEIGHT );
     [self.view addSubview:_producerCreditManager.view];
     
     
@@ -105,7 +117,10 @@
     
     _producerCreditListManager = [[ProducerCreditManagerListViewController alloc]
                           initWithOptions:producerEntryCreditOptions];
-    _producerCreditListManager.view.frame = NSMakeRect(1040, 20, 500, 1000);
+    _producerCreditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
+                                                       COMPLETE_VIEW_OFFSET_Y + 20.0f,
+                                                       COMPLETE_VIEW_CONTAINER_WIDTH,
+                                                       COMPLETE_VIEW_CONTAINER_HEIGHT);
     [self.view addSubview:_producerCreditListManager.view];
 
 }

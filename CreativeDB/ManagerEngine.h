@@ -29,7 +29,7 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_FIELDSET_OFFSET_Y 50.0f
 
-#define MLE_CONTAINER_WIDTH 500.0f
+#define MLE_CONTAINER_WIDTH 450.0f
 #define MLE_CONTAINER_HEIGHT 32.0f
 #define MLE_TEXTAREA_CONTAINER_HEIGHT 108.0f
 #define MLE_CONTAINER_CORNER_RADIUS 5.0f
@@ -37,7 +37,7 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_FIELD_ALPHA 1.0f
 
-#define MLE_FIELD_OFFSET_X 140.0f
+#define MLE_FIELD_OFFSET_X 90.0f
 #define MLE_FIELD_OFFSET_Y 3.0f
 #define MLE_FIELD_WIDTH 350.0f
 #define MLE_FIELD_HEIGHT 25.0f
@@ -47,7 +47,7 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_LABEL_OFFSET_X 5.0f
 #define MLE_LABEL_OFFSET_Y 0.0f
-#define MLE_LABEL_WIDTH 130.0f
+#define MLE_LABEL_WIDTH 80.0f
 #define MLE_LABEL_HEIGHT 25.0f
 #define MLE_LABEL_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
 #define MLE_LABEL_COLOR [NSColor colorWithCalibratedRed:0.3f green:0.3f blue:0.3f alpha:1.0f]

@@ -23,6 +23,8 @@
         [self setDrawsBackground:NO];
         [self setEditable:NO];
         [self setSelectable:NO];
+        [self.cell setWraps:YES];
+        
     }
     
     return self;

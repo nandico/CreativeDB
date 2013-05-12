@@ -11,6 +11,7 @@
 #import "ProducerCreditManagerViewController.h"
 #import "ManagerEngine.h"
 #import "ProducerCreditModel.h"
+#import "EntryManagerCompleteViewController.h"
 
 @interface ProducerCreditManagerListViewController ()
 
@@ -88,8 +89,8 @@
         _items = [ProducerCreditModel loadByEntryId:self.modelItem];
     }
     
-    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(10.0f, 10.0f, 500.0f, 250.0f)];
-    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 500.0f, 200.0f)];
+    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 10.0f, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 250.0f)];
+    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 200.0f)];
     
     _producerColumn = [[NSTableColumn alloc] initWithIdentifier:@"producer"];
     _disciplineColumn = [[NSTableColumn alloc] initWithIdentifier:@"discipline"];

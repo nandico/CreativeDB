@@ -11,6 +11,7 @@
 #import "CreditManagerViewController.h"
 #import "ManagerEngine.h"
 #import "CreditModel.h"
+#import "EntryManagerCompleteViewController.h"
 
 @interface CreditManagerListViewController ()
 
@@ -87,8 +88,8 @@
         _items = [CreditModel loadByEntryId:self.modelItem];
     }
     
-    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(10.0f, 10.0f, 500.0f, 250.0f)];
-    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, 500.0f, 200.0f)];
+    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 10.0f, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 250.0f)];
+    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 200.0f)];
 
     _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];
     _roleColumn = [[NSTableColumn alloc] initWithIdentifier:@"role"];
