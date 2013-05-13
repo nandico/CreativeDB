@@ -88,7 +88,7 @@
         _items = [CreditModel loadByEntryId:self.modelItem];
     }
     
-    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 10.0f, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 250.0f)];
+    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, COMPLETE_VIEW_CONTAINER_LIST_HEIGHT)];
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 200.0f)];
 
     _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];

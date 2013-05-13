@@ -1,5 +1,5 @@
 //
-//  AwardManagerListView.h
+//  EntryManagerViewForScroll.h
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 5/13/13.
@@ -7,8 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "BaseManagerListView.h"
 
-@interface AwardManagerListView : BaseManagerListView
+@interface EntryManagerViewForScroll : NSView
 
 @end

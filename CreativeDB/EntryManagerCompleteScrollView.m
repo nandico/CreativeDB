@@ -7,6 +7,7 @@
 //
 
 #import "EntryManagerCompleteScrollView.h"
+#import "ManagerEngine.h"
 
 @implementation EntryManagerCompleteScrollView
 
@@ -16,6 +17,10 @@
     if (self) {
         self.hasHorizontalRuler = YES;
         self.hasHorizontalScroller = YES;
+        
+        self.wantsLayer = YES;
+        self.layer.backgroundColor = [MLE_BACKGROUND_COLOR CGColor];
+        
         [self setNeedsDisplay:YES];
     }
     
@@ -23,3 +28,5 @@
 }
 
 @end
+
+

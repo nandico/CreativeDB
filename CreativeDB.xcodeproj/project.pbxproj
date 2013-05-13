@@ -43,6 +43,8 @@
 		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */; };
 		BF6A81C1174190B800F8557E /* AwardManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81C0174190B800F8557E /* AwardManagerListView.m */; };
+		BF6A81C41741959200F8557E /* BaseManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81C31741959200F8557E /* BaseManagerListView.m */; };
+		BF6A81C717419C5C00F8557E /* EntryManagerViewForScroll.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81C617419C5C00F8557E /* EntryManagerViewForScroll.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -152,6 +154,10 @@
 		BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardManagerListViewController.m; sourceTree = "<group>"; };
 		BF6A81BF174190B800F8557E /* AwardManagerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardManagerListView.h; sourceTree = "<group>"; };
 		BF6A81C0174190B800F8557E /* AwardManagerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardManagerListView.m; sourceTree = "<group>"; };
+		BF6A81C21741959200F8557E /* BaseManagerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerListView.h; sourceTree = "<group>"; };
+		BF6A81C31741959200F8557E /* BaseManagerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerListView.m; sourceTree = "<group>"; };
+		BF6A81C517419C5B00F8557E /* EntryManagerViewForScroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerViewForScroll.h; sourceTree = "<group>"; };
+		BF6A81C617419C5C00F8557E /* EntryManagerViewForScroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerViewForScroll.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -464,6 +470,8 @@
 				BFFCE8101740853000987656 /* AwardManagerView.m */,
 				BF6A81BF174190B800F8557E /* AwardManagerListView.h */,
 				BF6A81C0174190B800F8557E /* AwardManagerListView.m */,
+				BF6A81C517419C5B00F8557E /* EntryManagerViewForScroll.h */,
+				BF6A81C617419C5C00F8557E /* EntryManagerViewForScroll.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -493,6 +501,8 @@
 				BFAD2EA2171BA2360044262E /* BaseManagerView.m */,
 				BF2F3299172DEF9E00C0CB1B /* BaseManagerListViewController.h */,
 				BF2F329A172DEF9E00C0CB1B /* BaseManagerListViewController.m */,
+				BF6A81C21741959200F8557E /* BaseManagerListView.h */,
+				BF6A81C31741959200F8557E /* BaseManagerListView.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -626,6 +636,8 @@
 				BFFCE8111740853000987656 /* AwardManagerView.m in Sources */,
 				BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */,
 				BF6A81C1174190B800F8557E /* AwardManagerListView.m in Sources */,
+				BF6A81C41741959200F8557E /* BaseManagerListView.m in Sources */,
+				BF6A81C717419C5C00F8557E /* EntryManagerViewForScroll.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

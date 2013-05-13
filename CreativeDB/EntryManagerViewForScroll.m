@@ -1,15 +1,15 @@
 //
-//  EntryManagerCompleteView.m
+//  EntryManagerViewForScroll.m
 //  CreativeDB
 //
-//  Created by Fernando Aquino on 4/28/13.
+//  Created by Fernando Aquino on 5/13/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "EntryManagerCompleteView.h"
+#import "EntryManagerViewForScroll.h"
 #import "ManagerEngine.h"
 
-@implementation EntryManagerCompleteView
+@implementation EntryManagerViewForScroll
 
 - (id)init
 {

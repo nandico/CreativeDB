@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "BaseManagerListView.h"
 
-@interface CreditManagerListView : NSView
+@interface CreditManagerListView : BaseManagerListView
 
 @end

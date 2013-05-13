@@ -10,16 +10,4 @@
 
 @implementation CreditManagerListView
 
-- (id)init
-{
-    self = [super init];
-    if (self)
-    {
-        self.wantsLayer = YES;
-    }
-    
-    return self;
-}
-
-
 @end
