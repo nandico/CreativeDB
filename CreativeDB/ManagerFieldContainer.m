@@ -76,6 +76,18 @@
         if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] )
             _staticDomainData = [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY];
         
+        if( _staticDomainData )
+        {
+            NSLog( @"STATIC DOMAIN DATA RECEIVED: %@", _staticDomainData );
+        }
+        else
+        {
+            if( [_fieldName isEqualToString:@"year"] )
+            {
+                NSLog( @"Container sem static data." );
+            }
+        }
+        
         [self label];
         
         switch([_fieldType integerValue])
@@ -237,7 +249,7 @@
     if( !_staticDomainData ) return;
     
     for( NSInteger comboIndex = 0; comboIndex < _staticDomainData.count; comboIndex ++ )
-    {
+    {   
         [_comboField addItemWithObjectValue:[_staticDomainData objectAtIndex:comboIndex] ];
     }
 }

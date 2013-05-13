@@ -44,7 +44,7 @@ static NSNumber *modelFilterValue;
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
     object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
     object.subcategory = [SubcategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"subcategory"]]];
-    object.year = [results longForColumn:@"year"];
+    object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
     
     return object;
 }
@@ -210,6 +210,8 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
+    db.traceExecution = YES;
+    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
                                              " %@  "
                                              " FROM %@ "
@@ -275,10 +277,12 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
+    db.traceExecution = YES;
+    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, %@, %@, %@, %@, %@, %ld ) ",[self tableName], [self fields],
+                     " ( null, %@, %@, %@, %@, %@, %@ ) ",[self tableName], [self fields],
                      self.metal.pk,
                      self.category.pk,
                      self.entry.pk,
@@ -302,8 +306,7 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
-    //id, metal, category, entry, festival, subcategory, year
-
+    db.traceExecution = YES;
     
     if( self.metal )
     {
@@ -332,7 +335,7 @@ static NSNumber *modelFilterValue;
     }
     if( self.year )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET year = %ld WHERE id = %@", [self tableName],
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET year = %@ WHERE id = %@", [self tableName],
                            self.year, self.pk ] ];
     }
     

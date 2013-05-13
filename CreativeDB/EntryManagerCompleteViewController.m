@@ -142,7 +142,7 @@
     
     
     AwardModel.modelFilterName = @"entry";
-    AwardModel.modelFilterValue = [AwardModel first];
+    AwardModel.modelFilterValue = [EntryModel first];
     
     NSDictionary *awardOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                            @"AwardModel", MLE_FIELDSET_MODEL_KEY,
@@ -159,7 +159,6 @@
     [_scrollContent addSubview:_awardManager.view];
     
     _scrollView = [[EntryManagerCompleteScrollView alloc] init];
-    //_scrollView.frame = scrollFrame;
     _scrollView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     
     [_scrollView setHasHorizontalScroller:YES];

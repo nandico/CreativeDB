@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         _options = options;
-        
+
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
             self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         

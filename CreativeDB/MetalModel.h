@@ -18,5 +18,6 @@
 + (MetalModel *) objectWithResults:(FMResultSet *)results;
 + (MetalModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
++ (MetalModel *) loadModelByStringValue:(NSString *) stringValue;
 
 @end

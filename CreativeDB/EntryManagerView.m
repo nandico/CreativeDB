@@ -50,7 +50,7 @@
     [_engine addFieldContainer:[self caseURL]];
     [_engine addFieldContainer:[self blurb]];
     [_engine addFieldContainer:[self year]];
-     
+
     [_engine addActionBar:[self actionBar]];
     
     [_engine arrangeContainers];

@@ -24,4 +24,15 @@
     return self;
 }
 
+- (void) textDidBeginEditing:(NSNotification *)notification
+{
+    NSLog( @"BEGIN!" );
+    [super textDidBeginEditing:notification];
+}
+
+- (void) textDidEndEditing:(NSNotification *)notification
+{
+    NSLog( @"END!" );
+    [super textDidEndEditing:notification];
+}
 @end

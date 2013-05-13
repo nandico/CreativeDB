@@ -18,5 +18,6 @@
 + (CategoryModel *) objectWithResults:(FMResultSet *)results;
 + (CategoryModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
++ (CategoryModel *) loadModelByStringValue:(NSString *) stringValue;
 
 @end

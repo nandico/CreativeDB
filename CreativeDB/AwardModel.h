@@ -21,7 +21,7 @@
 @property (strong) EntryModel *entry;
 @property (strong) FestivalModel *festival;
 @property (strong) SubcategoryModel *subcategory;
-@property (assign) NSInteger year;
+@property (assign) NSNumber *year;
 
 + (NSString *) tableName;
 + (NSString *) fields;

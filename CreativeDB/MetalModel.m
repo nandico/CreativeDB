@@ -67,6 +67,33 @@
     return model;
 }
 
++ (MetalModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    MetalModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " name = '%@' ", [self fields], [self tableName], stringValue] ];
+    
+    if( [results next] )
+    {
+        model = [MetalModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return model;
+}
+
 + (NSMutableArray *) loadAll
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

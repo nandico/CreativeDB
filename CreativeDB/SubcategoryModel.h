@@ -20,5 +20,6 @@
 + (SubcategoryModel *) objectWithResults:(FMResultSet *)results;
 + (SubcategoryModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
++ (SubcategoryModel *) loadModelByStringValue:(NSString *) stringValue;
 
 @end
