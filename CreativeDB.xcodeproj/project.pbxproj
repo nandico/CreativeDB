@@ -73,6 +73,8 @@
 		BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */; };
 		BFF4C5AC1708FEBA0098A633 /* ManagerActionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */; };
 		BFF4C5AF170902E30098A633 /* ManagerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5AE170902E20098A633 /* ManagerButton.m */; };
+		BFFCE80E174084B400987656 /* AwardManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFCE80D174084B400987656 /* AwardManagerViewController.m */; };
+		BFFCE8111740853000987656 /* AwardManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFCE8101740853000987656 /* AwardManagerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +208,10 @@
 		BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerActionBar.m; sourceTree = "<group>"; };
 		BFF4C5AD170902E10098A633 /* ManagerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerButton.h; sourceTree = "<group>"; };
 		BFF4C5AE170902E20098A633 /* ManagerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerButton.m; sourceTree = "<group>"; };
+		BFFCE80C174084B400987656 /* AwardManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardManagerViewController.h; sourceTree = "<group>"; };
+		BFFCE80D174084B400987656 /* AwardManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardManagerViewController.m; sourceTree = "<group>"; };
+		BFFCE80F1740853000987656 /* AwardManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardManagerView.h; sourceTree = "<group>"; };
+		BFFCE8101740853000987656 /* AwardManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardManagerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,12 +259,12 @@
 				BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */,
 				BF0010CE16FF9C44007B8A80 /* EntryModel.h */,
 				BF0010CF16FF9C45007B8A80 /* EntryModel.m */,
-				BF0010D116FFA05F007B8A80 /* AwardModel.h */,
-				BF0010D216FFA060007B8A80 /* AwardModel.m */,
 				BF0010D416FFA577007B8A80 /* CreditModel.h */,
 				BF0010D516FFA578007B8A80 /* CreditModel.m */,
 				BF0010D71700CC95007B8A80 /* ProducerCreditModel.h */,
 				BF0010D81700CCA4007B8A80 /* ProducerCreditModel.m */,
+				BF0010D116FFA05F007B8A80 /* AwardModel.h */,
+				BF0010D216FFA060007B8A80 /* AwardModel.m */,
 				BF0010DA1700F8B1007B8A80 /* AnnotationModel.h */,
 				BF0010DB1700F8B9007B8A80 /* AnnotationModel.m */,
 				BF0010DD1701280C007B8A80 /* UserModel.h */,
@@ -271,27 +277,45 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		BF46CF5F170391EB009AACA8 /* ContentManager */ = {
+		BF302AD8174082D300195DE8 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				BFD3A373173DB8F10015E04F /* View */,
-				BFF4C5A01705539A0098A633 /* Engine */,
-				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
-				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
-				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
-				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
-				BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */,
-				BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */,
-				BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */,
-				BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */,
 				BF2F32A5172E0B7A00C0CB1B /* CreditManagerListViewController.h */,
 				BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */,
 				BF302ACF173DF57500195DE8 /* ProducerCreditManagerListViewController.h */,
 				BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		BF302AD91740836500195DE8 /* Complete */ = {
+			isa = PBXGroup;
+			children = (
+				BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */,
+				BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */,
+				BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */,
+				BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */,
+			);
+			name = Complete;
+			sourceTree = "<group>";
+		};
+		BF46CF5F170391EB009AACA8 /* ContentManager */ = {
+			isa = PBXGroup;
+			children = (
+				BFF4C5A01705539A0098A633 /* Engine */,
+				BF302AD8174082D300195DE8 /* List */,
+				BFD3A373173DB8F10015E04F /* View */,
+				BF302AD91740836500195DE8 /* Complete */,
+				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
+				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
+				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
+				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
 				BFE703351724F24A0030E255 /* CreditManagerViewController.h */,
 				BFE703361724F24B0030E255 /* CreditManagerViewController.m */,
 				BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */,
 				BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */,
+				BFFCE80C174084B400987656 /* AwardManagerViewController.h */,
+				BFFCE80D174084B400987656 /* AwardManagerViewController.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -428,6 +452,8 @@
 				BFE703391724F29C0030E255 /* CreditManagerView.m */,
 				BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */,
 				BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */,
+				BFFCE80F1740853000987656 /* AwardManagerView.h */,
+				BFFCE8101740853000987656 /* AwardManagerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -586,6 +612,8 @@
 				BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */,
 				BF302AD4173DF65700195DE8 /* ProducerCreditManagerListView.m in Sources */,
 				BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */,
+				BFFCE80E174084B400987656 /* AwardManagerViewController.m in Sources */,
+				BFFCE8111740853000987656 /* AwardManagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -72,4 +72,33 @@
     return model;
 }
 
++ (NSMutableArray *) loadAll
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FestivalModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ ", [self fields], [self tableName] ] ];
+    
+    while( [results next] )
+    {
+        model = [FestivalModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
+
 @end

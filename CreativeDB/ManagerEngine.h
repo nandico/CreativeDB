@@ -49,7 +49,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_LABEL_OFFSET_Y 0.0f
 #define MLE_LABEL_WIDTH 80.0f
 #define MLE_LABEL_HEIGHT 25.0f
-#define MLE_LABEL_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_LABEL_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 11]
 #define MLE_LABEL_COLOR [NSColor colorWithCalibratedRed:0.3f green:0.3f blue:0.3f alpha:1.0f]
 
 #define MLE_BUTTON_WIDTH 80.0f

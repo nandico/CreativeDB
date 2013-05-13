@@ -21,5 +21,6 @@
 + (NSString *) fields;
 + (FestivalModel *) objectWithResults:(FMResultSet *)results;
 + (FestivalModel *) loadModel:(NSNumber *) pk;
++ (NSMutableArray *) loadAll;
 
 @end
