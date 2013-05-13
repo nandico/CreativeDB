@@ -26,7 +26,8 @@
 @property (nonatomic, strong) CreditManagerListViewController *creditListManager;
 @property (nonatomic, strong) ProducerCreditManagerViewController *producerCreditManager;
 @property (nonatomic, strong) ProducerCreditManagerListViewController *producerCreditListManager;
-@property (nonatomic, strong) EntryManagerCompleteScrollView *completeScrollView;
+@property (nonatomic, strong) EntryManagerCompleteScrollView *scrollView;
+@property (nonatomic, strong) NSView *scrollContent;
 
 @end
 
@@ -46,18 +47,20 @@
 
 - (void) createForm
 {
-    _completeScrollView = [[EntryManagerCompleteScrollView alloc] init];
-    _completeScrollView.frame = self.view.bounds;
-    _completeScrollView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    [_completeScrollView setHasVerticalScroller:YES];
-    [_completeScrollView setHasVerticalRuler:YES];
-    [_completeScrollView setHasHorizontalScroller:YES];
-    [_completeScrollView setHasHorizontalRuler:YES];
-    [_completeScrollView setPostsBoundsChangedNotifications:YES];
+    CGRect scrollFrame = NSMakeRect( 0,
+                                     0,
+                                     COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
+                                     COMPLETE_VIEW_CONTAINER_HEIGHT );
     
-    [self.view addSubview:_completeScrollView];
+    CGRect contentFrame = NSMakeRect( 0,
+                                     0,
+                                     COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 4 ),
+                                     COMPLETE_VIEW_CONTAINER_HEIGHT );
 
-        
+    
+    _scrollContent = [[NSView alloc] initWithFrame:contentFrame];
+
+    
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"EntryModel", MLE_FIELDSET_MODEL_KEY,
                                   [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
@@ -68,7 +71,7 @@
                                           COMPLETE_VIEW_OFFSET_Y,
                                           COMPLETE_VIEW_CONTAINER_WIDTH,
                                           COMPLETE_VIEW_CONTAINER_HEIGHT );
-    [_completeScrollView.contentView addSubview:_entryManager.view];
+    [_scrollContent addSubview:_entryManager.view];
     
     CreditModel.modelFilterName = @"entry";
     CreditModel.modelFilterValue = [EntryModel first];
@@ -85,7 +88,7 @@
                                            COMPLETE_VIEW_OFFSET_Y + 298.0f,
                                            COMPLETE_VIEW_CONTAINER_WIDTH,
                                            COMPLETE_VIEW_CONTAINER_HEIGHT );
-    [_completeScrollView.contentView addSubview:_creditManager.view];
+    [_scrollContent addSubview:_creditManager.view];
     
     
     NSDictionary *entryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -101,7 +104,7 @@
                                                COMPLETE_VIEW_OFFSET_Y + 20.0f,
                                                COMPLETE_VIEW_CONTAINER_WIDTH,
                                                COMPLETE_VIEW_CONTAINER_HEIGHT );
-    [_completeScrollView.contentView addSubview:_creditListManager.view];
+    [_scrollContent addSubview:_creditListManager.view];
     
     
     ProducerCreditModel.modelFilterName = @"entry";
@@ -119,7 +122,7 @@
                                                    COMPLETE_VIEW_OFFSET_Y + 298.0f,
                                                    COMPLETE_VIEW_CONTAINER_WIDTH,
                                                    COMPLETE_VIEW_CONTAINER_HEIGHT );
-    [_completeScrollView.contentView addSubview:_producerCreditManager.view];
+    [_scrollContent addSubview:_producerCreditManager.view];
     
     
     NSDictionary *producerEntryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -135,8 +138,23 @@
                                                        COMPLETE_VIEW_OFFSET_Y + 20.0f,
                                                        COMPLETE_VIEW_CONTAINER_WIDTH,
                                                        COMPLETE_VIEW_CONTAINER_HEIGHT);
-    [_completeScrollView.contentView addSubview:_producerCreditListManager.view];
-
+    [_scrollContent addSubview:_producerCreditListManager.view];
+    
+    
+    
+    _scrollView = [[EntryManagerCompleteScrollView alloc] init];
+    //_scrollView.frame = scrollFrame;
+    _scrollView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    
+    [_scrollView setHasHorizontalScroller:YES];
+    [_scrollView setHasVerticalScroller:NO];
+    [_scrollView setDocumentView:_scrollContent];
+    [_scrollView setHasVerticalScroller:YES];
+    [_scrollView setHasVerticalRuler:YES];
+    [_scrollView setPostsBoundsChangedNotifications:YES];
+    [_scrollView setScrollerStyle:NSScrollerStyleOverlay];
+    
+    [self.viewInstance addSubview:_scrollView];
 }
 
 - (BOOL) acceptsFirstResponder

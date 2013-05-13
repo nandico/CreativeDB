@@ -54,7 +54,6 @@
     [_engine addActionBar:[self actionBar]];
     
     [_engine arrangeContainers];
-
 }
 
 - (void) destroyForm
