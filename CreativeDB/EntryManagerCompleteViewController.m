@@ -13,6 +13,7 @@
 #import "ProducerCreditManagerViewController.h"
 #import "ProducerCreditManagerListViewController.h"
 #import "AwardManagerViewController.h"
+#import "AwardManagerListViewController.h"
 
 
 #import "EntryModel.h"
@@ -30,6 +31,7 @@
 @property (nonatomic, strong) ProducerCreditManagerViewController *producerCreditManager;
 @property (nonatomic, strong) ProducerCreditManagerListViewController *producerCreditListManager;
 @property (nonatomic, strong) AwardManagerViewController *awardManager;
+@property (nonatomic, strong) AwardManagerListViewController *awardListManager;
 @property (nonatomic, strong) EntryManagerCompleteScrollView *scrollView;
 @property (nonatomic, strong) NSView *scrollContent;
 
@@ -157,6 +159,24 @@
                                                    COMPLETE_VIEW_CONTAINER_WIDTH,
                                                    COMPLETE_VIEW_CONTAINER_HEIGHT );
     [_scrollContent addSubview:_awardManager.view];
+    
+    
+    NSDictionary *awardListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                                @"AwardModel", MLE_FIELDSET_MODEL_KEY,
+                                                [AwardModel first], MLE_FIELDSET_MODEL_ITEM,
+                                                @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
+                                                [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                                nil];
+    
+    _awardListManager = [[AwardManagerListViewController alloc]
+                                  initWithOptions:awardListOptions];
+    _awardListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),
+                                                       COMPLETE_VIEW_OFFSET_Y - 90.0f,
+                                                       COMPLETE_VIEW_CONTAINER_WIDTH,
+                                                       COMPLETE_VIEW_CONTAINER_HEIGHT);
+    [_scrollContent addSubview:_awardListManager.view];
+    
+    
     
     _scrollView = [[EntryManagerCompleteScrollView alloc] init];
     _scrollView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
