@@ -34,8 +34,8 @@
 
 - (void) createForm
 {
-    [_engine addFieldContainer:[self person]];
     [_engine addFieldContainer:[self entry]];
+    [_engine addFieldContainer:[self person]];
     [_engine addFieldContainer:[self role]];
     
     [_engine addActionBar:[self actionBar]];

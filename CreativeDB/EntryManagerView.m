@@ -80,6 +80,7 @@
     _caseURL = nil;
     _blurb = nil;
     _year = nil;
+    
 }
 
 - (ManagerActionBar *) actionBar

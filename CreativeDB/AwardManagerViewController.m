@@ -214,10 +214,10 @@
                           [NSNumber numberWithInteger:MLEStaticComboFieldType], MLE_FIELD_TYPE_KEY,
                           @"year", MLE_FIELD_NAME_KEY,
                           @"Year", MLE_FIELD_LABEL_KEY,
+                          years, MLE_FIELD_STATIC_DOMAIN_KEY,
                           [NSNumber numberWithInteger:MLENumericDataType], MLE_FIELD_DATATYPE_KEY,
                           self.modelName, MLE_FIELDSET_MODEL_KEY,
                           self.modelItem, MLE_FIELDSET_MODEL_ITEM,
-                          years, MLE_FIELD_STATIC_DOMAIN_KEY,
                           nil];
     
     [self.fieldData setObject:year forKey:@"year"];

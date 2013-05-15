@@ -253,8 +253,6 @@ static NSNumber *modelFilterValue;
 
 - (void) save
 {
-    NSLog( @"Save invoked" );
-    
     if( self.pk )
     {
         [self update];
