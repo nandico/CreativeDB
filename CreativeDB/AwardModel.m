@@ -210,8 +210,6 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
                                              " %@  "
                                              " FROM %@ "
@@ -277,8 +275,6 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
@@ -305,8 +301,6 @@ static NSNumber *modelFilterValue;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    db.traceExecution = YES;
     
     if( self.metal )
     {

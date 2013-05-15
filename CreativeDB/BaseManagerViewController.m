@@ -164,10 +164,10 @@
     
     if( [baseModelClass respondsToSelector:NSSelectorFromString( @"modelFilterName" )] )
     {
-        SEL modelFilterName = NSSelectorFromString( @"modelFilterName");
+        // SEL modelFilterName = NSSelectorFromString( @"modelFilterName");
         SEL setModelFilterName = NSSelectorFromString( @"setModelFilterName:");
 
-        SEL modelFilterValue = NSSelectorFromString( @"modelFilterValue");
+        // SEL modelFilterValue = NSSelectorFromString( @"modelFilterValue");
         SEL setModelFilterValue = NSSelectorFromString( @"setModelFilterValue:");
         
         [baseModelClass performSelector:setModelFilterName withObject:self.modelFilterName];
