@@ -31,6 +31,11 @@
 		BF0010DF1701281C007B8A80 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DE1701280E007B8A80 /* UserModel.m */; };
 		BF0010E217012BA9007B8A80 /* CalendarTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */; };
 		BF0010E517012CDC007B8A80 /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E417012CD8007B8A80 /* CalendarModel.m */; };
+		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
+		BF1787F417498D3700057FF4 /* MenuManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F317498D3700057FF4 /* MenuManagerView.m */; };
+		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
+		BF1787FA17498F6E00057FF4 /* MainManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F917498F6E00057FF4 /* MainManagerView.m */; };
+		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
 		BF2F329B172DEF9E00C0CB1B /* BaseManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F329A172DEF9E00C0CB1B /* BaseManagerListViewController.m */; };
 		BF2F32A1172DFFF000C0CB1B /* EntryManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */; };
 		BF2F32A4172E049A00C0CB1B /* EntryManagerCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A3172E049A00C0CB1B /* EntryManagerCompleteView.m */; };
@@ -307,6 +312,16 @@
 		BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTypeModel.m; sourceTree = "<group>"; };
 		BF0010E317012CD7007B8A80 /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarModel.h; sourceTree = "<group>"; };
 		BF0010E417012CD8007B8A80 /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarModel.m; sourceTree = "<group>"; };
+		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
+		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
+		BF1787F217498D3700057FF4 /* MenuManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerView.h; sourceTree = "<group>"; };
+		BF1787F317498D3700057FF4 /* MenuManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerView.m; sourceTree = "<group>"; };
+		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
+		BF1787F617498F5900057FF4 /* MainManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainManagerViewController.m; sourceTree = "<group>"; };
+		BF1787F817498F6E00057FF4 /* MainManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerView.h; sourceTree = "<group>"; };
+		BF1787F917498F6E00057FF4 /* MainManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainManagerView.m; sourceTree = "<group>"; };
+		BF1787FB1749928A00057FF4 /* ManagerMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerMenuButton.h; sourceTree = "<group>"; };
+		BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerMenuButton.m; sourceTree = "<group>"; };
 		BF2F3299172DEF9E00C0CB1B /* BaseManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerListViewController.h; sourceTree = "<group>"; };
 		BF2F329A172DEF9E00C0CB1B /* BaseManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerListViewController.m; sourceTree = "<group>"; };
 		BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerCompleteViewController.h; sourceTree = "<group>"; };
@@ -863,6 +878,10 @@
 				BF302AD8174082D300195DE8 /* List */,
 				BFD3A373173DB8F10015E04F /* View */,
 				BF302AD91740836500195DE8 /* Complete */,
+				BF1787F517498F5900057FF4 /* MainManagerViewController.h */,
+				BF1787F617498F5900057FF4 /* MainManagerViewController.m */,
+				BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */,
+				BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */,
 				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
 				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
@@ -1649,6 +1668,10 @@
 				BF6A81C0174190B800F8557E /* AwardManagerListView.m */,
 				BF6A81C517419C5B00F8557E /* EntryManagerViewForScroll.h */,
 				BF6A81C617419C5C00F8557E /* EntryManagerViewForScroll.m */,
+				BF1787F217498D3700057FF4 /* MenuManagerView.h */,
+				BF1787F317498D3700057FF4 /* MenuManagerView.m */,
+				BF1787F817498F6E00057FF4 /* MainManagerView.h */,
+				BF1787F917498F6E00057FF4 /* MainManagerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1672,6 +1695,8 @@
 				BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */,
 				BFF4C5AD170902E10098A633 /* ManagerButton.h */,
 				BFF4C5AE170902E20098A633 /* ManagerButton.m */,
+				BF1787FB1749928A00057FF4 /* ManagerMenuButton.h */,
+				BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */,
 				BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */,
 				BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */,
 				BFAD2EA1171BA2350044262E /* BaseManagerView.h */,
@@ -1853,6 +1878,11 @@
 				BF6A81C1174190B800F8557E /* AwardManagerListView.m in Sources */,
 				BF6A81C41741959200F8557E /* BaseManagerListView.m in Sources */,
 				BF6A81C717419C5C00F8557E /* EntryManagerViewForScroll.m in Sources */,
+				BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */,
+				BF1787F417498D3700057FF4 /* MenuManagerView.m in Sources */,
+				BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */,
+				BF1787FA17498F6E00057FF4 /* MainManagerView.m in Sources */,
+				BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2222,6 +2252,7 @@
 				BFA5E9461744383500466F5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,16 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "AgencyManagerViewController.h"
-
-#import "AgencyModel.h"
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    _entryManager = [[EntryManagerCompleteViewController alloc] init];
-    self.window.contentView = _entryManager.view;
+    _mainManager = [[MainManagerViewController alloc] init];
+    self.window.contentView = _mainManager.view;
     
 
 //    NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:

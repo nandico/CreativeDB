@@ -42,25 +42,32 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_FIELD_WIDTH 350.0f
 #define MLE_FIELD_HEIGHT 25.0f
 #define MLE_TEXT_FIELD_HEIGHT 100.0f
-#define MLE_FIELD_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_FIELD_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
 #define MLE_FIELD_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
 #define MLE_LABEL_OFFSET_X 5.0f
 #define MLE_LABEL_OFFSET_Y 0.0f
 #define MLE_LABEL_WIDTH 80.0f
 #define MLE_LABEL_HEIGHT 25.0f
-#define MLE_LABEL_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 11]
+#define MLE_LABEL_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 11.0f]
 #define MLE_LABEL_COLOR [NSColor colorWithCalibratedRed:0.3f green:0.3f blue:0.3f alpha:1.0f]
 
 #define MLE_BUTTON_WIDTH 80.0f
 #define MLE_BUTTON_HEIGHT 35.0f
 #define MLE_BUTTON_OFFSET_X 10.0f
-#define MLE_BUTTON_OFSSET_Y -3.0f
-#define MLE_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_BUTTON_OFFSET_Y -3.0f
+#define MLE_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
+
+#define MLE_MENU_BUTTON_WIDTH 80.0f
+#define MLE_MENU_BUTTON_HEIGHT 80.0f
+#define MLE_MENU_BUTTON_OFFSET_X 10.0f
+#define MLE_MENU_BUTTON_OFFSET_Y 490.0f
+#define MLE_MENU_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 16.0f]
+
 
 #define MLE_COMBO_WIDTH 350.0f
 #define MLE_COMBO_HEIGHT 27.0f
-#define MLE_COMBO_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12]
+#define MLE_COMBO_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
 #define MLE_COMBO_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
 #define MLE_FIELD_NAME_KEY @"FIELD_NAME_KEY"

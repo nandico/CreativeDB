@@ -8,12 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "FMDBDataAccess.h"
-#import "EntryManagerCompleteViewController.h"
+#import "MainManagerViewController.h"
 
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-@property (nonatomic, strong) EntryManagerCompleteViewController *entryManager;
+@property (nonatomic, strong) MainManagerViewController *mainManager;
 
 @end

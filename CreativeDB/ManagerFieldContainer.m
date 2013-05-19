@@ -253,8 +253,17 @@
         
         NSString *fieldValue = [self bindLookupValue];
         
-        if( fieldValue ) [_comboField setStringValue:fieldValue];
- 
+        if( fieldValue )
+        {
+            [_comboField setStringValue:fieldValue];   
+        }
+        else if( _modelFilterValue )
+        {
+            
+        }
+
+        
+        
     }
     
     return _comboField;
