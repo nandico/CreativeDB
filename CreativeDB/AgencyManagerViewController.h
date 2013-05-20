@@ -11,6 +11,8 @@
 #import "AgencyModel.h"
 #import "BaseManagerViewController.h"
 
+#define AGENCY_MANAGER_UPDATE_LIST @"AGENCY_MANAGER_UPDATE_LIST"
+
 @interface AgencyManagerViewController : BaseManagerViewController <AgencyDataSource>
 
 @property (nonatomic, strong) NSString *modelName;

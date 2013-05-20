@@ -7,16 +7,12 @@
 //
 
 #import "AgencyManagerView.h"
-#import "ManagerEngine.h"
-#import "ManagerActionBar.h"
 
 @interface  AgencyManagerView()
 
-@property (nonatomic, strong) ManagerEngine *engine;
 @property (nonatomic, strong) ManagerFieldContainer *name;
 @property (nonatomic, strong) ManagerFieldContainer *group;
 @property (nonatomic, strong) ManagerFieldContainer *country;
-@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 @end
 
@@ -27,6 +23,8 @@
     self = [super init];
     if (self)
     {
+        self.wantsLayer = YES;
+        self.layer.backgroundColor = [MLE_BACKGROUND_COLOR CGColor];
         _engine = [[ManagerEngine alloc] init];
     }
     return self;

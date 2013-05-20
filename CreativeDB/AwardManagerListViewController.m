@@ -96,22 +96,11 @@
     _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, COMPLETE_VIEW_CONTAINER_LIST_HEIGHT)];
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 0)];
     
-    /*
-     @property (nonatomic, strong) NSTableColumn *metalColumn;
-     @property (nonatomic, strong) NSTableColumn *festivalColumn;
-     @property (nonatomic, strong) NSTableColumn *categoryColumn;
-     @property (nonatomic, strong) NSTableColumn *subcategoryColumn;
-     @property (nonatomic, strong) NSTableColumn *yearColumn;
-     */
-    
     _metalColumn = [[NSTableColumn alloc] initWithIdentifier:@"metal"];
     _festivalColumn = [[NSTableColumn alloc] initWithIdentifier:@"festival"];
     _categoryColumn = [[NSTableColumn alloc] initWithIdentifier:@"category"];
     _subcategoryColumn = [[NSTableColumn alloc] initWithIdentifier:@"subcategory"];
     _yearColumn = [[NSTableColumn alloc] initWithIdentifier:@"year"];
-    
-    //[_producerColumn setWidth:252.0f];
-    //[_disciplineColumn setWidth:252.0f];
     
     [_metalColumn.headerCell setStringValue:@"Metal"];
     [_festivalColumn.headerCell setStringValue:@"Festival"];

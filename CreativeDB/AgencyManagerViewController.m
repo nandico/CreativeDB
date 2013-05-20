@@ -26,9 +26,10 @@
     if (self) {
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
 
+        
         self.view = self.viewInstance = [[AgencyManagerView alloc] init];
         self.viewInstance.dataSource = self;
         
@@ -40,27 +41,47 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(saveAction)
-                                                     name:MLE_NOTIFICATION_SAVE object:nil];
+                                                     name:MLE_NOTIFICATION_SAVE object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(deleteAction)
-                                                     name:MLE_NOTIFICATION_DELETE object:nil];
+                                                     name:MLE_NOTIFICATION_DELETE object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(newAction)
-                                                     name:MLE_NOTIFICATION_NEW object:nil];
+                                                     name:MLE_NOTIFICATION_NEW object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(nextAction)
-                                                     name:MLE_NOTIFICATION_NEXT object:nil];
+                                                     name:MLE_NOTIFICATION_NEXT object:self.viewInstance.actionBar];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(previousAction)
-                                                     name:MLE_NOTIFICATION_PREVIOUS object:nil];
+                                                     name:MLE_NOTIFICATION_PREVIOUS object:self.viewInstance.actionBar];
         
     }
     
     return self;
+}
+
+- (void) saveAction
+{
+    [super saveAction];
+    [self updateList];
+}
+
+- (void) deleteAction
+{
+    [super deleteAction];
+    [self updateList];
+}
+
+- (void) updateList
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:AGENCY_MANAGER_UPDATE_LIST
+                                                        object:self
+                                                      userInfo:nil];
+    
 }
 
 - (void) prepareEntity
@@ -72,6 +93,8 @@
                           self.modelName, MLE_FIELDSET_MODEL_KEY,
                           self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                           nil];
+    
+    NSLog( @"Entity name: %@, %@, %@", name, self.modelItem, self.modelName );
     
     [self.fieldData setObject:name forKey:@"name"];
     

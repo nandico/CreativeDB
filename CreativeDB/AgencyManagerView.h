@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ManagerEngine.h"
+#import "ManagerActionBar.h"
 
 @protocol AgencyDataSource <NSObject>
 
@@ -19,6 +21,8 @@
 @interface AgencyManagerView : NSView 
 
 @property (assign) id <AgencyDataSource> dataSource;
+@property (nonatomic, strong) ManagerEngine *engine;
+@property (nonatomic, strong) ManagerActionBar *actionBar;
 
 - (void) createForm;
 - (void) destroyForm;

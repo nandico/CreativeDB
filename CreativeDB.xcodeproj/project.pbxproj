@@ -36,6 +36,8 @@
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FA17498F6E00057FF4 /* MainManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F917498F6E00057FF4 /* MainManagerView.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
+		BF1788001749A4DC00057FF4 /* AgencyManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FF1749A4DC00057FF4 /* AgencyManagerListViewController.m */; };
+		BF1788031749A59A00057FF4 /* AgencyManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1788021749A59800057FF4 /* AgencyManagerListView.m */; };
 		BF2F329B172DEF9E00C0CB1B /* BaseManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F329A172DEF9E00C0CB1B /* BaseManagerListViewController.m */; };
 		BF2F32A1172DFFF000C0CB1B /* EntryManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */; };
 		BF2F32A4172E049A00C0CB1B /* EntryManagerCompleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A3172E049A00C0CB1B /* EntryManagerCompleteView.m */; };
@@ -322,6 +324,10 @@
 		BF1787F917498F6E00057FF4 /* MainManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainManagerView.m; sourceTree = "<group>"; };
 		BF1787FB1749928A00057FF4 /* ManagerMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerMenuButton.h; sourceTree = "<group>"; };
 		BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerMenuButton.m; sourceTree = "<group>"; };
+		BF1787FE1749A4DC00057FF4 /* AgencyManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerListViewController.h; sourceTree = "<group>"; };
+		BF1787FF1749A4DC00057FF4 /* AgencyManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyManagerListViewController.m; sourceTree = "<group>"; };
+		BF1788011749A59700057FF4 /* AgencyManagerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyManagerListView.h; sourceTree = "<group>"; };
+		BF1788021749A59800057FF4 /* AgencyManagerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyManagerListView.m; sourceTree = "<group>"; };
 		BF2F3299172DEF9E00C0CB1B /* BaseManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerListViewController.h; sourceTree = "<group>"; };
 		BF2F329A172DEF9E00C0CB1B /* BaseManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerListViewController.m; sourceTree = "<group>"; };
 		BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerCompleteViewController.h; sourceTree = "<group>"; };
@@ -856,6 +862,8 @@
 				BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */,
 				BF6A81BB1741903A00F8557E /* AwardManagerListViewController.h */,
 				BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */,
+				BF1787FE1749A4DC00057FF4 /* AgencyManagerListViewController.h */,
+				BF1787FF1749A4DC00057FF4 /* AgencyManagerListViewController.m */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -1672,6 +1680,8 @@
 				BF1787F317498D3700057FF4 /* MenuManagerView.m */,
 				BF1787F817498F6E00057FF4 /* MainManagerView.h */,
 				BF1787F917498F6E00057FF4 /* MainManagerView.m */,
+				BF1788011749A59700057FF4 /* AgencyManagerListView.h */,
+				BF1788021749A59800057FF4 /* AgencyManagerListView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1883,6 +1893,8 @@
 				BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */,
 				BF1787FA17498F6E00057FF4 /* MainManagerView.m in Sources */,
 				BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */,
+				BF1788001749A4DC00057FF4 /* AgencyManagerListViewController.m in Sources */,
+				BF1788031749A59A00057FF4 /* AgencyManagerListView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -39,7 +39,6 @@
     object.group = [GroupModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"agency_group"]]];
     object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.name = [results stringForColumn:@"name"];
-
     return object;
 }
 
@@ -113,7 +112,7 @@
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " %@ "
                             " FROM %@ ", [self fields], [self tableName] ] ];
-    
+
     while( [results next] )
     {
         model = [AgencyModel objectWithResults:results];
@@ -128,6 +127,8 @@
 
 - (NSNumber *) next
 {
+    NSLog( @"Next..." );
+    
     if( !_pk ) return nil;
     
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
@@ -152,6 +153,9 @@
     
     [results close];
     [db close];
+    
+    NSLog( @"Last: %@", model.pk );
+
     
     return model.pk;
 }
@@ -236,6 +240,92 @@
     [db close];
     
     return ( model.pk ) ? model.pk : nil;
+}
+
+- (void) save
+{
+    if( self.pk )
+    {
+        [self update];
+    }
+    else
+    {
+        [self insert];
+    }
+}
+
+- (void) deleteModel
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = [NSString stringWithFormat:@" DELETE FROM %@ WHERE id = ? ", [self tableName]];
+    
+    [db executeUpdate:sql, self.pk];
+    [db close];
+    
+}
+
+- (void) insert
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
+                     " ( %@ ) "
+                     " VALUES "
+                     " ( null, ?, ?, ? ) ", [self tableName], [self fields] ];
+    
+    NSLog( @"Group: %@", self.group );
+    NSLog( @"Country: %@", self.country );
+    NSLog( @"Name: %@", self.name );
+    
+    [db executeUpdate:sql,
+     self.group.pk,
+     self.country.pk,
+     self.name];
+    
+    [db close];
+    
+}
+
+- (void) update
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    if( self.group )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET agency_group = ? WHERE id = ?", [self tableName]],
+         self.group.pk, self.pk ];
+    }
+    if( self.country )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = ? WHERE id = ?", [self tableName]],
+         self.country.pk, self.pk ];
+    }
+    if( self.name )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = ? WHERE id = ?", [self tableName]],
+         self.name, self.pk ];
+    }
+    
+    [db close];
+    
 }
 
 

@@ -95,5 +95,32 @@
     return collection;
 }
 
++ (GroupModel *) loadModelByStringValue:(NSString *) stringValue
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    GroupModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " name = '%@' ", [self fields], [self tableName], stringValue ] ];
+    
+    if( [results next] )
+    {
+        model = [GroupModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    return model;
+}
+
 
 @end

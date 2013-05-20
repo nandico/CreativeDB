@@ -8,6 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define MENU_ENTRIES @"MENU_ENTRIES"
+#define MENU_AGENCIES @"AGENCIES"
+
 @interface MenuManagerViewController : NSViewController
 
 @end
