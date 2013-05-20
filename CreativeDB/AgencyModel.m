@@ -127,8 +127,6 @@
 
 - (NSNumber *) next
 {
-    NSLog( @"Next..." );
-    
     if( !_pk ) return nil;
     
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
@@ -154,8 +152,6 @@
     [results close];
     [db close];
     
-    NSLog( @"Last: %@", model.pk );
-
     
     return model.pk;
 }
@@ -285,11 +281,7 @@
                      " ( %@ ) "
                      " VALUES "
                      " ( null, ?, ?, ? ) ", [self tableName], [self fields] ];
-    
-    NSLog( @"Group: %@", self.group );
-    NSLog( @"Country: %@", self.country );
-    NSLog( @"Name: %@", self.name );
-    
+        
     [db executeUpdate:sql,
      self.group.pk,
      self.country.pk,
@@ -310,18 +302,18 @@
     
     if( self.group )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET agency_group = ? WHERE id = ?", [self tableName]],
-         self.group.pk, self.pk ];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET agency_group = %@ WHERE id = %@", [self tableName],
+         self.group.pk, self.pk ]];
     }
     if( self.country )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = ? WHERE id = ?", [self tableName]],
-         self.country.pk, self.pk ];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = %@ WHERE id = %@", [self tableName],
+         self.country.pk, self.pk ]];
     }
     if( self.name )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = ? WHERE id = ?", [self tableName]],
-         self.name, self.pk ];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET name = '%@' WHERE id = %@", [self tableName],
+         self.name, self.pk ]];
     }
     
     [db close];

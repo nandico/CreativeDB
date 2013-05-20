@@ -94,8 +94,6 @@
                           self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                           nil];
     
-    NSLog( @"Entity name: %@, %@, %@", name, self.modelItem, self.modelName );
-    
     [self.fieldData setObject:name forKey:@"name"];
     
     
