@@ -7,7 +7,7 @@
 //
 
 #import "AwardManagerListViewController.h"
-#import "AwardManagerListView.h"
+#import "BaseLayeredView.h"
 #import "ManagerEngine.h"
 #import "AwardManagerViewController.h"
 #import "AwardModel.h"
@@ -15,7 +15,7 @@
 
 @interface AwardManagerListViewController ()
 
-@property (nonatomic, strong) AwardManagerListView *viewInstance;
+@property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
 
 @property (nonatomic, strong) NSScrollView *tableContainer;
@@ -54,7 +54,7 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
             self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
         
-        self.view = self.viewInstance = [[AwardManagerListView alloc] init];
+        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateList:)

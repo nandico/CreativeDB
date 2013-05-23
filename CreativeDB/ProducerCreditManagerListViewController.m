@@ -7,7 +7,7 @@
 //
 
 #import "ProducerCreditManagerListViewController.h"
-#import "ProducerCreditManagerListView.h"
+#import "BaseLayeredView.h"
 #import "ProducerCreditManagerViewController.h"
 #import "ManagerEngine.h"
 #import "ProducerCreditModel.h"
@@ -15,7 +15,7 @@
 
 @interface ProducerCreditManagerListViewController ()
 
-@property (nonatomic, strong) ProducerCreditManagerListView *viewInstance;
+@property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
 
 @property (nonatomic, strong) NSScrollView *tableContainer;
@@ -50,7 +50,7 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
             self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
         
-        self.view = self.viewInstance = [[ProducerCreditManagerListView alloc] init];
+        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateList:)

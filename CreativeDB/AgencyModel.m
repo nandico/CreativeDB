@@ -275,8 +275,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "

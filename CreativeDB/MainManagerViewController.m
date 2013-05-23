@@ -7,7 +7,7 @@
 //
 
 #import "MainManagerViewController.h"
-#import "MainManagerView.h"
+#import "BaseLayeredView.h"
 #import "EntryManagerCompleteViewController.h"
 #import "MenuManagerViewController.h"
 #import "AgencyManagerViewController.h"
@@ -15,7 +15,7 @@
 
 @interface MainManagerViewController ()
 
-@property (nonatomic, strong) MainManagerView *viewInstance;
+@property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) MenuManagerViewController *menuManager;
 @property (nonatomic, strong) EntryManagerCompleteViewController *entryManager;
 @property (nonatomic, strong) AgencyManagerViewController *agencyManager;
@@ -30,7 +30,7 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[MainManagerView alloc] init];
+        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         [self prepareMain];
     }
     
@@ -45,7 +45,9 @@
 
     _entryManager = [[EntryManagerCompleteViewController alloc] init];
     _entryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    //[self.viewInstance addSubview:_entryManager.view positioned:NSWindowBelow relativeTo:_menuManager.view];
+    [self.viewInstance addSubview:_entryManager.view positioned:NSWindowBelow relativeTo:_menuManager.view];
+    
+    return;
     
     NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"AgencyModel", MLE_FIELDSET_MODEL_KEY,

@@ -7,7 +7,7 @@
 //
 
 #import "CreditManagerListViewController.h"
-#import "CreditManagerListView.h"
+#import "BaseLayeredView.h"
 #import "CreditManagerViewController.h"
 #import "ManagerEngine.h"
 #import "CreditModel.h"
@@ -15,7 +15,7 @@
 
 @interface CreditManagerListViewController ()
 
-@property (nonatomic, strong) CreditManagerListView *viewInstance;
+@property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
 
 @property (nonatomic, strong) NSScrollView *tableContainer;
@@ -49,7 +49,7 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
             self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
 
-        self.view = self.viewInstance = [[CreditManagerListView alloc] init];
+        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateList:)

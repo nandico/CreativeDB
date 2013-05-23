@@ -7,13 +7,13 @@
 //
 
 #import "MenuManagerViewController.h"
-#import "MenuManagerView.h"
+#import "BaseLayeredView.h"
 #import "ManagerMenuButton.h"
 #import "ManagerEngine.h"
 
 @interface MenuManagerViewController ()
 
-@property (nonatomic, strong) MenuManagerView *viewInstance;
+@property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) ManagerMenuButton *entries;
 @property (nonatomic, strong) ManagerMenuButton *agencies;
 
@@ -27,7 +27,7 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[MenuManagerView alloc] init];
+        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         [self prepareMenu];
     }
     

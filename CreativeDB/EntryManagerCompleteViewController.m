@@ -7,14 +7,14 @@
 //
 
 #import "EntryManagerCompleteViewController.h"
-#import "EntryManagerCompleteView.h"
+#import "BaseLayeredView.h"
 #import "EntryManagerCompleteScrollView.h"
 #import "CreditManagerListViewController.h"
 #import "ProducerCreditManagerViewController.h"
 #import "ProducerCreditManagerListViewController.h"
 #import "AwardManagerViewController.h"
 #import "AwardManagerListViewController.h"
-#import "EntryManagerViewForScroll.h"
+#import "BaseLayeredView.h"
 
 
 #import "EntryModel.h"
@@ -24,7 +24,7 @@
 
 @interface EntryManagerCompleteViewController ()
 
-@property (nonatomic, strong) EntryManagerCompleteView *viewInstance;
+@property (nonatomic, strong) BaseLayeredView *viewInstance;
 
 @property (nonatomic, strong) EntryManagerViewController *entryManager;
 @property (nonatomic, strong) CreditManagerViewController *creditManager;
@@ -34,7 +34,7 @@
 @property (nonatomic, strong) AwardManagerViewController *awardManager;
 @property (nonatomic, strong) AwardManagerListViewController *awardListManager;
 @property (nonatomic, strong) EntryManagerCompleteScrollView *scrollView;
-@property (nonatomic, strong) EntryManagerViewForScroll *scrollContent;
+@property (nonatomic, strong) BaseLayeredView *scrollContent;
 
 @end
 
@@ -44,7 +44,7 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[EntryManagerCompleteView alloc] init];
+        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         
         [self createForm];
     }
@@ -60,7 +60,7 @@
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
 
     
-    _scrollContent = [[EntryManagerViewForScroll alloc] initWithFrame:contentFrame];
+    _scrollContent = [[BaseLayeredView alloc] initWithFrame:contentFrame];
 
     
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
