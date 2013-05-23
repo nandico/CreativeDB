@@ -87,12 +87,16 @@
 
 - (void) entriesAction
 {
-    NSLog( @"Entries" );
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_ENTRIES
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 - (void) agenciesAction
 {
-    NSLog( @"Agencies" );    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_AGENCIES
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 @end

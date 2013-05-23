@@ -10,6 +10,7 @@
 
 #define MENU_ENTRIES @"MENU_ENTRIES"
 #define MENU_AGENCIES @"AGENCIES"
+#define MENU_CLIENTS @"CLIENTS"
 
 @interface MenuManagerViewController : NSViewController
 

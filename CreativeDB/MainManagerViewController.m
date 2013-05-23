@@ -12,15 +12,16 @@
 #import "MenuManagerViewController.h"
 #import "AgencyManagerViewController.h"
 #import "AgencyManagerListViewController.h"
+#import "AgencyManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
 @property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) MenuManagerViewController *menuManager;
 @property (nonatomic, strong) EntryManagerCompleteViewController *entryManager;
-@property (nonatomic, strong) AgencyManagerViewController *agencyManager;
-@property (nonatomic, strong) AgencyManagerListViewController *agencyListManager;
+@property (nonatomic, strong) AgencyManagerCompleteViewController *agencyManager;
 
+@property (nonatomic, strong) NSMutableDictionary *modules;
 
 @end
 
@@ -32,52 +33,59 @@
     if (self) {
         self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         [self prepareMain];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showEntries)
+                                                     name:MENU_ENTRIES object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showAgencies)
+                                                     name:MENU_AGENCIES object:nil];
     }
     
     return self;
 }
 
+- (void) hideAll
+{
+    for( NSString *moduleName in _modules )
+    {
+        NSViewController *module = [_modules objectForKey:moduleName];
+        [module.view setHidden:YES];
+    }
+}
+
+- (void) showEntries
+{
+    [self hideAll];
+    [_entryManager.view setHidden:NO];
+}
+
+- (void) showAgencies
+{
+    [self hideAll];
+    [_agencyManager.view setHidden:NO];
+}
+
 - (void) prepareMain
 {
+    _modules = [[NSMutableDictionary alloc] init];
+    
     _menuManager = [[MenuManagerViewController alloc] init];
     _menuManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     [self.viewInstance addSubview:_menuManager.view];
-
+    
     _entryManager = [[EntryManagerCompleteViewController alloc] init];
     _entryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
     [self.viewInstance addSubview:_entryManager.view positioned:NSWindowBelow relativeTo:_menuManager.view];
+    [_entryManager.view setHidden:NO];
+    [_modules setObject:_entryManager forKey:MENU_ENTRIES];
     
-    return;
-    
-    NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                  @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
-                                  [AgencyModel first], MLE_FIELDSET_MODEL_ITEM,
-                                  nil];
-
-    _agencyManager = [[AgencyManagerViewController alloc] initWithOptions:agencyOptions];
-    CGRect contentFrame = NSMakeRect( 10,
-                                     318,
-                                     COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
-                                     COMPLETE_VIEW_CONTAINER_HEIGHT );
-    _agencyManager.view.frame = contentFrame;
-    [self.viewInstance addSubview:_agencyManager.view positioned:NSWindowAbove relativeTo:_entryManager.view];
-    
-    NSDictionary *agencyListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                                @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
-                                                [AgencyModel first], MLE_FIELDSET_MODEL_ITEM,
-                                                nil];
-    
-    _agencyListManager = [[AgencyManagerListViewController alloc]
-                                  initWithOptions:agencyListOptions];
-    //_agencyListManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    
-    _agencyListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
-                                                       0,
-                                                       COMPLETE_VIEW_CONTAINER_WIDTH,
-                                                       COMPLETE_VIEW_CONTAINER_LIST_HEIGHT);
-    
-    [self.viewInstance addSubview:_agencyListManager.view positioned:NSWindowBelow relativeTo:_agencyManager.view];
- 
+    _agencyManager = [[AgencyManagerCompleteViewController alloc] init];
+    _agencyManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_agencyManager.view positioned:NSWindowBelow relativeTo:_entryManager.view];
+    [_agencyManager.view setHidden:YES];
+    [_modules setObject:_agencyManager forKey:MENU_AGENCIES];
 }
 
 @end

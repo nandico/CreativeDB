@@ -856,14 +856,14 @@
 		BF302AD91740836500195DE8 /* Complete */ = {
 			isa = PBXGroup;
 			children = (
+				BFBC5EB7174E77400004E022 /* BaseManagerCompleteViewController.h */,
+				BFBC5EB8174E77400004E022 /* BaseManagerCompleteViewController.m */,
 				BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */,
 				BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */,
 				BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */,
 				BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */,
 				BFBC5EB4174E771E0004E022 /* AgencyManagerCompleteViewController.h */,
 				BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */,
-				BFBC5EB7174E77400004E022 /* BaseManagerCompleteViewController.h */,
-				BFBC5EB8174E77400004E022 /* BaseManagerCompleteViewController.m */,
 			);
 			name = Complete;
 			sourceTree = "<group>";
@@ -871,14 +871,14 @@
 		BF46CF5F170391EB009AACA8 /* ContentManager */ = {
 			isa = PBXGroup;
 			children = (
-				BFF4C5A01705539A0098A633 /* Engine */,
-				BF302AD8174082D300195DE8 /* List */,
-				BFD3A373173DB8F10015E04F /* View */,
-				BF302AD91740836500195DE8 /* Complete */,
 				BF1787F517498F5900057FF4 /* MainManagerViewController.h */,
 				BF1787F617498F5900057FF4 /* MainManagerViewController.m */,
 				BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */,
 				BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */,
+				BFF4C5A01705539A0098A633 /* Engine */,
+				BF302AD8174082D300195DE8 /* List */,
+				BFD3A373173DB8F10015E04F /* View */,
+				BF302AD91740836500195DE8 /* Complete */,
 				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
 				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,

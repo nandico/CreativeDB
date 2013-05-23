@@ -89,6 +89,10 @@
     [_countryColumn.headerCell setStringValue:@"Country"];
     [_groupColumn.headerCell setStringValue:@"Group"];
     
+    [_nameColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_countryColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_groupColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    
     [_tableView addTableColumn:_nameColumn];
     [_tableView addTableColumn:_countryColumn];
     [_tableView addTableColumn:_groupColumn];
