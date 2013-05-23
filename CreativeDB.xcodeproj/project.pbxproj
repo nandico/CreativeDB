@@ -242,6 +242,10 @@
 		BFBC5EB6174E771E0004E022 /* AgencyManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */; };
 		BFBC5EB9174E77400004E022 /* BaseManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EB8174E77400004E022 /* BaseManagerCompleteViewController.m */; };
 		BFBC5EBC174E77E50004E022 /* BaseLayeredView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EBB174E77E50004E022 /* BaseLayeredView.m */; };
+		BFBC5EC5174E83B40004E022 /* ClientManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EC4174E83B40004E022 /* ClientManagerCompleteViewController.m */; };
+		BFBC5EC8174E85100004E022 /* ClientManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EC7174E850F0004E022 /* ClientManagerViewController.m */; };
+		BFBC5ECB174E85360004E022 /* ClientManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5ECA174E85360004E022 /* ClientManagerView.m */; };
+		BFBC5ECE174E87030004E022 /* ClientManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5ECD174E87030004E022 /* ClientManagerListViewController.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -729,6 +733,14 @@
 		BFBC5EB8174E77400004E022 /* BaseManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerCompleteViewController.m; sourceTree = "<group>"; };
 		BFBC5EBA174E77E50004E022 /* BaseLayeredView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLayeredView.h; sourceTree = "<group>"; };
 		BFBC5EBB174E77E50004E022 /* BaseLayeredView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLayeredView.m; sourceTree = "<group>"; };
+		BFBC5EC3174E83B30004E022 /* ClientManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientManagerCompleteViewController.h; sourceTree = "<group>"; };
+		BFBC5EC4174E83B40004E022 /* ClientManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientManagerCompleteViewController.m; sourceTree = "<group>"; };
+		BFBC5EC6174E850E0004E022 /* ClientManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientManagerViewController.h; sourceTree = "<group>"; };
+		BFBC5EC7174E850F0004E022 /* ClientManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientManagerViewController.m; sourceTree = "<group>"; };
+		BFBC5EC9174E85350004E022 /* ClientManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientManagerView.h; sourceTree = "<group>"; };
+		BFBC5ECA174E85360004E022 /* ClientManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientManagerView.m; sourceTree = "<group>"; };
+		BFBC5ECC174E87030004E022 /* ClientManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientManagerListViewController.h; sourceTree = "<group>"; };
+		BFBC5ECD174E87030004E022 /* ClientManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientManagerListViewController.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -794,14 +806,14 @@
 				BF62E8C4173DC98200B75C07 /* Engine */,
 				BF0010A716FEBDD7007B8A80 /* AgencyModel.h */,
 				BF0010A816FEBDD7007B8A80 /* AgencyModel.m */,
+				BF0010B616FF252A007B8A80 /* ClientModel.h */,
+				BF0010B716FF252A007B8A80 /* ClientModel.m */,
 				BF0010AA16FEBEBC007B8A80 /* GroupModel.h */,
 				BF0010AB16FEBEBC007B8A80 /* GroupModel.m */,
 				BF0010AD16FECBDF007B8A80 /* CountryModel.h */,
 				BF0010AE16FECBE0007B8A80 /* CountryModel.m */,
 				BF0010B016FF21C1007B8A80 /* MetalModel.h */,
 				BF0010B116FF21C1007B8A80 /* MetalModel.m */,
-				BF0010B616FF252A007B8A80 /* ClientModel.h */,
-				BF0010B716FF252A007B8A80 /* ClientModel.m */,
 				BF0010B916FF2727007B8A80 /* ProductModel.h */,
 				BF0010BA16FF2727007B8A80 /* ProductModel.m */,
 				BF0010BC16FF30C2007B8A80 /* RoleModel.h */,
@@ -849,6 +861,8 @@
 				BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */,
 				BF1787FE1749A4DC00057FF4 /* AgencyManagerListViewController.h */,
 				BF1787FF1749A4DC00057FF4 /* AgencyManagerListViewController.m */,
+				BFBC5ECC174E87030004E022 /* ClientManagerListViewController.h */,
+				BFBC5ECD174E87030004E022 /* ClientManagerListViewController.m */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -864,6 +878,8 @@
 				BF2F32A0172DFFEF00C0CB1B /* EntryManagerCompleteViewController.m */,
 				BFBC5EB4174E771E0004E022 /* AgencyManagerCompleteViewController.h */,
 				BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */,
+				BFBC5EC3174E83B30004E022 /* ClientManagerCompleteViewController.h */,
+				BFBC5EC4174E83B40004E022 /* ClientManagerCompleteViewController.m */,
 			);
 			name = Complete;
 			sourceTree = "<group>";
@@ -881,6 +897,8 @@
 				BF302AD91740836500195DE8 /* Complete */,
 				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
 				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
+				BFBC5EC6174E850E0004E022 /* ClientManagerViewController.h */,
+				BFBC5EC7174E850F0004E022 /* ClientManagerViewController.m */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
 				BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */,
 				BFE703351724F24A0030E255 /* CreditManagerViewController.h */,
@@ -1649,6 +1667,8 @@
 				BFBC5EBB174E77E50004E022 /* BaseLayeredView.m */,
 				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
 				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
+				BFBC5EC9174E85350004E022 /* ClientManagerView.h */,
+				BFBC5ECA174E85360004E022 /* ClientManagerView.m */,
 				BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */,
 				BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */,
 				BFE703381724F29B0030E255 /* CreditManagerView.h */,
@@ -1865,6 +1885,10 @@
 				BFBC5EB6174E771E0004E022 /* AgencyManagerCompleteViewController.m in Sources */,
 				BFBC5EB9174E77400004E022 /* BaseManagerCompleteViewController.m in Sources */,
 				BFBC5EBC174E77E50004E022 /* BaseLayeredView.m in Sources */,
+				BFBC5EC5174E83B40004E022 /* ClientManagerCompleteViewController.m in Sources */,
+				BFBC5EC8174E85100004E022 /* ClientManagerViewController.m in Sources */,
+				BFBC5ECB174E85360004E022 /* ClientManagerView.m in Sources */,
+				BFBC5ECE174E87030004E022 /* ClientManagerListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

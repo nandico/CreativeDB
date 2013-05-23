@@ -13,6 +13,7 @@
 #import "AgencyManagerViewController.h"
 #import "AgencyManagerListViewController.h"
 #import "AgencyManagerCompleteViewController.h"
+#import "ClientManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) MenuManagerViewController *menuManager;
 @property (nonatomic, strong) EntryManagerCompleteViewController *entryManager;
 @property (nonatomic, strong) AgencyManagerCompleteViewController *agencyManager;
+@property (nonatomic, strong) ClientManagerCompleteViewController *clientManager;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
 
@@ -41,6 +43,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showAgencies)
                                                      name:MENU_AGENCIES object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showClients)
+                                                     name:MENU_CLIENTS object:nil];
     }
     
     return self;
@@ -67,6 +73,13 @@
     [_agencyManager.view setHidden:NO];
 }
 
+- (void) showClients
+{
+    [self hideAll];
+    [_clientManager.view setHidden:NO];
+}
+
+
 - (void) prepareMain
 {
     _modules = [[NSMutableDictionary alloc] init];
@@ -86,6 +99,12 @@
     [self.viewInstance addSubview:_agencyManager.view positioned:NSWindowBelow relativeTo:_entryManager.view];
     [_agencyManager.view setHidden:YES];
     [_modules setObject:_agencyManager forKey:MENU_AGENCIES];
+
+    _clientManager = [[ClientManagerCompleteViewController alloc] init];
+    _clientManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_clientManager.view positioned:NSWindowBelow relativeTo:_agencyManager.view];
+    [_clientManager.view setHidden:YES];
+    [_modules setObject:_clientManager forKey:MENU_CLIENTS];
 }
 
 @end
