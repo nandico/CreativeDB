@@ -191,7 +191,7 @@
                              self.modelName, MLE_FIELDSET_MODEL_KEY,
                              self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
-    
+
     [self.fieldData setObject:blurb forKey:@"blurb"];
     
     NSMutableArray *years = [[NSMutableArray alloc] init];

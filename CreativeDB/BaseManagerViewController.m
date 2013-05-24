@@ -156,7 +156,7 @@
 - (void) previousAction
 {
     id model;
-    
+ 
     SEL previousSelector = NSSelectorFromString( @"previous" );
     SEL firstSelector = NSSelectorFromString( @"first" );
     SEL lastSelector = NSSelectorFromString( @"last" );
@@ -173,7 +173,7 @@
         [baseModelClass performSelector:setModelFilterName withObject:self.modelFilterName];
         [baseModelClass performSelector:setModelFilterValue withObject:self.modelFilterValue];        
     }
-        
+    
     if( self.modelItem )
     {
         SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );

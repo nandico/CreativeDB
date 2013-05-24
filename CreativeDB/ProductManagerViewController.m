@@ -1,21 +1,23 @@
 //
-//  ClientManagerViewController.m
+//  ProductManagerViewController.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 5/23/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
+#import "ProductManagerViewController.h"
 #import "ClientManagerViewController.h"
+#import "ProductModel.h"
 
-@interface ClientManagerViewController ()
+@interface ProductManagerViewController ()
 
-@property (nonatomic, strong) ClientManagerView *viewInstance;
+@property (nonatomic, strong) ProductManagerView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
 
 @end
 
-@implementation ClientManagerViewController
+@implementation ProductManagerViewController
 
 - (id)initWithOptions:(NSDictionary *)options;
 {
@@ -23,11 +25,20 @@
     if (self) {
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
+            self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
+            self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
+            self.modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
+            self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
         
         
-        self.view = self.viewInstance = [[ClientManagerView alloc] init];
+        self.view = self.viewInstance = [[ProductManagerView alloc] init];
         self.viewInstance.dataSource = self;
         
         self.fieldData = [[NSMutableDictionary alloc] init];
@@ -56,66 +67,72 @@
                                                  selector:@selector(previousAction)
                                                      name:MLE_NOTIFICATION_PREVIOUS object:self.viewInstance.actionBar];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateClient:)
+                                                     name:CLIENT_MANAGER_UPDATE_CREDITS object:nil];
+        
+        
     }
     
     return self;
 }
 
-
-- (void) newAction
-{
-    [super newAction];
-    [self updateClient];
-}
-
-- (void) nextAction
-{
-    [super nextAction];
-    [self updateClient];
-}
-
-- (void) previousAction
-{
-    [super previousAction];
-    [self updateClient];
-}
-
-
 - (void) saveAction
 {
     [super saveAction];
-    [self updateClient];
+    [self updateList];
 }
 
 - (void) deleteAction
 {
     [super deleteAction];
     [self updateList];
-    [self updateClient];
 }
 
-- (void) updateClient
+- (void) updateClient:(NSNotification *) notification
 {
-    NSDictionary *clientMessage;
-    if( self.modelItem )
+    NSNumber *modelFilterValue = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+    
+    if( modelFilterValue != (id)[NSNull null] )
     {
-        clientMessage = [NSDictionary dictionaryWithObject:self.modelItem forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+        [self.viewInstance setHidden:NO];
+        
+        self.modelFilterValue = modelFilterValue;
+        ProductModel.modelFilterName = self.modelFilterName;
+        ProductModel.modelFilterValue = self.modelFilterValue;
+        self.modelItem = [ProductModel first];
+        
+        [self.viewInstance destroyForm];
+        [self prepareEntity];
+        [self.viewInstance createForm];
+        
+        [self updateList];
     }
     else
     {
-        clientMessage = [NSDictionary dictionaryWithObject:[NSNull null] forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+        self.modelFilterValue = nil;
+        [self.viewInstance setHidden:YES];
+        [self updateList];
     }
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:CLIENT_MANAGER_UPDATE_CREDITS
-                                                        object:self
-                                                      userInfo:clientMessage];
 }
+
 
 - (void) updateList
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:CLIENT_MANAGER_UPDATE_LIST
+    NSDictionary *updateMessage;
+    if( self.modelFilterValue )
+    {
+        updateMessage = [NSDictionary dictionaryWithObject:self.modelFilterValue forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+    }
+    else
+    {
+        updateMessage = [NSDictionary dictionaryWithObject:[NSNull null] forKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+    }
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:PRODUCT_MANAGER_UPDATE_LIST
                                                         object:self
-                                                      userInfo:nil];
+                                                      userInfo:updateMessage];
     
 }
 
@@ -130,18 +147,18 @@
                           nil];
     
     [self.fieldData setObject:name forKey:@"name"];
-        
-    NSDictionary *country = [NSDictionary dictionaryWithObjectsAndKeys:
+    
+    NSDictionary *client = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                             @"country", MLE_FIELD_NAME_KEY,
-                             @"Country", MLE_FIELD_LABEL_KEY,
-                             @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                             @"client", MLE_FIELD_NAME_KEY,
+                             @"Client", MLE_FIELD_LABEL_KEY,
+                             @"ClientModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
                              self.modelName, MLE_FIELDSET_MODEL_KEY,
                              self.modelItem, MLE_FIELDSET_MODEL_ITEM,
                              nil];
     
-    [self.fieldData setObject:country forKey:@"country"];
+    [self.fieldData setObject:client forKey:@"client"];
 }
 
 

@@ -21,5 +21,21 @@
 + (ProductModel *) loadModel:(NSNumber *) pk;
 + (ProductModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSMutableArray *) loadByClientId:(NSNumber *) clientPK;
+
++ (NSString *) modelFilterName;
++ (void) setModelFilterName:(NSString *) filterName;
+
++ (NSNumber *) modelFilterValue;
++ (void) setModelFilterValue:(NSNumber *) filterNumber;
+
+- (NSNumber *) next;
+- (NSNumber *) previous;
++ (NSNumber *) first;
++ (NSNumber *) last;
+
+- (void) save;
+- (void) deleteModel;
+
 
 @end

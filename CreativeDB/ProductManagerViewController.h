@@ -1,5 +1,5 @@
 //
-//  ClientManagerViewController.h
+//  ProductManagerViewController.h
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 5/23/13.
@@ -7,18 +7,17 @@
 //
 
 #import "BaseManagerViewController.h"
-#import "ClientManagerView.h"
+#import "ProductManagerView.h"
 
-#define CLIENT_MANAGER_UPDATE_LIST @"CLIENT_MANAGER_UPDATE_LIST"
-#define CLIENT_MANAGER_UPDATE_CREDITS @"CLIENT_MANAGER_UPDATE_CREDITS"
+#define PRODUCT_MANAGER_UPDATE_LIST @"PRODUCT_MANAGER_UPDATE_LIST"
 
-@interface ClientManagerViewController : BaseManagerViewController <ClientDataSource>
+
+@interface ProductManagerViewController : BaseManagerViewController <ProductDataSource>
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
 @property (nonatomic, strong) NSMutableDictionary *fieldData;
 
 - (id)initWithOptions:(NSDictionary *)options;
-
 
 @end
