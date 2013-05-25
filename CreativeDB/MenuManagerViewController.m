@@ -17,6 +17,7 @@
 @property (nonatomic, strong) ManagerMenuButton *entries;
 @property (nonatomic, strong) ManagerMenuButton *agencies;
 @property (nonatomic, strong) ManagerMenuButton *clients;
+@property (nonatomic, strong) ManagerMenuButton *persons;
 
 @property (nonatomic,strong) NSMutableArray *buttons;
 
@@ -42,6 +43,7 @@
     [_buttons addObject:[self entries]];
     [_buttons addObject:[self agencies]];
     [_buttons addObject:[self clients]];
+    [_buttons addObject:[self persons]];
     
     [self arrangeButtons];
 }
@@ -101,6 +103,21 @@
     return _clients;
 }
 
+- (ManagerMenuButton *) persons
+{
+    if(!_persons)
+    {
+        _persons = [[ManagerMenuButton alloc] init];
+        _persons.title = @"Persons";
+        [_persons setTarget:self];
+        [_persons setAction:@selector(personsAction)];
+        [self.viewInstance addSubview:_persons];
+    }
+    
+    return _persons;
+}
+
+
 - (void) entriesAction
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_ENTRIES
@@ -118,6 +135,13 @@
 - (void) clientsAction
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_CLIENTS
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (void) personsAction
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_PERSONS
                                                         object:self
                                                       userInfo:nil];
 }

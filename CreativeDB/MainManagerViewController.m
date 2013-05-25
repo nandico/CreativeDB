@@ -10,10 +10,9 @@
 #import "BaseLayeredView.h"
 #import "EntryManagerCompleteViewController.h"
 #import "MenuManagerViewController.h"
-#import "AgencyManagerViewController.h"
-#import "AgencyManagerListViewController.h"
 #import "AgencyManagerCompleteViewController.h"
 #import "ClientManagerCompleteViewController.h"
+#import "PersonManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -22,6 +21,7 @@
 @property (nonatomic, strong) EntryManagerCompleteViewController *entryManager;
 @property (nonatomic, strong) AgencyManagerCompleteViewController *agencyManager;
 @property (nonatomic, strong) ClientManagerCompleteViewController *clientManager;
+@property (nonatomic, strong) PersonManagerCompleteViewController *personManager;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
 
@@ -47,6 +47,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showClients)
                                                      name:MENU_CLIENTS object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showPersons)
+                                                     name:MENU_PERSONS object:nil];
     }
     
     return self;
@@ -79,6 +83,12 @@
     [_clientManager.view setHidden:NO];
 }
 
+- (void) showPersons
+{
+    [self hideAll];
+    [_personManager.view setHidden:NO];
+}
+
 
 - (void) prepareMain
 {
@@ -105,6 +115,12 @@
     [self.viewInstance addSubview:_clientManager.view positioned:NSWindowBelow relativeTo:_agencyManager.view];
     [_clientManager.view setHidden:YES];
     [_modules setObject:_clientManager forKey:MENU_CLIENTS];
+    
+    _personManager = [[PersonManagerCompleteViewController alloc] init];
+    _personManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_personManager.view positioned:NSWindowBelow relativeTo:_clientManager.view];
+    [_personManager.view setHidden:YES];
+    [_modules setObject:_personManager forKey:MENU_PERSONS];
 }
 
 @end

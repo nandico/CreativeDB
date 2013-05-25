@@ -11,6 +11,7 @@
 #define MENU_ENTRIES @"MENU_ENTRIES"
 #define MENU_AGENCIES @"MENU_AGENCIES"
 #define MENU_CLIENTS @"MENU_CLIENTS"
+#define MENU_PERSONS @"MENU_PERSONS"
 
 @interface MenuManagerViewController : NSViewController
 

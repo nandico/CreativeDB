@@ -249,6 +249,10 @@
 		BFBC5ED1174EBABF0004E022 /* ProductManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5ED0174EBABF0004E022 /* ProductManagerView.m */; };
 		BFBC5ED4174EBE420004E022 /* ProductManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5ED3174EBE410004E022 /* ProductManagerViewController.m */; };
 		BFBC5ED7174EBF460004E022 /* ProductManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5ED6174EBF460004E022 /* ProductManagerListViewController.m */; };
+		BFBC5EDA17506AA60004E022 /* PersonManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5ED917506AA50004E022 /* PersonManagerCompleteViewController.m */; };
+		BFBC5EDD17506BCF0004E022 /* PersonManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EDC17506BCB0004E022 /* PersonManagerViewController.m */; };
+		BFBC5EE017506BF00004E022 /* PersonManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EDF17506BF00004E022 /* PersonManagerView.m */; };
+		BFBC5EE317506DCA0004E022 /* PersonManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EE217506DC90004E022 /* PersonManagerListViewController.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -750,6 +754,14 @@
 		BFBC5ED3174EBE410004E022 /* ProductManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductManagerViewController.m; sourceTree = "<group>"; };
 		BFBC5ED5174EBF460004E022 /* ProductManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductManagerListViewController.h; sourceTree = "<group>"; };
 		BFBC5ED6174EBF460004E022 /* ProductManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductManagerListViewController.m; sourceTree = "<group>"; };
+		BFBC5ED817506AA40004E022 /* PersonManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManagerCompleteViewController.h; sourceTree = "<group>"; };
+		BFBC5ED917506AA50004E022 /* PersonManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManagerCompleteViewController.m; sourceTree = "<group>"; };
+		BFBC5EDB17506BC70004E022 /* PersonManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManagerViewController.h; sourceTree = "<group>"; };
+		BFBC5EDC17506BCB0004E022 /* PersonManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManagerViewController.m; sourceTree = "<group>"; };
+		BFBC5EDE17506BEF0004E022 /* PersonManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManagerView.h; sourceTree = "<group>"; };
+		BFBC5EDF17506BF00004E022 /* PersonManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManagerView.m; sourceTree = "<group>"; };
+		BFBC5EE117506DC90004E022 /* PersonManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManagerListViewController.h; sourceTree = "<group>"; };
+		BFBC5EE217506DC90004E022 /* PersonManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManagerListViewController.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -870,10 +882,12 @@
 				BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */,
 				BF1787FE1749A4DC00057FF4 /* AgencyManagerListViewController.h */,
 				BF1787FF1749A4DC00057FF4 /* AgencyManagerListViewController.m */,
-				BFBC5ECC174E87030004E022 /* ClientManagerListViewController.h */,
-				BFBC5ECD174E87030004E022 /* ClientManagerListViewController.m */,
 				BFBC5ED5174EBF460004E022 /* ProductManagerListViewController.h */,
 				BFBC5ED6174EBF460004E022 /* ProductManagerListViewController.m */,
+				BFBC5ECC174E87030004E022 /* ClientManagerListViewController.h */,
+				BFBC5ECD174E87030004E022 /* ClientManagerListViewController.m */,
+				BFBC5EE117506DC90004E022 /* PersonManagerListViewController.h */,
+				BFBC5EE217506DC90004E022 /* PersonManagerListViewController.m */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -891,6 +905,8 @@
 				BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */,
 				BFBC5EC3174E83B30004E022 /* ClientManagerCompleteViewController.h */,
 				BFBC5EC4174E83B40004E022 /* ClientManagerCompleteViewController.m */,
+				BFBC5ED817506AA40004E022 /* PersonManagerCompleteViewController.h */,
+				BFBC5ED917506AA50004E022 /* PersonManagerCompleteViewController.m */,
 			);
 			name = Complete;
 			sourceTree = "<group>";
@@ -908,8 +924,6 @@
 				BF302AD91740836500195DE8 /* Complete */,
 				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
 				BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */,
-				BFBC5EC6174E850E0004E022 /* ClientManagerViewController.h */,
-				BFBC5EC7174E850F0004E022 /* ClientManagerViewController.m */,
 				BFBC5ED2174EBE410004E022 /* ProductManagerViewController.h */,
 				BFBC5ED3174EBE410004E022 /* ProductManagerViewController.m */,
 				BFF4C58A170544F50098A633 /* AgencyManagerViewController.h */,
@@ -920,6 +934,10 @@
 				BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */,
 				BFFCE80C174084B400987656 /* AwardManagerViewController.h */,
 				BFFCE80D174084B400987656 /* AwardManagerViewController.m */,
+				BFBC5EC6174E850E0004E022 /* ClientManagerViewController.h */,
+				BFBC5EC7174E850F0004E022 /* ClientManagerViewController.m */,
+				BFBC5EDB17506BC70004E022 /* PersonManagerViewController.h */,
+				BFBC5EDC17506BCB0004E022 /* PersonManagerViewController.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -1680,8 +1698,6 @@
 				BFBC5EBB174E77E50004E022 /* BaseLayeredView.m */,
 				BFF4C58D1705450E0098A633 /* AgencyManagerView.h */,
 				BFF4C58E1705450E0098A633 /* AgencyManagerView.m */,
-				BFBC5EC9174E85350004E022 /* ClientManagerView.h */,
-				BFBC5ECA174E85360004E022 /* ClientManagerView.m */,
 				BFBC5ECF174EBABF0004E022 /* ProductManagerView.h */,
 				BFBC5ED0174EBABF0004E022 /* ProductManagerView.m */,
 				BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */,
@@ -1692,6 +1708,10 @@
 				BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */,
 				BFFCE80F1740853000987656 /* AwardManagerView.h */,
 				BFFCE8101740853000987656 /* AwardManagerView.m */,
+				BFBC5EC9174E85350004E022 /* ClientManagerView.h */,
+				BFBC5ECA174E85360004E022 /* ClientManagerView.m */,
+				BFBC5EDE17506BEF0004E022 /* PersonManagerView.h */,
+				BFBC5EDF17506BF00004E022 /* PersonManagerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1907,6 +1927,10 @@
 				BFBC5ED1174EBABF0004E022 /* ProductManagerView.m in Sources */,
 				BFBC5ED4174EBE420004E022 /* ProductManagerViewController.m in Sources */,
 				BFBC5ED7174EBF460004E022 /* ProductManagerListViewController.m in Sources */,
+				BFBC5EDA17506AA60004E022 /* PersonManagerCompleteViewController.m in Sources */,
+				BFBC5EDD17506BCF0004E022 /* PersonManagerViewController.m in Sources */,
+				BFBC5EE017506BF00004E022 /* PersonManagerView.m in Sources */,
+				BFBC5EE317506DCA0004E022 /* PersonManagerListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
