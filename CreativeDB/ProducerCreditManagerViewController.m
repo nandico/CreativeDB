@@ -141,10 +141,10 @@
                            @"Entry", MLE_FIELD_LABEL_KEY,
                            @"EntryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                            @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                           self.modelName, MLE_FIELDSET_MODEL_KEY,
-                           self.modelItem, MLE_FIELDSET_MODEL_ITEM,
-                           self.modelFilterName, MLE_FIELDSET_MODEL_FILTERNAME,
-                           self.modelFilterValue, MLE_FIELDSET_MODEL_FILTERVALUE,
+                           [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                           [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                           [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                           [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
                            nil];
     
     [self.fieldData setObject:entry forKey:@"entry"];
@@ -156,10 +156,10 @@
                             @"Producer", MLE_FIELD_LABEL_KEY,
                             @"ProducerModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                            self.modelName, MLE_FIELDSET_MODEL_KEY,
-                            self.modelItem, MLE_FIELDSET_MODEL_ITEM,
-                            self.modelFilterName, MLE_FIELDSET_MODEL_FILTERNAME,
-                            self.modelFilterValue, MLE_FIELDSET_MODEL_FILTERVALUE,
+                            [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                            [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                            [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                            [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
                             nil];
     
     [self.fieldData setObject:producer forKey:@"producer"];
@@ -170,10 +170,10 @@
                           @"Discipline", MLE_FIELD_LABEL_KEY,
                           @"DisciplineModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                           @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                          self.modelName, MLE_FIELDSET_MODEL_KEY,
-                          self.modelItem, MLE_FIELDSET_MODEL_ITEM,
-                          self.modelFilterName, MLE_FIELDSET_MODEL_FILTERNAME,
-                          self.modelFilterValue, MLE_FIELDSET_MODEL_FILTERVALUE,
+                          [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                          [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                          [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                          [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
                           nil];
     
     [self.fieldData setObject:discipline forKey:@"discipline"];

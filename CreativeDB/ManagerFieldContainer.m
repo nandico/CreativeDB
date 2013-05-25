@@ -44,37 +44,37 @@
         
         _options = options;
         if( [self.options objectForKey:MLE_FIELD_TYPE_KEY] )
-            _fieldType = [self.options objectForKey:MLE_FIELD_TYPE_KEY];
+            _fieldType = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_TYPE_KEY]];
         
         if( [self.options objectForKey:MLE_FIELD_DATATYPE_KEY] )
-            _fieldDataType = [self.options objectForKey:MLE_FIELD_DATATYPE_KEY];
+            _fieldDataType = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_DATATYPE_KEY]];
         
         if( [self.options objectForKey:MLE_FIELD_NAME_KEY] )
-            _fieldName = [self.options objectForKey:MLE_FIELD_NAME_KEY];
+            _fieldName = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_NAME_KEY]];
         
         if( [self.options objectForKey:MLE_FIELD_LABEL_KEY] )
-            _fieldLabel = [self.options objectForKey:MLE_FIELD_LABEL_KEY];
+            _fieldLabel = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LABEL_KEY]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
-            _modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+            _modelName = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_KEY]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
-            _modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+            _modelItem = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_ITEM]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
-            _modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+            _modelFilterName = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
-            _modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+            _modelFilterValue = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE]];
         
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY] )
-            _fieldLookupName = [self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY];
+            _fieldLookupName = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LOOKUP_NAME_KEY]];
         
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] )
-            _fieldLookupModel = [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY];
+            _fieldLookupModel = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY]];
         
         if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] )
-            _staticDomainData = [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY];
+            _staticDomainData = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY]];
         
         [self label];
         
@@ -84,7 +84,11 @@
                 [self textField];
                 break;
             case MLEComboFieldType:
-                [self comboField];
+                if( [_modelFilterName isEqualToString:_fieldName] ) {
+                    [self filteredComboField];
+                } else {
+                    [self comboField];
+                }
                 break;
             case MLEStaticComboFieldType:
                 [self staticComboField];
@@ -99,6 +103,18 @@
     }
 
     return self;
+}
+
+- (id) unpackNSNull:(id) value
+{
+    if( value == (id)[NSNull null] )
+    {
+        return nil;
+    }
+    else
+    {
+        return value;
+    }
 }
 
 - (void) processColumnSchema
@@ -167,6 +183,29 @@
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
 
+- (NSString *) bindFilteredLookupValue
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
+    id baseLookupClass = NSClassFromString( _fieldLookupModel );
+    id baseLookupModel = [baseLookupClass performSelector:staticLoadSelector withObject:_modelFilterValue];
+    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
+    
+    return [baseLookupModel performSelector:lookupNameSelector withObject:nil];
+    
+    /*
+    id baseModelClass = NSClassFromString( _modelName );
+    id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelFilterValue];
+    
+    NSLog( @"Carregado %@, filter: %@", baseModel, _modelFilterValue );
+    
+    SEL nameSelector = NSSelectorFromString( _fieldName );
+    id lookupModel = [baseModel performSelector:nameSelector withObject:nil];
+    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
+    
+    return [lookupModel performSelector:lookupNameSelector withObject:nil];
+    */
+}
+
 - (NSMutableArray *) lookupData
 {
     SEL staticLoadSelector = NSSelectorFromString( @"loadAll" );
@@ -203,6 +242,68 @@
     
     return _textField;
 
+}
+
+/*
+- (ManagerTextField *) filteredComboField
+{
+    if(!_textField)
+    {
+        _textField = [[ManagerTextField alloc] init];
+        [self addSubview:_textField];
+        [_textField setBezeled:NO];
+        [_textField setEditable:NO];
+
+        
+        NSString *fieldValue = [self bindLookupValue];
+        if( fieldValue )
+        {
+            [_textField setStringValue:fieldValue];
+        }
+        else if( _modelFilterValue )
+        {
+            NSLog( @"STATIC value: %@", _modelFilterValue );
+            
+            fieldValue = [self bindStaticLookupValue];
+            
+            if( fieldValue )
+            {
+                [_textField setStringValue:fieldValue];
+            }
+        }
+    }
+    
+    return _textField;
+    
+}
+*/
+- (ManagerComboBox *) filteredComboField
+{
+    if(!_comboField)
+    {
+        _comboField = [[ManagerComboBox alloc] init];
+        [self addSubview:_comboField];
+        
+        [self bindCombo];
+        
+        NSString *fieldValue = [self bindLookupValue];
+        
+        if( fieldValue )
+        {
+            [_comboField setStringValue:fieldValue];
+        }
+        else if( _modelFilterValue )
+        {
+            fieldValue = [self bindFilteredLookupValue];
+            
+            if( fieldValue )
+            {
+                [_comboField setStringValue:fieldValue];
+            }
+        }
+    }
+    
+    return _comboField;
 }
 
 - (ManagerTextAreaField *) textAreaField
@@ -257,13 +358,6 @@
         {
             [_comboField setStringValue:fieldValue];   
         }
-        else if( _modelFilterValue )
-        {
-            
-        }
-
-        
-        
     }
     
     return _comboField;

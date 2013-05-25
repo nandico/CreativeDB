@@ -22,5 +22,6 @@
 - (void) previousAction;
 - (void) nextAction;
 - (void) prepareEntity;
+- (id) packNSNull:(id) value;
 
 @end

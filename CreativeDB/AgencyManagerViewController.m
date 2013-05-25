@@ -26,8 +26,17 @@
     if (self) {
         _options = options;
         
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] ) self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
-        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] ) self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
+            self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
+            self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
+            self.modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+        
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
+            self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
 
         
         self.view = self.viewInstance = [[AgencyManagerView alloc] init];
@@ -90,8 +99,10 @@
                           [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,
                           @"name", MLE_FIELD_NAME_KEY,
                           @"Name", MLE_FIELD_LABEL_KEY,
-                          self.modelName, MLE_FIELDSET_MODEL_KEY,
-                          self.modelItem, MLE_FIELDSET_MODEL_ITEM,
+                          [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                          [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                          [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                          [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
                           nil];
     
     [self.fieldData setObject:name forKey:@"name"];
@@ -103,8 +114,10 @@
                            @"Group", MLE_FIELD_LABEL_KEY,
                            @"GroupModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                            @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                           self.modelName, MLE_FIELDSET_MODEL_KEY,
-                           self.modelItem, MLE_FIELDSET_MODEL_ITEM,
+                           [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                           [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                           [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                           [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
                            nil];
     
     [self.fieldData setObject:group forKey:@"group"];
@@ -115,8 +128,10 @@
                              @"Country", MLE_FIELD_LABEL_KEY,
                              @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             self.modelName, MLE_FIELDSET_MODEL_KEY,
-                             self.modelItem, MLE_FIELDSET_MODEL_ITEM,
+                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                             [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
                              nil];
     
     [self.fieldData setObject:country forKey:@"country"];
