@@ -13,6 +13,7 @@
 #define MENU_CLIENTS @"MENU_CLIENTS"
 #define MENU_PERSONS @"MENU_PERSONS"
 #define MENU_ROLES @"MENU_ROLES"
+#define MENU_PRODUCERS @"MENU_PRODUCERS"
 
 @interface MenuManagerViewController : NSViewController
 

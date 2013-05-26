@@ -14,6 +14,7 @@
 #import "ClientManagerCompleteViewController.h"
 #import "PersonManagerCompleteViewController.h"
 #import "RoleManagerCompleteViewController.h"
+#import "ProducerManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -24,6 +25,7 @@
 @property (nonatomic, strong) ClientManagerCompleteViewController *clientManager;
 @property (nonatomic, strong) PersonManagerCompleteViewController *personManager;
 @property (nonatomic, strong) RoleManagerCompleteViewController *roleManager;
+@property (nonatomic, strong) ProducerManagerCompleteViewController *producerManager;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
 
@@ -57,6 +59,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showRoles)
                                                      name:MENU_ROLES object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showProducers)
+                                                     name:MENU_PRODUCERS object:nil];
     }
     
     return self;
@@ -101,6 +107,11 @@
     [_roleManager.view setHidden:NO];
 }
 
+- (void) showProducers
+{
+    [self hideAll];
+    [_producerManager.view setHidden:NO];
+}
 
 - (void) prepareMain
 {
@@ -139,6 +150,12 @@
     [self.viewInstance addSubview:_roleManager.view positioned:NSWindowBelow relativeTo:_personManager.view];
     [_roleManager.view setHidden:YES];
     [_modules setObject:_roleManager forKey:MENU_ROLES];
+    
+    _producerManager = [[ProducerManagerCompleteViewController alloc] init];
+    _producerManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_producerManager.view positioned:NSWindowBelow relativeTo:_roleManager.view];
+    [_producerManager.view setHidden:YES];
+    [_modules setObject:_producerManager forKey:MENU_PRODUCERS];
 }
 
 @end
