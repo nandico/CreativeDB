@@ -13,6 +13,7 @@
 #import "AgencyManagerCompleteViewController.h"
 #import "ClientManagerCompleteViewController.h"
 #import "PersonManagerCompleteViewController.h"
+#import "RoleManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) AgencyManagerCompleteViewController *agencyManager;
 @property (nonatomic, strong) ClientManagerCompleteViewController *clientManager;
 @property (nonatomic, strong) PersonManagerCompleteViewController *personManager;
+@property (nonatomic, strong) RoleManagerCompleteViewController *roleManager;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
 
@@ -51,6 +53,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showPersons)
                                                      name:MENU_PERSONS object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showRoles)
+                                                     name:MENU_ROLES object:nil];
     }
     
     return self;
@@ -89,6 +95,12 @@
     [_personManager.view setHidden:NO];
 }
 
+- (void) showRoles
+{
+    [self hideAll];
+    [_roleManager.view setHidden:NO];
+}
+
 
 - (void) prepareMain
 {
@@ -121,6 +133,12 @@
     [self.viewInstance addSubview:_personManager.view positioned:NSWindowBelow relativeTo:_clientManager.view];
     [_personManager.view setHidden:YES];
     [_modules setObject:_personManager forKey:MENU_PERSONS];
+    
+    _roleManager = [[RoleManagerCompleteViewController alloc] init];
+    _roleManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_roleManager.view positioned:NSWindowBelow relativeTo:_personManager.view];
+    [_roleManager.view setHidden:YES];
+    [_modules setObject:_roleManager forKey:MENU_ROLES];
 }
 
 @end

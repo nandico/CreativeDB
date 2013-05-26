@@ -253,6 +253,10 @@
 		BFBC5EDD17506BCF0004E022 /* PersonManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EDC17506BCB0004E022 /* PersonManagerViewController.m */; };
 		BFBC5EE017506BF00004E022 /* PersonManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EDF17506BF00004E022 /* PersonManagerView.m */; };
 		BFBC5EE317506DCA0004E022 /* PersonManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EE217506DC90004E022 /* PersonManagerListViewController.m */; };
+		BFBC5EE617518F2F0004E022 /* RoleManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EE517518F2E0004E022 /* RoleManagerCompleteViewController.m */; };
+		BFBC5EE917518FC70004E022 /* RoleManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EE817518FC10004E022 /* RoleManagerViewController.m */; };
+		BFBC5EEC17518FEB0004E022 /* RoleManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EEB17518FEA0004E022 /* RoleManagerListViewController.m */; };
+		BFBC5EEF1751900A0004E022 /* RoleManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EEE175190090004E022 /* RoleManagerView.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -762,6 +766,14 @@
 		BFBC5EDF17506BF00004E022 /* PersonManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManagerView.m; sourceTree = "<group>"; };
 		BFBC5EE117506DC90004E022 /* PersonManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonManagerListViewController.h; sourceTree = "<group>"; };
 		BFBC5EE217506DC90004E022 /* PersonManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonManagerListViewController.m; sourceTree = "<group>"; };
+		BFBC5EE417518F2E0004E022 /* RoleManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleManagerCompleteViewController.h; sourceTree = "<group>"; };
+		BFBC5EE517518F2E0004E022 /* RoleManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleManagerCompleteViewController.m; sourceTree = "<group>"; };
+		BFBC5EE717518FBE0004E022 /* RoleManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleManagerViewController.h; sourceTree = "<group>"; };
+		BFBC5EE817518FC10004E022 /* RoleManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleManagerViewController.m; sourceTree = "<group>"; };
+		BFBC5EEA17518FEA0004E022 /* RoleManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleManagerListViewController.h; sourceTree = "<group>"; };
+		BFBC5EEB17518FEA0004E022 /* RoleManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleManagerListViewController.m; sourceTree = "<group>"; };
+		BFBC5EED175190080004E022 /* RoleManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoleManagerView.h; sourceTree = "<group>"; };
+		BFBC5EEE175190090004E022 /* RoleManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoleManagerView.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -888,6 +900,8 @@
 				BFBC5ECD174E87030004E022 /* ClientManagerListViewController.m */,
 				BFBC5EE117506DC90004E022 /* PersonManagerListViewController.h */,
 				BFBC5EE217506DC90004E022 /* PersonManagerListViewController.m */,
+				BFBC5EEA17518FEA0004E022 /* RoleManagerListViewController.h */,
+				BFBC5EEB17518FEA0004E022 /* RoleManagerListViewController.m */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -907,6 +921,8 @@
 				BFBC5EC4174E83B40004E022 /* ClientManagerCompleteViewController.m */,
 				BFBC5ED817506AA40004E022 /* PersonManagerCompleteViewController.h */,
 				BFBC5ED917506AA50004E022 /* PersonManagerCompleteViewController.m */,
+				BFBC5EE417518F2E0004E022 /* RoleManagerCompleteViewController.h */,
+				BFBC5EE517518F2E0004E022 /* RoleManagerCompleteViewController.m */,
 			);
 			name = Complete;
 			sourceTree = "<group>";
@@ -938,6 +954,8 @@
 				BFBC5EC7174E850F0004E022 /* ClientManagerViewController.m */,
 				BFBC5EDB17506BC70004E022 /* PersonManagerViewController.h */,
 				BFBC5EDC17506BCB0004E022 /* PersonManagerViewController.m */,
+				BFBC5EE717518FBE0004E022 /* RoleManagerViewController.h */,
+				BFBC5EE817518FC10004E022 /* RoleManagerViewController.m */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -1712,6 +1730,8 @@
 				BFBC5ECA174E85360004E022 /* ClientManagerView.m */,
 				BFBC5EDE17506BEF0004E022 /* PersonManagerView.h */,
 				BFBC5EDF17506BF00004E022 /* PersonManagerView.m */,
+				BFBC5EED175190080004E022 /* RoleManagerView.h */,
+				BFBC5EEE175190090004E022 /* RoleManagerView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1931,6 +1951,10 @@
 				BFBC5EDD17506BCF0004E022 /* PersonManagerViewController.m in Sources */,
 				BFBC5EE017506BF00004E022 /* PersonManagerView.m in Sources */,
 				BFBC5EE317506DCA0004E022 /* PersonManagerListViewController.m in Sources */,
+				BFBC5EE617518F2F0004E022 /* RoleManagerCompleteViewController.m in Sources */,
+				BFBC5EE917518FC70004E022 /* RoleManagerViewController.m in Sources */,
+				BFBC5EEC17518FEB0004E022 /* RoleManagerListViewController.m in Sources */,
+				BFBC5EEF1751900A0004E022 /* RoleManagerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
