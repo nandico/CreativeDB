@@ -85,6 +85,7 @@
 		BFBC5EF91751B4860004E022 /* ProducerManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EF81751B4850004E022 /* ProducerManagerListViewController.m */; };
 		BFBC5EFC1751B62F0004E022 /* ProducerManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EFB1751B62E0004E022 /* ProducerManagerCompleteViewController.m */; };
 		BFBC5EFF175309820004E022 /* ManagerHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EFE175309800004E022 /* ManagerHeader.m */; };
+		BFBC5F02175409CB0004E022 /* ScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5F01175409CB0004E022 /* ScoreModel.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -263,6 +264,8 @@
 		BFBC5EFB1751B62E0004E022 /* ProducerManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerManagerCompleteViewController.m; sourceTree = "<group>"; };
 		BFBC5EFD1753097E0004E022 /* ManagerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerHeader.h; sourceTree = "<group>"; };
 		BFBC5EFE175309800004E022 /* ManagerHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerHeader.m; sourceTree = "<group>"; };
+		BFBC5F00175409CB0004E022 /* ScoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreModel.h; sourceTree = "<group>"; };
+		BFBC5F01175409CB0004E022 /* ScoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreModel.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				BF0010AE16FECBE0007B8A80 /* CountryModel.m */,
 				BF0010B016FF21C1007B8A80 /* MetalModel.h */,
 				BF0010B116FF21C1007B8A80 /* MetalModel.m */,
+				BFBC5F00175409CB0004E022 /* ScoreModel.h */,
+				BFBC5F01175409CB0004E022 /* ScoreModel.m */,
 				BF0010B916FF2727007B8A80 /* ProductModel.h */,
 				BF0010BA16FF2727007B8A80 /* ProductModel.m */,
 				BF0010BC16FF30C2007B8A80 /* RoleModel.h */,
@@ -788,6 +793,7 @@
 				BFBC5EF91751B4860004E022 /* ProducerManagerListViewController.m in Sources */,
 				BFBC5EFC1751B62F0004E022 /* ProducerManagerCompleteViewController.m in Sources */,
 				BFBC5EFF175309820004E022 /* ManagerHeader.m in Sources */,
+				BFBC5F02175409CB0004E022 /* ScoreModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
