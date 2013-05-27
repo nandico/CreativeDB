@@ -157,6 +157,8 @@
 {
     id model;
  
+    NSLog( @"Filter name: %@, Filter value: %@", self.modelFilterName, self.modelFilterValue );
+    
     SEL previousSelector = NSSelectorFromString( @"previous" );
     SEL firstSelector = NSSelectorFromString( @"first" );
     SEL lastSelector = NSSelectorFromString( @"last" );
@@ -250,6 +252,18 @@
     else
     {
         return [NSNull null];
+    }
+}
+
+- (id) unpackNSNull:(id) value
+{
+    if( value == (id)[NSNull null] )
+    {
+        return nil;
+    }
+    else
+    {
+        return value;
     }
 }
 

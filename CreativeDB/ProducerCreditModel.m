@@ -206,7 +206,7 @@ static NSNumber *modelFilterValue;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
+            
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
                                              " %@  "
                                              " FROM %@ "

@@ -28,16 +28,17 @@
         _options = options;
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
-            self.modelName = [self.options objectForKey:MLE_FIELDSET_MODEL_KEY];
+            self.modelName = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_KEY]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM] )
-            self.modelItem = [self.options objectForKey:MLE_FIELDSET_MODEL_ITEM];
+            self.modelItem = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_ITEM]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME] )
-            self.modelFilterName = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME];
+            self.modelFilterName = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_FILTERNAME]];
         
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
-            self.modelFilterValue = [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
+            self.modelFilterValue = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE]];
+        
         
         self.view = self.viewInstance = [[ProducerCreditManagerView alloc] init];
         self.viewInstance.dataSource = self;
@@ -115,7 +116,7 @@
         [self.viewInstance setHidden:NO];
         
         self.modelFilterValue = modelFilterValue;
-        ProducerCreditModel.modelFilterName = self.modelFilterName;
+
         ProducerCreditModel.modelFilterValue = self.modelFilterValue;
         self.modelItem = [ProducerCreditModel first];
         

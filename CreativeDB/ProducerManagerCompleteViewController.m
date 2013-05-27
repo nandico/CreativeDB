@@ -41,7 +41,7 @@
 {
     NSDictionary *producerOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                  @"ProducerModel", MLE_FIELDSET_MODEL_KEY,
-                                 [ProducerModel first], MLE_FIELDSET_MODEL_ITEM,
+                                 [self packNSNull:[ProducerModel first]], MLE_FIELDSET_MODEL_ITEM,
                                  nil];
     
     _producerManager = [[ProducerManagerViewController alloc] initWithOptions:producerOptions];
@@ -54,7 +54,7 @@
     
     NSDictionary *producerListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"ProducerModel", MLE_FIELDSET_MODEL_KEY,
-                                     [ProducerModel first], MLE_FIELDSET_MODEL_ITEM,
+                                     [self packNSNull:[ProducerModel first]], MLE_FIELDSET_MODEL_ITEM,
                                      nil];
     
     _producerListManager = [[ProducerManagerListViewController alloc]

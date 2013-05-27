@@ -40,7 +40,7 @@
 {
     NSDictionary *personOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"PersonModel", MLE_FIELDSET_MODEL_KEY,
-                                   [PersonModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   [self packNSNull:[PersonModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    nil];
     
     _personManager = [[PersonManagerViewController alloc] initWithOptions:personOptions];
@@ -53,7 +53,7 @@
     
     NSDictionary *personListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                        @"PersonModel", MLE_FIELDSET_MODEL_KEY,
-                                       [PersonModel first], MLE_FIELDSET_MODEL_ITEM,
+                                       [self packNSNull:[PersonModel first]], MLE_FIELDSET_MODEL_ITEM,
                                        nil];
     
     _personListManager = [[PersonManagerListViewController alloc]

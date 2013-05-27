@@ -14,4 +14,28 @@
 
 @implementation BaseManagerListViewController
 
+- (id) packNSNull:(id) value
+{
+    if( value )
+    {
+        return value;
+    }
+    else
+    {
+        return [NSNull null];
+    }
+}
+
+- (id) unpackNSNull:(id) value
+{
+    if( value == (id)[NSNull null] )
+    {
+        return nil;
+    }
+    else
+    {
+        return value;
+    }
+}
+
 @end

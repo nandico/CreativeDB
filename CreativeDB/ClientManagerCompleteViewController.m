@@ -59,7 +59,7 @@
     
     NSDictionary *clientListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                        @"ClientModel", MLE_FIELDSET_MODEL_KEY,
-                                       [ClientModel first], MLE_FIELDSET_MODEL_ITEM,
+                                       [self packNSNull:[ClientModel first]], MLE_FIELDSET_MODEL_ITEM,
                                        nil];
     
     _clientListManager = [[ClientManagerListViewController alloc]
@@ -77,9 +77,9 @@
 
     NSDictionary *productOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"ProductModel", MLE_FIELDSET_MODEL_KEY,
-                                   [ProductModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   [self packNSNull:[ProductModel first]], MLE_FIELDSET_MODEL_ITEM,
                                     @"client", MLE_FIELDSET_MODEL_FILTERNAME,
-                                    [ClientModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                    [self packNSNull:[ClientModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                    nil];
     
     _productManager = [[ProductManagerViewController alloc] initWithOptions:productOptions];
@@ -93,9 +93,9 @@
     
     NSDictionary *productListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                        @"ProductModel", MLE_FIELDSET_MODEL_KEY,
-                                       [ProductModel first], MLE_FIELDSET_MODEL_ITEM,
+                                       [self packNSNull:[ProductModel first]], MLE_FIELDSET_MODEL_ITEM,
                                         @"client", MLE_FIELDSET_MODEL_FILTERNAME,
-                                        [ClientModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                        [self packNSNull:[ClientModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                        nil];
     
     _productListManager = [[ProductManagerListViewController alloc]

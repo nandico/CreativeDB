@@ -43,7 +43,7 @@
 {
     NSDictionary *roleOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"RoleModel", MLE_FIELDSET_MODEL_KEY,
-                                   [RoleModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   [self packNSNull:[RoleModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    nil];
     
     _roleManager = [[RoleManagerViewController alloc] initWithOptions:roleOptions];
@@ -56,7 +56,7 @@
     
     NSDictionary *roleListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                        @"RoleModel", MLE_FIELDSET_MODEL_KEY,
-                                       [RoleModel first], MLE_FIELDSET_MODEL_ITEM,
+                                       [self packNSNull:[RoleModel first]], MLE_FIELDSET_MODEL_ITEM,
                                        nil];
     
     _roleListManager = [[RoleManagerListViewController alloc]

@@ -17,4 +17,6 @@
 
 @interface BaseManagerCompleteViewController : NSViewController
 
+- (id) packNSNull:(id) value;
+
 @end

@@ -65,7 +65,7 @@
     
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"EntryModel", MLE_FIELDSET_MODEL_KEY,
-                                  [EntryModel first], MLE_FIELDSET_MODEL_ITEM,
+                                  [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_ITEM,
                                   nil];
     
     _entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
@@ -80,9 +80,9 @@
     
     NSDictionary *awardOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"AwardModel", MLE_FIELDSET_MODEL_KEY,
-                                  [AwardModel first], MLE_FIELDSET_MODEL_ITEM,
+                                  [self packNSNull:[AwardModel first]], MLE_FIELDSET_MODEL_ITEM,
                                   @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
-                                  [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                  [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                   nil];
     
     _awardManager = [[AwardManagerViewController alloc] initWithOptions:awardOptions];
@@ -95,9 +95,9 @@
     
     NSDictionary *awardListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                       @"AwardModel", MLE_FIELDSET_MODEL_KEY,
-                                      [AwardModel first], MLE_FIELDSET_MODEL_ITEM,
+                                      [self packNSNull:[AwardModel first]], MLE_FIELDSET_MODEL_ITEM,
                                       @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
-                                      [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                      [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                       nil];
     
     _awardListManager = [[AwardManagerListViewController alloc]
@@ -114,9 +114,9 @@
     
     NSDictionary *creditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"CreditModel", MLE_FIELDSET_MODEL_KEY,
-                                   [CreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   [self packNSNull:[CreditModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
-                                   [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                   [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                    nil];
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
@@ -129,9 +129,9 @@
     
     NSDictionary *entryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                         @"CreditModel", MLE_FIELDSET_MODEL_KEY,
-                                        [CreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                        [self packNSNull:[CreditModel first]], MLE_FIELDSET_MODEL_ITEM,
                                         @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
-                                        [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                        [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                         nil];
     
     _creditListManager = [[CreditManagerListViewController alloc]
@@ -148,9 +148,9 @@
     
     NSDictionary *producerCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"ProducerCreditModel", MLE_FIELDSET_MODEL_KEY,
-                                   [ProducerCreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   [self packNSNull:[ProducerCreditModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
-                                   [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                   [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                    nil];
     
     _producerCreditManager = [[ProducerCreditManagerViewController alloc] initWithOptions:producerCreditOptions];
@@ -163,11 +163,11 @@
     
     NSDictionary *producerEntryCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                         @"ProducerCreditModel", MLE_FIELDSET_MODEL_KEY,
-                                        [ProducerCreditModel first], MLE_FIELDSET_MODEL_ITEM,
+                                        [self packNSNull:[ProducerCreditModel first]], MLE_FIELDSET_MODEL_ITEM,
                                         @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
-                                        [EntryModel first], MLE_FIELDSET_MODEL_FILTERVALUE,
+                                        [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,
                                         nil];
-    
+
     _producerCreditListManager = [[ProducerCreditManagerListViewController alloc]
                           initWithOptions:producerEntryCreditOptions];
     _producerCreditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),

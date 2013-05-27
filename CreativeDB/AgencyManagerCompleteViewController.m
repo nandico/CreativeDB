@@ -39,7 +39,7 @@
 {
     NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
-                                   [AgencyModel first], MLE_FIELDSET_MODEL_ITEM,
+                                   [self packNSNull:[AgencyModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    nil];
     
     _agencyManager = [[AgencyManagerViewController alloc] initWithOptions:agencyOptions];
@@ -52,7 +52,7 @@
     
     NSDictionary *agencyListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                        @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
-                                       [AgencyModel first], MLE_FIELDSET_MODEL_ITEM,
+                                       [self packNSNull:[AgencyModel first]], MLE_FIELDSET_MODEL_ITEM,
                                        nil];
     
     _agencyListManager = [[AgencyManagerListViewController alloc]

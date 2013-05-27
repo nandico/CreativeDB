@@ -23,5 +23,6 @@
 - (void) nextAction;
 - (void) prepareEntity;
 - (id) packNSNull:(id) value;
+- (id) unpackNSNull:(id) value;
 
 @end

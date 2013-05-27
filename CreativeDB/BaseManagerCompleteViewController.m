@@ -18,5 +18,17 @@
 
 @implementation BaseManagerCompleteViewController
 
+- (id) packNSNull:(id) value
+{
+    if( value )
+    {
+        return value;
+    }
+    else
+    {
+        return [NSNull null];
+    }
+}
+
 
 @end

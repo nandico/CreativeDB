@@ -10,4 +10,7 @@
 
 @interface BaseManagerListViewController : NSViewController
 
+- (id) packNSNull:(id) value;
+- (id) unpackNSNull:(id) value;
+
 @end
