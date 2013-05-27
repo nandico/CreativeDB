@@ -60,11 +60,6 @@
 		BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
 		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
-		BFA5E7141744383200466F5C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5E7131744383200466F5C /* QuartzCore.framework */; };
-		BFA5E7161744383200466F5C /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFA5E7151744383200466F5C /* OpenGLES.framework */; };
-		BFA5E7171744383200466F5C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3A4D69174434970046FF9B /* CoreGraphics.framework */; };
-		BFA5E7181744383200466F5C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3A4D65174434970046FF9B /* UIKit.framework */; };
-		BFA5E7191744383200466F5C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF3A4D67174434970046FF9B /* Foundation.framework */; };
 		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
 		BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2EA2171BA2360044262E /* BaseManagerView.m */; };
 		BFBC5EB6174E771E0004E022 /* AgencyManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */; };
@@ -215,7 +210,6 @@
 		BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
 		BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
 		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
-		BFA5E7121744383200466F5C /* CreativeDBiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDBiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFA5E7131744383200466F5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BFA5E7151744383200466F5C /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerViewController.h; sourceTree = "<group>"; };
@@ -307,18 +301,6 @@
 			files = (
 				BF8D844116F7F746006906D8 /* libsqlite3.0.dylib in Frameworks */,
 				BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BFA5E70F1744383200466F5C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BFA5E7141744383200466F5C /* QuartzCore.framework in Frameworks */,
-				BFA5E7161744383200466F5C /* OpenGLES.framework in Frameworks */,
-				BFA5E7171744383200466F5C /* CoreGraphics.framework in Frameworks */,
-				BFA5E7181744383200466F5C /* UIKit.framework in Frameworks */,
-				BFA5E7191744383200466F5C /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +448,6 @@
 			isa = PBXGroup;
 			children = (
 				BF8D842016F7EEA4006906D8 /* CreativeDB.app */,
-				BFA5E7121744383200466F5C /* CreativeDBiOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -669,23 +650,6 @@
 			productReference = BF8D842016F7EEA4006906D8 /* CreativeDB.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BFA5E7111744383200466F5C /* CreativeDBiOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BFA5E9471744383500466F5C /* Build configuration list for PBXNativeTarget "CreativeDBiOS" */;
-			buildPhases = (
-				BFA5E70E1744383200466F5C /* Sources */,
-				BFA5E70F1744383200466F5C /* Frameworks */,
-				BFA5E7101744383200466F5C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = CreativeDBiOS;
-			productName = CreativeDBiOS;
-			productReference = BFA5E7121744383200466F5C /* CreativeDBiOS.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -708,7 +672,6 @@
 			projectRoot = "";
 			targets = (
 				BF8D841F16F7EEA3006906D8 /* CreativeDB */,
-				BFA5E7111744383200466F5C /* CreativeDBiOS */,
 			);
 		};
 /* End PBXProject section */
@@ -723,13 +686,6 @@
 				BF8D843A16F7EEA5006906D8 /* MainMenu.xib in Resources */,
 				BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */,
 				BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BFA5E7101744383200466F5C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,13 +782,6 @@
 				BFBC5EF61751B38B0004E022 /* ProducerManagerViewController.m in Sources */,
 				BFBC5EF91751B4860004E022 /* ProducerManagerListViewController.m in Sources */,
 				BFBC5EFC1751B62F0004E022 /* ProducerManagerCompleteViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BFA5E70E1744383200466F5C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -957,57 +906,6 @@
 			};
 			name = Release;
 		};
-		BFA5E9451744383500466F5C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CreativeDBiOS/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = CreativeDBiOS/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		BFA5E9461744383500466F5C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = CreativeDBiOS/Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = NDEBUG;
-				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
-				INFOPLIST_FILE = CreativeDBiOS/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1025,15 +923,6 @@
 			buildConfigurations = (
 				BF8D843E16F7EEA6006906D8 /* Debug */,
 				BF8D843F16F7EEA6006906D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BFA5E9471744383500466F5C /* Build configuration list for PBXNativeTarget "CreativeDBiOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BFA5E9451744383500466F5C /* Debug */,
-				BFA5E9461744383500466F5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
