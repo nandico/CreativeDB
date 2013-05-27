@@ -35,6 +35,8 @@
 
 - (void) createForm
 {
+    [_engine addHeader:[self header]];
+    
     [_engine addFieldContainer:[self entry]];
     [_engine addFieldContainer:[self metal]];
     [_engine addFieldContainer:[self festival]];
@@ -65,6 +67,21 @@
     _category = nil;
     _subcategory = nil;
     _year = nil;
+}
+
+- (ManagerHeader *) header
+{
+    if(!_header)
+    {
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [self.dataSource modelTitle], MLE_FIELDSET_MODEL_HEADERTITLE, nil ];
+        
+        _header = [[ManagerHeader alloc] initWithOptions:options];
+        
+        [self addSubview:_header];
+    }
+    
+    return _header;
 }
 
 - (ManagerActionBar *) actionBar

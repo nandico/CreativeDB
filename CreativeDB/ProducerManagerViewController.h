@@ -14,6 +14,7 @@
 
 @interface ProducerManagerViewController : BaseManagerViewController <ProducerDataSource>
 
+@property (nonatomic, strong) NSString *modelTitle;
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;
 @property (nonatomic, strong) NSMutableDictionary *fieldData;

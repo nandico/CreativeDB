@@ -141,7 +141,7 @@
     }
     else if( [tableColumn.identifier isEqualToString:@"portfolioURL"] )
     {
-        if( item.portfolioURL ) [cell setStringValue:item.portfolioURL];
+        if( item.portfolioURL ) [cell setStringValue:[item.portfolioURL absoluteString]];
     }
     
     return cell;

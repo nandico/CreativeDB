@@ -23,6 +23,9 @@
     if (self) {
         _options = options;
         
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_HEADERTITLE] )
+            self.modelTitle = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_HEADERTITLE]];
+        
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
             self.modelName = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_KEY]];
         

@@ -7,6 +7,7 @@
 //
 
 #import "AgencyManagerView.h"
+#import "ManagerHeader.h"
 
 @interface  AgencyManagerView()
 
@@ -32,6 +33,8 @@
 
 - (void) createForm
 {
+    [_engine addHeader:[self header]];
+    
     [_engine addFieldContainer:[self name]];
     [_engine addFieldContainer:[self group]];
     [_engine addFieldContainer:[self country]];
@@ -52,6 +55,21 @@
     _name = nil;
     _group = nil;
     _country = nil;
+}
+
+- (ManagerHeader *) header
+{
+    if(!_header)
+    {
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [self.dataSource modelTitle], MLE_FIELDSET_MODEL_HEADERTITLE, nil ];
+        
+        _header = [[ManagerHeader alloc] initWithOptions:options];
+        
+        [self addSubview:_header];
+    }
+    
+    return _header;
 }
 
 - (ManagerActionBar *) actionBar

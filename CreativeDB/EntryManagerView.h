@@ -11,9 +11,11 @@
 #import "ManagerActionBar.h"
 #import "ManagerEngine.h"
 #import "BaseManagerView.h"
+#import "ManagerHeader.h"
 
 @protocol EntryDataSource <NSObject>
 
+- (NSString *) modelTitle;
 - (NSString *) modelName;
 - (NSNumber *) modelItem;
 - (NSMutableDictionary *) fieldData;
@@ -24,6 +26,7 @@
 
 @property (strong) id <EntryDataSource> dataSource;
 @property (nonatomic, strong) ManagerEngine *engine;
+@property (nonatomic, strong) ManagerHeader *header;
 @property (nonatomic, strong) ManagerActionBar *actionBar;
 
 - (void) createForm;

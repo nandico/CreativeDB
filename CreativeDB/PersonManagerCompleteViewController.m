@@ -39,6 +39,7 @@
 - (void) createForm
 {
     NSDictionary *personOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Persons", MLE_FIELDSET_MODEL_HEADERTITLE,
                                    @"PersonModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[PersonModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    nil];

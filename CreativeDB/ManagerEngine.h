@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "ManagerFieldContainer.h"
 #import "ManagerActionBar.h"
+#import "ManagerHeader.h"
 
 typedef enum ManagerFieldType : NSInteger ManagerFieldType;
 enum ManagerFieldType : NSInteger {
@@ -45,6 +46,13 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_FIELD_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
 #define MLE_FIELD_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
+#define MLE_HEADER_OFFSET_X 5.0f
+#define MLE_HEADER_OFFSET_Y 0.0f
+#define MLE_HEADER_WIDTH 450.0f
+#define MLE_HEADER_HEIGHT 25.0f
+#define MLE_HEADER_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 16.0f]
+#define MLE_HEADER_COLOR [NSColor colorWithCalibratedRed:0.3f green:0.3f blue:0.3f alpha:1.0f]
+
 #define MLE_LABEL_OFFSET_X 5.0f
 #define MLE_LABEL_OFFSET_Y 0.0f
 #define MLE_LABEL_WIDTH 80.0f
@@ -61,7 +69,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_MENU_BUTTON_WIDTH 80.0f
 #define MLE_MENU_BUTTON_HEIGHT 80.0f
 #define MLE_MENU_BUTTON_OFFSET_X 10.0f
-#define MLE_MENU_BUTTON_OFFSET_Y 490.0f
+#define MLE_MENU_BUTTON_OFFSET_Y 530.0f
 #define MLE_MENU_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 16.0f]
 
 
@@ -78,6 +86,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_FIELD_LOOKUP_MODEL_KEY @"FIELD_LOOKUP_MODEL_KEY"
 #define MLE_FIELD_STATIC_DOMAIN_KEY @"FIELD_STATIC_DOMAIN_KEY"
 
+#define MLE_FIELDSET_MODEL_HEADERTITLE @"MLE_FIELDSET_MODEL_HEADERTITLE"
 #define MLE_FIELDSET_MODEL_KEY @"FIELDSET_MODEL_KEY"
 #define MLE_FIELDSET_MODEL_ITEM @"FIELDSET_MODEL_ITEM"
 #define MLE_FIELDSET_MODEL_FILTERNAME @"FIELDSET_MODEL_FILTERNAME"
@@ -95,6 +104,7 @@ enum ManagerFieldDataType : NSInteger {
 
 - (void) addFieldContainer:(ManagerFieldContainer *) container;
 - (void) addActionBar:(ManagerActionBar *) actionBar;
+- (void) addHeader:(ManagerHeader *) header;
 - (void) arrangeContainers;
 - (void) removeContainers;
 

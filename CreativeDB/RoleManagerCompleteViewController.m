@@ -42,6 +42,7 @@
 - (void) createForm
 {
     NSDictionary *roleOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Roles", MLE_FIELDSET_MODEL_HEADERTITLE,
                                    @"RoleModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[RoleModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    nil];

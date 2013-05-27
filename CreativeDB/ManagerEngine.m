@@ -7,11 +7,14 @@
 //
 
 #import "ManagerEngine.h"
+#import "ManagerHeader.h"
 
 @interface ManagerEngine()
 
 @property (nonatomic, strong) NSMutableArray *fieldContainers;
+@property (nonatomic, strong) ManagerHeader *header;
 @property (nonatomic, strong) ManagerActionBar *actionBar;
+
 
 @end
 
@@ -36,6 +39,12 @@
 {
     _actionBar = actionBar;
 }
+
+- (void) addHeader:(ManagerHeader *) header;
+{
+    _header = header;
+}
+
 
 - (NSInteger) containerHeight:(ManagerFieldContainer *)fieldContainer withSpacing:(BOOL) spacing
 {
@@ -80,6 +89,9 @@
         
         originalX = container.frame.origin.x;
     }
+    
+    _header.frame = NSMakeRect(_header.frame.origin.x,
+                               totalHeight - actualHeight, _header.frame.size.width, _header.frame.size.height);
     
     for( itemIndex = 0; itemIndex < containerCount; itemIndex ++ )
     {

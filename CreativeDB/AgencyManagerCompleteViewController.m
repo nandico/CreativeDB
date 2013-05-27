@@ -38,6 +38,7 @@
 - (void) createForm
 {
     NSDictionary *agencyOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Agencies", MLE_FIELDSET_MODEL_HEADERTITLE,
                                    @"AgencyModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[AgencyModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    nil];

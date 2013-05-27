@@ -33,6 +33,8 @@
 
 - (void) createForm
 {
+    [_engine addHeader:[self header]];
+    
     [_engine addFieldContainer:[self name]];
     [_engine addFieldContainer:[self country]];
     [_engine addFieldContainer:[self siteURL]];
@@ -53,6 +55,21 @@
     _country = nil;
     _name = nil;
     _siteURL = nil;
+}
+
+- (ManagerHeader *) header
+{
+    if(!_header)
+    {
+        NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:
+                                 [self.dataSource modelTitle], MLE_FIELDSET_MODEL_HEADERTITLE, nil ];
+        
+        _header = [[ManagerHeader alloc] initWithOptions:options];
+        
+        [self addSubview:_header];
+    }
+    
+    return _header;
 }
 
 - (ManagerActionBar *) actionBar

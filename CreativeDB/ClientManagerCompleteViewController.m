@@ -45,6 +45,7 @@
 - (void) createForm
 {
     NSDictionary *clientOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Clients", MLE_FIELDSET_MODEL_HEADERTITLE,
                                    @"ClientModel", MLE_FIELDSET_MODEL_KEY,
                                    [ClientModel first], MLE_FIELDSET_MODEL_ITEM,
                                    nil];
@@ -76,7 +77,8 @@
     ProductModel.modelFilterValue = [ClientModel first];
 
     NSDictionary *productOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   @"ProductModel", MLE_FIELDSET_MODEL_KEY,
+                                    @"Products for this client", MLE_FIELDSET_MODEL_HEADERTITLE,
+                                    @"ProductModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[ProductModel first]], MLE_FIELDSET_MODEL_ITEM,
                                     @"client", MLE_FIELDSET_MODEL_FILTERNAME,
                                     [self packNSNull:[ClientModel first]], MLE_FIELDSET_MODEL_FILTERVALUE,

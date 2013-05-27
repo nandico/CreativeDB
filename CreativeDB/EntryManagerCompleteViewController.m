@@ -64,6 +64,7 @@
 
     
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"Entries", MLE_FIELDSET_MODEL_HEADERTITLE,
                                   @"EntryModel", MLE_FIELDSET_MODEL_KEY,
                                   [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_ITEM,
                                   nil];
@@ -79,6 +80,7 @@
     AwardModel.modelFilterValue = [EntryModel first];
     
     NSDictionary *awardOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  @"Awards", MLE_FIELDSET_MODEL_HEADERTITLE,
                                   @"AwardModel", MLE_FIELDSET_MODEL_KEY,
                                   [self packNSNull:[AwardModel first]], MLE_FIELDSET_MODEL_ITEM,
                                   @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
@@ -113,6 +115,7 @@
     CreditModel.modelFilterValue = [EntryModel first];
     
     NSDictionary *creditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Credits", MLE_FIELDSET_MODEL_HEADERTITLE,
                                    @"CreditModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[CreditModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
@@ -147,6 +150,7 @@
     ProducerCreditModel.modelFilterValue = [EntryModel first];
     
     NSDictionary *producerCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Producer company credits", MLE_FIELDSET_MODEL_HEADERTITLE,
                                    @"ProducerCreditModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[ProducerCreditModel first]], MLE_FIELDSET_MODEL_ITEM,
                                    @"entry", MLE_FIELDSET_MODEL_FILTERNAME,
