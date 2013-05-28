@@ -13,7 +13,7 @@
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;
 @property (strong) NSURL *siteURL;
-@property (assign) NSInteger weight;
+@property (assign) NSNumber *weight;
 @property (strong) NSString *obs;
 @property (assign) NSInteger classify;
 

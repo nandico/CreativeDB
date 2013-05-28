@@ -38,7 +38,7 @@
     object.name = [results stringForColumn:@"name"];
     if([[results resultDictionary] objectForKey:@"siteURL"] != nil)
         object.siteURL = [[NSURL alloc] initWithString:[results stringForColumn:@"siteURL"]];
-    object.weight = [results longForColumn:@"weight"];
+    object.weight = [NSNumber numberWithLong:[results longForColumn:@"weight"]];
     object.obs = [results stringForColumn:@"obs"];
     object.classify = [results longForColumn:@"classify"];
     

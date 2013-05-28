@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ScoreController.h"
 
 @implementation AppDelegate
 
@@ -14,13 +15,16 @@
 {
     _mainManager = [[MainManagerViewController alloc] init];
     self.window.contentView = _mainManager.view;
+
+    [ScoreController processAwards];
+
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
 {
     return YES;
 }
-     
+
 
 
 @end

@@ -25,4 +25,7 @@
 + (ScoreModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 
+- (void) save;
+- (void) deleteModel;
+
 @end

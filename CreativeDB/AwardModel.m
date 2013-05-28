@@ -9,6 +9,7 @@
 #import "AwardModel.h"
 #import "FMDBDataAccess.h"
 #import "CreditModel.h"
+#import "PersonModel.h"
 
 @implementation AwardModel
 
@@ -104,6 +105,35 @@ static NSNumber *modelFilterValue;
     
     return collection;
 }
+
++ (NSMutableArray *) loadAll
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    AwardModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ ", [self fields], [self tableName] ] ];
+    
+    while( [results next] )
+    {
+        model = [AwardModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
 
 + (NSString *) modelFilterName
 {

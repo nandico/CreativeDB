@@ -21,6 +21,11 @@ static NSString *tableName;
     }
 }
 
+- (NSString *) tableName
+{
+    return ScoreModel.tableName;
+}
+
 + (void) setTableName: (NSString *) name
 {
     @synchronized( self )
@@ -64,7 +69,7 @@ static NSString *tableName;
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " %@ "
-                                                       " FROM %@ "
+                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
     
@@ -88,6 +93,101 @@ static NSString *tableName;
 {
     return nil;
 }
+
+- (void) save
+{
+    if( self.pk )
+    {
+        [self update];
+    }
+    else
+    {
+        [self insert];
+    }
+}
+
+- (void) deleteModel
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = [NSString stringWithFormat:@" DELETE FROM %@ WHERE id = ? ", [self tableName]];
+    
+    [db executeUpdate:sql, self.pk];
+    [db close];
+    
+}
+
+- (void) insert
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
+                     " ( %@ ) "
+                     " VALUES "
+                     " ( null, ?, ?, ?, ?, ? ) ", [self tableName], [self fields] ];
+    
+    [db executeUpdate:sql,
+     self.origin,
+     self.entry,
+     self.festival,
+     self.year,
+     self.score];
+    
+    [db close];
+    
+}
+
+- (void) update
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    if( self.origin )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
+                           self.origin, self.pk ]];
+    }
+    if( self.entry )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
+                           self.entry, self.pk ]];
+    }
+    if( self.festival )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
+                           self.festival, self.pk ]];
+    }
+    if( self.year )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
+                           self.year, self.pk ]];
+    }
+    if( self.score )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
+                           self.score, self.pk ]];
+    }
+
+    [db close];
+    
+}
+
 
 
 @end

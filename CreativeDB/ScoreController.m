@@ -1,0 +1,158 @@
+//
+//  ScoreController.m
+//  CreativeDB
+//
+//  Created by Fernando Aquino on 5/27/13.
+//  Copyright (c) 2013 Cacau. All rights reserved.
+//
+
+#import "ScoreController.h"
+#import "AwardModel.h"
+#import "CreditModel.h"
+#import "ScoreModel.h"
+#import "ProducerCreditModel.h"
+#import "AgencyModel.h"
+#import "ClientModel.h"
+#import "CountryModel.h"
+#import "GroupModel.h"
+#import "ProductModel.h"
+
+@implementation ScoreController
+
++ (void) processAwards
+{
+    NSMutableArray *awards = [AwardModel loadAll];
+    
+    for( AwardModel *award in awards )
+    {    
+        // people credits
+        for( CreditModel *credit in award.entry.credits )
+        {
+            [self insertScore:award forCredit:credit];
+        }
+        
+        // producer credits
+        for( ProducerCreditModel *producer in award.entry.producers )
+        {
+            [self insertScore:award forProducer:producer];
+        }
+        
+        // agency credits
+        [self insertScore:award forAgency:award.entry.agency];
+        
+        // client credits
+        [self insertScore:award forClient:award.entry.client];
+        
+        // country credits
+        [self insertScore:award forCountry:award.entry.country];
+        
+        // group credits
+        [self insertScore:award forGroup:award.entry.agency.group];
+        
+        // product credits
+        [self insertScore:award forProduct:award.entry.product];
+    }
+}
+
++ (void) insertScore:(AwardModel *) award forCredit:(CreditModel *) credit
+{
+    [ScoreModel setTableName:@"aa_person_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = credit.person.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+}
+
++ (void) insertScore:(AwardModel *) award forProducer:(ProducerCreditModel *) producer
+{
+    [ScoreModel setTableName:@"aa_producer_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = producer.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+    
+}
+
++ (void) insertScore:(AwardModel *) award forAgency:(AgencyModel *) agency
+{
+    [ScoreModel setTableName:@"aa_agency_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = agency.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+}
+
++ (void) insertScore:(AwardModel *) award forClient:(ClientModel *) client
+{
+    [ScoreModel setTableName:@"aa_client_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = client.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+}
+
++ (void) insertScore:(AwardModel *) award forCountry:(CountryModel *) country
+{
+    [ScoreModel setTableName:@"aa_country_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = country.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+}
+
++ (void) insertScore:(AwardModel *) award forGroup:(GroupModel *) group
+{
+    [ScoreModel setTableName:@"aa_group_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = group.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+}
+
++ (void) insertScore:(AwardModel *) award forProduct:(ProductModel *) product
+{
+    if( !product ) return;
+    
+    [ScoreModel setTableName:@"aa_product_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = product.pk;
+    score.entry = award.entry.pk;
+    score.festival = award.festival.pk;
+    score.year = award.year;
+    score.score = award.festival.weight;
+    
+    [score save];
+}
+
+@end
