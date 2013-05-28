@@ -23,7 +23,7 @@
 
 + (NSString *) fields
 {
-    return @"id, name";
+    return @"id, name, weight";
 }
 
 - (NSString *) fields
@@ -36,6 +36,7 @@
     MetalModel *object = [[MetalModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
+    object.weight = [NSNumber numberWithLong:[results longForColumn:@"weight"]];
     
     return object;
 }

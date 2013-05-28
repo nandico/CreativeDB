@@ -12,6 +12,7 @@
 
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;
+@property (strong) NSNumber *weight;
 
 + (NSString *) tableName;
 + (NSString *) fields;

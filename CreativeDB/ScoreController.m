@@ -63,7 +63,7 @@
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
 }
@@ -77,7 +77,7 @@
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
     
@@ -92,7 +92,7 @@
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
 }
@@ -106,7 +106,7 @@
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
 }
@@ -120,7 +120,7 @@
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
 }
@@ -129,12 +129,16 @@
 {
     [ScoreModel setTableName:@"aa_group_score"];
     
+    NSLog( @"Entry: %@", award.entry.name );
+    NSLog( @"Group: %@, Festival: %@", group.name, award.festival.name );
+    NSLog( @"---" );
+    
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = group.pk;
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
 }
@@ -150,7 +154,7 @@
     score.entry = award.entry.pk;
     score.festival = award.festival.pk;
     score.year = award.year;
-    score.score = award.festival.weight;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
     
     [score save];
 }
