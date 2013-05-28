@@ -89,7 +89,8 @@ static NSNumber *modelFilterValue;
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ] ];
+                            " entry = %ld "
+                            " ORDER BY person ", [self fields], [self tableName], [entryPK integerValue] ] ];
     
     while( [results next] )
     {

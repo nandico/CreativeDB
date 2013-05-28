@@ -8,9 +8,7 @@
 
 #import "BaseManagerListViewController.h"
 #import "BaseLayeredView.h"
-#import "CreditManagerViewController.h"
 #import "ManagerEngine.h"
-#import "CreditModel.h"
 #import "EntryManagerCompleteViewController.h"
 
 @interface ScoreManagerListViewController : BaseManagerListViewController  <NSTableViewDelegate, NSTableViewDataSource>

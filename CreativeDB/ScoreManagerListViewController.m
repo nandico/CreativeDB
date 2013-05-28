@@ -7,6 +7,7 @@
 //
 
 #import "ScoreManagerListViewController.h"
+#import "ScoreModel.h"
 
 @interface ScoreManagerListViewController ()
 
@@ -17,7 +18,8 @@
 @property (nonatomic, strong) NSTableView *tableView;
 
 @property (nonatomic, strong) NSTableColumn *personColumn;
-@property (nonatomic, strong) NSTableColumn *roleColumn;
+@property (nonatomic, strong) NSTableColumn *countryColumn;
+@property (nonatomic, strong) NSTableColumn *scoreColumn;
 
 @property (nonatomic, strong) NSMutableArray *items;
 
@@ -67,8 +69,10 @@
     {
         self.modelFilterValue = modelFilterValue;
         
+        [ScoreModel setTableName:@"aa_person_score"];
+        
         [self.viewInstance setHidden:NO];
-        _items = [CreditModel loadByEntryId:self.modelFilterValue];
+        _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
         [_tableView reloadData];
     }
     else
@@ -82,7 +86,8 @@
 {
     if( self.modelItem )
     {
-        _items = [CreditModel loadByEntryId:self.modelItem];
+        [ScoreModel setTableName:@"aa_person_score"];
+        _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
     }
     
     _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, COMPLETE_VIEW_CONTAINER_HEIGHT)];
@@ -91,16 +96,20 @@
     [_tableView setRowHeight:50.0f];
     
     _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];
-    _roleColumn = [[NSTableColumn alloc] initWithIdentifier:@"role"];
+    _countryColumn = [[NSTableColumn alloc] initWithIdentifier:@"country"];
+    _scoreColumn = [[NSTableColumn alloc] initWithIdentifier:@"score"];
     
-    [_personColumn setWidth:252.0f];
-    [_roleColumn setWidth:252.0f];
+    [_personColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_countryColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_scoreColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
     
     [_personColumn.headerCell setStringValue:@"Person"];
-    [_roleColumn.headerCell setStringValue:@"Role"];
+    [_countryColumn.headerCell setStringValue:@"Country"];
+    [_scoreColumn.headerCell setStringValue:@"Score"];
     
     [_tableView addTableColumn:_personColumn];
-    [_tableView addTableColumn:_roleColumn];
+    [_tableView addTableColumn:_countryColumn];
+    [_tableView addTableColumn:_scoreColumn];
     
     [_tableContainer setDocumentView:_tableView];
     [_tableContainer setHasVerticalScroller:YES];
@@ -121,11 +130,11 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    NSTextField *cell = [tableView makeViewWithIdentifier:@"CreditView" owner:self];
+    NSTextField *cell = [tableView makeViewWithIdentifier:@"ScoreView" owner:self];
     
     if (nil == cell) {
         cell = [[NSTextField alloc] initWithFrame:CGRectZero];
-        cell.identifier = @"CreditView";
+        cell.identifier = @"ScoreView";
         [cell setBezeled:NO];
         cell.backgroundColor = MLE_CONTAINER_COLOR;
         cell.wantsLayer = YES;
@@ -139,15 +148,19 @@
         [cell addSubview:test];
     }
     
-    CreditModel *item = [_items objectAtIndex:row];
+    ScoreModel *item = [_items objectAtIndex:row];
     
     if( [tableColumn.identifier isEqualToString:@"person"] )
     {
         [cell setStringValue:item.person.name];
     }
-    else if( [tableColumn.identifier isEqualToString:@"role"] )
+    else if( [tableColumn.identifier isEqualToString:@"country"] )
     {
-        [cell setStringValue:item.role.name];
+        [cell setStringValue:item.person.country.name];
+    }
+    else if( [tableColumn.identifier isEqualToString:@"score"] )
+    {
+        [cell setStringValue:[item.score stringValue]];
     }
     
     return cell;

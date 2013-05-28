@@ -49,8 +49,30 @@ static NSString *tableName;
     ScoreModel *object = [[ScoreModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.origin = [NSNumber numberWithLong:[results longForColumn:@"origin"]];
-    object.entry = [NSNumber numberWithLong:[results longForColumn:@"entry"]];
-    object.festival = [NSNumber numberWithLong:[results longForColumn:@"festival"]];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
+        object.person = [PersonModel loadModel:object.origin];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_agency_score"] )
+        object.agency = [AgencyModel loadModel:object.origin];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_client_score"] )
+        object.client = [ClientModel loadModel:object.origin];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_country_score"] )
+        object.country = [CountryModel loadModel:object.origin];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
+        object.group = [GroupModel loadModel:object.origin];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_producer_score"] )
+        object.producer = [ProducerModel loadModel:object.origin];
+    
+    if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
+        object.product = [ProductModel loadModel:object.origin];
+    
+    object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
+    object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
     object.score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
     
@@ -92,6 +114,37 @@ static NSString *tableName;
 + (NSMutableArray *) loadAll
 {
     return nil;
+}
+
++ (NSMutableArray *) loadRankingByTableName: (NSString *) tableName
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    ScoreModel *model;
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " ", [self fields], tableName ] ];
+    
+    while( [results next] )
+    {
+        model = [ScoreModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+
 }
 
 - (void) save
@@ -154,8 +207,8 @@ static NSString *tableName;
     
     [db executeUpdate:sql,
      self.origin,
-     self.entry,
-     self.festival,
+     self.entry.pk,
+     self.festival.pk,
      self.year,
      self.score];
     
@@ -180,12 +233,12 @@ static NSString *tableName;
     if( self.entry )
     {
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
-                           self.entry, self.pk ]];
+                           self.entry.pk, self.pk ]];
     }
     if( self.festival )
     {
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
-                           self.festival, self.pk ]];
+                           self.festival.pk, self.pk ]];
     }
     if( self.year )
     {
