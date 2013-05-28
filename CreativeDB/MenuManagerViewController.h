@@ -14,6 +14,7 @@
 #define MENU_PERSONS @"MENU_PERSONS"
 #define MENU_ROLES @"MENU_ROLES"
 #define MENU_PRODUCERS @"MENU_PRODUCERS"
+#define MENU_REPORTS @"MENU_REPORTS"
 
 @interface MenuManagerViewController : NSViewController
 

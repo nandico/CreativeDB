@@ -41,6 +41,8 @@
 		BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */; };
 		BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */; };
 		BF567C561754375700466128 /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C551754375700466128 /* ScoreController.m */; };
+		BF567C5A1754FCE600466128 /* ScoreManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C591754FCE600466128 /* ScoreManagerListViewController.m */; };
+		BF567C5D17550DAC00466128 /* ReportManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */; };
 		BF62E8C0173DC05E00B75C07 /* ProducerCreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */; };
 		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */; };
@@ -177,6 +179,10 @@
 		BF3A4D69174434970046FF9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		BF567C541754375700466128 /* ScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreController.h; sourceTree = "<group>"; };
 		BF567C551754375700466128 /* ScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreController.m; sourceTree = "<group>"; };
+		BF567C581754FCE600466128 /* ScoreManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreManagerListViewController.h; sourceTree = "<group>"; };
+		BF567C591754FCE600466128 /* ScoreManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManagerListViewController.m; sourceTree = "<group>"; };
+		BF567C5B17550DAC00466128 /* ReportManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportManagerCompleteViewController.h; sourceTree = "<group>"; };
+		BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportManagerCompleteViewController.m; sourceTree = "<group>"; };
 		BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerViewController.h; sourceTree = "<group>"; };
 		BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerViewController.m; sourceTree = "<group>"; };
 		BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerView.h; sourceTree = "<group>"; };
@@ -410,6 +416,8 @@
 				BFBC5EE517518F2E0004E022 /* RoleManagerCompleteViewController.m */,
 				BFBC5EFA1751B62C0004E022 /* ProducerManagerCompleteViewController.h */,
 				BFBC5EFB1751B62E0004E022 /* ProducerManagerCompleteViewController.m */,
+				BF567C5B17550DAC00466128 /* ReportManagerCompleteViewController.h */,
+				BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */,
 			);
 			name = Complete;
 			sourceTree = "<group>";
@@ -421,11 +429,12 @@
 				BF1787F617498F5900057FF4 /* MainManagerViewController.m */,
 				BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */,
 				BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */,
+				BF567C571754FCA400466128 /* Reports */,
 				BFF4C5A01705539A0098A633 /* Engine */,
 				BF302AD8174082D300195DE8 /* List */,
 				BFD3A373173DB8F10015E04F /* View */,
 				BF302AD91740836500195DE8 /* Complete */,
-				BFBC5EF31751B2C60004E022 /* ViewControllers */,
+				BFBC5EF31751B2C60004E022 /* ManagerViewControllers */,
 			);
 			name = ContentManager;
 			sourceTree = "<group>";
@@ -439,6 +448,15 @@
 				BF567C551754375700466128 /* ScoreController.m */,
 			);
 			name = Score;
+			sourceTree = "<group>";
+		};
+		BF567C571754FCA400466128 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				BF567C581754FCE600466128 /* ScoreManagerListViewController.h */,
+				BF567C591754FCE600466128 /* ScoreManagerListViewController.m */,
+			);
+			name = Reports;
 			sourceTree = "<group>";
 		};
 		BF62E8C4173DC98200B75C07 /* Engine */ = {
@@ -562,7 +580,7 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
-		BFBC5EF31751B2C60004E022 /* ViewControllers */ = {
+		BFBC5EF31751B2C60004E022 /* ManagerViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */,
@@ -586,7 +604,7 @@
 				BFBC5EF41751B38B0004E022 /* ProducerManagerViewController.h */,
 				BFBC5EF51751B38B0004E022 /* ProducerManagerViewController.m */,
 			);
-			name = ViewControllers;
+			name = ManagerViewControllers;
 			sourceTree = "<group>";
 		};
 		BFD3A373173DB8F10015E04F /* View */ = {
@@ -808,6 +826,8 @@
 				BFBC5EFF175309820004E022 /* ManagerHeader.m in Sources */,
 				BFBC5F02175409CB0004E022 /* ScoreModel.m in Sources */,
 				BF567C561754375700466128 /* ScoreController.m in Sources */,
+				BF567C5A1754FCE600466128 /* ScoreManagerListViewController.m in Sources */,
+				BF567C5D17550DAC00466128 /* ReportManagerCompleteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

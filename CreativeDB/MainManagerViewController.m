@@ -15,6 +15,7 @@
 #import "PersonManagerCompleteViewController.h"
 #import "RoleManagerCompleteViewController.h"
 #import "ProducerManagerCompleteViewController.h"
+#import "ReportManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -26,6 +27,7 @@
 @property (nonatomic, strong) PersonManagerCompleteViewController *personManager;
 @property (nonatomic, strong) RoleManagerCompleteViewController *roleManager;
 @property (nonatomic, strong) ProducerManagerCompleteViewController *producerManager;
+@property (nonatomic, strong) ReportManagerCompleteViewController *reportsManager;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
 
@@ -63,6 +65,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showProducers)
                                                      name:MENU_PRODUCERS object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showReports)
+                                                     name:MENU_REPORTS object:nil];
     }
     
     return self;
@@ -113,6 +119,12 @@
     [_producerManager.view setHidden:NO];
 }
 
+- (void) showReports
+{
+    [self hideAll];
+    [_reportsManager.view setHidden:NO];
+}
+
 - (void) prepareMain
 {
     _modules = [[NSMutableDictionary alloc] init];
@@ -156,6 +168,12 @@
     [self.viewInstance addSubview:_producerManager.view positioned:NSWindowBelow relativeTo:_roleManager.view];
     [_producerManager.view setHidden:YES];
     [_modules setObject:_producerManager forKey:MENU_PRODUCERS];
+    
+    _reportsManager = [[ReportManagerCompleteViewController alloc] init];
+    _reportsManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_reportsManager.view positioned:NSWindowBelow relativeTo:_producerManager.view];
+    [_reportsManager.view setHidden:YES];
+    [_modules setObject:_reportsManager forKey:MENU_REPORTS];
 }
 
 @end

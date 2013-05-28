@@ -122,6 +122,22 @@ static NSString *tableName;
     
 }
 
++ (void) resetScore:(NSString *) tableName
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sql = [NSString stringWithFormat:@" DELETE FROM %@ ", tableName];
+    
+    [db executeUpdate:sql];
+    [db close];
+    
+}
+
 - (void) insert
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

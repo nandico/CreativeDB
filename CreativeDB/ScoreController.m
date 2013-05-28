@@ -21,6 +21,8 @@
 
 + (void) processAwards
 {
+    [self resetAwards];
+    
     NSMutableArray *awards = [AwardModel loadAll];
     
     for( AwardModel *award in awards )
@@ -52,6 +54,17 @@
         // product credits
         [self insertScore:award forProduct:award.entry.product];
     }
+}
+
++ (void) resetAwards
+{
+    [ScoreModel resetScore:@"aa_person_score"];
+    [ScoreModel resetScore:@"aa_producer_score"];
+    [ScoreModel resetScore:@"aa_agency_score"];
+    [ScoreModel resetScore:@"aa_client_score"];
+    [ScoreModel resetScore:@"aa_country_score"];
+    [ScoreModel resetScore:@"aa_group_score"];
+    [ScoreModel resetScore:@"aa_product_score"];
 }
 
 + (void) insertScore:(AwardModel *) award forCredit:(CreditModel *) credit
@@ -128,11 +141,7 @@
 + (void) insertScore:(AwardModel *) award forGroup:(GroupModel *) group
 {
     [ScoreModel setTableName:@"aa_group_score"];
-    
-    NSLog( @"Entry: %@", award.entry.name );
-    NSLog( @"Group: %@, Festival: %@", group.name, award.festival.name );
-    NSLog( @"---" );
-    
+        
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = group.pk;
     score.entry = award.entry.pk;

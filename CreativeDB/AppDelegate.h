@@ -10,7 +10,6 @@
 #import "FMDBDataAccess.h"
 #import "MainManagerViewController.h"
 
-
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;

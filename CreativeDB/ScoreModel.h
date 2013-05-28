@@ -24,6 +24,7 @@
 + (ScoreModel *) loadModel:(NSNumber *) pk;
 + (ScoreModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (void) resetScore:(NSString *) tableName;
 
 - (void) save;
 - (void) deleteModel;
