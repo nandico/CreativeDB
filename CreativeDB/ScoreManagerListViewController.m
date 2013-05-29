@@ -17,6 +17,7 @@
 @property (nonatomic, strong) NSScrollView *tableContainer;
 @property (nonatomic, strong) NSTableView *tableView;
 
+@property (nonatomic, strong) NSTableColumn *indexColumn;
 @property (nonatomic, strong) NSTableColumn *personColumn;
 @property (nonatomic, strong) NSTableColumn *countryColumn;
 @property (nonatomic, strong) NSTableColumn *scoreColumn;
@@ -54,6 +55,7 @@
                                                  selector:@selector(updateList:)
                                                      name:CREDIT_MANAGER_UPDATE_LIST object:nil];
         
+        [self createHeader];
         
         [self createList];
     }
@@ -90,23 +92,27 @@
         _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
     }
     
-    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, COMPLETE_VIEW_CONTAINER_HEIGHT)];
-    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, COMPLETE_VIEW_CONTAINER_HEIGHT)];
+    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
+    _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
     
     [_tableView setRowHeight:50.0f];
     
+    _indexColumn = [[NSTableColumn alloc] initWithIdentifier:@"index"];
     _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];
     _countryColumn = [[NSTableColumn alloc] initWithIdentifier:@"country"];
     _scoreColumn = [[NSTableColumn alloc] initWithIdentifier:@"score"];
     
-    [_personColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
-    [_countryColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
-    [_scoreColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_indexColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
+    [_personColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
+    [_countryColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
+    [_scoreColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
     
+    [_indexColumn.headerCell setStringValue:@"Position"];
     [_personColumn.headerCell setStringValue:@"Person"];
     [_countryColumn.headerCell setStringValue:@"Country"];
     [_scoreColumn.headerCell setStringValue:@"Score"];
     
+    [_tableView addTableColumn:_indexColumn];
     [_tableView addTableColumn:_personColumn];
     [_tableView addTableColumn:_countryColumn];
     [_tableView addTableColumn:_scoreColumn];
@@ -120,6 +126,11 @@
     [_tableView setDataSource:self];
     
     [_tableView reloadData];
+    
+}
+
+- (void) createHeader
+{
     
 }
 
@@ -145,12 +156,16 @@
         test.wantsLayer = YES;
         test.layer.backgroundColor = [[NSColor redColor] CGColor];
         
-        [cell addSubview:test];
+        //[cell addSubview:test];
     }
     
     ScoreModel *item = [_items objectAtIndex:row];
-    
-    if( [tableColumn.identifier isEqualToString:@"person"] )
+
+    if( [tableColumn.identifier isEqualToString:@"index"] )
+    {
+        [cell setStringValue:[NSString stringWithFormat:@"%ld", ( row + 1 ) ]];
+    }
+    else if( [tableColumn.identifier isEqualToString:@"person"] )
     {
         [cell setStringValue:item.person.name];
     }

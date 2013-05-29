@@ -72,6 +72,11 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_MENU_BUTTON_OFFSET_Y 530.0f
 #define MLE_MENU_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 16.0f]
 
+#define MLE_SUBMENU_BUTTON_WIDTH 80.0f
+#define MLE_SUBMENU_BUTTON_HEIGHT 40.0f
+#define MLE_SUBMENU_BUTTON_OFFSET_X 10.0f
+#define MLE_SUBMENU_BUTTON_OFFSET_Y 490.0f
+#define MLE_SUBMENU_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 14.0f]
 
 #define MLE_COMBO_WIDTH 350.0f
 #define MLE_COMBO_HEIGHT 27.0f

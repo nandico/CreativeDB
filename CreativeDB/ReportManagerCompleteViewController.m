@@ -45,8 +45,8 @@
     
     _scoreListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
                                                  0.0f,
-                                                 COMPLETE_VIEW_CONTAINER_WIDTH,
-                                                 COMPLETE_VIEW_CONTAINER_HEIGHT);
+                                                 COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH,
+                                                 COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT);
     
     [self.viewInstance addSubview:_scoreListManager.view];
     

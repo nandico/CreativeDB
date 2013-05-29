@@ -43,6 +43,7 @@
 		BF567C561754375700466128 /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C551754375700466128 /* ScoreController.m */; };
 		BF567C5A1754FCE600466128 /* ScoreManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C591754FCE600466128 /* ScoreManagerListViewController.m */; };
 		BF567C5D17550DAC00466128 /* ReportManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */; };
+		BF567C601755957900466128 /* ManagerSubmenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C5F1755957800466128 /* ManagerSubmenuButton.m */; };
 		BF62E8C0173DC05E00B75C07 /* ProducerCreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */; };
 		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */; };
@@ -183,6 +184,8 @@
 		BF567C591754FCE600466128 /* ScoreManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreManagerListViewController.m; sourceTree = "<group>"; };
 		BF567C5B17550DAC00466128 /* ReportManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportManagerCompleteViewController.h; sourceTree = "<group>"; };
 		BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportManagerCompleteViewController.m; sourceTree = "<group>"; };
+		BF567C5E1755957800466128 /* ManagerSubmenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerSubmenuButton.h; sourceTree = "<group>"; };
+		BF567C5F1755957800466128 /* ManagerSubmenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerSubmenuButton.m; sourceTree = "<group>"; };
 		BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerViewController.h; sourceTree = "<group>"; };
 		BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerViewController.m; sourceTree = "<group>"; };
 		BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerView.h; sourceTree = "<group>"; };
@@ -655,6 +658,8 @@
 				BFF4C5AB1708FEBA0098A633 /* ManagerActionBar.m */,
 				BFF4C5AD170902E10098A633 /* ManagerButton.h */,
 				BFF4C5AE170902E20098A633 /* ManagerButton.m */,
+				BF567C5E1755957800466128 /* ManagerSubmenuButton.h */,
+				BF567C5F1755957800466128 /* ManagerSubmenuButton.m */,
 				BF1787FB1749928A00057FF4 /* ManagerMenuButton.h */,
 				BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */,
 				BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */,
@@ -828,6 +833,7 @@
 				BF567C561754375700466128 /* ScoreController.m in Sources */,
 				BF567C5A1754FCE600466128 /* ScoreManagerListViewController.m in Sources */,
 				BF567C5D17550DAC00466128 /* ReportManagerCompleteViewController.m in Sources */,
+				BF567C601755957900466128 /* ManagerSubmenuButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
