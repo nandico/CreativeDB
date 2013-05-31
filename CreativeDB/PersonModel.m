@@ -111,7 +111,8 @@
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " %@ "
-                            " FROM %@ ", [self fields], [self tableName] ] ];
+                            " FROM %@ "
+                            " ORDER BY name ", [self fields], [self tableName] ] ];
     
     while( [results next] )
     {

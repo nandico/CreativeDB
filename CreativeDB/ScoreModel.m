@@ -127,8 +127,6 @@ static NSString *tableName;
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " %@ "
                                                        " FROM %@ "
