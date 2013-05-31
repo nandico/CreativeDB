@@ -18,6 +18,7 @@
 #import "CategoryManagerCompleteViewController.h"
 #import "SubcategoryManagerCompleteViewController.h"
 #import "ReportManagerCompleteViewController.h"
+#import "GroupManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) MenuManagerViewController *menuManager;
 @property (nonatomic, strong) EntryManagerCompleteViewController *entryManager;
 @property (nonatomic, strong) AgencyManagerCompleteViewController *agencyManager;
+@property (nonatomic, strong) GroupManagerCompleteViewController *groupManager;
 @property (nonatomic, strong) ClientManagerCompleteViewController *clientManager;
 @property (nonatomic, strong) PersonManagerCompleteViewController *personManager;
 @property (nonatomic, strong) RoleManagerCompleteViewController *roleManager;
@@ -53,6 +55,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showAgencies)
                                                      name:MENU_AGENCIES object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showGroups)
+                                                     name:MENU_GROUPS object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showClients)
@@ -105,6 +111,12 @@
 {
     [self hideAll];
     [_agencyManager.view setHidden:NO];
+}
+
+- (void) showGroups
+{
+    [self hideAll];
+    [_groupManager.view setHidden:NO];
 }
 
 - (void) showClients
@@ -168,10 +180,16 @@
     [self.viewInstance addSubview:_agencyManager.view positioned:NSWindowBelow relativeTo:_entryManager.view];
     [_agencyManager.view setHidden:YES];
     [_modules setObject:_agencyManager forKey:MENU_AGENCIES];
+    
+    _groupManager = [[GroupManagerCompleteViewController alloc] init];
+    _groupManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_groupManager.view positioned:NSWindowBelow relativeTo:_agencyManager.view];
+    [_groupManager.view setHidden:YES];
+    [_modules setObject:_groupManager forKey:MENU_GROUPS];
 
     _clientManager = [[ClientManagerCompleteViewController alloc] init];
     _clientManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    [self.viewInstance addSubview:_clientManager.view positioned:NSWindowBelow relativeTo:_agencyManager.view];
+    [self.viewInstance addSubview:_clientManager.view positioned:NSWindowBelow relativeTo:_groupManager.view];
     [_clientManager.view setHidden:YES];
     [_modules setObject:_clientManager forKey:MENU_CLIENTS];
     

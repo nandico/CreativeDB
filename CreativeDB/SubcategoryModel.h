@@ -7,13 +7,11 @@
 //
 
 #import "BaseModel.h"
-#import "CategoryModel.h"
 
 @interface SubcategoryModel : BaseModel
 
 @property (assign) NSNumber *pk;
 @property (strong) NSString *name;
-@property (strong) CategoryModel *category;
 
 + (NSString *) tableName;
 + (NSString *) fields;

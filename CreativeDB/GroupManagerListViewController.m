@@ -1,19 +1,19 @@
 //
-//  SubcategoryManagerListViewController.m
+//  GroupManagerListViewController.m
 //  CreativeDB
 //
-//  Created by Fernando Aquino on 5/30/13.
+//  Created by Fernando Aquino on 5/31/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "SubcategoryManagerListViewController.h"
+#import "GroupManagerListViewController.h"
 #import "BaseLayeredView.h"
 #import "ManagerEngine.h"
-#import "SubcategoryManagerViewController.h"
-#import "SubcategoryModel.h"
+#import "GroupManagerViewController.h"
+#import "GroupModel.h"
 #import "BaseManagerCompleteViewController.h"
 
-@interface SubcategoryManagerListViewController ()
+@interface GroupManagerListViewController ()
 
 @property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
@@ -21,15 +21,13 @@
 @property (nonatomic, strong) NSScrollView *tableContainer;
 @property (nonatomic, strong) NSTableView *tableView;
 
-@property (nonatomic, strong) NSTableColumn *countryColumn;
 @property (nonatomic, strong) NSTableColumn *nameColumn;
-@property (nonatomic, strong) NSTableColumn *siteURLColumn;
 
 @property (nonatomic, strong) NSMutableArray *items;
 
 @end
 
-@implementation SubcategoryManagerListViewController
+@implementation GroupManagerListViewController
 
 - (id)initWithOptions:(NSDictionary *) options
 {
@@ -55,7 +53,7 @@
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateList:)
-                                                     name:SUBCATEGORY_MANAGER_UPDATE_LIST object:nil];
+                                                     name:GROUP_MANAGER_UPDATE_LIST object:nil];
         
         
         [self createList];
@@ -67,7 +65,7 @@
 - (void) updateList:(NSNotification *) notification
 {
     [self.viewInstance setHidden:NO];
-    _items = [SubcategoryModel loadAll];
+    _items = [GroupModel loadAll];
     [_tableView reloadData];
 }
 
@@ -76,7 +74,7 @@
 {
     if( self.modelItem )
     {
-        _items = [SubcategoryModel loadAll];
+        _items = [GroupModel loadAll];
     }
     
     _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, COMPLETE_VIEW_CONTAINER_LIST_HEIGHT)];
@@ -109,18 +107,18 @@
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     
-    NSTextField *cell = [tableView makeViewWithIdentifier:@"SubcategoryView" owner:self];
+    NSTextField *cell = [tableView makeViewWithIdentifier:@"GroupView" owner:self];
     
     if (nil == cell) {
         cell = [[NSTextField alloc] initWithFrame:CGRectZero];
-        cell.identifier = @"SubcategoryView";
+        cell.identifier = @"GroupView";
         [cell setBezeled:NO];
         cell.backgroundColor = MLE_CONTAINER_COLOR;
         cell.wantsLayer = YES;
         cell.layer.cornerRadius = 4.0f;
     }
     
-    SubcategoryModel *item = [_items objectAtIndex:row];
+    GroupModel *item = [_items objectAtIndex:row];
     
     if( [tableColumn.identifier isEqualToString:@"name"] )
     {

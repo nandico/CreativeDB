@@ -23,7 +23,7 @@
 
 + (NSString *) fields
 {
-    return @"id, name, category";
+    return @"id, name ";
 }
 
 - (NSString *) fields
@@ -36,7 +36,6 @@
     SubcategoryModel *object = [[SubcategoryModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
-    object.category = [CategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"category"]]];
     
     return object;
 }
@@ -109,7 +108,8 @@
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " %@ "
-                                                       " FROM %@ ", [self fields], [self tableName] ] ];
+                                                       " FROM %@ "
+                                                       " ORDER BY name ", [self fields], [self tableName] ] ];
     
     while( [results next] )
     {
@@ -274,6 +274,8 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
@@ -294,6 +296,8 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
+    
+    db.traceExecution = YES;
     
     if( self.name )
     {

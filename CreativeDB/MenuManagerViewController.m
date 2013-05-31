@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) ManagerMenuButton *entries;
 @property (nonatomic, strong) ManagerMenuButton *agencies;
+@property (nonatomic, strong) ManagerMenuButton *groups;
 @property (nonatomic, strong) ManagerMenuButton *clients;
 @property (nonatomic, strong) ManagerMenuButton *persons;
 @property (nonatomic, strong) ManagerMenuButton *roles;
@@ -67,6 +68,7 @@
     
     [_menuButtons addObject:[self entries]];
     [_menuButtons addObject:[self agencies]];
+    [_menuButtons addObject:[self groups]];
     [_menuButtons addObject:[self clients]];
     [_menuButtons addObject:[self persons]];
     [_menuButtons addObject:[self roles]];
@@ -154,6 +156,20 @@
     }
     
     return _agencies;
+}
+
+- (ManagerMenuButton *) groups
+{
+    if(!_groups)
+    {
+        _groups = [[ManagerMenuButton alloc] init];
+        _groups.title = @"Groups";
+        [_groups setTarget:self];
+        [_groups setAction:@selector(groupsAction)];
+        [self.viewInstance addSubview:_groups];
+    }
+    
+    return _groups;
 }
 
 - (ManagerMenuButton *) clients
@@ -378,6 +394,16 @@
                                                       userInfo:nil];
 }
 
+- (void) groupsAction
+{
+    [_reportsMenu setHidden:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_GROUPS
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+
 - (void) clientsAction
 {
     [_reportsMenu setHidden:YES];
@@ -416,7 +442,7 @@
 
 - (void) categoriesAction
 {
-    [_reportsMenu setHidden:NO];
+    [_reportsMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_CATEGORIES
                                                         object:self
@@ -425,7 +451,7 @@
 
 - (void) subcategoriesAction
 {
-    [_reportsMenu setHidden:NO];
+    [_reportsMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_SUBCATEGORIES
                                                         object:self
