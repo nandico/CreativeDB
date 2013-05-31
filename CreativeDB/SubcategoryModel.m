@@ -123,6 +123,69 @@
     return collection;
 }
 
+- (NSNumber *) next
+{
+    if( !_pk ) return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    SubcategoryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " id > %ld "
+                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
+    
+    if( [results next] )
+    {
+        model = [SubcategoryModel objectWithResults:results];
+    }
+    
+    [results close];
+    [db close];
+    
+    
+    return model.pk;
+}
+
+- (NSNumber *) previous
+{
+    if( !_pk ) return nil;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    SubcategoryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " id < %ld "
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
+    
+    if( [results next] )
+    {
+        model = [SubcategoryModel objectWithResults:results];
+    }
+    
+    
+    [results close];
+    [db close];
+    
+    return model.pk;
+}
+
+
 + (NSNumber *) first
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

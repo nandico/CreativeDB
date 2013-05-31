@@ -39,7 +39,7 @@
 {
     NSDictionary *categoryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"Categories", MLE_FIELDSET_MODEL_HEADERTITLE,
-                                     @"CategoryrModel", MLE_FIELDSET_MODEL_KEY,
+                                     @"CategoryModel", MLE_FIELDSET_MODEL_KEY,
                                      [self packNSNull:[CategoryModel first]], MLE_FIELDSET_MODEL_ITEM,
                                      nil];
     

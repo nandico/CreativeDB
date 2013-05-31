@@ -156,9 +156,7 @@
 - (void) previousAction
 {
     id model;
- 
-    NSLog( @"Filter name: %@, Filter value: %@", self.modelFilterName, self.modelFilterValue );
-    
+     
     SEL previousSelector = NSSelectorFromString( @"previous" );
     SEL firstSelector = NSSelectorFromString( @"first" );
     SEL lastSelector = NSSelectorFromString( @"last" );

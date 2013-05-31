@@ -39,7 +39,7 @@
 {
     NSDictionary *subcategoryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                      @"Subcategories", MLE_FIELDSET_MODEL_HEADERTITLE,
-                                     @"SubcategoryrModel", MLE_FIELDSET_MODEL_KEY,
+                                     @"SubcategoryModel", MLE_FIELDSET_MODEL_KEY,
                                      [self packNSNull:[SubcategoryModel first]], MLE_FIELDSET_MODEL_ITEM,
                                      nil];
     
