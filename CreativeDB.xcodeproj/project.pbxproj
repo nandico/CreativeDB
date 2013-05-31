@@ -94,6 +94,10 @@
 		BFC6976D17581F8100B3A9DA /* SubcategoryManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6976C17581F8100B3A9DA /* SubcategoryManagerView.m */; };
 		BFC69770175820F000B3A9DA /* CategoryManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6976F175820F000B3A9DA /* CategoryManagerViewController.m */; };
 		BFC69773175822BE00B3A9DA /* SubcategoryManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69772175822BD00B3A9DA /* SubcategoryManagerViewController.m */; };
+		BFC697761758272700B3A9DA /* CategoryManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC697751758272700B3A9DA /* CategoryManagerListViewController.m */; };
+		BFC69779175827F600B3A9DA /* SubcategoryManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69778175827F600B3A9DA /* SubcategoryManagerListViewController.m */; };
+		BFC6977C175828A800B3A9DA /* CategoryManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6977B175828A800B3A9DA /* CategoryManagerCompleteViewController.m */; };
+		BFC6977F17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6977E17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -290,6 +294,14 @@
 		BFC6976F175820F000B3A9DA /* CategoryManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryManagerViewController.m; sourceTree = "<group>"; };
 		BFC69771175822BD00B3A9DA /* SubcategoryManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryManagerViewController.h; sourceTree = "<group>"; };
 		BFC69772175822BD00B3A9DA /* SubcategoryManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryManagerViewController.m; sourceTree = "<group>"; };
+		BFC697741758272700B3A9DA /* CategoryManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryManagerListViewController.h; sourceTree = "<group>"; };
+		BFC697751758272700B3A9DA /* CategoryManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryManagerListViewController.m; sourceTree = "<group>"; };
+		BFC69777175827F600B3A9DA /* SubcategoryManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryManagerListViewController.h; sourceTree = "<group>"; };
+		BFC69778175827F600B3A9DA /* SubcategoryManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryManagerListViewController.m; sourceTree = "<group>"; };
+		BFC6977A175828A800B3A9DA /* CategoryManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryManagerCompleteViewController.h; sourceTree = "<group>"; };
+		BFC6977B175828A800B3A9DA /* CategoryManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryManagerCompleteViewController.m; sourceTree = "<group>"; };
+		BFC6977D17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubcategoryManagerCompleteViewController.h; sourceTree = "<group>"; };
+		BFC6977E17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubcategoryManagerCompleteViewController.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -408,6 +420,10 @@
 				BFBC5EEB17518FEA0004E022 /* RoleManagerListViewController.m */,
 				BFBC5EF71751B4840004E022 /* ProducerManagerListViewController.h */,
 				BFBC5EF81751B4850004E022 /* ProducerManagerListViewController.m */,
+				BFC697741758272700B3A9DA /* CategoryManagerListViewController.h */,
+				BFC697751758272700B3A9DA /* CategoryManagerListViewController.m */,
+				BFC69777175827F600B3A9DA /* SubcategoryManagerListViewController.h */,
+				BFC69778175827F600B3A9DA /* SubcategoryManagerListViewController.m */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -433,6 +449,10 @@
 				BFBC5EFB1751B62E0004E022 /* ProducerManagerCompleteViewController.m */,
 				BF567C5B17550DAC00466128 /* ReportManagerCompleteViewController.h */,
 				BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */,
+				BFC6977A175828A800B3A9DA /* CategoryManagerCompleteViewController.h */,
+				BFC6977B175828A800B3A9DA /* CategoryManagerCompleteViewController.m */,
+				BFC6977D17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.h */,
+				BFC6977E17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.m */,
 			);
 			name = Complete;
 			sourceTree = "<group>";
@@ -858,6 +878,10 @@
 				BFC6976D17581F8100B3A9DA /* SubcategoryManagerView.m in Sources */,
 				BFC69770175820F000B3A9DA /* CategoryManagerViewController.m in Sources */,
 				BFC69773175822BE00B3A9DA /* SubcategoryManagerViewController.m in Sources */,
+				BFC697761758272700B3A9DA /* CategoryManagerListViewController.m in Sources */,
+				BFC69779175827F600B3A9DA /* SubcategoryManagerListViewController.m in Sources */,
+				BFC6977C175828A800B3A9DA /* CategoryManagerCompleteViewController.m in Sources */,
+				BFC6977F17582B4500B3A9DA /* SubcategoryManagerCompleteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

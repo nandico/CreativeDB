@@ -22,6 +22,8 @@
 @property (nonatomic, strong) ManagerMenuButton *persons;
 @property (nonatomic, strong) ManagerMenuButton *roles;
 @property (nonatomic, strong) ManagerMenuButton *producers;
+@property (nonatomic, strong) ManagerMenuButton *categories;
+@property (nonatomic, strong) ManagerMenuButton *subcategories;
 @property (nonatomic, strong) ManagerMenuButton *reports;
 
 @property (nonatomic, strong) BaseLayeredView *reportsMenu;
@@ -69,6 +71,8 @@
     [_menuButtons addObject:[self persons]];
     [_menuButtons addObject:[self roles]];
     [_menuButtons addObject:[self producers]];
+    [_menuButtons addObject:[self categories]];
+    [_menuButtons addObject:[self subcategories]];
     [_menuButtons addObject:[self reports]];
     
     [self arrangeMenu];
@@ -220,6 +224,34 @@
     }
     
     return _reports;
+}
+
+- (ManagerMenuButton *) categories
+{
+    if(!_categories)
+    {
+        _categories = [[ManagerMenuButton alloc] init];
+        _categories.title = @"Categories";
+        [_categories setTarget:self];
+        [_categories setAction:@selector(categoriesAction)];
+        [self.viewInstance addSubview:_categories];
+    }
+    
+    return _categories;
+}
+
+- (ManagerMenuButton *) subcategories
+{
+    if(!_subcategories)
+    {
+        _subcategories = [[ManagerMenuButton alloc] init];
+        _subcategories.title = @"Subcategories";
+        [_subcategories setTarget:self];
+        [_subcategories setAction:@selector(subcategoriesAction)];
+        [self.viewInstance addSubview:_subcategories];
+    }
+    
+    return _subcategories;
 }
 
 - (ManagerSubmenuButton *) reportsPerson
@@ -378,6 +410,24 @@
     [_reportsMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_PRODUCERS
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (void) categoriesAction
+{
+    [_reportsMenu setHidden:NO];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_CATEGORIES
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (void) subcategoriesAction
+{
+    [_reportsMenu setHidden:NO];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_SUBCATEGORIES
                                                         object:self
                                                       userInfo:nil];
 }

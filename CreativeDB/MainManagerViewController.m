@@ -15,6 +15,8 @@
 #import "PersonManagerCompleteViewController.h"
 #import "RoleManagerCompleteViewController.h"
 #import "ProducerManagerCompleteViewController.h"
+#import "CategoryManagerCompleteViewController.h"
+#import "SubcategoryManagerCompleteViewController.h"
 #import "ReportManagerCompleteViewController.h"
 
 @interface MainManagerViewController ()
@@ -27,6 +29,8 @@
 @property (nonatomic, strong) PersonManagerCompleteViewController *personManager;
 @property (nonatomic, strong) RoleManagerCompleteViewController *roleManager;
 @property (nonatomic, strong) ProducerManagerCompleteViewController *producerManager;
+@property (nonatomic, strong) CategoryManagerCompleteViewController *categoryManager;
+@property (nonatomic, strong) SubcategoryManagerCompleteViewController *subcategoryManager;
 @property (nonatomic, strong) ReportManagerCompleteViewController *reportsManager;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
@@ -65,6 +69,14 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showProducers)
                                                      name:MENU_PRODUCERS object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showCategories)
+                                                     name:MENU_CATEGORIES object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showSubcategories)
+                                                     name:MENU_SUBCATEGORIES object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showReports)
@@ -119,6 +131,18 @@
     [_producerManager.view setHidden:NO];
 }
 
+- (void) showCategories
+{
+    [self hideAll];
+    [_categoryManager.view setHidden:NO];
+}
+
+- (void) showSubcategories
+{
+    [self hideAll];
+    [_subcategoryManager.view setHidden:NO];
+}
+
 - (void) showReports
 {
     [self hideAll];
@@ -168,6 +192,18 @@
     [self.viewInstance addSubview:_producerManager.view positioned:NSWindowBelow relativeTo:_roleManager.view];
     [_producerManager.view setHidden:YES];
     [_modules setObject:_producerManager forKey:MENU_PRODUCERS];
+    
+    _categoryManager = [[CategoryManagerCompleteViewController alloc] init];
+    _categoryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_categoryManager.view positioned:NSWindowBelow relativeTo:_producerManager.view];
+    [_categoryManager.view setHidden:YES];
+    [_modules setObject:_categoryManager forKey:MENU_CATEGORIES];
+    
+    _subcategoryManager = [[SubcategoryManagerCompleteViewController alloc] init];
+    _subcategoryManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_subcategoryManager.view positioned:NSWindowBelow relativeTo:_categoryManager.view];
+    [_subcategoryManager.view setHidden:YES];
+    [_modules setObject:_subcategoryManager forKey:MENU_SUBCATEGORIES];
     
     _reportsManager = [[ReportManagerCompleteViewController alloc] init];
     _reportsManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;

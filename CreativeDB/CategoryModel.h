@@ -20,4 +20,12 @@
 + (NSMutableArray *) loadAll;
 + (CategoryModel *) loadModelByStringValue:(NSString *) stringValue;
 
+- (NSNumber *) next;
+- (NSNumber *) previous;
++ (NSNumber *) first;
++ (NSNumber *) last;
+
+- (void) save;
+- (void) deleteModel;
+
 @end
