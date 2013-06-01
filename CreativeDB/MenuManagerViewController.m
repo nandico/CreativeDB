@@ -335,7 +335,7 @@
     if(!_reportsGroup)
     {
         _reportsGroup = [[ManagerSubmenuButton alloc] init];
-        _reportsGroup.title = @"Agency";
+        _reportsGroup.title = @"Group";
         _reportsGroup.tableName = @"aa_group_score";
         [_reportsGroup setTarget:self];
         [_reportsGroup setAction:@selector(reportsSubmenuAction:)];
@@ -469,7 +469,14 @@
 
 - (void) reportsSubmenuAction:( ManagerSubmenuButton * )sender
 {
-    NSLog( @"OPA %@", sender.tableName );
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:sender.tableName forKey:MLE_FIELD_TABLENAME_KEY];
+    
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MENU_REPORTS
+                                                        object:self
+                                                      userInfo:userInfo];
+
 }
 
 @end

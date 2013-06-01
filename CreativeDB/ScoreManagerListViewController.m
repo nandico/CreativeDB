@@ -8,6 +8,7 @@
 
 #import "ScoreManagerListViewController.h"
 #import "ScoreModel.h"
+#import "MenuManagerViewController.h"
 
 @interface ScoreManagerListViewController ()
 
@@ -18,7 +19,7 @@
 @property (nonatomic, strong) NSTableView *tableView;
 
 @property (nonatomic, strong) NSTableColumn *indexColumn;
-@property (nonatomic, strong) NSTableColumn *personColumn;
+@property (nonatomic, strong) NSTableColumn *originColumn;
 @property (nonatomic, strong) NSTableColumn *countryColumn;
 @property (nonatomic, strong) NSTableColumn *scoreColumn;
 
@@ -51,9 +52,15 @@
         
         self.modelItem = @1;
         
+        /*
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateList:)
                                                      name:CREDIT_MANAGER_UPDATE_LIST object:nil];
+        */
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showReports:)
+                                                     name:MENU_REPORTS object:nil];
         
         [self createHeader];
         
@@ -63,6 +70,19 @@
     return self;
 }
 
+- (void) showReports:(NSNotification *) notification
+{
+    NSString *tableName = [notification.userInfo objectForKey:MLE_FIELD_TABLENAME_KEY];
+    
+    if( tableName )
+    {
+        [ScoreModel setTableName:tableName];
+        _items = [ScoreModel loadRankingByTableName:tableName];
+        [_tableView reloadData];
+    }
+}
+
+/*
 - (void) updateList:(NSNotification *) notification
 {
     NSNumber *modelFilterValue = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
@@ -82,7 +102,8 @@
         [self.viewInstance setHidden:YES];
     }
 }
-
+*/
+ 
 
 - (void) createList
 {
@@ -98,22 +119,22 @@
     [_tableView setRowHeight:50.0f];
     
     _indexColumn = [[NSTableColumn alloc] initWithIdentifier:@"index"];
-    _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];
+    _originColumn = [[NSTableColumn alloc] initWithIdentifier:@"origin"];
     _countryColumn = [[NSTableColumn alloc] initWithIdentifier:@"country"];
     _scoreColumn = [[NSTableColumn alloc] initWithIdentifier:@"score"];
     
     [_indexColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
-    [_personColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
+    [_originColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
     [_countryColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
     [_scoreColumn setWidth:COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH / 4.0f];
     
     [_indexColumn.headerCell setStringValue:@"Position"];
-    [_personColumn.headerCell setStringValue:@"Person"];
+    [_originColumn.headerCell setStringValue:@"Origin"];
     [_countryColumn.headerCell setStringValue:@"Country"];
     [_scoreColumn.headerCell setStringValue:@"Score"];
     
     [_tableView addTableColumn:_indexColumn];
-    [_tableView addTableColumn:_personColumn];
+    [_tableView addTableColumn:_originColumn];
     [_tableView addTableColumn:_countryColumn];
     [_tableView addTableColumn:_scoreColumn];
     
@@ -165,13 +186,67 @@
     {
         [cell setStringValue:[NSString stringWithFormat:@"%ld", ( row + 1 ) ]];
     }
-    else if( [tableColumn.identifier isEqualToString:@"person"] )
+    else if( [tableColumn.identifier isEqualToString:@"origin"] )
     {
-        [cell setStringValue:item.person.name];
+        if( item.person )
+        {
+            [cell setStringValue:item.person.name];
+        }
+        else if( item.agency )
+        {
+            [cell setStringValue:item.agency.name];
+        }
+        else if( item.group )
+        {
+            [cell setStringValue:item.group.name];
+        }
+        else if( item.client )
+        {
+            [cell setStringValue:item.client.name];
+        }
+        else if( item.country )
+        {
+            [cell setStringValue:item.country.name];
+        }
+        else if( item.producer )
+        {
+            [cell setStringValue:item.producer.name];
+        }
+        else if( item.product )
+        {
+            [cell setStringValue:item.product.name];
+        }
     }
     else if( [tableColumn.identifier isEqualToString:@"country"] )
     {
-        [cell setStringValue:item.person.country.name];
+        if( item.person )
+        {
+            [cell setStringValue:item.person.country.name];
+        }
+        else if( item.agency )
+        {
+            [cell setStringValue:item.agency.country.name];
+        }
+        else if( item.group )
+        {
+            [cell setStringValue:@"-"];
+        }
+        else if( item.client )
+        {
+            [cell setStringValue:item.client.country.name];
+        }
+        else if( item.country )
+        {
+            [cell setStringValue:item.country.name];
+        }
+        else if( item.producer )
+        {
+            [cell setStringValue:item.producer.country.name];
+        }
+        else if( item.product )
+        {
+            [cell setStringValue:item.product.client.country.name];
+        }
     }
     else if( [tableColumn.identifier isEqualToString:@"score"] )
     {

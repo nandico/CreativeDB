@@ -17,8 +17,6 @@
 #import "GroupModel.h"
 #import "ProductModel.h"
 
-static NSNumber *lastPerson;
-
 @implementation ScoreController
 
 + (void) processAwards
@@ -71,14 +69,6 @@ static NSNumber *lastPerson;
 
 + (void) insertScore:(AwardModel *) award forCredit:(CreditModel *) credit
 {
-    if( lastPerson )
-    {
-        if( [lastPerson integerValue] == [credit.person.pk integerValue] )
-        {
-            return;
-        }
-    }
-        
     [ScoreModel setTableName:@"aa_person_score"];
     
     ScoreModel *score = [[ScoreModel alloc] init];
@@ -87,8 +77,6 @@ static NSNumber *lastPerson;
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
     score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
-    
-    lastPerson = [NSNumber numberWithInteger:[credit.person.pk integerValue]];
     
     [score save];
 }

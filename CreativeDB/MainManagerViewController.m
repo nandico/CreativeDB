@@ -85,7 +85,7 @@
                                                      name:MENU_SUBCATEGORIES object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(showReports)
+                                                 selector:@selector(showReports:)
                                                      name:MENU_REPORTS object:nil];
     }
     
@@ -155,7 +155,7 @@
     [_subcategoryManager.view setHidden:NO];
 }
 
-- (void) showReports
+- (void) showReports:(NSNotification *) notification
 {
     [self hideAll];
     [_reportsManager.view setHidden:NO];

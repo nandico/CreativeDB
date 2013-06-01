@@ -127,10 +127,13 @@ static NSString *tableName;
     
     [db open];
     
+    db.traceExecution = YES;
+    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " %@ "
+                                                       " id, origin, entry, festival, year, SUM( score ) score "
                                                        " FROM %@ "
-                                                       " ", [self fields], tableName ] ];
+                                                       " GROUP BY origin "
+                                                       " ORDER BY score DESC ", tableName ] ];
     
     while( [results next] )
     {
@@ -189,8 +192,8 @@ static NSString *tableName;
     
 }
 
-- (void) insert
-{
+- (BOOL) checkForDuplicity
+{    
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
@@ -198,6 +201,42 @@ static NSString *tableName;
     
     [db open];
     
+    NSString *sql = [NSString stringWithFormat:@" SELECT * FROM %@ "
+                          " WHERE origin = %@ "
+                          " AND entry = %@ "
+                          " AND festival = %@ "
+                          " AND year = %@ ", [self tableName],
+                          self.origin,
+                          self.entry.pk,
+                          self.festival.pk,
+                          self.year];
+    
+    FMResultSet *results = [db executeQuery:sql];
+    
+    if( [results next] )
+    {
+        NSLog( @"origin %@ já existe na mesma entry %@", self.origin, self.entry.pk );
+        [db close];
+        return YES;
+    }
+    [db close];
+    return NO;
+}
+
+- (void) insert
+{
+    if( [self checkForDuplicity] )
+    {
+        return;
+    }
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+        
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
