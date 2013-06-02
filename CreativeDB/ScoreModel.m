@@ -127,8 +127,6 @@ static NSString *tableName;
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " id, origin, entry, festival, year, SUM( score ) score "
                                                        " FROM %@ "
@@ -215,7 +213,6 @@ static NSString *tableName;
     
     if( [results next] )
     {
-        NSLog( @"origin %@ já existe na mesma entry %@", self.origin, self.entry.pk );
         [db close];
         return YES;
     }

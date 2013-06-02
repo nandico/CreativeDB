@@ -92,11 +92,13 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " %@ "
                                                        " FROM %@ "
                                                        " WHERE "
-                                                       " name = '%@' ", [self fields], [self tableName], stringValue] ];
+                                                       " name = \"%@\" ", [self fields], [self tableName], stringValue] ];
     
     if( [results next] )
     {

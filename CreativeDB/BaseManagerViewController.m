@@ -35,7 +35,6 @@
     }
     else
     {
-        //model = [[EntryModel alloc] init];
         model = [baseModelClass performSelector:newSelector withObject:nil];
     }
 

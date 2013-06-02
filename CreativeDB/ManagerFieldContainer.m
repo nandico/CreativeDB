@@ -192,18 +192,6 @@
     
     return [baseLookupModel performSelector:lookupNameSelector withObject:nil];
     
-    /*
-    id baseModelClass = NSClassFromString( _modelName );
-    id baseModel = [baseModelClass performSelector:staticLoadSelector withObject:_modelFilterValue];
-    
-    NSLog( @"Carregado %@, filter: %@", baseModel, _modelFilterValue );
-    
-    SEL nameSelector = NSSelectorFromString( _fieldName );
-    id lookupModel = [baseModel performSelector:nameSelector withObject:nil];
-    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
-    
-    return [lookupModel performSelector:lookupNameSelector withObject:nil];
-    */
 }
 
 - (NSMutableArray *) lookupData
@@ -244,39 +232,6 @@
 
 }
 
-/*
-- (ManagerTextField *) filteredComboField
-{
-    if(!_textField)
-    {
-        _textField = [[ManagerTextField alloc] init];
-        [self addSubview:_textField];
-        [_textField setBezeled:NO];
-        [_textField setEditable:NO];
-
-        
-        NSString *fieldValue = [self bindLookupValue];
-        if( fieldValue )
-        {
-            [_textField setStringValue:fieldValue];
-        }
-        else if( _modelFilterValue )
-        {
-            NSLog( @"STATIC value: %@", _modelFilterValue );
-            
-            fieldValue = [self bindStaticLookupValue];
-            
-            if( fieldValue )
-            {
-                [_textField setStringValue:fieldValue];
-            }
-        }
-    }
-    
-    return _textField;
-    
-}
-*/
 - (ManagerComboBox *) filteredComboField
 {
     if(!_comboField)
