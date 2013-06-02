@@ -10,6 +10,7 @@
 #import "PersonManagerView.h"
 
 #define PERSON_MANAGER_UPDATE_LIST @"PERSON_MANAGER_UPDATE_LIST"
+#define PERSON_MANAGER_UPDATE_VIEW @"PERSON_MANAGER_UPDATE_VIEW"
 
 
 @interface PersonManagerViewController : BaseManagerViewController <PersonDataSource>
