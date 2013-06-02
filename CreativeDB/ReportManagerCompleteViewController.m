@@ -8,13 +8,13 @@
 
 #import "ReportManagerCompleteViewController.h"
 #import "BaseLayeredView.h"
-#import "ScoreManagerListViewController.h"
+#import "ScoreListViewController.h"
 #import "ScoreModel.h"
 
 @interface ReportManagerCompleteViewController ()
 
 @property (nonatomic, strong) BaseLayeredView *viewInstance;
-@property (nonatomic, strong) ScoreManagerListViewController *scoreListManager;
+@property (nonatomic, strong) ScoreListViewController *scoreListManager;
 
 @end
 
@@ -40,7 +40,7 @@
                                          [self packNSNull:nil], MLE_FIELDSET_MODEL_ITEM,
                                          nil];
     
-    _scoreListManager = [[ScoreManagerListViewController alloc]
+    _scoreListManager = [[ScoreListViewController alloc]
                             initWithOptions:scoreListOptions];
     
     _scoreListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,

@@ -1,5 +1,5 @@
 //
-//  ScoreManagerListViewController.h
+//  ScoreListViewController.h
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 5/28/13.
@@ -11,7 +11,7 @@
 #import "ManagerEngine.h"
 #import "EntryManagerCompleteViewController.h"
 
-@interface ScoreManagerListViewController : BaseManagerListViewController  <NSTableViewDelegate, NSTableViewDataSource>
+@interface ScoreListViewController : BaseManagerListViewController  <NSTableViewDelegate, NSTableViewDataSource>
 
 @property (nonatomic, strong) NSString *modelName;
 @property (nonatomic, strong) NSNumber *modelItem;

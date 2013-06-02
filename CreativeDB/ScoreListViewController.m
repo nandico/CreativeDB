@@ -1,16 +1,16 @@
 //
-//  ScoreManagerListViewController.m
+//  ScoreListViewController.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 5/28/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "ScoreManagerListViewController.h"
+#import "ScoreListViewController.h"
 #import "ScoreModel.h"
 #import "MenuManagerViewController.h"
 
-@interface ScoreManagerListViewController ()
+@interface ScoreListViewController ()
 
 @property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
@@ -27,7 +27,7 @@
 
 @end
 
-@implementation ScoreManagerListViewController
+@implementation ScoreListViewController
 
 - (id)initWithOptions:(NSDictionary *) options
 {
