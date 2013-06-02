@@ -106,6 +106,23 @@
     return _items.count;
 }
 
+- (void)tableViewSelectionDidChange:(NSNotification *) notification
+{
+    NSIndexSet *selectedIndexes = [_tableView selectedRowIndexes];
+    NSNumber *firstIndex = [NSNumber numberWithUnsignedLong:selectedIndexes.firstIndex];
+    
+    if( firstIndex )
+    {
+        SubcategoryModel *item = [_items objectAtIndex:[firstIndex integerValue]];
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:item forKey:MLE_FIELDSET_MODEL_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:SUBCATEGORY_MANAGER_UPDATE_VIEW
+                                                            object:self
+                                                          userInfo:updateMessage];
+        
+    }
+}
+
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
     

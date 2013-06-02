@@ -10,6 +10,7 @@
 #import "ClientManagerView.h"
 
 #define CLIENT_MANAGER_UPDATE_LIST @"CLIENT_MANAGER_UPDATE_LIST"
+#define CLIENT_MANAGER_UPDATE_VIEW @"CLIENT_MANAGER_UPDATE_VIEW"
 #define CLIENT_MANAGER_UPDATE_CREDITS @"CLIENT_MANAGER_UPDATE_CREDITS"
 
 @interface ClientManagerViewController : BaseManagerViewController <ClientDataSource>

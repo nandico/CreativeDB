@@ -10,6 +10,7 @@
 #import "ProducerManagerView.h"
 
 #define PRODUCER_MANAGER_UPDATE_LIST @"PRODUCER_MANAGER_UPDATE_LIST"
+#define PRODUCER_MANAGER_UPDATE_VIEW @"PRODUCER_MANAGER_UPDATE_VIEW"
 
 
 @interface ProducerManagerViewController : BaseManagerViewController <ProducerDataSource>

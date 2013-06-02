@@ -73,9 +73,26 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(updateCredits:)
                                                      name:ENTRY_MANAGER_UPDATE_CREDITS object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateView:)
+                                                     name:CREDIT_MANAGER_UPDATE_VIEW object:nil];
     }
     
     return self;
+}
+
+- (void) updateView:(NSNotification *) notification
+{
+    CreditModel *item = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_ITEM];
+    
+    if( item )
+    {
+        self.modelItem = item.pk;
+        [self.viewInstance destroyForm];
+        [self prepareEntity];
+        [self.viewInstance createForm];
+    }
 }
 
 - (void) saveAction

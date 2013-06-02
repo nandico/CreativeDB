@@ -12,6 +12,7 @@
 #import "BaseManagerViewController.h"
 
 #define AGENCY_MANAGER_UPDATE_LIST @"AGENCY_MANAGER_UPDATE_LIST"
+#define AGENCY_MANAGER_UPDATE_VIEW @"AGENCY_MANAGER_UPDATE_VIEW"
 
 @interface AgencyManagerViewController : BaseManagerViewController <AgencyDataSource>
 

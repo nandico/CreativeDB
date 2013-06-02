@@ -10,6 +10,7 @@
 #import "ProductManagerView.h"
 
 #define PRODUCT_MANAGER_UPDATE_LIST @"PRODUCT_MANAGER_UPDATE_LIST"
+#define PRODUCT_MANAGER_UPDATE_VIEW @"PRODUCT_MANAGER_UPDATE_VIEW"
 
 
 @interface ProductManagerViewController : BaseManagerViewController <ProductDataSource>

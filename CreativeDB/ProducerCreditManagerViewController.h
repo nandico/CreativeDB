@@ -9,7 +9,8 @@
 #import "BaseManagerViewController.h"
 #import "ProducerCreditManagerView.h"
 
-#define PRODUCERCREDIT_MANAGER_UPDATE_LIST @"PRODUCER_CREDIT_MANAGER_UPDATE_LIST"
+#define PRODUCERCREDIT_MANAGER_UPDATE_LIST @"PRODUCERCREDIT_MANAGER_UPDATE_LIST"
+#define PRODUCERCREDIT_MANAGER_UPDATE_VIEW @"PRODUCERCREDIT_MANAGER_UPDATE_VIEW"
 
 @interface ProducerCreditManagerViewController : BaseManagerViewController <ProducerCreditDataSource>
 

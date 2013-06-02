@@ -312,7 +312,7 @@
     if( self.portfolioURL )
     {
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET portfolioURL = '%@' WHERE id = %@", [self tableName],
-                           self.name, self.pk ]];
+                           self.portfolioURL, self.pk ]];
     }
 
     

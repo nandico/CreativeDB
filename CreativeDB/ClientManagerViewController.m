@@ -7,6 +7,7 @@
 //
 
 #import "ClientManagerViewController.h"
+#import "ClientModel.h"
 
 @interface ClientManagerViewController ()
 
@@ -68,11 +69,29 @@
                                                  selector:@selector(previousAction)
                                                      name:MLE_NOTIFICATION_PREVIOUS object:self.viewInstance.actionBar];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateView:)
+                                                     name:CLIENT_MANAGER_UPDATE_VIEW object:nil];
+        
     }
     
     return self;
 }
 
+- (void) updateView:(NSNotification *) notification
+{
+    ClientModel *item = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_ITEM];
+    
+    if( item )
+    {
+        self.modelItem = item.pk;
+        [self.viewInstance destroyForm];
+        [self prepareEntity];
+        [self.viewInstance createForm];
+        
+        [self updateClient];
+    }
+}
 
 - (void) newAction
 {

@@ -10,6 +10,7 @@
 #import "AwardManagerView.h"
 
 #define AWARD_MANAGER_UPDATE_LIST @"AWARD_MANAGER_UPDATE_LIST"
+#define AWARD_MANAGER_UPDATE_VIEW @"AWARD_MANAGER_UPDATE_VIEW"
 
 @interface AwardManagerViewController : BaseManagerViewController <AwardDataSource>
 

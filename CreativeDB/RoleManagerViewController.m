@@ -7,6 +7,7 @@
 //
 
 #import "RoleManagerViewController.h"
+#import "RoleModel.h"
 
 @interface RoleManagerViewController ()
 
@@ -67,11 +68,27 @@
                                                  selector:@selector(previousAction)
                                                      name:MLE_NOTIFICATION_PREVIOUS object:self.viewInstance.actionBar];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateView:)
+                                                     name:ROLE_MANAGER_UPDATE_VIEW object:nil];
+        
     }
     
     return self;
 }
 
+- (void) updateView:(NSNotification *) notification
+{
+    RoleModel *item = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_ITEM];
+    
+    if( item )
+    {
+        self.modelItem = item.pk;
+        [self.viewInstance destroyForm];
+        [self prepareEntity];
+        [self.viewInstance createForm];
+    }
+}
 
 - (void) newAction
 {

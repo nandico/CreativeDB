@@ -10,6 +10,7 @@
 #import "SubcategoryManagerView.h"
 
 #define SUBCATEGORY_MANAGER_UPDATE_LIST @"SUBCATEGORY_MANAGER_UPDATE_LIST"
+#define SUBCATEGORY_MANAGER_UPDATE_VIEW @"SUBCATEGORY_MANAGER_UPDATE_VIEW"
 
 @interface SubcategoryManagerViewController : BaseManagerViewController <SubcategoryDataSource>
 

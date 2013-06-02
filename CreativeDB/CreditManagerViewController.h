@@ -11,6 +11,7 @@
 #import "CreditManagerView.h"
 
 #define CREDIT_MANAGER_UPDATE_LIST @"CREDIT_MANAGER_UPDATE_LIST"
+#define CREDIT_MANAGER_UPDATE_VIEW @"CREDIT_MANAGER_UPDATE_VIEW"
 
 @interface CreditManagerViewController : BaseManagerViewController <CreditDataSource>
 

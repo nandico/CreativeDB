@@ -10,6 +10,7 @@
 #import "GroupManagerView.h"
 
 #define GROUP_MANAGER_UPDATE_LIST @"GROUP_MANAGER_UPDATE_LIST"
+#define GROUP_MANAGER_UPDATE_VIEW @"GROUP_MANAGER_UPDATE_VIEW"
 
 @interface GroupManagerViewController : BaseManagerViewController <GroupDataSource>
 

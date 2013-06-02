@@ -10,6 +10,7 @@
 #import "RoleManagerView.h"
 
 #define ROLE_MANAGER_UPDATE_LIST @"ROLE_MANAGER_UPDATE_LIST"
+#define ROLE_MANAGER_UPDATE_VIEW @"ROLE_MANAGER_UPDATE_VIEW"
 
 @interface RoleManagerViewController : BaseManagerViewController <RoleDataSource>
 

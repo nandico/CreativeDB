@@ -10,6 +10,7 @@
 #import "CategoryManagerView.h"
 
 #define CATEGORY_MANAGER_UPDATE_LIST @"CATEGORY_MANAGER_UPDATE_LIST"
+#define CATEGORY_MANAGER_UPDATE_VIEW @"CATEGORY_MANAGER_UPDATE_VIEW"
 
 @interface CategoryManagerViewController : BaseManagerViewController <CategoryDataSource>
 
