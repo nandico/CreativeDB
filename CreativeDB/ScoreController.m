@@ -46,7 +46,7 @@
         [self insertScore:award forClient:award.entry.client];
         
         // country credits
-        [self insertScore:award forCountry:award.entry.country];
+        [self insertScore:award forCountry:award.entry.agency.country];
         
         // group credits
         [self insertScore:award forGroup:award.entry.agency.group];

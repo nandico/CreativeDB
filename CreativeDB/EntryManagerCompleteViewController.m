@@ -14,7 +14,9 @@
 #import "ProducerCreditManagerListViewController.h"
 #import "AwardManagerViewController.h"
 #import "AwardManagerListViewController.h"
+#import "EntryManagerListViewController.h"
 #import "BaseLayeredView.h"
+#import "ManagerHeader.h"
 
 
 #import "EntryModel.h"
@@ -26,6 +28,7 @@
 
 @property (nonatomic, strong) BaseLayeredView *viewInstance;
 
+@property (nonatomic, strong) EntryManagerListViewController *entryListManager;
 @property (nonatomic, strong) EntryManagerViewController *entryManager;
 @property (nonatomic, strong) CreditManagerViewController *creditManager;
 @property (nonatomic, strong) CreditManagerListViewController *creditListManager;
@@ -35,6 +38,8 @@
 @property (nonatomic, strong) AwardManagerListViewController *awardListManager;
 @property (nonatomic, strong) EntryManagerCompleteScrollView *scrollView;
 @property (nonatomic, strong) BaseLayeredView *scrollContent;
+
+@property (nonatomic, strong) ManagerHeader *entryListHeader;
 
 @end
 
@@ -56,12 +61,40 @@
 {
     CGRect contentFrame = NSMakeRect( 0,
                                      0,
-                                     COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 4 ),
+                                     COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 4 ),
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
 
     
     _scrollContent = [[BaseLayeredView alloc] initWithFrame:contentFrame];
 
+    // COLUMN 0
+
+    NSDictionary *entryListHeaderOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                   @"Entries list", MLE_FIELDSET_MODEL_HEADERTITLE,
+                                   nil];
+    
+    _entryListHeader = [[ManagerHeader alloc] initWithOptions:entryListHeaderOptions];
+    _entryListHeader.frame = NSMakeRect(COMPLETE_VIEW_OFFSET_X,
+                                        COMPLETE_VIEW_CONTAINER_MEDIUMLIST_HEIGHT + 7.0f,
+                                        _entryListHeader.frame.size.width,
+                                        _entryListHeader.frame.size.height);
+    [_scrollContent addSubview:_entryListHeader];
+    
+    NSDictionary *entryListOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                      @"EntryModel", MLE_FIELDSET_MODEL_KEY,
+                                      [self packNSNull:[EntryModel first]], MLE_FIELDSET_MODEL_ITEM,
+                                      nil];
+    
+    _entryListManager = [[EntryManagerListViewController alloc]
+                         initWithOptions:entryListOptions];
+    _entryListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
+                                              0,
+                                              COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH,
+                                              COMPLETE_VIEW_CONTAINER_MEDIUMLIST_HEIGHT);
+    [_scrollContent addSubview:_entryListManager.view positioned:NSWindowBelow relativeTo:_entryListHeader];
+    
+        
+    // COLUMN 1
     
     NSDictionary *entryOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"Entries", MLE_FIELDSET_MODEL_HEADERTITLE,
@@ -70,7 +103,7 @@
                                   nil];
     
     _entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
-    _entryManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
+    _entryManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X,
                                           COMPLETE_VIEW_OFFSET_Y,
                                           COMPLETE_VIEW_CONTAINER_WIDTH,
                                           COMPLETE_VIEW_CONTAINER_HEIGHT );
@@ -78,6 +111,8 @@
     
     AwardModel.modelFilterName = @"entry";
     AwardModel.modelFilterValue = [EntryModel first];
+    
+    // COLUMN 2
     
     NSDictionary *awardOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                   @"Awards", MLE_FIELDSET_MODEL_HEADERTITLE,
@@ -88,7 +123,7 @@
                                   nil];
     
     _awardManager = [[AwardManagerViewController alloc] initWithOptions:awardOptions];
-    _awardManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH ),
+    _awardManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH  ),
                                           COMPLETE_VIEW_OFFSET_Y + 187.0f,
                                           COMPLETE_VIEW_CONTAINER_WIDTH,
                                           COMPLETE_VIEW_CONTAINER_HEIGHT );
@@ -104,7 +139,7 @@
     
     _awardListManager = [[AwardManagerListViewController alloc]
                          initWithOptions:awardListOptions];
-    _awardListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH ),
+    _awardListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH ),
                                               0,
                                               COMPLETE_VIEW_CONTAINER_WIDTH,
                                               COMPLETE_VIEW_CONTAINER_LIST_HEIGHT);
@@ -113,6 +148,8 @@
     
     CreditModel.modelFilterName = @"entry";
     CreditModel.modelFilterValue = [EntryModel first];
+    
+    // COLUMN 3
     
     NSDictionary *creditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"Credits", MLE_FIELDSET_MODEL_HEADERTITLE,
@@ -123,7 +160,7 @@
                                    nil];
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
-    _creditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2),
+    _creditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
                                            COMPLETE_VIEW_OFFSET_Y + 298.0f,
                                            COMPLETE_VIEW_CONTAINER_WIDTH,
                                            COMPLETE_VIEW_CONTAINER_HEIGHT );
@@ -139,7 +176,7 @@
     
     _creditListManager = [[CreditManagerListViewController alloc]
                                                           initWithOptions:entryCreditOptions];
-    _creditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
+    _creditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
                                                0,
                                                COMPLETE_VIEW_CONTAINER_WIDTH,
                                                COMPLETE_VIEW_CONTAINER_LIST_HEIGHT );
@@ -148,6 +185,8 @@
     
     ProducerCreditModel.modelFilterName = @"entry";
     ProducerCreditModel.modelFilterValue = [EntryModel first];
+    
+    // COLUMN 4
     
     NSDictionary *producerCreditOptions = [NSDictionary dictionaryWithObjectsAndKeys:
                                    @"Producer company credits", MLE_FIELDSET_MODEL_HEADERTITLE,
@@ -158,7 +197,7 @@
                                    nil];
     
     _producerCreditManager = [[ProducerCreditManagerViewController alloc] initWithOptions:producerCreditOptions];
-    _producerCreditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),
+    _producerCreditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),
                                                    COMPLETE_VIEW_OFFSET_Y + 298.0f,
                                                    COMPLETE_VIEW_CONTAINER_WIDTH,
                                                    COMPLETE_VIEW_CONTAINER_HEIGHT );
@@ -174,7 +213,7 @@
 
     _producerCreditListManager = [[ProducerCreditManagerListViewController alloc]
                           initWithOptions:producerEntryCreditOptions];
-    _producerCreditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),
+    _producerCreditListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),
                                                        0,
                                                        COMPLETE_VIEW_CONTAINER_WIDTH,
                                                        COMPLETE_VIEW_CONTAINER_LIST_HEIGHT);

@@ -40,6 +40,7 @@
 - (NSMutableArray *) credits;
 - (NSMutableArray *) producers;
 - (NSMutableArray *) annotations;
+- (NSMutableArray *) awards;
 - (void) save;
 - (void) deleteModel;
 

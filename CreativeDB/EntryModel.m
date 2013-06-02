@@ -11,6 +11,7 @@
 #import "CreditModel.h"
 #import "ProducerCreditModel.h"
 #import "AnnotationModel.h"
+#import "AwardModel.h"
 
 @implementation EntryModel
 
@@ -352,6 +353,11 @@
 - (NSMutableArray *) annotations
 {
     return [AnnotationModel loadByEntryId:self.pk];
+}
+
+- (NSMutableArray *) awards
+{
+    return [AwardModel loadByEntryId:self.pk];
 }
 
 + (NSMutableArray *) loadAll

@@ -102,6 +102,7 @@
 		BFC697851758EF3900B3A9DA /* GroupManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC697841758EF3800B3A9DA /* GroupManagerViewController.m */; };
 		BFC697881758F01100B3A9DA /* GroupManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC697871758F01000B3A9DA /* GroupManagerListViewController.m */; };
 		BFC6978B1758F0F200B3A9DA /* GroupManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6978A1758F0F200B3A9DA /* GroupManagerCompleteViewController.m */; };
+		BFC6978E175B6EA800B3A9DA /* EntryManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6978D175B6EA600B3A9DA /* EntryManagerListViewController.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -314,6 +315,8 @@
 		BFC697871758F01000B3A9DA /* GroupManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupManagerListViewController.m; sourceTree = "<group>"; };
 		BFC697891758F0F100B3A9DA /* GroupManagerCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupManagerCompleteViewController.h; sourceTree = "<group>"; };
 		BFC6978A1758F0F200B3A9DA /* GroupManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupManagerCompleteViewController.m; sourceTree = "<group>"; };
+		BFC6978C175B6EA500B3A9DA /* EntryManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerListViewController.h; sourceTree = "<group>"; };
+		BFC6978D175B6EA600B3A9DA /* EntryManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerListViewController.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -414,6 +417,8 @@
 		BF302AD8174082D300195DE8 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				BFC6978C175B6EA500B3A9DA /* EntryManagerListViewController.h */,
+				BFC6978D175B6EA600B3A9DA /* EntryManagerListViewController.m */,
 				BF2F32A5172E0B7A00C0CB1B /* CreditManagerListViewController.h */,
 				BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */,
 				BF302ACF173DF57500195DE8 /* ProducerCreditManagerListViewController.h */,
@@ -906,6 +911,7 @@
 				BFC697851758EF3900B3A9DA /* GroupManagerViewController.m in Sources */,
 				BFC697881758F01100B3A9DA /* GroupManagerListViewController.m in Sources */,
 				BFC6978B1758F0F200B3A9DA /* GroupManagerCompleteViewController.m in Sources */,
+				BFC6978E175B6EA800B3A9DA /* EntryManagerListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

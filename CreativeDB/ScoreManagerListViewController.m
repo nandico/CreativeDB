@@ -82,28 +82,6 @@
     }
 }
 
-/*
-- (void) updateList:(NSNotification *) notification
-{
-    NSNumber *modelFilterValue = [notification.userInfo objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE];
-    
-    if( modelFilterValue != (id)[NSNull null] )
-    {
-        self.modelFilterValue = modelFilterValue;
-        
-        [ScoreModel setTableName:@"aa_person_score"];
-        
-        [self.viewInstance setHidden:NO];
-        _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
-        [_tableView reloadData];
-    }
-    else
-    {
-        [self.viewInstance setHidden:YES];
-    }
-}
-*/
- 
 
 - (void) createList
 {
@@ -171,13 +149,6 @@
         cell.backgroundColor = MLE_CONTAINER_COLOR;
         cell.wantsLayer = YES;
         cell.layer.cornerRadius = 4.0f;
-        
-        
-        NSView *test = [[NSView alloc] initWithFrame:NSMakeRect(0, 0, 10.0f, 10.0f)];
-        test.wantsLayer = YES;
-        test.layer.backgroundColor = [[NSColor redColor] CGColor];
-        
-        //[cell addSubview:test];
     }
     
     ScoreModel *item = [_items objectAtIndex:row];

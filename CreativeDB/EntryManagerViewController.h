@@ -11,6 +11,7 @@
 #import "BaseManagerViewController.h"
 
 #define ENTRY_MANAGER_UPDATE_CREDITS @"ENTRY_MANAGER_UPDATE_CREDITS"
+#define ENTRY_MANAGER_UPDATE_VIEW @"ENTRY_MANAGER_UPDATE_VIEW"
 
 
 @interface EntryManagerViewController : BaseManagerViewController <EntryDataSource>
