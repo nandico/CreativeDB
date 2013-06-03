@@ -8,6 +8,7 @@
 
 #import "PersonModel.h"
 #import "FMDBDataAccess.h"
+#import "EntryModel.h"
 
 @implementation PersonModel
 
@@ -124,6 +125,11 @@
     [db close];
     
     return collection;
+}
+
+- (NSMutableArray *) entries
+{
+    return [EntryModel loadByPersonId:self.pk];
 }
 
 - (NSNumber *) next

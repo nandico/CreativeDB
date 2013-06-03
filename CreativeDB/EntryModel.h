@@ -31,6 +31,7 @@
 + (EntryModel *) loadModel:(NSNumber *) pk;
 + (EntryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSMutableArray *) loadByPersonId:(NSNumber *) personPK;
 
 - (NSNumber *) next;
 - (NSNumber *) previous;

@@ -127,6 +127,14 @@
                                                         object:self
                                                       userInfo:nil];
     
+    // update detail
+    PersonModel *item = [PersonModel loadModel:self.modelItem];
+    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:item forKey:MLE_FIELDSET_MODEL_ITEM];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:PERSON_MANAGER_UPDATE_VIEW
+                                                        object:self
+                                                      userInfo:updateMessage];
+    
 }
 
 - (void) prepareEntity

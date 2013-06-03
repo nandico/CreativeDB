@@ -22,6 +22,8 @@
 + (PersonModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
 
+- (NSMutableArray *) entries;
+
 - (NSNumber *) next;
 - (NSNumber *) previous;
 + (NSNumber *) first;

@@ -388,5 +388,36 @@
     return collection;
 }
 
++ (NSMutableArray *) loadByPersonId:(NSNumber *)personPK
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE id IN ( "
+                                                            " SELECT DISTINCT entry FROM aa_credit WHERE person = %@ "
+                                                       " ) ", [self fields], [self tableName], personPK] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
 
 @end

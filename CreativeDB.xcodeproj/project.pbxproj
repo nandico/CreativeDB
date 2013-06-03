@@ -103,6 +103,9 @@
 		BFC697881758F01100B3A9DA /* GroupManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC697871758F01000B3A9DA /* GroupManagerListViewController.m */; };
 		BFC6978B1758F0F200B3A9DA /* GroupManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6978A1758F0F200B3A9DA /* GroupManagerCompleteViewController.m */; };
 		BFC6978E175B6EA800B3A9DA /* EntryManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC6978D175B6EA600B3A9DA /* EntryManagerListViewController.m */; };
+		BFC69791175C007600B3A9DA /* PersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69790175C007600B3A9DA /* PersonDetailViewController.m */; };
+		BFC69794175C07F100B3A9DA /* PersonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69793175C07F100B3A9DA /* PersonDetailView.m */; };
+		BFC69797175C111E00B3A9DA /* PersonEntryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69796175C111D00B3A9DA /* PersonEntryListViewController.m */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -317,6 +320,12 @@
 		BFC6978A1758F0F200B3A9DA /* GroupManagerCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupManagerCompleteViewController.m; sourceTree = "<group>"; };
 		BFC6978C175B6EA500B3A9DA /* EntryManagerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerListViewController.h; sourceTree = "<group>"; };
 		BFC6978D175B6EA600B3A9DA /* EntryManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerListViewController.m; sourceTree = "<group>"; };
+		BFC6978F175C007600B3A9DA /* PersonDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailViewController.h; sourceTree = "<group>"; };
+		BFC69790175C007600B3A9DA /* PersonDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailViewController.m; sourceTree = "<group>"; };
+		BFC69792175C07F000B3A9DA /* PersonDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonDetailView.h; sourceTree = "<group>"; };
+		BFC69793175C07F100B3A9DA /* PersonDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailView.m; sourceTree = "<group>"; };
+		BFC69795175C111D00B3A9DA /* PersonEntryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonEntryListViewController.h; sourceTree = "<group>"; };
+		BFC69796175C111D00B3A9DA /* PersonEntryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonEntryListViewController.m; sourceTree = "<group>"; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -450,8 +459,6 @@
 		BF302AD91740836500195DE8 /* Complete */ = {
 			isa = PBXGroup;
 			children = (
-				BFBC5EB7174E77400004E022 /* BaseManagerCompleteViewController.h */,
-				BFBC5EB8174E77400004E022 /* BaseManagerCompleteViewController.m */,
 				BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */,
 				BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */,
 				BF2F329F172DFFEF00C0CB1B /* EntryManagerCompleteViewController.h */,
@@ -485,7 +492,6 @@
 				BF1787F617498F5900057FF4 /* MainManagerViewController.m */,
 				BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */,
 				BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */,
-				BF567C571754FCA400466128 /* Reports */,
 				BFF4C5A01705539A0098A633 /* Engine */,
 				BF302AD8174082D300195DE8 /* List */,
 				BFD3A373173DB8F10015E04F /* View */,
@@ -511,6 +517,12 @@
 			children = (
 				BF567C581754FCE600466128 /* ScoreListViewController.h */,
 				BF567C591754FCE600466128 /* ScoreListViewController.m */,
+				BFC6978F175C007600B3A9DA /* PersonDetailViewController.h */,
+				BFC69790175C007600B3A9DA /* PersonDetailViewController.m */,
+				BFC69792175C07F000B3A9DA /* PersonDetailView.h */,
+				BFC69793175C07F100B3A9DA /* PersonDetailView.m */,
+				BFC69795175C111D00B3A9DA /* PersonEntryListViewController.h */,
+				BFC69796175C111D00B3A9DA /* PersonEntryListViewController.m */,
 			);
 			name = Reports;
 			sourceTree = "<group>";
@@ -573,6 +585,7 @@
 		BF8D842916F7EEA4006906D8 /* CreativeDB */ = {
 			isa = PBXGroup;
 			children = (
+				BF567C571754FCA400466128 /* Reports */,
 				BF567C531754329600466128 /* Score */,
 				BF46CF5F170391EB009AACA8 /* ContentManager */,
 				BF00109D16FEAD0A007B8A80 /* Model */,
@@ -709,6 +722,8 @@
 			children = (
 				BFF4C59A1705525E0098A633 /* ManagerEngine.h */,
 				BFF4C59B1705525E0098A633 /* ManagerEngine.m */,
+				BFBC5EFD1753097E0004E022 /* ManagerHeader.h */,
+				BFBC5EFE175309800004E022 /* ManagerHeader.m */,
 				BFF4C590170546080098A633 /* ManagerTextField.h */,
 				BFF4C591170546080098A633 /* ManagerTextField.m */,
 				BFF4C593170549D50098A633 /* ManagerComboBox.h */,
@@ -735,8 +750,8 @@
 				BF2F329A172DEF9E00C0CB1B /* BaseManagerListViewController.m */,
 				BF6A81C21741959200F8557E /* BaseManagerListView.h */,
 				BF6A81C31741959200F8557E /* BaseManagerListView.m */,
-				BFBC5EFD1753097E0004E022 /* ManagerHeader.h */,
-				BFBC5EFE175309800004E022 /* ManagerHeader.m */,
+				BFBC5EB7174E77400004E022 /* BaseManagerCompleteViewController.h */,
+				BFBC5EB8174E77400004E022 /* BaseManagerCompleteViewController.m */,
 			);
 			name = Engine;
 			sourceTree = "<group>";
@@ -912,6 +927,9 @@
 				BFC697881758F01100B3A9DA /* GroupManagerListViewController.m in Sources */,
 				BFC6978B1758F0F200B3A9DA /* GroupManagerCompleteViewController.m in Sources */,
 				BFC6978E175B6EA800B3A9DA /* EntryManagerListViewController.m in Sources */,
+				BFC69791175C007600B3A9DA /* PersonDetailViewController.m in Sources */,
+				BFC69794175C07F100B3A9DA /* PersonDetailView.m in Sources */,
+				BFC69797175C111E00B3A9DA /* PersonEntryListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
