@@ -40,6 +40,10 @@
 		BF2F32A7172E0B7E00C0CB1B /* CreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */; };
 		BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */; };
 		BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */; };
+		BF5472ED175EC3500056499B /* ScoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472EC175EC34F0056499B /* ScoreListView.m */; };
+		BF5472F0175EC4300056499B /* ManagerFilterContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472EF175EC4300056499B /* ManagerFilterContainer.m */; };
+		BF5472F3175EC4D60056499B /* ManagerFilterComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472F2175EC4D60056499B /* ManagerFilterComboBox.m */; };
+		BF5472F6175EC8430056499B /* ManagerFilterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472F5175EC8430056499B /* ManagerFilterTextField.m */; };
 		BF567C561754375700466128 /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C551754375700466128 /* ScoreController.m */; };
 		BF567C5A1754FCE600466128 /* ScoreListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C591754FCE600466128 /* ScoreListViewController.m */; };
 		BF567C5D17550DAC00466128 /* ReportManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C5C17550DAC00466128 /* ReportManagerCompleteViewController.m */; };
@@ -194,6 +198,14 @@
 		BF3A4D65174434970046FF9B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		BF3A4D67174434970046FF9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		BF3A4D69174434970046FF9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		BF5472EB175EC34F0056499B /* ScoreListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreListView.h; sourceTree = "<group>"; };
+		BF5472EC175EC34F0056499B /* ScoreListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreListView.m; sourceTree = "<group>"; };
+		BF5472EE175EC4300056499B /* ManagerFilterContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFilterContainer.h; sourceTree = "<group>"; };
+		BF5472EF175EC4300056499B /* ManagerFilterContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFilterContainer.m; sourceTree = "<group>"; };
+		BF5472F1175EC4D60056499B /* ManagerFilterComboBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFilterComboBox.h; sourceTree = "<group>"; };
+		BF5472F2175EC4D60056499B /* ManagerFilterComboBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFilterComboBox.m; sourceTree = "<group>"; };
+		BF5472F4175EC8430056499B /* ManagerFilterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFilterTextField.h; sourceTree = "<group>"; };
+		BF5472F5175EC8430056499B /* ManagerFilterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFilterTextField.m; sourceTree = "<group>"; };
 		BF567C541754375700466128 /* ScoreController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreController.h; sourceTree = "<group>"; };
 		BF567C551754375700466128 /* ScoreController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreController.m; sourceTree = "<group>"; };
 		BF567C581754FCE600466128 /* ScoreListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreListViewController.h; sourceTree = "<group>"; };
@@ -523,6 +535,8 @@
 				BFC69793175C07F100B3A9DA /* PersonDetailView.m */,
 				BFC69795175C111D00B3A9DA /* PersonEntryListViewController.h */,
 				BFC69796175C111D00B3A9DA /* PersonEntryListViewController.m */,
+				BF5472EB175EC34F0056499B /* ScoreListView.h */,
+				BF5472EC175EC34F0056499B /* ScoreListView.m */,
 			);
 			name = Reports;
 			sourceTree = "<group>";
@@ -726,12 +740,18 @@
 				BFBC5EFE175309800004E022 /* ManagerHeader.m */,
 				BFF4C590170546080098A633 /* ManagerTextField.h */,
 				BFF4C591170546080098A633 /* ManagerTextField.m */,
+				BF5472F4175EC8430056499B /* ManagerFilterTextField.h */,
+				BF5472F5175EC8430056499B /* ManagerFilterTextField.m */,
 				BFF4C593170549D50098A633 /* ManagerComboBox.h */,
 				BFF4C594170549D50098A633 /* ManagerComboBox.m */,
+				BF5472F1175EC4D60056499B /* ManagerFilterComboBox.h */,
+				BF5472F2175EC4D60056499B /* ManagerFilterComboBox.m */,
 				BFF4C59717054B980098A633 /* ManagerLabel.h */,
 				BFF4C59817054B980098A633 /* ManagerLabel.m */,
 				BFF4C59D170553900098A633 /* ManagerFieldContainer.h */,
 				BFF4C59E170553910098A633 /* ManagerFieldContainer.m */,
+				BF5472EE175EC4300056499B /* ManagerFilterContainer.h */,
+				BF5472EF175EC4300056499B /* ManagerFilterContainer.m */,
 				BFF4C5A71707C2010098A633 /* ManagerTextAreaField.h */,
 				BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */,
 				BFF4C5AA1708FEB90098A633 /* ManagerActionBar.h */,
@@ -930,6 +950,10 @@
 				BFC69791175C007600B3A9DA /* PersonDetailViewController.m in Sources */,
 				BFC69794175C07F100B3A9DA /* PersonDetailView.m in Sources */,
 				BFC69797175C111E00B3A9DA /* PersonEntryListViewController.m in Sources */,
+				BF5472ED175EC3500056499B /* ScoreListView.m in Sources */,
+				BF5472F0175EC4300056499B /* ManagerFilterContainer.m in Sources */,
+				BF5472F3175EC4D60056499B /* ManagerFilterComboBox.m in Sources */,
+				BF5472F6175EC8430056499B /* ManagerFilterTextField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

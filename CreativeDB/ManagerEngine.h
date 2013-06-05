@@ -46,6 +46,19 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_FIELD_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
 #define MLE_FIELD_COLOR [NSColor colorWithCalibratedRed:0.2f green:0.2f blue:0.2f alpha:MLE_FIELD_ALPHA]
 
+#define MLE_FILTER_FIELD_OFFSET_X 10.0f
+#define MLE_FILTER_FIELD_OFFSET_Y 3.0f
+#define MLE_FILTER_FIELD_WIDTH 180.0f
+#define MLE_FILTER_FIELD_HEIGHT 25.0f
+#define MLE_FILTER_COMBO_WIDTH 180.0f
+#define MLE_FILTER_COMBO_HEIGHT 27.0f
+
+#define MLE_FILTER_CONTAINER_WIDTH 200.0f
+#define MLE_FILTER_CONTAINER_HEIGHT 32.0f
+#define MLE_FILTER_CONTAINER_OFFSET_X 810.0f
+#define MLE_FILTER_CONTAINER_OFFSET_Y 3.0f
+
+
 #define MLE_HEADER_OFFSET_X 5.0f
 #define MLE_HEADER_OFFSET_Y 0.0f
 #define MLE_HEADER_WIDTH 450.0f
@@ -62,6 +75,7 @@ enum ManagerFieldDataType : NSInteger {
 
 #define MLE_REGULARTABLE_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
 #define MLE_SMALLTABLE_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 10.0f]
+#define MLE_BIGTABLE_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 26.0f]
 
 #define MLE_BUTTON_WIDTH 80.0f
 #define MLE_BUTTON_HEIGHT 35.0f

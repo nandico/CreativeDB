@@ -43,11 +43,15 @@
     _scoreListManager = [[ScoreListViewController alloc]
                             initWithOptions:scoreListOptions];
     
+    
+    /*
     _scoreListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
                                                  0.0f,
                                                  COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH,
                                                  COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT);
-    
+    */
+    _scoreListManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+     
     [self.viewInstance addSubview:_scoreListManager.view];
     
 }

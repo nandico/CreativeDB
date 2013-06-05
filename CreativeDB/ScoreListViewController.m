@@ -10,9 +10,10 @@
 #import "ScoreModel.h"
 #import "MenuManagerViewController.h"
 
+
 @interface ScoreListViewController ()
 
-@property (nonatomic, strong) BaseLayeredView *viewInstance;
+@property (nonatomic, strong) ScoreListView *viewInstance;
 @property (nonatomic, strong) NSDictionary *options;
 
 @property (nonatomic, strong) NSScrollView *tableContainer;
@@ -48,21 +49,16 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
             self.modelFilterValue = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE]];
         
-        self.view = self.viewInstance = [[BaseLayeredView alloc] init];
-        
-        self.modelItem = @1;
-        
-        /*
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateList:)
-                                                     name:CREDIT_MANAGER_UPDATE_LIST object:nil];
-        */
+        self.view = self.viewInstance = [[ScoreListView alloc] init];
+        self.viewInstance.dataSource = self;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showReports:)
                                                      name:MENU_REPORTS object:nil];
         
-        [self createHeader];
+        
+        
+        [self createFilter];
         
         [self createList];
     }
@@ -85,11 +81,8 @@
 
 - (void) createList
 {
-    if( self.modelItem )
-    {
-        [ScoreModel setTableName:@"aa_person_score"];
-        _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
-    }
+    [ScoreModel setTableName:@"aa_person_score"];
+    _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
     
     _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
@@ -128,14 +121,60 @@
     
 }
 
-- (void) createHeader
+- (void) createFilter
 {
+    self.fieldData = [[NSMutableDictionary alloc] init];
+    
+    [self prepareEntity];
+
+    [self.viewInstance createForm];
+}
+
+- (void) prepareEntity
+{
+    
+    NSDictionary *country = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                             @"country", MLE_FIELD_NAME_KEY,
+                             @"Country", MLE_FIELD_LABEL_KEY,
+                             @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                             [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
+                             nil];
+    
+    [self.fieldData setObject:country forKey:@"country"];
     
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
     return _items.count;
+}
+
+-(NSString *) addSuffixToNumber:( long ) number
+{
+    NSString *suffix;
+    int ones = number % 10;
+    int temp = floor(number/10.0);
+    int tens = temp%10;
+    
+    if (tens ==1) {
+        suffix = @"th";
+    } else if (ones ==1){
+        suffix = @"st";
+    } else if (ones ==2){
+        suffix = @"nd";
+    } else if (ones ==3){
+        suffix = @"rd";
+    } else {
+        suffix = @"th";
+    }
+    
+    NSString *completeAsString = [NSString stringWithFormat:@"%ld%@",number,suffix];
+    return completeAsString;
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
@@ -153,9 +192,12 @@
     
     ScoreModel *item = [_items objectAtIndex:row];
 
+    [cell setFont:MLE_REGULARTABLE_FONT];
+    
     if( [tableColumn.identifier isEqualToString:@"index"] )
     {
-        [cell setStringValue:[NSString stringWithFormat:@"%ld", ( row + 1 ) ]];
+        [cell setFont:MLE_BIGTABLE_FONT];
+        [cell setStringValue:[NSString stringWithFormat:@"%@", [self addSuffixToNumber:( row + 1 )] ]];
     }
     else if( [tableColumn.identifier isEqualToString:@"origin"] )
     {
