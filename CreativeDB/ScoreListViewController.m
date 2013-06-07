@@ -154,20 +154,6 @@
                              nil];
     
     [self.fieldData setObject:country forKey:@"country"];
-    
-    NSDictionary *agency = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                             @"agency", MLE_FIELD_NAME_KEY,
-                             @"Agency", MLE_FIELD_LABEL_KEY,
-                             @"AgencyModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
-                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
-                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
-                             [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
-                             nil];
-    
-    [self.fieldData setObject:agency forKey:@"agency"];
 
     NSDictionary *group = [NSDictionary dictionaryWithObjectsAndKeys:
                             [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
@@ -220,10 +206,10 @@
     NSString *value = [combo itemObjectValueAtIndex:[combo indexOfSelectedItem]];
     [_filters setObject:value forKey:combo.name];
     
-    NSLog( @"FILTERS UPDATE: %@", _filters );
+    _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName] andFilters:_filters];
+    [_tableView reloadData];
+
     
-    NSLog( @"Notification: %@", combo.name );
-    NSLog( @"Value: %@", value );
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
@@ -266,10 +252,6 @@
         {
             [cell setStringValue:item.client.name];
         }
-        else if( item.country )
-        {
-            [cell setStringValue:item.country.name];
-        }
         else if( item.producer )
         {
             [cell setStringValue:item.producer.name];
@@ -277,6 +259,10 @@
         else if( item.product )
         {
             [cell setStringValue:item.product.name];
+        }
+        else if( item.country )
+        {
+            [cell setStringValue:item.country.name];
         }
     }
     else if( [tableColumn.identifier isEqualToString:@"country"] )

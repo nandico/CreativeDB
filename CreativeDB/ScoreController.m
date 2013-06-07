@@ -87,7 +87,7 @@
     [ScoreModel setTableName:@"aa_producer_score"];
     
     ScoreModel *score = [[ScoreModel alloc] init];
-    score.origin = producer.pk;
+    score.origin = producer.producer.pk;
     score.country = producer.producer.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];

@@ -12,7 +12,6 @@
 @interface  ScoreListView()
 
 @property (nonatomic, strong) ManagerFilterContainer *country;
-@property (nonatomic, strong) ManagerFilterContainer *agency;
 @property (nonatomic, strong) ManagerFilterContainer *group;
 @property (nonatomic, strong) NSMutableArray *filters;
 
@@ -37,7 +36,6 @@
     
     [_filters addObject:[self country]];
     [_filters addObject:[self group]];
-    [_filters addObject:[self agency]];
     
     [self arrangeFilters];
     
@@ -49,10 +47,6 @@
                                              selector:@selector(updateFilter:)
                                                  name:MLE_NOTIFICATION_FILTER_COMBO_UPDATE object:self.group];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateFilter:)
-                                                 name:MLE_NOTIFICATION_FILTER_COMBO_UPDATE object:self.agency];
-
 }
 
 - (void) arrangeFilters
@@ -71,11 +65,9 @@
 - (void) destroyForm
 {
     [self.country removeFromSuperview];
-    [self.agency removeFromSuperview];
     [self.group removeFromSuperview];
     
     _country = nil;
-    _agency = nil;
     _group = nil;
 }
 
@@ -105,20 +97,6 @@
     }
     
     return _group;
-}
-
-- (ManagerFilterContainer *)agency
-{
-    if(!_agency)
-    {
-        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"agency"];
-        
-        _agency = [[ManagerFilterContainer alloc] initWithOptions:options];
-        
-        [self addSubview:_agency];
-    }
-    
-    return _agency;
 }
 
 - (void) updateFilter:(NSNotification *) notification

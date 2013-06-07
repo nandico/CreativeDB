@@ -135,30 +135,46 @@ static NSString *tableName;
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSMutableString *sqlFilter = [NSMutableString stringWithString:@""];
     
     if( filters )
     {
         for( NSString *filterName in filters )
         {
-            CountryModel *country = [CountryModel loadModelByStringValue:[filters objectForKey:filterName]];
-        
-            if( sqlFilter.length == 0 )
+            if( [filterName isEqualToString:@"country"] )
             {
-                [sqlFilter appendString:[NSString stringWithFormat:@" WHERE %@ = \"%@\"", filterName, country.pk ]];
+                CountryModel *country = [CountryModel loadModelByStringValue:[filters objectForKey:filterName]];
+            
+                if( sqlFilter.length == 0 )
+                {
+                    [sqlFilter appendString:[NSString stringWithFormat:@" WHERE A.%@ = \"%@\"", filterName, country.pk ]];
+                }
+                else
+                {
+                    [sqlFilter appendString:[NSString stringWithFormat:@" AND A.%@ = \"%@\"", filterName, country.pk ]];
+                }
             }
-            else
+            else if( [filterName isEqualToString:@"group"] )
             {
-                [sqlFilter appendString:[NSString stringWithFormat:@" AND %@ = \"%@\"", filterName, country.pk ]];
+                GroupModel *group = [GroupModel loadModelByStringValue:[filters objectForKey:filterName]];
+                
+                if( sqlFilter.length == 0 )
+                {
+                    [sqlFilter appendString:[NSString stringWithFormat:@" WHERE %@ = %@", @"C.agency_group", group.pk ]];
+                }
+                else
+                {
+                    [sqlFilter appendString:[NSString stringWithFormat:@" AND %@ = %@", @"C.agency_group", group.pk ]];
+                }
             }
         }
     }
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, origin, country, entry, festival, year, SUM( score ) score "
-                                                       " FROM %@ "
+                                                       " A.id, A.origin, A.country, A.entry, A.festival, A.year, SUM( score ) score "
+                                                       " FROM %@ AS A "
+                                                       " INNER JOIN aa_entry AS B ON A.entry = B.id "
+                                                       " INNER JOIN aa_agency AS C ON B.agency = C.id "
                                                        " %@ "
                                                        " GROUP BY origin "
                                                        " ORDER BY score DESC ", tableName, sqlFilter ] ];
