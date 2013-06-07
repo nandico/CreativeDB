@@ -73,6 +73,7 @@
     
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = credit.person.pk;
+    score.country = credit.person.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
@@ -87,6 +88,7 @@
     
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = producer.pk;
+    score.country = producer.producer.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
@@ -102,6 +104,7 @@
     
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = agency.pk;
+    score.country = agency.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
@@ -116,6 +119,7 @@
     
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = client.pk;
+    score.country = client.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
@@ -130,6 +134,7 @@
     
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = country.pk;
+    score.country = country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
@@ -144,6 +149,7 @@
         
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = group.pk;
+    score.country = nil;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
@@ -160,6 +166,7 @@
     
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = product.pk;
+    score.country = product.client.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;

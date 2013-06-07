@@ -36,7 +36,7 @@ static NSString *tableName;
 
 + (NSString *) fields
 {
-    return @"id, origin, entry, festival, year, score";
+    return @"id, origin, country, entry, festival, year, score";
 }
 
 - (NSString *) fields
@@ -49,6 +49,8 @@ static NSString *tableName;
     ScoreModel *object = [[ScoreModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.origin = [NSNumber numberWithLong:[results longForColumn:@"origin"]];
+    
+    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     
     if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
         object.person = [PersonModel loadModel:object.origin];
@@ -118,6 +120,12 @@ static NSString *tableName;
 
 + (NSMutableArray *) loadRankingByTableName: (NSString *) tableName
 {
+    return [ScoreModel loadRankingByTableName:tableName andFilters:nil];
+
+}
+
++ (NSMutableArray *) loadRankingByTableName: (NSString *) tableName andFilters:(NSMutableDictionary *)filters
+{
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
@@ -127,11 +135,33 @@ static NSString *tableName;
     
     [db open];
     
+    db.traceExecution = YES;
+    
+    NSMutableString *sqlFilter = [NSMutableString stringWithString:@""];
+    
+    if( filters )
+    {
+        for( NSString *filterName in filters )
+        {
+            CountryModel *country = [CountryModel loadModelByStringValue:[filters objectForKey:filterName]];
+        
+            if( sqlFilter.length == 0 )
+            {
+                [sqlFilter appendString:[NSString stringWithFormat:@" WHERE %@ = \"%@\"", filterName, country.pk ]];
+            }
+            else
+            {
+                [sqlFilter appendString:[NSString stringWithFormat:@" AND %@ = \"%@\"", filterName, country.pk ]];
+            }
+        }
+    }
+    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
-                                                       " id, origin, entry, festival, year, SUM( score ) score "
+                                                       " id, origin, country, entry, festival, year, SUM( score ) score "
                                                        " FROM %@ "
+                                                       " %@ "
                                                        " GROUP BY origin "
-                                                       " ORDER BY score DESC ", tableName ] ];
+                                                       " ORDER BY score DESC ", tableName, sqlFilter ] ];
     
     while( [results next] )
     {
@@ -143,7 +173,7 @@ static NSString *tableName;
     [db close];
     
     return collection;
-
+    
 }
 
 - (void) save
@@ -201,10 +231,12 @@ static NSString *tableName;
     
     NSString *sql = [NSString stringWithFormat:@" SELECT * FROM %@ "
                           " WHERE origin = %@ "
+                          " AND country = %@ "
                           " AND entry = %@ "
                           " AND festival = %@ "
                           " AND year = %@ ", [self tableName],
                           self.origin,
+                          self.country.pk,
                           self.entry.pk,
                           self.festival.pk,
                           self.year];
@@ -237,10 +269,11 @@ static NSString *tableName;
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, ?, ?, ?, ?, ? ) ", [self tableName], [self fields] ];
+                     " ( null, ?, ?, ?, ?, ?, ? ) ", [self tableName], [self fields] ];
     
     [db executeUpdate:sql,
      self.origin,
+     self.country.pk,
      self.entry.pk,
      self.festival.pk,
      self.year,
@@ -263,6 +296,11 @@ static NSString *tableName;
     {
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET origin = %@ WHERE id = %@", [self tableName],
                            self.origin, self.pk ]];
+    }
+    if( self.country )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = %@ WHERE id = %@", [self tableName],
+                           self.country.pk, self.pk ]];
     }
     if( self.entry )
     {

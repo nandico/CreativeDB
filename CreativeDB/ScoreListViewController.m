@@ -9,6 +9,7 @@
 #import "ScoreListViewController.h"
 #import "ScoreModel.h"
 #import "MenuManagerViewController.h"
+#import "ManagerFilterContainer.h"
 
 
 @interface ScoreListViewController ()
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) NSTableColumn *scoreColumn;
 
 @property (nonatomic, strong) NSMutableArray *items;
+@property (nonatomic, strong) NSMutableDictionary *filters;
 
 @end
 
@@ -57,6 +59,11 @@
                                                      name:MENU_REPORTS object:nil];
         
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateFilter:)
+                                                     name:MLE_NOTIFICATION_FILTER_COMBO_UPDATE object:self.viewInstance];
+        
+        
         
         [self createFilter];
         
@@ -73,7 +80,7 @@
     if( tableName )
     {
         [ScoreModel setTableName:tableName];
-        _items = [ScoreModel loadRankingByTableName:tableName];
+        _items = [ScoreModel loadRankingByTableName:tableName andFilters:_filters];
         [_tableView reloadData];
     }
 }
@@ -82,7 +89,7 @@
 - (void) createList
 {
     [ScoreModel setTableName:@"aa_person_score"];
-    _items = [ScoreModel loadRankingByTableName:@"aa_person_score"];
+    _items = [ScoreModel loadRankingByTableName:@"aa_person_score" andFilters:_filters];
     
     _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
@@ -123,6 +130,8 @@
 
 - (void) createFilter
 {
+    _filters = [[NSMutableDictionary alloc] init];
+
     self.fieldData = [[NSMutableDictionary alloc] init];
     
     [self prepareEntity];
@@ -132,7 +141,6 @@
 
 - (void) prepareEntity
 {
-    
     NSDictionary *country = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
                              @"country", MLE_FIELD_NAME_KEY,
@@ -146,6 +154,35 @@
                              nil];
     
     [self.fieldData setObject:country forKey:@"country"];
+    
+    NSDictionary *agency = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                             @"agency", MLE_FIELD_NAME_KEY,
+                             @"Agency", MLE_FIELD_LABEL_KEY,
+                             @"AgencyModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                             [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
+                             nil];
+    
+    [self.fieldData setObject:agency forKey:@"agency"];
+
+    NSDictionary *group = [NSDictionary dictionaryWithObjectsAndKeys:
+                            [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                            @"group", MLE_FIELD_NAME_KEY,
+                            @"Group", MLE_FIELD_LABEL_KEY,
+                            @"GroupModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                            @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                            [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                            [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                            [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                            [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
+                            nil];
+    
+    [self.fieldData setObject:group forKey:@"group"];
+    
     
 }
 
@@ -175,6 +212,18 @@
     
     NSString *completeAsString = [NSString stringWithFormat:@"%ld%@",number,suffix];
     return completeAsString;
+}
+
+- (void) updateFilter:(NSNotification *) notification
+{
+    ManagerFilterComboBox *combo = [notification.userInfo objectForKey:MLE_FILTER_COMBO_ITEM];
+    NSString *value = [combo itemObjectValueAtIndex:[combo indexOfSelectedItem]];
+    [_filters setObject:value forKey:combo.name];
+    
+    NSLog( @"FILTERS UPDATE: %@", _filters );
+    
+    NSLog( @"Notification: %@", combo.name );
+    NSLog( @"Value: %@", value );
 }
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row

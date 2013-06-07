@@ -43,6 +43,7 @@
 + (void) resetScore:(NSString *) tableName;
 
 + (NSMutableArray *) loadRankingByTableName: (NSString *) tableName;
++ (NSMutableArray *) loadRankingByTableName: (NSString *) tableName andFilters:(NSMutableDictionary *) filters;
 
 - (void) save;
 - (void) deleteModel;

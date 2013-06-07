@@ -216,9 +216,9 @@
     {
         _comboField = [[ManagerFilterComboBox alloc] init];
         [self addSubview:_comboField];
-        
+
         [self bindCombo];
-        
+
         NSString *fieldValue = [self bindLookupValue];
         
         if( fieldValue )
@@ -268,6 +268,12 @@
         _comboField = [[ManagerFilterComboBox alloc] init];
         [self addSubview:_comboField];
         
+        _comboField.name = _fieldName;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(comboChanged:)
+                                                     name:NSComboBoxSelectionDidChangeNotification object:_comboField];
+        
         [self bindCombo];
         
         NSString *fieldValue = [self bindLookupValue];
@@ -281,12 +287,28 @@
     return _comboField;
 }
 
+- (void) comboChanged:(NSNotification *) notification
+{
+    ManagerFilterComboBox *combo = notification.object;
+    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:combo forKey:MLE_FILTER_COMBO_ITEM];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MLE_NOTIFICATION_FILTER_COMBO_UPDATE
+                                                        object:self
+                                                      userInfo:updateMessage];
+}
+
 - (ManagerFilterComboBox *) staticComboField
 {
     if(!_comboField)
     {
         _comboField = [[ManagerFilterComboBox alloc] init];
         [self addSubview:_comboField];
+        
+        _comboField.name = _fieldName;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(comboChanged:)
+                                                     name:NSComboBoxSelectionDidChangeNotification object:_comboField];
         
         [self bindStaticCombo];
         
@@ -304,7 +326,5 @@
     
     return _comboField;
 }
-
-
 
 @end

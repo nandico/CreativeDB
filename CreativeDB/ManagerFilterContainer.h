@@ -10,6 +10,9 @@
 #import "ManagerFilterComboBox.h"
 #import "ManagerFilterTextField.h"
 
+#define MLE_NOTIFICATION_FILTER_COMBO_UPDATE @"MLE_NOTIFICATION_FILTER_COMBO_UPDATE"
+#define MLE_FILTER_COMBO_ITEM @"MLE_FILTER_COMBO_ITEM"
+
 @interface ManagerFilterContainer : NSView
 
 @property (nonatomic,strong) NSNumber *fieldType;

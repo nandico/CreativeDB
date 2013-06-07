@@ -12,6 +12,9 @@
 @interface  ScoreListView()
 
 @property (nonatomic, strong) ManagerFilterContainer *country;
+@property (nonatomic, strong) ManagerFilterContainer *agency;
+@property (nonatomic, strong) ManagerFilterContainer *group;
+@property (nonatomic, strong) NSMutableArray *filters;
 
 @end
 
@@ -30,28 +33,57 @@
 
 - (void) createForm
 {
-    [self country];
+    _filters = [[NSMutableArray alloc] init];
+    
+    [_filters addObject:[self country]];
+    [_filters addObject:[self group]];
+    [_filters addObject:[self agency]];
+    
+    [self arrangeFilters];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateFilter:)
+                                                 name:MLE_NOTIFICATION_FILTER_COMBO_UPDATE object:self.country];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateFilter:)
+                                                 name:MLE_NOTIFICATION_FILTER_COMBO_UPDATE object:self.group];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateFilter:)
+                                                 name:MLE_NOTIFICATION_FILTER_COMBO_UPDATE object:self.agency];
+
+}
+
+- (void) arrangeFilters
+{
+    for( NSInteger i = 0; i < _filters.count; i ++ )
+    {
+        ManagerFilterContainer *filter = [_filters objectAtIndex:i];
         
-    //[_engine arrangeContainers];
+        filter.frame = NSMakeRect( filter.frame.origin.x,
+                                  MLE_FILTER_CONTAINER_OFFSET_Y - ( MLE_FILTER_CONTAINER_HEIGHT * i ) ,
+                                  filter.frame.size.width,
+                                  filter.frame.size.height);
+    }
 }
 
 - (void) destroyForm
 {
-    //[_engine removeContainers];
-    
     [self.country removeFromSuperview];
+    [self.agency removeFromSuperview];
+    [self.group removeFromSuperview];
     
     _country = nil;
+    _agency = nil;
+    _group = nil;
 }
 
 - (ManagerFilterContainer *)country
 {
     if(!_country)
     {
-        
         NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"country"];
-        
-        NSLog( @"Opa: %@ - datasource: %@", options, self.dataSource );
         
         _country = [[ManagerFilterContainer alloc] initWithOptions:options];
         
@@ -61,6 +93,44 @@
     return _country;
 }
 
+- (ManagerFilterContainer *)group
+{
+    if(!_group)
+    {
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"group"];
+        
+        _group = [[ManagerFilterContainer alloc] initWithOptions:options];
+        
+        [self addSubview:_group];
+    }
+    
+    return _group;
+}
+
+- (ManagerFilterContainer *)agency
+{
+    if(!_agency)
+    {
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"agency"];
+        
+        _agency = [[ManagerFilterContainer alloc] initWithOptions:options];
+        
+        [self addSubview:_agency];
+    }
+    
+    return _agency;
+}
+
+- (void) updateFilter:(NSNotification *) notification
+{
+    ManagerFilterComboBox *combo = [notification.userInfo objectForKey:MLE_FILTER_COMBO_ITEM];
+    
+    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:combo forKey:MLE_FILTER_COMBO_ITEM];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:MLE_NOTIFICATION_FILTER_COMBO_UPDATE
+                                                        object:self
+                                                      userInfo:updateMessage];
+}
 
 
 @end

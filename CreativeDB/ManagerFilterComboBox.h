@@ -10,4 +10,6 @@
 
 @interface ManagerFilterComboBox : NSComboBox
 
+@property (strong, nonatomic) NSString *name;
+
 @end
