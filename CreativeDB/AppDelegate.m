@@ -19,6 +19,7 @@
     _mainManager = [[MainManagerViewController alloc] init];
     self.window.contentView = _mainManager.view;
 
+    // delegate
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
