@@ -152,7 +152,7 @@
         }
         else if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
         {
-            [_listMessage setStringValue:@"No groups with this filter"];
+            [_listMessage setStringValue:@"No groups with this filter."];
         }
         else if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
         {
