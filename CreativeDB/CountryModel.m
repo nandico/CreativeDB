@@ -128,6 +128,65 @@
     return collection;
 }
 
++ (NSMutableArray *) loadFiltered
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    CountryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE "
+                                                       " id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_agency_score "
+                                                       " ) "
+                                                       " OR id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_client_score "
+                                                       " ) "
+                                                       " OR id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_country_score "
+                                                       " ) "
+                                                       " OR id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_group_score "
+                                                       " ) "
+                                                       " OR id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_person_score "
+                                                       " ) "
+                                                       " OR id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_producer_score "
+                                                       " ) "
+                                                       " OR id IN ( "
+                                                       "    SELECT DISTINCT( country ) "
+                                                       "    FROM aa_product_score "
+                                                       " ) "
+                                                       , [self fields], [self tableName] ] ];
+    
+    while( [results next] )
+    {
+        model = [CountryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+    
+}
+
 - (NSString *) description
 {
     return self.name;

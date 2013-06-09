@@ -101,9 +101,11 @@
 
 - (void) updateFilter:(NSNotification *) notification
 {
+    ManagerFilterContainer *container = notification.object;
     ManagerFilterComboBox *combo = [notification.userInfo objectForKey:MLE_FILTER_COMBO_ITEM];
     
-    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:combo forKey:MLE_FILTER_COMBO_ITEM];
+    NSDictionary *updateMessage = [NSDictionary dictionaryWithObjectsAndKeys:combo, MLE_FILTER_COMBO_ITEM,
+                                   container, MLE_FILTER_COMBO_CONTAINER, nil];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MLE_NOTIFICATION_FILTER_COMBO_UPDATE
                                                         object:self

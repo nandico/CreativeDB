@@ -24,5 +24,6 @@
 + (CountryModel *) loadModel:(NSNumber *) pk;
 + (CountryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSMutableArray *) loadFiltered;
 
 @end

@@ -95,6 +95,39 @@
     return collection;
 }
 
++ (NSMutableArray *) loadFiltered
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    GroupModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE id IN ( "
+                                                       "    SELECT DISTINCT( C.agency_group ) from aa_entry AS A "
+                                                       "    INNER JOIN aa_award AS B on A.id = B.entry "
+                                                       "    INNER JOIN aa_agency AS C ON A.agency = C.id "
+                                                       " ) ", [self fields], [self tableName] ] ];
+    
+    while( [results next] )
+    {
+        model = [GroupModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
 + (GroupModel *) loadModelByStringValue:(NSString *) stringValue
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

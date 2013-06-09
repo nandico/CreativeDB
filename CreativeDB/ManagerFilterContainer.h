@@ -12,8 +12,11 @@
 
 #define MLE_NOTIFICATION_FILTER_COMBO_UPDATE @"MLE_NOTIFICATION_FILTER_COMBO_UPDATE"
 #define MLE_FILTER_COMBO_ITEM @"MLE_FILTER_COMBO_ITEM"
+#define MLE_FILTER_COMBO_CONTAINER @"MLE_FILTER_COMBO_CONTAINER"
 
 @interface ManagerFilterContainer : NSView
+
+@property (nonatomic, strong) NSString *modelTitle;
 
 @property (nonatomic,strong) NSNumber *fieldType;
 @property (nonatomic, strong) ManagerFilterTextField *textField;

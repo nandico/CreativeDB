@@ -55,6 +55,9 @@
         if( [self.options objectForKey:MLE_FIELD_LABEL_KEY] )
             _fieldLabel = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LABEL_KEY]];
         
+        if( [self.options objectForKey:MLE_FIELDSET_MODEL_HEADERTITLE] )
+            _modelTitle = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_HEADERTITLE]];
+        
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_KEY] )
             _modelName = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_KEY]];
         
@@ -82,11 +85,7 @@
                 [self textField];
                 break;
             case MLEComboFieldType:
-                if( [_modelFilterName isEqualToString:_fieldName] ) {
-                    [self filteredComboField];
-                } else {
-                    [self comboField];
-                }
+                [self comboField];
                 break;
             case MLEStaticComboFieldType:
                 [self staticComboField];
@@ -129,9 +128,9 @@
         case MLETextFieldType:
             return [[self textField] stringValue];
         case MLEComboFieldType:
-            return [[self comboField] stringValue];
+            return ( [[[self comboField] stringValue] isEqualToString:_modelTitle] ) ? @"" : [[self comboField] stringValue];
         case MLEStaticComboFieldType:
-            return [[self staticComboField] stringValue];
+            return ( [[[self comboField] stringValue] isEqualToString:_modelTitle] ) ? @"" : [[self comboField] stringValue];
     }
     
     return nil;
@@ -176,20 +175,9 @@
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
 
-- (NSString *) bindFilteredLookupValue
-{
-    SEL staticLoadSelector = NSSelectorFromString( @"loadModel:" );
-    id baseLookupClass = NSClassFromString( _fieldLookupModel );
-    id baseLookupModel = [baseLookupClass performSelector:staticLoadSelector withObject:_modelFilterValue];
-    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
-    
-    return [baseLookupModel performSelector:lookupNameSelector withObject:nil];
-    
-}
-
 - (NSMutableArray *) lookupData
 {
-    SEL staticLoadSelector = NSSelectorFromString( @"loadAll" );
+    SEL staticLoadSelector = NSSelectorFromString( @"loadFiltered" );
     id lookupModel = NSClassFromString( _fieldLookupModel );
     
     return [lookupModel performSelector:staticLoadSelector withObject:nil];
@@ -210,39 +198,17 @@
     
 }
 
-- (ManagerFilterComboBox *) filteredComboField
-{
-    if(!_comboField)
-    {
-        _comboField = [[ManagerFilterComboBox alloc] init];
-        [self addSubview:_comboField];
-
-        [self bindCombo];
-
-        NSString *fieldValue = [self bindLookupValue];
-        
-        if( fieldValue )
-        {
-            [_comboField setStringValue:fieldValue];
-        }
-        else if( _modelFilterValue )
-        {
-            fieldValue = [self bindFilteredLookupValue];
-            
-            if( fieldValue )
-            {
-                [_comboField setStringValue:fieldValue];
-            }
-        }
-    }
-    
-    return _comboField;
-}
-
 - (void) bindCombo
 {
     NSMutableArray *comboItems = [self lookupData];
     SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
+    
+    if( _modelTitle )
+    {
+        [_comboField addItemWithObjectValue:_modelTitle];
+        [_comboField selectItemAtIndex:0];
+    }
+    
     
     for( NSInteger comboIndex = 0; comboIndex < comboItems.count; comboIndex ++ )
     {

@@ -10,7 +10,7 @@
 #import "ScoreModel.h"
 #import "MenuManagerViewController.h"
 #import "ManagerFilterContainer.h"
-
+#import "ManagerListMessage.h"
 
 @interface ScoreListViewController ()
 
@@ -19,6 +19,7 @@
 
 @property (nonatomic, strong) NSScrollView *tableContainer;
 @property (nonatomic, strong) NSTableView *tableView;
+@property (nonatomic, strong) ManagerListMessage *listMessage;
 
 @property (nonatomic, strong) NSTableColumn *indexColumn;
 @property (nonatomic, strong) NSTableColumn *originColumn;
@@ -81,6 +82,7 @@
     {
         [ScoreModel setTableName:tableName];
         _items = [ScoreModel loadRankingByTableName:tableName andFilters:_filters];
+        [self updateMessage];
         [_tableView reloadData];
     }
 }
@@ -126,6 +128,49 @@
     
     [_tableView reloadData];
     
+    _listMessage = [[ManagerListMessage alloc] init];
+    [_listMessage setStringValue:@""];
+    [self.viewInstance addSubview:_listMessage];
+    
+}
+
+- (void) updateMessage
+{
+    if( _items.count == 0 )
+    {
+        if( [[ScoreModel tableName] isEqualToString:@"aa_agency_score"] )
+        {
+            [_listMessage setStringValue:@"No agencies with this filter."];
+        }
+        else if( [[ScoreModel tableName] isEqualToString:@"aa_client_score"] )
+        {
+            [_listMessage setStringValue:@"No clients with this filter."];
+        }
+        else if( [[ScoreModel tableName] isEqualToString:@"aa_country_score"] )
+        {
+            [_listMessage setStringValue:@"No countries with this filter."];
+        }
+        else if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
+        {
+            [_listMessage setStringValue:@"No groups with this filter"];
+        }
+        else if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
+        {
+            [_listMessage setStringValue:@"No persons with this filter."];
+        }
+        else if( [[ScoreModel tableName] isEqualToString:@"aa_producer_score"] )
+        {
+            [_listMessage setStringValue:@"No producer companies with this filter."];
+        }
+        else if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
+        {
+            [_listMessage setStringValue:@"No products with this filter."];
+        }
+    }
+    else
+    {
+        [_listMessage setStringValue:@""];
+    }
 }
 
 - (void) createFilter
@@ -147,6 +192,7 @@
                              @"Country", MLE_FIELD_LABEL_KEY,
                              @"CountryModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                             @"Filter by Country", MLE_FIELDSET_MODEL_HEADERTITLE,
                              [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
                              [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
                              [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
@@ -161,6 +207,7 @@
                             @"Group", MLE_FIELD_LABEL_KEY,
                             @"GroupModel", MLE_FIELD_LOOKUP_MODEL_KEY,
                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                            @"Filter by Group", MLE_FIELDSET_MODEL_HEADERTITLE,
                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
@@ -203,10 +250,21 @@
 - (void) updateFilter:(NSNotification *) notification
 {
     ManagerFilterComboBox *combo = [notification.userInfo objectForKey:MLE_FILTER_COMBO_ITEM];
-    NSString *value = [combo itemObjectValueAtIndex:[combo indexOfSelectedItem]];
-    [_filters setObject:value forKey:combo.name];
+    ManagerFilterContainer *container =[notification.userInfo objectForKey:MLE_FILTER_COMBO_CONTAINER];
     
+    NSString *value = [combo itemObjectValueAtIndex:[combo indexOfSelectedItem]];
+
+    if( [value isEqualToString:container.modelTitle] )
+    {
+        [_filters removeObjectForKey:combo.name];
+    }
+    else
+    {
+        [_filters setObject:value forKey:combo.name];
+    }
+        
     _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName] andFilters:_filters];
+    [self updateMessage];
     [_tableView reloadData];
 
     

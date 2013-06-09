@@ -40,6 +40,7 @@
 		BF2F32A7172E0B7E00C0CB1B /* CreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */; };
 		BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */; };
 		BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */; };
+		BF4F3B0C1764133E0038C761 /* ManagerListMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3B0B1764133E0038C761 /* ManagerListMessage.m */; };
 		BF5472ED175EC3500056499B /* ScoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472EC175EC34F0056499B /* ScoreListView.m */; };
 		BF5472F0175EC4300056499B /* ManagerFilterContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472EF175EC4300056499B /* ManagerFilterContainer.m */; };
 		BF5472F3175EC4D60056499B /* ManagerFilterComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472F2175EC4D60056499B /* ManagerFilterComboBox.m */; };
@@ -198,6 +199,8 @@
 		BF3A4D65174434970046FF9B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		BF3A4D67174434970046FF9B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		BF3A4D69174434970046FF9B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		BF4F3B0A1764133D0038C761 /* ManagerListMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerListMessage.h; sourceTree = "<group>"; };
+		BF4F3B0B1764133E0038C761 /* ManagerListMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerListMessage.m; sourceTree = "<group>"; };
 		BF5472EB175EC34F0056499B /* ScoreListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreListView.h; sourceTree = "<group>"; };
 		BF5472EC175EC34F0056499B /* ScoreListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreListView.m; sourceTree = "<group>"; };
 		BF5472EE175EC4300056499B /* ManagerFilterContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFilterContainer.h; sourceTree = "<group>"; };
@@ -748,6 +751,8 @@
 				BF5472F2175EC4D60056499B /* ManagerFilterComboBox.m */,
 				BFF4C59717054B980098A633 /* ManagerLabel.h */,
 				BFF4C59817054B980098A633 /* ManagerLabel.m */,
+				BF4F3B0A1764133D0038C761 /* ManagerListMessage.h */,
+				BF4F3B0B1764133E0038C761 /* ManagerListMessage.m */,
 				BFF4C59D170553900098A633 /* ManagerFieldContainer.h */,
 				BFF4C59E170553910098A633 /* ManagerFieldContainer.m */,
 				BF5472EE175EC4300056499B /* ManagerFilterContainer.h */,
@@ -954,6 +959,7 @@
 				BF5472F0175EC4300056499B /* ManagerFilterContainer.m in Sources */,
 				BF5472F3175EC4D60056499B /* ManagerFilterComboBox.m in Sources */,
 				BF5472F6175EC8430056499B /* ManagerFilterTextField.m in Sources */,
+				BF4F3B0C1764133E0038C761 /* ManagerListMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
