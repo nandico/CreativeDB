@@ -11,6 +11,7 @@
 #import "ManagerMenuButton.h"
 #import "ManagerSubmenuButton.h"
 #import "ManagerEngine.h"
+#import "ScoreController.h"
 
 @interface MenuManagerViewController ()
 
@@ -28,6 +29,7 @@
 @property (nonatomic, strong) ManagerMenuButton *reports;
 
 @property (nonatomic, strong) BaseLayeredView *reportsMenu;
+@property (nonatomic, strong) ManagerSubmenuButton *reportsRefresh;
 @property (nonatomic, strong) ManagerSubmenuButton *reportsAgency;
 @property (nonatomic, strong) ManagerSubmenuButton *reportsClient;
 @property (nonatomic, strong) ManagerSubmenuButton *reportsCountry;
@@ -95,7 +97,8 @@
 
 - (void) prepareSubmenus:(BaseLayeredView *) submenuView
 {
-    [_submenuButtons addObject:[self reportsPerson]];    
+    [_submenuButtons addObject:[self reportsRefresh]];
+    [_submenuButtons addObject:[self reportsPerson]];
     [_submenuButtons addObject:[self reportsAgency]];
     [_submenuButtons addObject:[self reportsClient]];
     [_submenuButtons addObject:[self reportsCountry]];
@@ -270,6 +273,20 @@
     return _subcategories;
 }
 
+- (ManagerSubmenuButton *) reportsRefresh
+{
+    if(!_reportsRefresh)
+    {
+        _reportsRefresh = [[ManagerSubmenuButton alloc] init];
+        _reportsRefresh.title = @"REFRESH REPORT";
+        [_reportsRefresh setTarget:self];
+        [_reportsRefresh setAction:@selector(reportsRefreshAction:)];
+        [self.viewInstance addSubview:_reportsRefresh];
+    }
+    
+    return _reportsRefresh;
+}
+
 - (ManagerSubmenuButton *) reportsPerson
 {
     if(!_reportsPerson)
@@ -374,6 +391,11 @@
     }
     
     return _reportsProduct;
+}
+
+- (void) reportsRefreshAction:(NSNotification *) notification
+{
+    [ScoreController processAwards];
 }
 
 - (void) entriesAction
