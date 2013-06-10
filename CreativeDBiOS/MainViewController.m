@@ -9,11 +9,13 @@
 #import "MainViewController.h"
 #import "MainView.h"
 #import "HeaderViewController.h"
+#import "ScoreListViewController.h"
 
 @interface MainViewController()
 
 @property (strong, nonatomic) MainView *viewInstance;
 @property (strong, nonatomic) HeaderViewController *header;
+@property (strong, nonatomic) ScoreListViewController *scoreModule;
 
 @end
 
@@ -24,8 +26,12 @@
     self = [super init];
     if (self) {
         self.view = self.viewInstance = [[MainView alloc] init];
+
         self.header = [[HeaderViewController alloc] init];
         [self.viewInstance addSubview:self.header.view];
+    
+        self.scoreModule = [[ScoreListViewController alloc] init];
+        [self.viewInstance addSubview:self.scoreModule.view];
     }
     
     return self;
