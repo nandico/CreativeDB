@@ -35,5 +35,14 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LeagueGothic-CondensedItalic.otf</string>
+		<string>LeagueGothic-CondensedRegular.otf</string>
+		<string>LeagueGothic-Italic.otf</string>
+		<string>LeagueGothic-Regular.otf</string>
+		<string>Montserrat-Bold.ttf</string>
+		<string>Montserrat-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

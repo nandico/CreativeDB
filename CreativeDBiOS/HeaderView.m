@@ -8,6 +8,7 @@
 
 #import "HeaderView.h"
 #import "HeaderLabel.h"
+#import "ClientEngine.h"
 
 @interface HeaderView()
 
@@ -21,7 +22,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor redColor]];
+        [self setBackgroundColor:HEADER_BACKGROUND_COLOR];
         [self title];
     }
     return self;
@@ -31,7 +32,7 @@
 {
     if(!_title)
     {
-        _title = [[HeaderLabel alloc] initWithFrame:CGRectMake(0, 0, 500.0f, 100.0f)];
+        _title = [[HeaderLabel alloc] initWithFrame:CGRectMake( 30.0f, 0, 300.0f, 80.0f)];
         [_title setText:@"CreativeDB"];
         [self addSubview:_title];
     }

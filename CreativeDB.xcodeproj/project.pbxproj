@@ -71,6 +71,12 @@
 		BF5FFB4F1765502A0034600E /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB3D17654D780034600E /* LeagueGothic-Regular.otf */; };
 		BF5FFB501765502A0034600E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB3E17654D780034600E /* Montserrat-Bold.ttf */; };
 		BF5FFB511765502A0034600E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB3F17654D780034600E /* Montserrat-Regular.ttf */; };
+		BF5FFB6517655FB50034600E /* LeagueGothic-CondensedItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB5F17655FB50034600E /* LeagueGothic-CondensedItalic.otf */; };
+		BF5FFB6617655FB50034600E /* LeagueGothic-CondensedRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6017655FB50034600E /* LeagueGothic-CondensedRegular.otf */; };
+		BF5FFB6717655FB50034600E /* LeagueGothic-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6117655FB50034600E /* LeagueGothic-Italic.otf */; };
+		BF5FFB6817655FB50034600E /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6217655FB50034600E /* LeagueGothic-Regular.otf */; };
+		BF5FFB6917655FB50034600E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6317655FB50034600E /* Montserrat-Bold.ttf */; };
+		BF5FFB6A17655FB50034600E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6417655FB50034600E /* Montserrat-Regular.ttf */; };
 		BF62E8C0173DC05E00B75C07 /* ProducerCreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */; };
 		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */; };
@@ -267,6 +273,12 @@
 		BF5FFB3D17654D780034600E /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
 		BF5FFB3E17654D780034600E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		BF5FFB3F17654D780034600E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		BF5FFB5F17655FB50034600E /* LeagueGothic-CondensedItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedItalic.otf"; sourceTree = "<group>"; };
+		BF5FFB6017655FB50034600E /* LeagueGothic-CondensedRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-CondensedRegular.otf"; sourceTree = "<group>"; };
+		BF5FFB6117655FB50034600E /* LeagueGothic-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Italic.otf"; sourceTree = "<group>"; };
+		BF5FFB6217655FB50034600E /* LeagueGothic-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LeagueGothic-Regular.otf"; sourceTree = "<group>"; };
+		BF5FFB6317655FB50034600E /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		BF5FFB6417655FB50034600E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		BF62E8BE173DC05E00B75C07 /* ProducerCreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerViewController.h; sourceTree = "<group>"; };
 		BF62E8BF173DC05E00B75C07 /* ProducerCreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerViewController.m; sourceTree = "<group>"; };
 		BF62E8C1173DC0AE00B75C07 /* ProducerCreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerCreditManagerView.h; sourceTree = "<group>"; };
@@ -629,6 +641,7 @@
 		BF5FFAD3176529720034600E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF5FFB5E17655FB50034600E /* fonts */,
 				BF5FFAD4176529720034600E /* CreativeDBiOS-Info.plist */,
 				BF5FFAD5176529720034600E /* InfoPlist.strings */,
 				BF5FFAD8176529720034600E /* main.m */,
@@ -649,6 +662,19 @@
 				BF5FFB3D17654D780034600E /* LeagueGothic-Regular.otf */,
 				BF5FFB3E17654D780034600E /* Montserrat-Bold.ttf */,
 				BF5FFB3F17654D780034600E /* Montserrat-Regular.ttf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		BF5FFB5E17655FB50034600E /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FFB5F17655FB50034600E /* LeagueGothic-CondensedItalic.otf */,
+				BF5FFB6017655FB50034600E /* LeagueGothic-CondensedRegular.otf */,
+				BF5FFB6117655FB50034600E /* LeagueGothic-Italic.otf */,
+				BF5FFB6217655FB50034600E /* LeagueGothic-Regular.otf */,
+				BF5FFB6317655FB50034600E /* Montserrat-Bold.ttf */,
+				BF5FFB6417655FB50034600E /* Montserrat-Regular.ttf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -965,6 +991,12 @@
 				BF5FFADF176529720034600E /* Default.png in Resources */,
 				BF5FFAE1176529720034600E /* Default@2x.png in Resources */,
 				BF5FFAE3176529720034600E /* Default-568h@2x.png in Resources */,
+				BF5FFB6517655FB50034600E /* LeagueGothic-CondensedItalic.otf in Resources */,
+				BF5FFB6617655FB50034600E /* LeagueGothic-CondensedRegular.otf in Resources */,
+				BF5FFB6717655FB50034600E /* LeagueGothic-Italic.otf in Resources */,
+				BF5FFB6817655FB50034600E /* LeagueGothic-Regular.otf in Resources */,
+				BF5FFB6917655FB50034600E /* Montserrat-Bold.ttf in Resources */,
+				BF5FFB6A17655FB50034600E /* Montserrat-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
