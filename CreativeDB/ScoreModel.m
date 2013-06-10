@@ -178,11 +178,17 @@ static NSString *tableName;
                                                        " %@ "
                                                        " GROUP BY origin "
                                                        " ORDER BY score DESC ", tableName, sqlFilter ] ];
+    NSInteger count = 0;
     
     while( [results next] )
     {
         model = [ScoreModel objectWithResults:results];
         [collection addObject:model];
+        
+        count ++;
+        
+        // TODO: Implement a infinity scrolling / pagination
+        if( count > 99 ) break;
     }
     
     [results close];

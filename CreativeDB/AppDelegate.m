@@ -14,12 +14,11 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    [ScoreController processAwards];
+    // Disabled for perormance reasons
+    // [ScoreController processAwards];
     
     _mainManager = [[MainManagerViewController alloc] init];
     self.window.contentView = _mainManager.view;
-
-    // delegate
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication
