@@ -62,7 +62,7 @@
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " entry = %ld ", [self fields], [self tableName], [entryPK integerValue] ] ];
+                            " entry = %ld ", [self fields], [self tableName], [entryPK longValue] ] ];
     
     while( [results next] )
     {

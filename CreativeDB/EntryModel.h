@@ -15,10 +15,10 @@
 @interface EntryModel : BaseModel
 
 @property (assign) NSNumber *pk;
-@property (strong) AgencyModel *agency;
-@property (strong) ClientModel *client;
-@property (strong) CountryModel *country;
-@property (strong) ProductModel *product;
+@property (strong, nonatomic) AgencyModel *agency;
+@property (strong, nonatomic) ClientModel *client;
+@property (strong, nonatomic) CountryModel *country;
+@property (strong, nonatomic) ProductModel *product;
 @property (strong) NSURL *accessURL;
 @property (strong) NSURL *caseURL;
 @property (strong) NSString *blurb;

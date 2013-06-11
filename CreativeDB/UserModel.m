@@ -57,7 +57,7 @@
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk longValue] ] ];
     
     if( [results next] )
     {

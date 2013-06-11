@@ -95,7 +95,7 @@ static NSString *tableName;
                                                        " %@ "
                                                         " FROM %@ "
                                                        " WHERE "
-                                                       " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
+                                                       " id = %ld ", [self fields], [self tableName], [pk longValue] ] ];
     
     if( [results next] )
     {
@@ -188,7 +188,7 @@ static NSString *tableName;
         count ++;
         
         // TODO: Implement a infinity scrolling / pagination
-        if( count > 9 ) break;
+        if( count > 999 ) break;
     }
     
     [results close];

@@ -90,7 +90,7 @@ static NSNumber *modelFilterValue;
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk longValue] ] ];
     
     if( [results next] )
     {
@@ -145,7 +145,7 @@ static NSNumber *modelFilterValue;
                                                        " %@ "
                                                        " FROM %@ "
                                                        " WHERE "
-                                                       " client = %ld ", [self fields], [self tableName], [clientPK integerValue] ] ];
+                                                       " client = %ld ", [self fields], [self tableName], [clientPK longValue] ] ];
     
     while( [results next] )
     {
@@ -206,7 +206,7 @@ static NSNumber *modelFilterValue;
                                                        " WHERE "
                                                        " id > %ld "
                                                        " AND %@ = %@ "
-                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue], modelFilterName, modelFilterValue ] ];
+                                                       " ORDER BY id " , [self fields], [self tableName], [_pk longValue], modelFilterName, modelFilterValue ] ];
     
     if( [results next] )
     {
@@ -238,7 +238,7 @@ static NSNumber *modelFilterValue;
                                                        " WHERE "
                                                        " id < %ld "
                                                        " AND %@ = %@ "
-                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue], modelFilterName, modelFilterValue ] ];
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk longValue], modelFilterName, modelFilterValue ] ];
     
     if( [results next] )
     {

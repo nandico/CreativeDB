@@ -13,6 +13,15 @@
 #import "AnnotationModel.h"
 #import "AwardModel.h"
 
+@interface EntryModel()
+
+@property (strong) NSNumber *agencyPK;
+@property (strong) NSNumber *clientPK;
+@property (strong) NSNumber *countryPK;
+@property (strong) NSNumber *productPK;
+
+@end
+
 @implementation EntryModel
 
 + (NSString *) tableName
@@ -40,10 +49,14 @@
     EntryModel *object = [[EntryModel alloc] init];
 
     object.pk = [NSNumber numberWithInt:[results intForColumn:@"id"]];
-    object.agency = [AgencyModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"agency"]]];
-    object.client = [ClientModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"client"]]];
-    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
-    object.product = [ProductModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"product"]]];
+    //object.agency = [AgencyModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"agency"]]];
+    object.agencyPK = [NSNumber numberWithLong:[results longForColumn:@"agency"]];
+    //object.client = [ClientModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"client"]]];
+    object.clientPK = [NSNumber numberWithLong:[results longForColumn:@"client"]];
+    //object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
+    object.countryPK = [NSNumber numberWithLong:[results longForColumn:@"country"]];
+    //object.product = [ProductModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"product"]]];
+    object.productPK = [NSNumber numberWithLong:[results longForColumn:@"product"]];
     if([[results resultDictionary] objectForKey:@"accessURL"])
         object.accessURL = [[NSURL alloc] initWithString:[results stringForColumn:@"accessURL"]];
     if([[results resultDictionary] objectForKey:@"caseURL"])
@@ -54,6 +67,46 @@
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
     
     return object;
+}
+
+- (AgencyModel *) agency
+{
+    if( !_agency )
+    {
+        _agency = [AgencyModel loadModel:_agencyPK];
+    }
+        
+    return _agency;
+}
+
+- (ClientModel *) client
+{
+    if( !_client )
+    {
+        _client = [ClientModel loadModel:_clientPK];
+    }
+    
+    return _client;
+}
+
+- (CountryModel *) country
+{
+    if( !_country )
+    {
+        _country = [CountryModel loadModel:_countryPK];
+    }
+    
+    return _country;
+}
+
+- (ProductModel *) product
+{
+    if( !_product )
+    {
+        _product = [CountryModel loadModel:_productPK];
+    }
+    
+    return _product;
 }
 
 + (EntryModel *) loadModel:(NSNumber *)pk
@@ -70,7 +123,7 @@
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk longValue] ] ];
     
     if( [results next] )
     {
@@ -127,7 +180,7 @@
                             " FROM %@ "
                             " WHERE "
                             " id > %ld "
-                            " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
+                            " ORDER BY id " , [self fields], [self tableName], [_pk longValue] ] ];
     
     if( [results next] )
     {
@@ -157,7 +210,7 @@
                             " FROM %@ "
                             " WHERE "
                             " id < %ld "
-                            " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
+                            " ORDER BY id DESC ", [self fields], [self tableName], [_pk longValue] ] ];
     
     if( [results next] )
     {

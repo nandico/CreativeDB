@@ -54,7 +54,7 @@
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " id = %ld ", [self fields], [self tableName], [pk integerValue] ] ];
+                            " id = %ld ", [self fields], [self tableName], [pk longValue] ] ];
     
     if( [results next] )
     {
@@ -172,7 +172,7 @@
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id > %ld "
-                                                       " ORDER BY id " , [self fields], [self tableName], [_pk integerValue] ] ];
+                                                       " ORDER BY id " , [self fields], [self tableName], [_pk longValue] ] ];
     
     if( [results next] )
     {
@@ -203,7 +203,7 @@
                                                        " FROM %@ "
                                                        " WHERE "
                                                        " id < %ld "
-                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk integerValue] ] ];
+                                                       " ORDER BY id DESC ", [self fields], [self tableName], [_pk longValue] ] ];
     
     if( [results next] )
     {

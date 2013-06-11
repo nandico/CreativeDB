@@ -180,6 +180,8 @@
     id lookupModel = [baseModel performSelector:nameSelector withObject:nil];
     SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
     
+    NSLog( @"Base model class: %@, baseModel: %@, lookupModel %@, nameSelector: %@", baseModelClass, baseModel, lookupModel, _fieldName );
+    
     return [lookupModel performSelector:lookupNameSelector withObject:nil];
 }
 
