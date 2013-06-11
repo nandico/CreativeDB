@@ -70,7 +70,7 @@
 + (void) insertScore:(AwardModel *) award forCredit:(CreditModel *) credit
 {
     [ScoreModel setTableName:@"aa_person_score"];
-    
+        
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = credit.person.pk;
     score.country = credit.person.country;

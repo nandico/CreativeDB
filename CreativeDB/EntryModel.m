@@ -103,7 +103,7 @@
 {
     if( !_product )
     {
-        _product = [CountryModel loadModel:_productPK];
+        _product = [ProductModel loadModel:_productPK];
     }
     
     return _product;
