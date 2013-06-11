@@ -34,12 +34,13 @@
     
         self.scoreModule = [[ScoreListViewController alloc] init];
         [self.viewInstance addSubview:self.scoreModule.view];
-                
+        
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(deviceOrientationDidChange:)
                                                      name: UIDeviceOrientationDidChangeNotification
                                                    object: nil];
-    }
+    
+}
     
     return self;
 }

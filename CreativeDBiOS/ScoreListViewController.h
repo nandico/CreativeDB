@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ScoreListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface ScoreListViewController : UITableViewController
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 

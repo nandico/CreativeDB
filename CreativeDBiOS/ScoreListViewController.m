@@ -30,7 +30,7 @@
         
         [ScoreModel setTableName:@"aa_person_score"];
         _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
-        
+
         [self createList];
     }
     return self;
@@ -51,9 +51,17 @@
 - (void) createList
 {
     self.tableView = [[UITableView alloc] initWithFrame:LIST_LANDSCAPE_FRAME style:UITableViewStylePlain];
+    self.tableView.scrollEnabled = YES;
+    self.tableView.delaysContentTouches = YES;
+    self.tableView.userInteractionEnabled = YES;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView setContentSize:[self.tableView frame].size];
     [self.viewInstance addSubview:self.tableView];
+    [self.tableView reloadData];
+  
+    NSLog( @"contentsize width: %f, height: %f, bounds width: %f, height: %f", self.tableView.contentSize.width, self.tableView.contentSize.height, self.tableView.bounds.size.width, self.tableView.bounds.size.height );
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

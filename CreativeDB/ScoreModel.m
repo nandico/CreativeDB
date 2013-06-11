@@ -49,9 +49,8 @@ static NSString *tableName;
     ScoreModel *object = [[ScoreModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.origin = [NSNumber numberWithLong:[results longForColumn:@"origin"]];
-    
     object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
-    
+
     if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
         object.person = [PersonModel loadModel:object.origin];
     
@@ -72,8 +71,9 @@ static NSString *tableName;
     
     if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
         object.product = [ProductModel loadModel:object.origin];
-    
+     
     object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
+    
     object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
     object.score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
@@ -188,7 +188,7 @@ static NSString *tableName;
         count ++;
         
         // TODO: Implement a infinity scrolling / pagination
-        if( count > 99 ) break;
+        if( count > 9 ) break;
     }
     
     [results close];
