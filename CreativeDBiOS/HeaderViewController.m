@@ -8,6 +8,7 @@
 
 #import "HeaderViewController.h"
 #import "HeaderView.h"
+#import "ClientEngine.h"
 
 @interface HeaderViewController ()
 
@@ -21,9 +22,21 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[HeaderView alloc] initWithFrame:CGRectMake(0, 0, 1024.0f, 768.0f)];
+        self.view = self.viewInstance = [[HeaderView alloc] initWithFrame:HEADER_LANDSCAPE_FRAME];
     }
     return self;
+}
+
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
+{
+    if( UIDeviceOrientationIsPortrait( orientation ) )
+    {
+        self.viewInstance.frame = HEADER_PORTRAIT_FRAME;
+    }
+    else if( UIDeviceOrientationIsLandscape( orientation ) )
+    {
+        self.viewInstance.frame = HEADER_LANDSCAPE_FRAME;
+    }
 }
 
 - (void)viewDidLoad

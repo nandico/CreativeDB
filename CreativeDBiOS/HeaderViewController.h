@@ -10,4 +10,6 @@
 
 @interface HeaderViewController : UIViewController
 
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
+
 @end

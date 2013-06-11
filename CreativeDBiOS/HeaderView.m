@@ -32,8 +32,8 @@
 {
     if(!_title)
     {
-        _title = [[HeaderLabel alloc] initWithFrame:CGRectMake( 30.0f, 0, 300.0f, 80.0f)];
-        [_title setText:@"CreativeDB"];
+        _title = [[HeaderLabel alloc] initWithFrame:HEADER_LOGO_FRAME];
+        [_title setText:APP_NAME];
         [self addSubview:_title];
     }
     

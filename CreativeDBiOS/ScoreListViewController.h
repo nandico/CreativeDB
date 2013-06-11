@@ -10,4 +10,6 @@
 
 @interface ScoreListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
 
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
+
 @end

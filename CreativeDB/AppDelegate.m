@@ -17,6 +17,8 @@
     // Disabled for perormance reasons
     // [ScoreController processAwards];
     
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    
     _mainManager = [[MainManagerViewController alloc] init];
     self.window.contentView = _mainManager.view;
 }

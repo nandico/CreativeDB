@@ -9,6 +9,7 @@
 #import "ScoreListViewController.h"
 #import "BaseView.h"
 #import "ScoreModel.h"
+#import "ClientEngine.h"
 
 @interface ScoreListViewController ()
 
@@ -30,18 +31,26 @@
         [ScoreModel setTableName:@"aa_person_score"];
         _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
         
-        NSLog( @"Items: %@", _items );
-        
         [self createList];
     }
     return self;
 }
 
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
+{
+    if( UIDeviceOrientationIsPortrait( orientation ) )
+    {
+        self.tableView.frame = LIST_PORTRAIT_FRAME;
+    }
+    else if( UIDeviceOrientationIsLandscape( orientation ) )
+    {
+        self.tableView.frame = LIST_LANDSCAPE_FRAME;
+    }
+}
+
 - (void) createList
 {
-    NSLog( @"Frame: %f, %f, %f, %f", self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height );
-    
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 100, 1024, 668) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:LIST_LANDSCAPE_FRAME style:UITableViewStylePlain];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [self.viewInstance addSubview:self.tableView];

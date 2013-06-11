@@ -17,6 +17,8 @@
 @property (strong, nonatomic) HeaderViewController *header;
 @property (strong, nonatomic) ScoreListViewController *scoreModule;
 
+@property (nonatomic) UIDeviceOrientation currentOrientation;
+
 @end
 
 @implementation MainViewController
@@ -32,9 +34,36 @@
     
         self.scoreModule = [[ScoreListViewController alloc] init];
         [self.viewInstance addSubview:self.scoreModule.view];
+                
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deviceOrientationDidChange:)
+                                                     name: UIDeviceOrientationDidChangeNotification
+                                                   object: nil];
     }
     
     return self;
+}
+
+- (void) deviceOrientationDidChange:(NSNotification *) notification
+{
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    if( orientation == UIDeviceOrientationFaceUp ||
+       orientation == UIDeviceOrientationFaceDown ||
+       orientation == UIDeviceOrientationUnknown ||
+       _currentOrientation == orientation)
+    {
+        return;
+    }
+        
+    _currentOrientation = orientation;
+    [self performSelector:@selector(orientationChangedMethod) withObject:nil afterDelay:0];
+}
+
+- (void) orientationChangedMethod
+{
+    [self.header updateOrientation:_currentOrientation];
+    [self.scoreModule updateOrientation:_currentOrientation];
 }
 
 - (void)viewDidLoad
