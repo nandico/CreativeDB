@@ -21,15 +21,15 @@
 
 @property (assign) NSNumber *pk;
 @property (strong) NSNumber *origin;
-@property (strong) AgencyModel *agency;
-@property (strong) ClientModel *client;
-@property (strong) CountryModel *country;
-@property (strong) GroupModel *group;
-@property (strong) PersonModel *person;
-@property (strong) ProducerModel *producer;
-@property (strong) ProductModel *product;
-@property (strong) EntryModel *entry;
-@property (strong) FestivalModel *festival;
+@property (strong, nonatomic) AgencyModel *agency;
+@property (strong, nonatomic) ClientModel *client;
+@property (strong, nonatomic) CountryModel *country;
+@property (strong, nonatomic) GroupModel *group;
+@property (strong, nonatomic) PersonModel *person;
+@property (strong, nonatomic) ProducerModel *producer;
+@property (strong, nonatomic) ProductModel *product;
+@property (strong, nonatomic) EntryModel *entry;
+@property (strong, nonatomic) FestivalModel *festival;
 @property (strong) NSNumber *year;
 @property (strong) NSNumber *score;
 

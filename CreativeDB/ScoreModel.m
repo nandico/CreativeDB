@@ -9,6 +9,20 @@
 #import "ScoreModel.h"
 #import "FMDBDataAccess.h"
 
+@interface ScoreModel()
+
+@property (strong) NSNumber *agencyPK;
+@property (strong) NSNumber *clientPK;
+@property (strong) NSNumber *countryPK;
+@property (strong) NSNumber *groupPK;
+@property (strong) NSNumber *personPK;
+@property (strong) NSNumber *producerPK;
+@property (strong) NSNumber *productPK;
+@property (strong) NSNumber *entryPK;
+@property (strong) NSNumber *festivalPK;
+
+@end
+
 @implementation ScoreModel
 
 static NSString *tableName;
@@ -49,36 +63,142 @@ static NSString *tableName;
     ScoreModel *object = [[ScoreModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.origin = [NSNumber numberWithLong:[results longForColumn:@"origin"]];
-    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
+//    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
+
+    object.countryPK = [NSNumber numberWithLong:[results longForColumn:@"country"]];
+
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
+//        object.person = [PersonModel loadModel:object.origin];
 
     if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
-        object.person = [PersonModel loadModel:object.origin];
+        object.personPK = object.origin;
     
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_agency_score"] )
+//        object.agency = [AgencyModel loadModel:object.origin];
+
     if( [[ScoreModel tableName] isEqualToString:@"aa_agency_score"] )
-        object.agency = [AgencyModel loadModel:object.origin];
+        object.agencyPK = object.origin;
     
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_client_score"] )
+//        object.client = [ClientModel loadModel:object.origin];
+
     if( [[ScoreModel tableName] isEqualToString:@"aa_client_score"] )
-        object.client = [ClientModel loadModel:object.origin];
+        object.clientPK = object.origin;
     
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_country_score"] )
+//        object.country = [CountryModel loadModel:object.origin];
+
     if( [[ScoreModel tableName] isEqualToString:@"aa_country_score"] )
-        object.country = [CountryModel loadModel:object.origin];
+        object.countryPK = object.origin;
     
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
+//        object.group = [GroupModel loadModel:object.origin];
+
     if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
-        object.group = [GroupModel loadModel:object.origin];
+        object.groupPK = object.origin;
     
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_producer_score"] )
+//        object.producer = [ProducerModel loadModel:object.origin];
+
     if( [[ScoreModel tableName] isEqualToString:@"aa_producer_score"] )
-        object.producer = [ProducerModel loadModel:object.origin];
+        object.producerPK = object.origin;
+    
+//    if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
+//        object.product = [ProductModel loadModel:object.origin];
     
     if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
-        object.product = [ProductModel loadModel:object.origin];
+        object.productPK = object.origin;
      
-    object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
+//    object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
+    object.entryPK = [NSNumber numberWithLong:[results longForColumn:@"entry"]];
     
-    object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
+//    object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
+    object.festivalPK = [NSNumber numberWithLong:[results longForColumn:@"festival"]];
+    
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
     object.score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
     
     return object;
+}
+
+- (CountryModel *) country
+{
+    if( !_country )
+    {
+        _country = [CountryModel loadModel:_countryPK];
+    }
+    
+    return _country;
+}
+
+- (PersonModel *) person
+{
+    if( !_person )
+    {
+        _person = [PersonModel loadModel:_personPK];
+    }
+    
+    return _person;
+}
+
+- (AgencyModel *) agency
+{
+    if( !_agency )
+    {
+        _agency = [AgencyModel loadModel:_agencyPK];
+    }
+    
+    return _agency;
+}
+
+- (ClientModel *) client
+{
+    if( !_client )
+    {
+        _client = [ClientModel loadModel:_clientPK];
+    }
+    
+    return _client;
+}
+
+- (GroupModel *) group
+{
+    if( !_group )
+    {
+        _group = [GroupModel loadModel:_groupPK];
+    }
+    
+    return _group;
+}
+
+- (ProducerModel *) producer
+{
+    if( !_producer )
+    {
+        _producer = [ProducerModel loadModel:_producerPK];
+    }
+    
+    return _producer;
+}
+
+- (ProductModel *) product
+{
+    if( !_product )
+    {
+        _product = [ProductModel loadModel:_productPK];
+    }
+    
+    return _product;
+}
+
+- (EntryModel *) entry
+{
+    if( !_entry )
+    {
+        _entry = [EntryModel loadModel:_entryPK];
+    }
+    
+    return _entry;
 }
 
 + (ScoreModel *) loadModel:(NSNumber *) pk
