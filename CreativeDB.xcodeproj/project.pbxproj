@@ -303,6 +303,8 @@
 		BF5AD6C01768D6CF00810D4B /* zm.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5AD5C91768D6CF00810D4B /* zm.png */; };
 		BF5AD6C11768D6CF00810D4B /* zw.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5AD5CA1768D6CF00810D4B /* zw.png */; };
 		BF5AD6C31768D70300810D4B /* aa.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5AD6C21768D70300810D4B /* aa.png */; };
+		BF5AD6C61768DFAF00810D4B /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6C51768DFAF00810D4B /* PersonViewController.m */; };
+		BF5AD6C91768E09E00810D4B /* PersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6C81768E09E00810D4B /* PersonView.m */; };
 		BF5FFAD7176529720034600E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFAD5176529720034600E /* InfoPlist.strings */; };
 		BF5FFAD9176529720034600E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFAD8176529720034600E /* main.m */; };
 		BF5FFADD176529720034600E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFADC176529720034600E /* AppDelegate.m */; };
@@ -824,6 +826,10 @@
 		BF5AD5C91768D6CF00810D4B /* zm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zm.png; sourceTree = "<group>"; };
 		BF5AD5CA1768D6CF00810D4B /* zw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zw.png; sourceTree = "<group>"; };
 		BF5AD6C21768D70300810D4B /* aa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aa.png; sourceTree = "<group>"; };
+		BF5AD6C41768DFAF00810D4B /* PersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonViewController.h; sourceTree = "<group>"; };
+		BF5AD6C51768DFAF00810D4B /* PersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
+		BF5AD6C71768E09E00810D4B /* PersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonView.h; sourceTree = "<group>"; };
+		BF5AD6C81768E09E00810D4B /* PersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonView.m; sourceTree = "<group>"; };
 		BF5FFACE176529720034600E /* CreativeDBiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDBiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5FFAD4176529720034600E /* CreativeDBiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CreativeDBiOS-Info.plist"; sourceTree = "<group>"; };
 		BF5FFAD6176529720034600E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1466,16 +1472,18 @@
 				BF5FFAD3176529720034600E /* Supporting Files */,
 				BF5FFB2717652D9B0034600E /* MainViewController.h */,
 				BF5FFB2817652D9B0034600E /* MainViewController.m */,
+				BF5FFB36176545CB0034600E /* HeaderViewController.h */,
+				BF5FFB37176545CB0034600E /* HeaderViewController.m */,
+				BF5FFBAD17656EE80034600E /* ScoreListViewController.h */,
+				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
+				BF5AD6C41768DFAF00810D4B /* PersonViewController.h */,
+				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
 				BF5FFB2A176531D70034600E /* MainView.h */,
 				BF5FFB2B176531D70034600E /* MainView.m */,
 				BF5FFB2D176535BD0034600E /* HeaderView.h */,
 				BF5FFB2E176535BD0034600E /* HeaderView.m */,
 				BF5FFB33176537580034600E /* ClientEngine.h */,
 				BF5FFB34176537580034600E /* ClientEngine.m */,
-				BF5FFB36176545CB0034600E /* HeaderViewController.h */,
-				BF5FFB37176545CB0034600E /* HeaderViewController.m */,
-				BF5FFBAD17656EE80034600E /* ScoreListViewController.h */,
-				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
 				BF5FFBB017656F160034600E /* BaseView.h */,
 				BF5FFBB117656F160034600E /* BaseView.m */,
 				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
@@ -1492,6 +1500,8 @@
 				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
 				BF5AD4D11768D26600810D4B /* CountryImageView.h */,
 				BF5AD4D21768D26600810D4B /* CountryImageView.m */,
+				BF5AD6C71768E09E00810D4B /* PersonView.h */,
+				BF5AD6C81768E09E00810D4B /* PersonView.m */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";
@@ -2213,6 +2223,8 @@
 				BF33498E1767CAB000A6BEA6 /* PositionLabel.m in Sources */,
 				BF3349911767CADC00A6BEA6 /* ScoreLabel.m in Sources */,
 				BF5AD4D31768D26600810D4B /* CountryImageView.m in Sources */,
+				BF5AD6C61768DFAF00810D4B /* PersonViewController.m in Sources */,
+				BF5AD6C91768E09E00810D4B /* PersonView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

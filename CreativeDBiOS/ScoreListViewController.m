@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) NSMutableArray *items;
 
+@property (nonatomic) UIDeviceOrientation currentOrientation;
+
 @end
 
 @implementation ScoreListViewController
@@ -42,10 +44,12 @@
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
         self.tableView.frame = LIST_PORTRAIT_FRAME;
+        _currentOrientation = orientation;
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         self.tableView.frame = LIST_LANDSCAPE_FRAME;
+        _currentOrientation = orientation;
     }
 }
 
@@ -107,6 +111,22 @@
     
     NSString *completeAsString = [NSString stringWithFormat:@"%ld%@",number,suffix];
     return completeAsString;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
+    
+    CGRect frame = self.tableView.bounds;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5f];
+    
+    self.tableView.frame = CGRectMake( frame.origin.x - frame.size.width,
+                                      LIST_OFFSET_Y,
+                                      frame.size.width,
+                                      frame.size.height );
+    [UIView commitAnimations];
 }
 
 

@@ -10,12 +10,14 @@
 #import "MainView.h"
 #import "HeaderViewController.h"
 #import "ScoreListViewController.h"
+#import "PersonViewController.h"
 
 @interface MainViewController()
 
 @property (strong, nonatomic) MainView *viewInstance;
 @property (strong, nonatomic) HeaderViewController *header;
 @property (strong, nonatomic) ScoreListViewController *scoreModule;
+@property (strong, nonatomic) PersonViewController *personDetail;
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
@@ -31,7 +33,10 @@
 
         self.header = [[HeaderViewController alloc] init];
         [self.viewInstance addSubview:self.header.view];
-    
+
+        self.personDetail = [[PersonViewController alloc] init];
+        [self.viewInstance addSubview:self.personDetail.view];
+        
         self.scoreModule = [[ScoreListViewController alloc] init];
         [self.viewInstance addSubview:self.scoreModule.view];
         
@@ -64,6 +69,7 @@
 - (void) orientationChangedMethod
 {
     [self.header updateOrientation:_currentOrientation];
+    [self.personDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
 }
 

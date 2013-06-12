@@ -34,6 +34,8 @@
 #define LIST_CONTENT_PORTRAIT_HEIGHT CGSizeMake(924.0f, 924.0f)
 #define LIST_LANDSCAPE_FRAME CGRectMake(0, 100.0f, 1024.0f, 668.0f)
 #define LIST_PORTRAIT_FRAME CGRectMake(0, 100.0f, 768.0f, 924.0f)
+#define LIST_OFFSET_Y 100.0f
+
 
 @interface ClientEngine : NSObject
 
