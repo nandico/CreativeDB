@@ -10,6 +10,7 @@
 #import "BaseView.h"
 #import "ScoreModel.h"
 #import "ClientEngine.h"
+#import "UserInfoCell.h"
 
 @interface ScoreListViewController ()
 
@@ -56,12 +57,10 @@
     self.tableView.userInteractionEnabled = YES;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    [self.tableView setRowHeight:130.0f];
     [self.tableView setContentSize:[self.tableView frame].size];
     [self.viewInstance addSubview:self.tableView];
     [self.tableView reloadData];
-  
-    NSLog( @"contentsize width: %f, height: %f, bounds width: %f, height: %f", self.tableView.contentSize.width, self.tableView.contentSize.height, self.tableView.bounds.size.width, self.tableView.bounds.size.height );
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -73,10 +72,13 @@
 {
     static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
+    UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
+        //cell = [[UserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
+        cell = [[UserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
+
     }
     
     [self configureCell:cell atIndexPath:indexPath];
@@ -84,11 +86,39 @@
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+-(NSString *) addSuffixToNumber:( long ) number
+{
+    NSString *suffix;
+    int ones = number % 10;
+    int temp = floor(number/10.0);
+    int tens = temp%10;
+    
+    if (tens ==1) {
+        suffix = @"th";
+    } else if (ones ==1){
+        suffix = @"st";
+    } else if (ones ==2){
+        suffix = @"nd";
+    } else if (ones ==3){
+        suffix = @"rd";
+    } else {
+        suffix = @"th";
+    }
+    
+    NSString *completeAsString = [NSString stringWithFormat:@"%ld%@",number,suffix];
+    return completeAsString;
+}
+
+
+- (void)configureCell:(UserInfoCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     ScoreModel *item = [_items objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [NSString stringWithFormat:@"%@", item.person.name];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", item.person.name];
+    cell.name.text = item.person.name;
+    cell.country.text = item.person.country.name;
+    cell.position.text = [self addSuffixToNumber:(indexPath.row + 1 )];
+    cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
 }
 
 - (void)viewDidLoad

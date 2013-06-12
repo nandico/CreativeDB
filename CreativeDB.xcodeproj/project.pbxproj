@@ -40,6 +40,11 @@
 		BF2F32A7172E0B7E00C0CB1B /* CreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF2F32A6172E0B7C00C0CB1B /* CreditManagerListViewController.m */; };
 		BF302AD1173DF57500195DE8 /* ProducerCreditManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */; };
 		BF302AD7173F2B3900195DE8 /* EntryManagerCompleteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */; };
+		BF3349851767C91C00A6BEA6 /* UserInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3349841767C91C00A6BEA6 /* UserInfoCell.m */; };
+		BF3349881767CA8800A6BEA6 /* NameLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3349871767CA8800A6BEA6 /* NameLabel.m */; };
+		BF33498B1767CA9700A6BEA6 /* CountryLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF33498A1767CA9700A6BEA6 /* CountryLabel.m */; };
+		BF33498E1767CAB000A6BEA6 /* PositionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF33498D1767CAB000A6BEA6 /* PositionLabel.m */; };
+		BF3349911767CADC00A6BEA6 /* ScoreLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3349901767CADC00A6BEA6 /* ScoreLabel.m */; };
 		BF4F3B0C1764133E0038C761 /* ManagerListMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BF4F3B0B1764133E0038C761 /* ManagerListMessage.m */; };
 		BF5472ED175EC3500056499B /* ScoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472EC175EC34F0056499B /* ScoreListView.m */; };
 		BF5472F0175EC4300056499B /* ManagerFilterContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5472EF175EC4300056499B /* ManagerFilterContainer.m */; };
@@ -292,6 +297,16 @@
 		BF302AD0173DF57500195DE8 /* ProducerCreditManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerCreditManagerListViewController.m; sourceTree = "<group>"; };
 		BF302AD5173F2B3400195DE8 /* EntryManagerCompleteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerCompleteScrollView.h; sourceTree = "<group>"; };
 		BF302AD6173F2B3600195DE8 /* EntryManagerCompleteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerCompleteScrollView.m; sourceTree = "<group>"; };
+		BF3349831767C91C00A6BEA6 /* UserInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoCell.h; sourceTree = "<group>"; };
+		BF3349841767C91C00A6BEA6 /* UserInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoCell.m; sourceTree = "<group>"; };
+		BF3349861767CA8800A6BEA6 /* NameLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameLabel.h; sourceTree = "<group>"; };
+		BF3349871767CA8800A6BEA6 /* NameLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameLabel.m; sourceTree = "<group>"; };
+		BF3349891767CA9700A6BEA6 /* CountryLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryLabel.h; sourceTree = "<group>"; };
+		BF33498A1767CA9700A6BEA6 /* CountryLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryLabel.m; sourceTree = "<group>"; };
+		BF33498C1767CAB000A6BEA6 /* PositionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionLabel.h; sourceTree = "<group>"; };
+		BF33498D1767CAB000A6BEA6 /* PositionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionLabel.m; sourceTree = "<group>"; };
+		BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreLabel.h; sourceTree = "<group>"; };
+		BF3349901767CADC00A6BEA6 /* ScoreLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreLabel.m; sourceTree = "<group>"; };
 		BF4F3B0A1764133D0038C761 /* ManagerListMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerListMessage.h; sourceTree = "<group>"; };
 		BF4F3B0B1764133E0038C761 /* ManagerListMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerListMessage.m; sourceTree = "<group>"; };
 		BF5472EB175EC34F0056499B /* ScoreListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreListView.h; sourceTree = "<group>"; };
@@ -701,8 +716,6 @@
 				BF5FFB2B176531D70034600E /* MainView.m */,
 				BF5FFB2D176535BD0034600E /* HeaderView.h */,
 				BF5FFB2E176535BD0034600E /* HeaderView.m */,
-				BF5FFB30176536C90034600E /* HeaderLabel.h */,
-				BF5FFB31176536C90034600E /* HeaderLabel.m */,
 				BF5FFB33176537580034600E /* ClientEngine.h */,
 				BF5FFB34176537580034600E /* ClientEngine.m */,
 				BF5FFB36176545CB0034600E /* HeaderViewController.h */,
@@ -711,6 +724,18 @@
 				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
 				BF5FFBB017656F160034600E /* BaseView.h */,
 				BF5FFBB117656F160034600E /* BaseView.m */,
+				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
+				BF3349841767C91C00A6BEA6 /* UserInfoCell.m */,
+				BF5FFB30176536C90034600E /* HeaderLabel.h */,
+				BF5FFB31176536C90034600E /* HeaderLabel.m */,
+				BF3349861767CA8800A6BEA6 /* NameLabel.h */,
+				BF3349871767CA8800A6BEA6 /* NameLabel.m */,
+				BF3349891767CA9700A6BEA6 /* CountryLabel.h */,
+				BF33498A1767CA9700A6BEA6 /* CountryLabel.m */,
+				BF33498C1767CAB000A6BEA6 /* PositionLabel.h */,
+				BF33498D1767CAB000A6BEA6 /* PositionLabel.m */,
+				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
+				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";
@@ -1177,6 +1202,11 @@
 				BF5FFB38176545CB0034600E /* HeaderViewController.m in Sources */,
 				BF5FFBAF17656EE90034600E /* ScoreListViewController.m in Sources */,
 				BF5FFBB217656F170034600E /* BaseView.m in Sources */,
+				BF3349851767C91C00A6BEA6 /* UserInfoCell.m in Sources */,
+				BF3349881767CA8800A6BEA6 /* NameLabel.m in Sources */,
+				BF33498B1767CA9700A6BEA6 /* CountryLabel.m in Sources */,
+				BF33498E1767CAB000A6BEA6 /* PositionLabel.m in Sources */,
+				BF3349911767CADC00A6BEA6 /* ScoreLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
