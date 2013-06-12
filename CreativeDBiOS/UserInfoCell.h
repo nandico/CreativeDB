@@ -11,6 +11,7 @@
 #import "CountryLabel.h"
 #import "PositionLabel.h"
 #import "ScoreLabel.h"
+#import "CountryImageView.h"
 
 @interface UserInfoCell : UITableViewCell
 
@@ -18,5 +19,6 @@
 @property (nonatomic, strong) CountryLabel *country;
 @property (nonatomic, strong) PositionLabel *position;
 @property (nonatomic, strong) ScoreLabel *score;
+@property (nonatomic, strong) CountryImageView *flag;
 
 @end

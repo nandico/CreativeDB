@@ -119,6 +119,7 @@
     cell.country.text = item.person.country.name;
     cell.position.text = [self addSuffixToNumber:(indexPath.row + 1 )];
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
+    cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
 }
 
 - (void)viewDidLoad

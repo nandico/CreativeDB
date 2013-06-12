@@ -19,7 +19,7 @@
 #define HEADER_LOGO_FRAME CGRectMake( 30.0f, 0, 200.0f, 80.0f)
 
 #define NAME_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
-#define NAME_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:30.0f]
+#define NAME_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:40.0f]
 
 #define COUNTRY_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
 #define COUNTRY_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:20.0f]
