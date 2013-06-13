@@ -34,10 +34,12 @@
 
 - (void) updateData:(NSNotification *) notification
 {
-    self.selectedScoreEntry = [notification.userInfo objectForKey:PERSON_ITEM];
+    self.selectedPerson = [notification.userInfo objectForKey:PERSON_ITEM];
     
-    if( self.selectedScoreEntry )
+    if( self.selectedPerson )
     {
+        self.viewInstance.dataSource = self;
+        [self.viewInstance updateData];
     }
 }
 
@@ -46,6 +48,7 @@
     [self.viewInstance updateOrientation:orientation];
     _currentOrientation = orientation;
 }
+
 
 
 - (void)viewDidLoad

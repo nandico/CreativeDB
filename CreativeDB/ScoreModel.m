@@ -63,56 +63,32 @@ static NSString *tableName;
     ScoreModel *object = [[ScoreModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.origin = [NSNumber numberWithLong:[results longForColumn:@"origin"]];
-//    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
 
     object.countryPK = [NSNumber numberWithLong:[results longForColumn:@"country"]];
-
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
-//        object.person = [PersonModel loadModel:object.origin];
 
     if( [[ScoreModel tableName] isEqualToString:@"aa_person_score"] )
         object.personPK = object.origin;
     
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_agency_score"] )
-//        object.agency = [AgencyModel loadModel:object.origin];
-
     if( [[ScoreModel tableName] isEqualToString:@"aa_agency_score"] )
         object.agencyPK = object.origin;
     
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_client_score"] )
-//        object.client = [ClientModel loadModel:object.origin];
-
     if( [[ScoreModel tableName] isEqualToString:@"aa_client_score"] )
         object.clientPK = object.origin;
     
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_country_score"] )
-//        object.country = [CountryModel loadModel:object.origin];
-
     if( [[ScoreModel tableName] isEqualToString:@"aa_country_score"] )
         object.countryPK = object.origin;
-    
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
-//        object.group = [GroupModel loadModel:object.origin];
 
     if( [[ScoreModel tableName] isEqualToString:@"aa_group_score"] )
         object.groupPK = object.origin;
-    
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_producer_score"] )
-//        object.producer = [ProducerModel loadModel:object.origin];
 
     if( [[ScoreModel tableName] isEqualToString:@"aa_producer_score"] )
         object.producerPK = object.origin;
     
-//    if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
-//        object.product = [ProductModel loadModel:object.origin];
-    
     if( [[ScoreModel tableName] isEqualToString:@"aa_product_score"] )
         object.productPK = object.origin;
      
-//    object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
     object.entryPK = [NSNumber numberWithLong:[results longForColumn:@"entry"]];
     
-//    object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
     object.festivalPK = [NSNumber numberWithLong:[results longForColumn:@"festival"]];
     
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];

@@ -18,6 +18,7 @@
         self.textAlignment = NSTextAlignmentLeft;
         self.textColor = POSITION_LABEL_COLOR;
         self.font = POSITION_LABEL_FONT;
+        self.backgroundColor = POSITION_LABEL_BACKGROUND_COLOR;
     }
     return self;
 }

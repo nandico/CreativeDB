@@ -115,7 +115,7 @@
 {
     ScoreModel *scoreEntry = [_items objectAtIndex:[indexPath indexAtPosition:1] ];
 
-    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry forKey:PERSON_ITEM];
+    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.person forKey:PERSON_ITEM];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
                                                         object:self

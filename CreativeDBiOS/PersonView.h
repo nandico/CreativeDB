@@ -11,7 +11,7 @@
 
 @protocol PersonDataSource <NSObject>
 
-- (ScoreModel *) selectedScoreEntry;
+- (PersonModel *) selectedPerson;
 
 @end
 
@@ -20,5 +20,6 @@
 @property (assign) id <PersonDataSource> dataSource;
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
+- (void) updateData;
 
 @end

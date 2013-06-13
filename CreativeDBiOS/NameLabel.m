@@ -18,6 +18,7 @@
         self.textAlignment = NSTextAlignmentLeft;
         self.textColor = NAME_LABEL_COLOR;
         self.font = NAME_LABEL_FONT;
+        self.backgroundColor = NAME_LABEL_BACKGROUND_COLOR;
     }
     return self;
 }

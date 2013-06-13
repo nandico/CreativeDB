@@ -18,6 +18,7 @@
         self.textAlignment = NSTextAlignmentLeft;
         self.textColor = SCORE_LABEL_COLOR;
         self.font = SCORE_LABEL_FONT;
+        self.backgroundColor = SCORE_LABEL_BACKGROUND_COLOR;
     }
     return self;
 }

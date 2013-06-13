@@ -21,8 +21,6 @@
 
 @property (nonatomic, strong) NameLabel *name;
 @property (nonatomic, strong) CountryLabel *country;
-@property (nonatomic, strong) PositionLabel *position;
-@property (nonatomic, strong) ScoreLabel *score;
 @property (nonatomic, strong) CountryImageView *flag;
 @property (strong, nonatomic) BaseView *background;
 
@@ -35,25 +33,40 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
-        
+
         [self background];
         [self name];
         [self country];
-        [self position];
-        [self score];
         [self flag];
         
-        self.name.text = @"Fulano de tal";
-        self.country.text = @"Brasil";
-        self.position.text = @"1st";
-        self.score.text = @"290pts";
+        /*
+         Nome
+         (Bandeira / Pais)
+         
+         Ranking
+         
+         Global
+         Into Country
+         Into Agency
+         Into Group
+  
+         
+         
+         
+         */
         
-        self.flag.image = [UIImage imageNamed:@"br.png"];
-    }
+   }
     return self;
 }
 
-
+- (void) updateData
+{
+    PersonModel *selectedPerson = [self.dataSource selectedPerson];
+ 
+    self.name.text = selectedPerson.name;
+    self.country.text = selectedPerson.country.name;
+    self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedPerson.country.iso lowercaseString] ]];
+}
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 {
@@ -74,11 +87,9 @@
     CGRect contentRect = self.background.bounds;
     CGFloat boundsX = contentRect.origin.x;
 
-    _name.frame = CGRectMake( boundsX + 140, LIST_OFFSET_Y + 10, 200, 50 );
-    _country.frame = CGRectMake( boundsX + 160, LIST_OFFSET_Y + 70, 200, 50 );
-    _position.frame = CGRectMake( boundsX + 10, LIST_OFFSET_Y + 20, 100, 50 );
-    _score.frame = CGRectMake( boundsX + 400, LIST_OFFSET_Y + 20, 200, 50 );
-    _flag.frame = CGRectMake( boundsX + 140, LIST_OFFSET_Y + 90, 16, 11 );
+    _name.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 10, 200, 50 );
+    _country.frame = CGRectMake( boundsX + 50, LIST_OFFSET_Y + 50, 200, 50 );
+    _flag.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 70, 16, 11 );
 }
 
 
@@ -114,28 +125,6 @@
     }
     
     return _country;
-}
-
-- (PositionLabel *) position
-{
-    if( !_position )
-    {
-        _position = [[PositionLabel alloc] init];
-        [self addSubview:_position];
-    }
-    
-    return _position;
-}
-
-- (ScoreLabel *) score
-{
-    if( !_score )
-    {
-        _score = [[ScoreLabel alloc] init];
-        [self addSubview:_score];
-    }
-    
-    return _score;
 }
 
 - (CountryImageView *) flag
