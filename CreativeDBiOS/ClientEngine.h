@@ -10,6 +10,10 @@
 
 #define APP_NAME @"CreativeDB"
 
+#define NOTIFICATION_WAKE_PERSON_DETAIL @"NOTIFICATION_WAKE_PERSON_DETAIL"
+
+#define PERSON_ITEM @"PERSON_ITEM"
+
 #define HEADER_TITLE_COLOR [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]
 #define HEADER_TITLE_BACKGROUND_COLOR nil
 #define HEADER_TITLE_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:46.0f]

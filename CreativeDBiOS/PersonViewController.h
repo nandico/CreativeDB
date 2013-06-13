@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonView.h"
 
-@interface PersonViewController : UIViewController
+@interface PersonViewController : UIViewController <PersonDataSource>
 
+@property (nonatomic, strong) PersonModel *selectedPerson;
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 
 @end

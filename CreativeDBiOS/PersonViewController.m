@@ -7,7 +7,6 @@
 //
 
 #import "PersonViewController.h"
-#import "PersonView.h"
 #import "ClientEngine.h"
 
 @interface PersonViewController ()
@@ -25,22 +24,23 @@
     self = [super init];
     if (self) {
         self.view = self.viewInstance = [[PersonView alloc] init];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateData:)
+                                                     name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
     }
     return self;
 }
 
+- (void) updateData:(NSNotification *) notification
+{
+    NSLog( @"Received update!!!!%@", notification );
+}
+
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 {
-    if( UIDeviceOrientationIsPortrait( orientation ) )
-    {
-        self.viewInstance.frame = LIST_PORTRAIT_FRAME;
-        _currentOrientation = orientation;
-    }
-    else if( UIDeviceOrientationIsLandscape( orientation ) )
-    {
-        self.viewInstance.frame = LIST_LANDSCAPE_FRAME;
-        _currentOrientation = orientation;
-    }
+    [self.viewInstance updateOrientation:orientation];
+    _currentOrientation = orientation;
 }
 
 

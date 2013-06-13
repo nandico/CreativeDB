@@ -76,11 +76,9 @@
 {
     static NSString *ProductCellIdentifier = @"ProductCellIdentifier";
     
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     UserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:ProductCellIdentifier];
     
     if (cell == nil) {
-        //cell = [[UserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
         cell = [[UserInfoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ProductCellIdentifier];
 
     }
@@ -115,9 +113,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ScoreModel *scoreEntry = [_items objectAtIndex:[indexPath indexAtPosition:1] ];
 
+    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry forKey:PERSON_ITEM];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
+                                                        object:self
+                                                      userInfo:updateMessage];
     
     CGRect frame = self.tableView.bounds;
+    
+    
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5f];

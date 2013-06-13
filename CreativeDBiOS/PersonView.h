@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PersonModel.h"
+
+@protocol PersonDataSource <NSObject>
+
+- (PersonModel *) selectedPerson;
+
+@end
 
 @interface PersonView : UIView
+
+@property (assign) id <PersonDataSource> dataSource;
+
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
 
 @end

@@ -17,6 +17,8 @@
 
 @interface PersonView()
 
+@property (nonatomic) UIDeviceOrientation currentOrientation;
+
 @property (nonatomic, strong) NameLabel *name;
 @property (nonatomic, strong) CountryLabel *country;
 @property (nonatomic, strong) PositionLabel *position;
@@ -33,8 +35,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor redColor];
-        
-        NSLog( @"Adding elements" );
         
         [self background];
         [self name];
@@ -53,10 +53,22 @@
     return self;
 }
 
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
+{
+    if( UIDeviceOrientationIsPortrait( orientation ) )
+    {
+        self.background.frame = LIST_PORTRAIT_FRAME ;
+        _currentOrientation = orientation;
+    }
+    else if( UIDeviceOrientationIsLandscape( orientation ) )
+    {
+        self.background.frame = LIST_LANDSCAPE_FRAME;
+        _currentOrientation = orientation;
+    }
+}
+
 - (void) layoutSubviews
 {
-    NSLog( @"Layout subviews.." );
-    
     CGRect contentRect = self.background.bounds;
     CGFloat boundsX = contentRect.origin.x;
 
