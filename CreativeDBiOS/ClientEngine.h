@@ -38,6 +38,23 @@
 #define SCORE_LABEL_BACKGROUND_COLOR [UIColor clearColor]
 #define SCORE_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:45.0f]
 
+#define H1_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
+#define H1_LABEL_BACKGROUND_COLOR [UIColor clearColor]
+#define H1_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:40.0f]
+
+#define H2_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
+#define H2_LABEL_BACKGROUND_COLOR [UIColor clearColor]
+#define H2_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:30.0f]
+
+#define H3_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
+#define H3_LABEL_BACKGROUND_COLOR [UIColor clearColor]
+#define H3_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:25.0f]
+
+#define H4_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
+#define H4_LABEL_BACKGROUND_COLOR [UIColor clearColor]
+#define H4_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:20.0f]
+
+
 #define LIST_CONTENT_LANDSCAPE_HEIGHT CGSizeMake(668.0f, 668.0f)
 #define LIST_CONTENT_PORTRAIT_HEIGHT CGSizeMake(924.0f, 924.0f)
 #define LIST_LANDSCAPE_FRAME CGRectMake(0, 100.0f, 1024.0f, 668.0f)

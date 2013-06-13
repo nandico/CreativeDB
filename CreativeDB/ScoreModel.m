@@ -266,6 +266,8 @@ static NSString *tableName;
         }
     }
     
+    db.traceExecution = YES;
+    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " A.id, A.origin, A.country, A.entry, A.festival, A.year, SUM( score ) score "
                                                        " FROM %@ AS A "

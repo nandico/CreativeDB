@@ -14,6 +14,10 @@
 #import "CountryImageView.h"
 #import "BaseView.h"
 #import "ClientEngine.h"
+#import "H1Label.h"
+#import "H4Label.h"
+#import "EntryDetailView.h"
+#import "AwardModel.h"
 
 @interface PersonView()
 
@@ -23,6 +27,15 @@
 @property (nonatomic, strong) CountryLabel *country;
 @property (nonatomic, strong) CountryImageView *flag;
 @property (strong, nonatomic) BaseView *background;
+
+@property (nonatomic, strong) H4Label *globalStats;
+@property (nonatomic, strong) ScoreLabel *globalScore;
+@property (nonatomic, strong) H4Label *countryStats;
+@property (nonatomic, strong) ScoreLabel *countryScore;
+
+@property (nonatomic, strong) H1Label *titleEntries;
+
+@property (nonatomic, strong) NSMutableArray *entryLines;
 
 @end
 
@@ -39,22 +52,13 @@
         [self country];
         [self flag];
         
-        /*
-         Nome
-         (Bandeira / Pais)
-         
-         Ranking
-         
-         Global
-         Into Country
-         Into Agency
-         Into Group
-  
-         
-         
-         
-         */
+        [self globalStats];
+        [self globalScore];
+        [self countryStats];
+        [self countryScore];
         
+        [self titleEntries];
+
    }
     return self;
 }
@@ -66,6 +70,29 @@
     self.name.text = selectedPerson.name;
     self.country.text = selectedPerson.country.name;
     self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedPerson.country.iso lowercaseString] ]];
+    
+    self.globalStats.text = @"GLOBAL";
+    self.globalScore.text = @"256th";
+    
+    self.countryStats.text = @"COUNTRY";
+    self.countryScore.text = @"22th";
+    
+    self.titleEntries.text = @"Entries";
+    
+    NSInteger awardIndex = 0;
+    
+    for( EntryModel *entry in selectedPerson.entries )
+    {
+        for( AwardModel *award in entry.awards )
+        {
+            EntryDetailView *entryView = [[EntryDetailView alloc] initWithFrame:CGRectMake(0, LIST_OFFSET_Y + 250.0f + (awardIndex * 300.0), 1024.0, 300.0f)];
+            [entryView updateData];
+            [self addSubview:entryView];
+        
+            awardIndex ++;
+        }
+    }
+
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
@@ -90,6 +117,14 @@
     _name.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 10, 200, 50 );
     _country.frame = CGRectMake( boundsX + 50, LIST_OFFSET_Y + 50, 200, 50 );
     _flag.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 70, 16, 11 );
+    
+    _globalStats.frame = CGRectMake( boundsX + 450, LIST_OFFSET_Y + 2, 200, 50 );
+    _globalScore.frame = CGRectMake( boundsX + 450, LIST_OFFSET_Y + 40, 200, 50 );
+    
+    _countryStats.frame = CGRectMake( boundsX + 650, LIST_OFFSET_Y + 2, 200, 50 );
+    _countryScore.frame = CGRectMake( boundsX + 650, LIST_OFFSET_Y + 40, 200, 50 );
+
+    _titleEntries.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 200, 200, 50 );
 }
 
 
@@ -136,6 +171,61 @@
     }
     
     return _flag;
+}
+
+- (H4Label *) globalStats
+{
+    if( !_globalStats )
+    {
+        _globalStats = [[H4Label alloc] init];
+        [self addSubview:_globalStats];
+    }
+    
+    return _globalStats;
+}
+
+- (ScoreLabel *) globalScore
+{
+    if( !_globalScore )
+    {
+        _globalScore = [[ScoreLabel alloc] init];
+        [self addSubview:_globalScore];
+    }
+    
+    return _globalScore;
+}
+
+- (H4Label *) countryStats
+{
+    if( !_countryStats )
+    {
+        _countryStats = [[H4Label alloc] init];
+        [self addSubview:_countryStats];
+    }
+    
+    return _countryStats;
+}
+
+- (ScoreLabel *) countryScore
+{
+    if( !_countryScore )
+    {
+        _countryScore = [[ScoreLabel alloc] init];
+        [self addSubview:_countryScore];
+    }
+    
+    return _countryScore;
+}
+
+- (H1Label *) titleEntries
+{
+    if( !_titleEntries )
+    {
+        _titleEntries = [[H1Label alloc] init];
+        [self addSubview:_titleEntries];
+    }
+    
+    return _titleEntries;
 }
 
 @end

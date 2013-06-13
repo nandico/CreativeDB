@@ -305,6 +305,11 @@
 		BF5AD6C31768D70300810D4B /* aa.png in Resources */ = {isa = PBXBuildFile; fileRef = BF5AD6C21768D70300810D4B /* aa.png */; };
 		BF5AD6C61768DFAF00810D4B /* PersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6C51768DFAF00810D4B /* PersonViewController.m */; };
 		BF5AD6C91768E09E00810D4B /* PersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6C81768E09E00810D4B /* PersonView.m */; };
+		BF5AD6CC176A4F3500810D4B /* H4Label.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6CB176A4F3500810D4B /* H4Label.m */; };
+		BF5AD6CF176A5E0300810D4B /* H1Label.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6CE176A5E0200810D4B /* H1Label.m */; };
+		BF5AD6D2176A621400810D4B /* EntryDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6D1176A621300810D4B /* EntryDetailView.m */; };
+		BF5AD6D5176A623800810D4B /* H2Label.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6D4176A623700810D4B /* H2Label.m */; };
+		BF5AD6D8176A625D00810D4B /* H3Label.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6D7176A625C00810D4B /* H3Label.m */; };
 		BF5FFAD7176529720034600E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFAD5176529720034600E /* InfoPlist.strings */; };
 		BF5FFAD9176529720034600E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFAD8176529720034600E /* main.m */; };
 		BF5FFADD176529720034600E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFADC176529720034600E /* AppDelegate.m */; };
@@ -798,6 +803,16 @@
 		BF5AD6C51768DFAF00810D4B /* PersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonViewController.m; sourceTree = "<group>"; };
 		BF5AD6C71768E09E00810D4B /* PersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonView.h; sourceTree = "<group>"; };
 		BF5AD6C81768E09E00810D4B /* PersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonView.m; sourceTree = "<group>"; };
+		BF5AD6CA176A4F3400810D4B /* H4Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H4Label.h; sourceTree = "<group>"; };
+		BF5AD6CB176A4F3500810D4B /* H4Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H4Label.m; sourceTree = "<group>"; };
+		BF5AD6CD176A5E0200810D4B /* H1Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H1Label.h; sourceTree = "<group>"; };
+		BF5AD6CE176A5E0200810D4B /* H1Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H1Label.m; sourceTree = "<group>"; };
+		BF5AD6D0176A621200810D4B /* EntryDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryDetailView.h; sourceTree = "<group>"; };
+		BF5AD6D1176A621300810D4B /* EntryDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryDetailView.m; sourceTree = "<group>"; };
+		BF5AD6D3176A623700810D4B /* H2Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H2Label.h; sourceTree = "<group>"; };
+		BF5AD6D4176A623700810D4B /* H2Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H2Label.m; sourceTree = "<group>"; };
+		BF5AD6D6176A625C00810D4B /* H3Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H3Label.h; sourceTree = "<group>"; };
+		BF5AD6D7176A625C00810D4B /* H3Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H3Label.m; sourceTree = "<group>"; };
 		BF5FFACE176529720034600E /* CreativeDBiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDBiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5FFAD4176529720034600E /* CreativeDBiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CreativeDBiOS-Info.plist"; sourceTree = "<group>"; };
 		BF5FFAD6176529720034600E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1456,6 +1471,7 @@
 				BF5FFBB117656F160034600E /* BaseView.m */,
 				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
 				BF3349841767C91C00A6BEA6 /* UserInfoCell.m */,
+				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
 				BF5FFB30176536C90034600E /* HeaderLabel.h */,
 				BF5FFB31176536C90034600E /* HeaderLabel.m */,
 				BF3349861767CA8800A6BEA6 /* NameLabel.h */,
@@ -1464,12 +1480,21 @@
 				BF33498A1767CA9700A6BEA6 /* CountryLabel.m */,
 				BF33498C1767CAB000A6BEA6 /* PositionLabel.h */,
 				BF33498D1767CAB000A6BEA6 /* PositionLabel.m */,
-				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
 				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
+				BF5AD6CD176A5E0200810D4B /* H1Label.h */,
+				BF5AD6CE176A5E0200810D4B /* H1Label.m */,
+				BF5AD6D3176A623700810D4B /* H2Label.h */,
+				BF5AD6D4176A623700810D4B /* H2Label.m */,
+				BF5AD6D6176A625C00810D4B /* H3Label.h */,
+				BF5AD6D7176A625C00810D4B /* H3Label.m */,
+				BF5AD6CA176A4F3400810D4B /* H4Label.h */,
+				BF5AD6CB176A4F3500810D4B /* H4Label.m */,
 				BF5AD4D11768D26600810D4B /* CountryImageView.h */,
 				BF5AD4D21768D26600810D4B /* CountryImageView.m */,
 				BF5AD6C71768E09E00810D4B /* PersonView.h */,
 				BF5AD6C81768E09E00810D4B /* PersonView.m */,
+				BF5AD6D0176A621200810D4B /* EntryDetailView.h */,
+				BF5AD6D1176A621300810D4B /* EntryDetailView.m */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";
@@ -2161,6 +2186,11 @@
 				BF5AD4D31768D26600810D4B /* CountryImageView.m in Sources */,
 				BF5AD6C61768DFAF00810D4B /* PersonViewController.m in Sources */,
 				BF5AD6C91768E09E00810D4B /* PersonView.m in Sources */,
+				BF5AD6CC176A4F3500810D4B /* H4Label.m in Sources */,
+				BF5AD6CF176A5E0300810D4B /* H1Label.m in Sources */,
+				BF5AD6D2176A621400810D4B /* EntryDetailView.m in Sources */,
+				BF5AD6D5176A623800810D4B /* H2Label.m in Sources */,
+				BF5AD6D8176A625D00810D4B /* H3Label.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
