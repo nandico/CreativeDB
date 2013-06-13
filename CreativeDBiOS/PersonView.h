@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PersonModel.h"
+#import "ScoreModel.h"
 
 @protocol PersonDataSource <NSObject>
 
-- (PersonModel *) selectedPerson;
+- (ScoreModel *) selectedScoreEntry;
 
 @end
 

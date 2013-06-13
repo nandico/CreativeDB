@@ -34,7 +34,11 @@
 
 - (void) updateData:(NSNotification *) notification
 {
-    NSLog( @"Received update!!!!%@", notification );
+    self.selectedScoreEntry = [notification.userInfo objectForKey:PERSON_ITEM];
+    
+    if( self.selectedScoreEntry )
+    {
+    }
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;

@@ -333,70 +333,38 @@
 		BF5FFB6817655FB50034600E /* LeagueGothic-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6217655FB50034600E /* LeagueGothic-Regular.otf */; };
 		BF5FFB6917655FB50034600E /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6317655FB50034600E /* Montserrat-Bold.ttf */; };
 		BF5FFB6A17655FB50034600E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6417655FB50034600E /* Montserrat-Regular.ttf */; };
-		BF5FFB6B17656B170034600E /* BaseModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A116FEADA6007B8A80 /* BaseModel.h */; };
 		BF5FFB6C17656B170034600E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A216FEADA6007B8A80 /* BaseModel.m */; };
-		BF5FFB6D17656B170034600E /* TableModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF00109E16FEAD3D007B8A80 /* TableModel.h */; };
 		BF5FFB6E17656B170034600E /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00109F16FEAD3D007B8A80 /* TableModel.m */; };
-		BF5FFB6F17656B170034600E /* ColumnModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A416FEB3DE007B8A80 /* ColumnModel.h */; };
 		BF5FFB7017656B170034600E /* ColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A516FEB3DE007B8A80 /* ColumnModel.m */; };
-		BF5FFB7117656B170034600E /* AgencyModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A716FEBDD7007B8A80 /* AgencyModel.h */; };
 		BF5FFB7217656B170034600E /* AgencyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A816FEBDD7007B8A80 /* AgencyModel.m */; };
-		BF5FFB7317656B170034600E /* ClientModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B616FF252A007B8A80 /* ClientModel.h */; };
 		BF5FFB7417656B170034600E /* ClientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B716FF252A007B8A80 /* ClientModel.m */; };
-		BF5FFB7517656B170034600E /* GroupModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AA16FEBEBC007B8A80 /* GroupModel.h */; };
 		BF5FFB7617656B170034600E /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AB16FEBEBC007B8A80 /* GroupModel.m */; };
-		BF5FFB7717656B170034600E /* CountryModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AD16FECBDF007B8A80 /* CountryModel.h */; };
 		BF5FFB7817656B170034600E /* CountryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AE16FECBE0007B8A80 /* CountryModel.m */; };
-		BF5FFB7917656B170034600E /* MetalModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B016FF21C1007B8A80 /* MetalModel.h */; };
 		BF5FFB7A17656B170034600E /* MetalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B116FF21C1007B8A80 /* MetalModel.m */; };
-		BF5FFB7B17656B170034600E /* ProductModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B916FF2727007B8A80 /* ProductModel.h */; };
 		BF5FFB7C17656B170034600E /* ProductModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BA16FF2727007B8A80 /* ProductModel.m */; };
-		BF5FFB7D17656B170034600E /* RoleModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BC16FF30C2007B8A80 /* RoleModel.h */; };
 		BF5FFB7E17656B170034600E /* RoleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BD16FF30C3007B8A80 /* RoleModel.m */; };
-		BF5FFB7F17656B170034600E /* CategoryModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010BF16FF32D4007B8A80 /* CategoryModel.h */; };
 		BF5FFB8017656B170034600E /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C016FF32D4007B8A80 /* CategoryModel.m */; };
-		BF5FFB8117656B170034600E /* SubcategoryModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C216FF3416007B8A80 /* SubcategoryModel.h */; };
 		BF5FFB8217656B170034600E /* SubcategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C316FF3417007B8A80 /* SubcategoryModel.m */; };
-		BF5FFB8317656B170034600E /* DisciplineModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C516FF362C007B8A80 /* DisciplineModel.h */; };
 		BF5FFB8417656B170034600E /* DisciplineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C616FF362D007B8A80 /* DisciplineModel.m */; };
-		BF5FFB8517656B170034600E /* PersonModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C816FF385F007B8A80 /* PersonModel.h */; };
 		BF5FFB8617656B170034600E /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010C916FF3860007B8A80 /* PersonModel.m */; };
-		BF5FFB8717656B170034600E /* ProducerModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B316FF230D007B8A80 /* ProducerModel.h */; };
 		BF5FFB8817656B170034600E /* ProducerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B416FF230E007B8A80 /* ProducerModel.m */; };
-		BF5FFB8917656B170034600E /* FestivalModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */; };
 		BF5FFB8A17656B170034600E /* FestivalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */; };
-		BF5FFB8B17656B170034600E /* EntryModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CE16FF9C44007B8A80 /* EntryModel.h */; };
 		BF5FFB8C17656B170034600E /* EntryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010CF16FF9C45007B8A80 /* EntryModel.m */; };
-		BF5FFB8D17656B170034600E /* CreditModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D416FFA577007B8A80 /* CreditModel.h */; };
 		BF5FFB8E17656B170034600E /* CreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D516FFA578007B8A80 /* CreditModel.m */; };
-		BF5FFB8F17656B170034600E /* ProducerCreditModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D71700CC95007B8A80 /* ProducerCreditModel.h */; };
 		BF5FFB9017656B170034600E /* ProducerCreditModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D81700CCA4007B8A80 /* ProducerCreditModel.m */; };
-		BF5FFB9117656B170034600E /* AwardModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D116FFA05F007B8A80 /* AwardModel.h */; };
 		BF5FFB9217656B170034600E /* AwardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010D216FFA060007B8A80 /* AwardModel.m */; };
-		BF5FFB9317656B170034600E /* AnnotationModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DA1700F8B1007B8A80 /* AnnotationModel.h */; };
 		BF5FFB9417656B170034600E /* AnnotationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DB1700F8B9007B8A80 /* AnnotationModel.m */; };
-		BF5FFB9517656B170034600E /* UserModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DD1701280C007B8A80 /* UserModel.h */; };
 		BF5FFB9617656B170034600E /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DE1701280E007B8A80 /* UserModel.m */; };
-		BF5FFB9717656B170034600E /* CalendarTypeModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E017012BA4007B8A80 /* CalendarTypeModel.h */; };
 		BF5FFB9817656B170034600E /* CalendarTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */; };
-		BF5FFB9917656B170034600E /* CalendarModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E317012CD7007B8A80 /* CalendarModel.h */; };
 		BF5FFB9A17656B170034600E /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E417012CD8007B8A80 /* CalendarModel.m */; };
-		BF5FFB9B17656BC60034600E /* FMDatabase.h in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844316F7F7BC006906D8 /* FMDatabase.h */; };
 		BF5FFB9C17656BC60034600E /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844416F7F7BC006906D8 /* FMDatabase.m */; };
-		BF5FFB9D17656BC60034600E /* FMDatabaseAdditions.h in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844516F7F7BC006906D8 /* FMDatabaseAdditions.h */; };
 		BF5FFB9E17656BC60034600E /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844616F7F7BC006906D8 /* FMDatabaseAdditions.m */; };
-		BF5FFB9F17656BC60034600E /* FMDatabasePool.h in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844716F7F7BC006906D8 /* FMDatabasePool.h */; };
 		BF5FFBA017656BC60034600E /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844816F7F7BC006906D8 /* FMDatabasePool.m */; };
-		BF5FFBA117656BC60034600E /* FMDatabaseQueue.h in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844916F7F7BC006906D8 /* FMDatabaseQueue.h */; };
 		BF5FFBA217656BC60034600E /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844A16F7F7BC006906D8 /* FMDatabaseQueue.m */; };
-		BF5FFBA317656BC60034600E /* FMResultSet.h in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844C16F7F7BC006906D8 /* FMResultSet.h */; };
 		BF5FFBA417656BC60034600E /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D844D16F7F7BC006906D8 /* FMResultSet.m */; };
-		BF5FFBA517656BD40034600E /* FMDBDataAccess.h in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845516F7F82F006906D8 /* FMDBDataAccess.h */; };
 		BF5FFBA617656BD40034600E /* FMDBDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845616F7F82F006906D8 /* FMDBDataAccess.m */; };
 		BF5FFBA717656C270034600E /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D844016F7F746006906D8 /* libsqlite3.0.dylib */; };
-		BF5FFBA817656CB50034600E /* ScoreModel.h in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5F00175409CB0004E022 /* ScoreModel.h */; };
 		BF5FFBA917656CB50034600E /* ScoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5F01175409CB0004E022 /* ScoreModel.m */; };
-		BF5FFBAA17656CB50034600E /* ScoreController.h in Sources */ = {isa = PBXBuildFile; fileRef = BF567C541754375700466128 /* ScoreController.h */; };
 		BF5FFBAB17656CB50034600E /* ScoreController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF567C551754375700466128 /* ScoreController.m */; };
 		BF5FFBAC17656E820034600E /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
 		BF5FFBAF17656EE90034600E /* ScoreListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFBAE17656EE90034600E /* ScoreListViewController.m */; };
@@ -2143,69 +2111,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF5FFBA817656CB50034600E /* ScoreModel.h in Sources */,
 				BF5FFBA917656CB50034600E /* ScoreModel.m in Sources */,
-				BF5FFBAA17656CB50034600E /* ScoreController.h in Sources */,
 				BF5FFBAB17656CB50034600E /* ScoreController.m in Sources */,
-				BF5FFBA517656BD40034600E /* FMDBDataAccess.h in Sources */,
 				BF5FFBA617656BD40034600E /* FMDBDataAccess.m in Sources */,
-				BF5FFB9B17656BC60034600E /* FMDatabase.h in Sources */,
 				BF5FFB9C17656BC60034600E /* FMDatabase.m in Sources */,
-				BF5FFB9D17656BC60034600E /* FMDatabaseAdditions.h in Sources */,
 				BF5FFB9E17656BC60034600E /* FMDatabaseAdditions.m in Sources */,
-				BF5FFB9F17656BC60034600E /* FMDatabasePool.h in Sources */,
 				BF5FFBA017656BC60034600E /* FMDatabasePool.m in Sources */,
-				BF5FFBA117656BC60034600E /* FMDatabaseQueue.h in Sources */,
 				BF5FFBA217656BC60034600E /* FMDatabaseQueue.m in Sources */,
-				BF5FFBA317656BC60034600E /* FMResultSet.h in Sources */,
 				BF5FFBA417656BC60034600E /* FMResultSet.m in Sources */,
-				BF5FFB6B17656B170034600E /* BaseModel.h in Sources */,
 				BF5FFB6C17656B170034600E /* BaseModel.m in Sources */,
-				BF5FFB6D17656B170034600E /* TableModel.h in Sources */,
 				BF5FFB6E17656B170034600E /* TableModel.m in Sources */,
-				BF5FFB6F17656B170034600E /* ColumnModel.h in Sources */,
 				BF5FFB7017656B170034600E /* ColumnModel.m in Sources */,
-				BF5FFB7117656B170034600E /* AgencyModel.h in Sources */,
 				BF5FFB7217656B170034600E /* AgencyModel.m in Sources */,
-				BF5FFB7317656B170034600E /* ClientModel.h in Sources */,
 				BF5FFB7417656B170034600E /* ClientModel.m in Sources */,
-				BF5FFB7517656B170034600E /* GroupModel.h in Sources */,
 				BF5FFB7617656B170034600E /* GroupModel.m in Sources */,
-				BF5FFB7717656B170034600E /* CountryModel.h in Sources */,
 				BF5FFB7817656B170034600E /* CountryModel.m in Sources */,
-				BF5FFB7917656B170034600E /* MetalModel.h in Sources */,
 				BF5FFB7A17656B170034600E /* MetalModel.m in Sources */,
-				BF5FFB7B17656B170034600E /* ProductModel.h in Sources */,
 				BF5FFB7C17656B170034600E /* ProductModel.m in Sources */,
-				BF5FFB7D17656B170034600E /* RoleModel.h in Sources */,
 				BF5FFB7E17656B170034600E /* RoleModel.m in Sources */,
-				BF5FFB7F17656B170034600E /* CategoryModel.h in Sources */,
 				BF5FFB8017656B170034600E /* CategoryModel.m in Sources */,
-				BF5FFB8117656B170034600E /* SubcategoryModel.h in Sources */,
 				BF5FFB8217656B170034600E /* SubcategoryModel.m in Sources */,
-				BF5FFB8317656B170034600E /* DisciplineModel.h in Sources */,
 				BF5FFB8417656B170034600E /* DisciplineModel.m in Sources */,
-				BF5FFB8517656B170034600E /* PersonModel.h in Sources */,
 				BF5FFB8617656B170034600E /* PersonModel.m in Sources */,
-				BF5FFB8717656B170034600E /* ProducerModel.h in Sources */,
 				BF5FFB8817656B170034600E /* ProducerModel.m in Sources */,
-				BF5FFB8917656B170034600E /* FestivalModel.h in Sources */,
 				BF5FFB8A17656B170034600E /* FestivalModel.m in Sources */,
-				BF5FFB8B17656B170034600E /* EntryModel.h in Sources */,
 				BF5FFB8C17656B170034600E /* EntryModel.m in Sources */,
-				BF5FFB8D17656B170034600E /* CreditModel.h in Sources */,
 				BF5FFB8E17656B170034600E /* CreditModel.m in Sources */,
-				BF5FFB8F17656B170034600E /* ProducerCreditModel.h in Sources */,
 				BF5FFB9017656B170034600E /* ProducerCreditModel.m in Sources */,
-				BF5FFB9117656B170034600E /* AwardModel.h in Sources */,
 				BF5FFB9217656B170034600E /* AwardModel.m in Sources */,
-				BF5FFB9317656B170034600E /* AnnotationModel.h in Sources */,
 				BF5FFB9417656B170034600E /* AnnotationModel.m in Sources */,
-				BF5FFB9517656B170034600E /* UserModel.h in Sources */,
 				BF5FFB9617656B170034600E /* UserModel.m in Sources */,
-				BF5FFB9717656B170034600E /* CalendarTypeModel.h in Sources */,
 				BF5FFB9817656B170034600E /* CalendarTypeModel.m in Sources */,
-				BF5FFB9917656B170034600E /* CalendarModel.h in Sources */,
 				BF5FFB9A17656B170034600E /* CalendarModel.m in Sources */,
 				BF5FFAD9176529720034600E /* main.m in Sources */,
 				BF5FFADD176529720034600E /* AppDelegate.m in Sources */,

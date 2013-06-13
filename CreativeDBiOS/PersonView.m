@@ -53,6 +53,8 @@
     return self;
 }
 
+
+
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 {
     if( UIDeviceOrientationIsPortrait( orientation ) )

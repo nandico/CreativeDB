@@ -11,7 +11,7 @@
 
 @interface PersonViewController : UIViewController <PersonDataSource>
 
-@property (nonatomic, strong) PersonModel *selectedPerson;
+@property (nonatomic, strong) ScoreModel *selectedScoreEntry;
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 
 @end
