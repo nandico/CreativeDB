@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfoCell.h"
 
-@interface ScoreListViewController : UITableViewController
+@interface ScoreListViewController : UITableViewController <UserInfoDataSource>
 
+@property (nonatomic) UIDeviceOrientation currentOrientation;
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 
 @end

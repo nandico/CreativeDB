@@ -180,7 +180,7 @@ static CGFloat spacingAfterHeader = 30.0f;
             return SCREEN_PORTRAIT_FRAME;
         }
         
-//        NSLog( @"ORIENTATION IS EMPTY %d", currentOrientation );
+        NSLog( @"ORIENTATION IS EMPTY %d", currentOrientation );
         
         return CGRectZero;
     }

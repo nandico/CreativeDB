@@ -46,14 +46,14 @@
                                                    object: nil];
     
         [self orientationChangedMethod];
- 
-        // testing view
-        [self.scoreModule.view setHidden:YES];
-        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:[PersonModel loadModel:[PersonModel first]] forKey:PERSON_ITEM];
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
-                                                            object:self
-                                                          userInfo:updateMessage];
+
+// Use to test the person detail view
+//        [self.scoreModule.view setHidden:YES];
+//        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:[PersonModel loadModel:[PersonModel first]] forKey:PERSON_ITEM];
+//        
+//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
+//                                                            object:self
+//                                                          userInfo:updateMessage];
     
     
     }

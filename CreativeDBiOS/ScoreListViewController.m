@@ -10,7 +10,6 @@
 #import "BaseView.h"
 #import "ScoreModel.h"
 #import "ClientEngine.h"
-#import "UserInfoCell.h"
 
 @interface ScoreListViewController ()
 
@@ -18,8 +17,6 @@
 @property (nonatomic, retain) UITableView *tableView;
 
 @property (nonatomic, strong) NSMutableArray *items;
-
-@property (nonatomic) UIDeviceOrientation currentOrientation;
 
 @end
 
@@ -45,11 +42,13 @@
     {
         self.tableView.frame = LIST_PORTRAIT_FRAME;
         _currentOrientation = orientation;
+        [self.tableView reloadData];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         self.tableView.frame = LIST_LANDSCAPE_FRAME;
         _currentOrientation = orientation;
+        [self.tableView reloadData];
     }
 }
 
@@ -141,11 +140,14 @@
     ScoreModel *item = [_items objectAtIndex:indexPath.row];
     //cell.textLabel.text = [NSString stringWithFormat:@"%@", item.person.name];
     
+    cell.dataSource = self;
     cell.name.text = item.person.name;
     cell.country.text = item.person.country.name;
     cell.position.text = [self addSuffixToNumber:(indexPath.row + 1 )];
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
     cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
+
+    [cell layoutSubviews];
 }
 
 - (void)viewDidLoad

@@ -31,14 +31,42 @@
 
 - (void) layoutSubviews
 {
-    CGRect contentRect = self.contentView.bounds;
-    CGFloat boundsX = contentRect.origin.x;
     
-    _name.frame = CGRectMake( boundsX + 140, 10, 200, 50 );
-    _country.frame = CGRectMake( boundsX + 160, 70, 200, 50 );
-    _position.frame = CGRectMake( boundsX + 10, 20, 100, 50 );
-    _score.frame = CGRectMake( boundsX + 400, 20, 200, 50 );
-    _flag.frame = CGRectMake( boundsX + 140, 90, 16, 11 );
+    [ClientEngine startEngine];
+    [ClientEngine setMustConsiderHeader:NO];
+    [ClientEngine setCurrentOrientation:[self.dataSource currentOrientation] ];
+    
+    ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
+    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@50];
+    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@20];
+
+    LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, nil]];
+    line1.height = @82;
+    [ClientEngine addLine:line1];
+    
+    [ClientEngine applyFrame:_position withLine:line1 andColumn:column1];
+    
+    _name.prefferedHeight = 50.0f;
+    _name.offsetX = 30.0f;
+    _name.offsetY = 10.0f;
+    
+    [ClientEngine applyFrame:_name withLine:line1 andColumn:column2];
+    
+    _country.prefferedHeight = 50.0f;
+    _country.offsetX = 50.0f;
+    _country.offsetY = 45.0f;
+    
+    [ClientEngine applyFrame:_country withLine:line1 andColumn:column2];
+    
+    _flag.prefferedWidth = 16.0f;
+    _flag.prefferedHeight = 11.0f;
+    _flag.offsetX = 30.0f;
+    _flag.offsetY = 64.0f;
+    
+    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column2];
+
+    [ClientEngine applyFrame:_score withLine:line1 andColumn:column3];
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

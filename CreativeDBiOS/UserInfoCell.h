@@ -13,7 +13,15 @@
 #import "ScoreLabel.h"
 #import "CountryImageView.h"
 
+@protocol UserInfoDataSource <NSObject>
+
+@property (nonatomic) UIDeviceOrientation currentOrientation;
+
+@end
+
 @interface UserInfoCell : UITableViewCell
+
+@property (assign) id <UserInfoDataSource> dataSource;
 
 @property (nonatomic, strong) NameLabel *name;
 @property (nonatomic, strong) CountryLabel *country;
