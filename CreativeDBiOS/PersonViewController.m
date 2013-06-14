@@ -40,6 +40,7 @@
     {
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
+        [self.viewInstance updateOrientation:_currentOrientation];
     }
 }
 
