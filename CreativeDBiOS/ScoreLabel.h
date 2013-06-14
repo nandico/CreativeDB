@@ -12,4 +12,10 @@
 
 @interface ScoreLabel : BaseLabel <ClientLayoutable>
 
+@property (assign) CGFloat offsetX;
+@property (assign) CGFloat offsetY;
+@property (assign) CGFloat prefferedWidth;
+@property (assign) CGFloat prefferedHeight;
+
+
 @end
