@@ -21,6 +21,22 @@ static CGFloat spacingAfterHeader = 30.0f;
     lines = [[NSMutableArray alloc] init];
 }
 
++ (BOOL) mustConsiderHeader
+{
+    @synchronized( self )
+    {
+        return considerHeader;
+    }
+}
+
++ (void) setMustConsiderHeader:(BOOL) consider
+{
+    @synchronized( self )
+    {
+        considerHeader = consider;
+    }
+}
+
 + (void) addLine:(LineModel *) line
 {
     line.lineIndex = [lines count];
@@ -84,10 +100,20 @@ static CGFloat spacingAfterHeader = 30.0f;
 + (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
 {
     CGPoint flatOrigin = [ClientEngine getOriginForLine:line andColumn:column];
+    CGFloat columnWidth = 0;
+    CGFloat columnHeight = 0;
+    
+    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : [ClientEngine absoluteWidthForColumn:column];
+    columnHeight = ( [label prefferedHeight] ) ? [label prefferedHeight] : [line.height floatValue];
+    
+//    NSLog( @"Object: %@", label );
+//    NSLog( @"Width: %f, height: %f", columnWidth, columnHeight );
+//    NSLog( @"Origin x: %f, y: %f", flatOrigin.x + [label offsetX], flatOrigin.y + [label offsetY] );
+
     
     label.frame = CGRectMake(flatOrigin.x + [label offsetX],
                              flatOrigin.y + [label offsetY],
-                             [label prefferedWidth], [label prefferedHeight] );
+                             columnWidth, columnHeight );
 }
 
 + (CGFloat) absoluteWidthForColumn:(ColumnModel *) column

@@ -80,6 +80,8 @@
 @interface ClientEngine : NSObject
 
 + (void) startEngine;
++ (BOOL) mustConsiderHeader;
++ (void) setMustConsiderHeader:(BOOL) consider;
 + (void) addLine:(LineModel *) line;
 + (UIDeviceOrientation) currentOrientation;
 + (void) setCurrentOrientation:(UIDeviceOrientation) newOrientation;

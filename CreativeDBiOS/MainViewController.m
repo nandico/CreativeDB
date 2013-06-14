@@ -45,6 +45,7 @@
                                                      name: UIDeviceOrientationDidChangeNotification
                                                    object: nil];
     
+        [self orientationChangedMethod];
  
         // testing view
         [self.scoreModule.view setHidden:YES];
@@ -78,6 +79,11 @@
 
 - (void) orientationChangedMethod
 {
+    if( !_currentOrientation )
+    {
+        _currentOrientation = UIDeviceOrientationPortrait;
+    }
+    
     [self.header updateOrientation:_currentOrientation];
     [self.personDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];

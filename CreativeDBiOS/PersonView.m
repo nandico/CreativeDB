@@ -59,8 +59,6 @@
         [self countryScore];
         
         [self titleEntries];
-        
-        [self configLayout];
 
    }
     return self;
@@ -100,7 +98,7 @@
             column = [[ColumnModel alloc] initWithPercent:@100];
             line = [[LineModel alloc] initWithOptions:
                     [NSMutableArray arrayWithObjects:column, nil ]];
-            line.height = @200;
+            line.height = @180;
             [ClientEngine addLine:line];
             
             EntryDetailView *entryView = [[EntryDetailView alloc] init];
@@ -127,23 +125,31 @@
         self.background.frame = LIST_PORTRAIT_FRAME ;
         _currentOrientation = orientation;
         [ClientEngine setCurrentOrientation:_currentOrientation];
+        
+        [self updateChildOrientation:orientation];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         self.background.frame = LIST_LANDSCAPE_FRAME;
         _currentOrientation = orientation;
         [ClientEngine setCurrentOrientation:_currentOrientation];
+        
+        [self updateChildOrientation:orientation];
     }
 }
 
-- (void) configLayout
+- (void) updateChildOrientation:( UIDeviceOrientation ) orientation
 {
-    
+    for( EntryDetailView *child in _entryLines )
+    {
+        [child updateOrientation:orientation];
+    }
 }
 
 - (void) layoutSubviews
 {
     [ClientEngine startEngine];
+    [ClientEngine setMustConsiderHeader:YES];
     [ClientEngine setCurrentOrientation:_currentOrientation];
     
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@40];
@@ -206,7 +212,7 @@
     
     column1 = [[ColumnModel alloc] initWithPercent:@100];
     LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, nil]];
-    line2.height = @150.0;
+    line2.height = @80.0;
     [ClientEngine addLine:line2];
 
     _titleEntries.prefferedWidth = 200.0f;

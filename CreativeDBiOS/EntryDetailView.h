@@ -34,6 +34,7 @@
 @property (strong, nonatomic) H3Label *category;
 @property (strong, nonatomic) H3Label *subcategory;
 
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
 - (void) updateData;
 
 @end

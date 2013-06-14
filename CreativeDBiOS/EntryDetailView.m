@@ -8,6 +8,11 @@
 
 #import "EntryDetailView.h"
 
+@interface EntryDetailView()
+
+@property (nonatomic) UIDeviceOrientation currentOrientation;
+
+@end
 
 @implementation EntryDetailView
 
@@ -31,17 +36,48 @@
 
 - (void) layoutSubviews
 {
-    CGRect contentRect = self.bounds;
-    CGFloat boundsX = contentRect.origin.x;
+    CGFloat lineHeigth = 45.0f;
+
+    [ClientEngine startEngine];
+    [ClientEngine setMustConsiderHeader:NO];
+    [ClientEngine setCurrentOrientation:_currentOrientation];
     
-    _year.frame = CGRectMake( boundsX + 0, 10, 140, 50 );
-    _metal.frame = CGRectMake( boundsX + 140, 10, 100, 50 );
-    _entry.frame = CGRectMake( boundsX + 240, 10, 400, 50 );
-    _client.frame = CGRectMake( boundsX + 240, 50, 400, 50 );
-    _product.frame = CGRectMake( boundsX + 240, 100, 400, 50 );
-    _festival.frame = CGRectMake( boundsX + 640, 10, 200, 50 );
-    _category.frame = CGRectMake( boundsX + 640, 50, 200, 50 );
-    _subcategory.frame = CGRectMake( boundsX + 640, 100, 200, 50 );
+    ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
+    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@10];
+    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@30];
+    ColumnModel *column4 = [[ColumnModel alloc] initWithPercent:@30];
+    ColumnModel *column5 = [[ColumnModel alloc] initWithPercent:@10];
+
+    LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
+    line1.height = [NSNumber numberWithFloat:lineHeigth];
+    [ClientEngine addLine:line1];
+    
+    _year.prefferedHeight = lineHeigth;
+    [ClientEngine applyFrame:_year withLine:line1 andColumn:column1];
+    
+    _metal.prefferedHeight = lineHeigth;
+    [ClientEngine applyFrame:_metal withLine:line1 andColumn:column2];
+    
+    _entry.prefferedHeight = lineHeigth;
+    [ClientEngine applyFrame:_entry withLine:line1 andColumn:column3];
+    
+    _festival.prefferedHeight = lineHeigth;
+    [ClientEngine applyFrame:_festival withLine:line1 andColumn:column4];
+    
+    LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
+    line2.height = [NSNumber numberWithFloat:lineHeigth];
+    [ClientEngine addLine:line2];
+    
+    [ClientEngine applyFrame:_client withLine:line2 andColumn:column3];
+    [ClientEngine applyFrame:_category withLine:line2 andColumn:column4];
+    
+    LineModel *line3 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
+    line3.height = [NSNumber numberWithFloat:lineHeigth];
+    [ClientEngine addLine:line3];
+    
+    [ClientEngine applyFrame:_product withLine:line3 andColumn:column3];
+    [ClientEngine applyFrame:_subcategory withLine:line3 andColumn:column4];
+    
 }
 
 - (void) updateData
@@ -63,6 +99,21 @@
     self.subcategory.text = ( _selectedAward.subcategory ) ? _selectedAward.subcategory.name : @"";
 }
 
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
+{
+    if( UIDeviceOrientationIsPortrait( orientation ) )
+    {
+        _currentOrientation = orientation;
+        [ClientEngine setCurrentOrientation:_currentOrientation];
+        [self layoutSubviews];
+    }
+    else if( UIDeviceOrientationIsLandscape( orientation ) )
+    {
+        _currentOrientation = orientation;
+        [ClientEngine setCurrentOrientation:_currentOrientation];
+        [self layoutSubviews];
+    }
+}
 
 - (H1Label *) year
 {
