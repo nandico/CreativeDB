@@ -31,6 +31,7 @@
 		BF0010DF1701281C007B8A80 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010DE1701280E007B8A80 /* UserModel.m */; };
 		BF0010E217012BA9007B8A80 /* CalendarTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */; };
 		BF0010E517012CDC007B8A80 /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E417012CD8007B8A80 /* CalendarModel.m */; };
+		BF0384E9176B9FAF002D0CF9 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0384E8176B9FAE002D0CF9 /* BaseButton.m */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
@@ -506,6 +507,8 @@
 		BF0010E117012BA6007B8A80 /* CalendarTypeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarTypeModel.m; sourceTree = "<group>"; };
 		BF0010E317012CD7007B8A80 /* CalendarModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarModel.h; sourceTree = "<group>"; };
 		BF0010E417012CD8007B8A80 /* CalendarModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarModel.m; sourceTree = "<group>"; };
+		BF0384E7176B9FAE002D0CF9 /* BaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseButton.h; sourceTree = "<group>"; };
+		BF0384E8176B9FAE002D0CF9 /* BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
 		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
 		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
 		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
@@ -1514,6 +1517,8 @@
 				BF5AD6E0176B5C3B00810D4B /* BaseLabel.m */,
 				BF5AD6E2176B5F4A00810D4B /* BaseImageView.h */,
 				BF5AD6E3176B5F4C00810D4B /* BaseImageView.m */,
+				BF0384E7176B9FAE002D0CF9 /* BaseButton.h */,
+				BF0384E8176B9FAE002D0CF9 /* BaseButton.m */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";
@@ -2213,6 +2218,7 @@
 				BF5AD6DE176B449A00810D4B /* ColumnModel.m in Sources */,
 				BF5AD6E1176B5C3C00810D4B /* BaseLabel.m in Sources */,
 				BF5AD6E4176B5F4E00810D4B /* BaseImageView.m in Sources */,
+				BF0384E9176B9FAF002D0CF9 /* BaseButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

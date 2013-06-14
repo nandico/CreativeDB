@@ -30,6 +30,10 @@
         
         [ScoreModel setTableName:@"aa_person_score"];
         _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpScore)
+                                                     name:NOTIFICATION_WAKE_SCORE object:nil];
 
         [self createList];
     }
@@ -50,6 +54,21 @@
         _currentOrientation = orientation;
         [self.tableView reloadData];
     }
+}
+
+- (void) wakeUpScore
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5f];
+
+    CGRect frame = self.tableView.bounds;
+    
+    self.tableView.frame = CGRectMake( 0,
+                                      LIST_OFFSET_Y,
+                                      frame.size.width,
+                                      frame.size.height );
+    [UIView commitAnimations];
+    
 }
 
 - (void) createList

@@ -14,6 +14,8 @@
 
 @property (strong, nonatomic) HeaderLabel *title;
 
+@property (strong, nonatomic) BaseButton *scoreButton;
+
 @end
 
 @implementation HeaderView
@@ -24,6 +26,7 @@
     if (self) {
         [self setBackgroundColor:HEADER_BACKGROUND_COLOR];
         [self title];
+        [self scoreButton];
     }
     return self;
 }
@@ -38,6 +41,29 @@
     }
     
     return _title;
+}
+
+- (BaseButton *) scoreButton
+{
+    if( !_scoreButton )
+    {
+        _scoreButton = [BaseButton buttonWithType:UIButtonTypeCustom];
+        _scoreButton.frame = CGRectMake( 300.0f, 16.0f, 100.0f, 50.0f );
+        [_scoreButton setTitle:@"Score" forState:UIControlStateNormal];
+        _scoreButton.titleLabel.font = MENU_BUTTON_FONT;
+        _scoreButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
+        [_scoreButton addTarget:self action:@selector(scoreButtonAction) forControlEvents:UIControlEventTouchDown];
+        [self addSubview:_scoreButton];
+    }
+    
+    return _scoreButton;
+}
+
+- (void) scoreButtonAction
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_SCORE
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 @end

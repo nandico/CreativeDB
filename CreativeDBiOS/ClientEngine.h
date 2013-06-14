@@ -14,6 +14,7 @@
 #define APP_NAME @"CreativeDB"
 
 #define NOTIFICATION_WAKE_PERSON_DETAIL @"NOTIFICATION_WAKE_PERSON_DETAIL"
+#define NOTIFICATION_WAKE_SCORE @"NOTIFICATION_WAKE_SCORE"
 
 #define PERSON_ITEM @"PERSON_ITEM"
 
@@ -59,6 +60,9 @@
 #define H4_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
 #define H4_LABEL_BACKGROUND_COLOR [UIColor clearColor]
 #define H4_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:20.0f]
+
+#define MENU_BUTTON_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:40.0f]
+#define MENU_BUTTON_FONT_COLOR [UIColor cyanColor]
 
 
 #define LIST_CONTENT_LANDSCAPE_HEIGHT CGSizeMake(668.0f, 668.0f)

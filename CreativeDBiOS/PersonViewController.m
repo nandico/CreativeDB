@@ -38,6 +38,7 @@
     
     if( self.selectedPerson )
     {
+        [self.viewInstance removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];

@@ -64,6 +64,15 @@
     return self;
 }
 
+- (void) removeData
+{
+    for( EntryDetailView *entry in _entryLines )
+    {
+        [entry removeFromSuperview];
+    }
+}
+
+
 - (void) updateData
 {
     PersonModel *selectedPerson = [self.dataSource selectedPerson];
