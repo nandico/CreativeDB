@@ -7,7 +7,6 @@
 //
 
 #import "NameLabel.h"
-#import "ClientEngine.h"
 
 @implementation NameLabel
 

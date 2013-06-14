@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClientEngine.h"
+#import "BaseImageView.h"
 
-@interface CountryImageView : UIImageView
+@interface CountryImageView : BaseImageView <ClientLayoutable>
 
 @end

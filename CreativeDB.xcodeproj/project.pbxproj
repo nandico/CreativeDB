@@ -310,6 +310,10 @@
 		BF5AD6D2176A621400810D4B /* EntryDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6D1176A621300810D4B /* EntryDetailView.m */; };
 		BF5AD6D5176A623800810D4B /* H2Label.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6D4176A623700810D4B /* H2Label.m */; };
 		BF5AD6D8176A625D00810D4B /* H3Label.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6D7176A625C00810D4B /* H3Label.m */; };
+		BF5AD6DB176B442900810D4B /* LineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6DA176B442700810D4B /* LineModel.m */; };
+		BF5AD6DE176B449A00810D4B /* ColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6DD176B449900810D4B /* ColumnModel.m */; };
+		BF5AD6E1176B5C3C00810D4B /* BaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6E0176B5C3B00810D4B /* BaseLabel.m */; };
+		BF5AD6E4176B5F4E00810D4B /* BaseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5AD6E3176B5F4C00810D4B /* BaseImageView.m */; };
 		BF5FFAD7176529720034600E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFAD5176529720034600E /* InfoPlist.strings */; };
 		BF5FFAD9176529720034600E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFAD8176529720034600E /* main.m */; };
 		BF5FFADD176529720034600E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFADC176529720034600E /* AppDelegate.m */; };
@@ -340,7 +344,6 @@
 		BF5FFB6A17655FB50034600E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF5FFB6417655FB50034600E /* Montserrat-Regular.ttf */; };
 		BF5FFB6C17656B170034600E /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A216FEADA6007B8A80 /* BaseModel.m */; };
 		BF5FFB6E17656B170034600E /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF00109F16FEAD3D007B8A80 /* TableModel.m */; };
-		BF5FFB7017656B170034600E /* ColumnModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A516FEB3DE007B8A80 /* ColumnModel.m */; };
 		BF5FFB7217656B170034600E /* AgencyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010A816FEBDD7007B8A80 /* AgencyModel.m */; };
 		BF5FFB7417656B170034600E /* ClientModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010B716FF252A007B8A80 /* ClientModel.m */; };
 		BF5FFB7617656B170034600E /* GroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010AB16FEBEBC007B8A80 /* GroupModel.m */; };
@@ -813,6 +816,14 @@
 		BF5AD6D4176A623700810D4B /* H2Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H2Label.m; sourceTree = "<group>"; };
 		BF5AD6D6176A625C00810D4B /* H3Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = H3Label.h; sourceTree = "<group>"; };
 		BF5AD6D7176A625C00810D4B /* H3Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = H3Label.m; sourceTree = "<group>"; };
+		BF5AD6D9176B442600810D4B /* LineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineModel.h; sourceTree = "<group>"; };
+		BF5AD6DA176B442700810D4B /* LineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineModel.m; sourceTree = "<group>"; };
+		BF5AD6DC176B449800810D4B /* ColumnModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColumnModel.h; sourceTree = "<group>"; };
+		BF5AD6DD176B449900810D4B /* ColumnModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColumnModel.m; sourceTree = "<group>"; };
+		BF5AD6DF176B5C3900810D4B /* BaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLabel.h; sourceTree = "<group>"; };
+		BF5AD6E0176B5C3B00810D4B /* BaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLabel.m; sourceTree = "<group>"; };
+		BF5AD6E2176B5F4A00810D4B /* BaseImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseImageView.h; sourceTree = "<group>"; };
+		BF5AD6E3176B5F4C00810D4B /* BaseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseImageView.m; sourceTree = "<group>"; };
 		BF5FFACE176529720034600E /* CreativeDBiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDBiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF5FFAD4176529720034600E /* CreativeDBiOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CreativeDBiOS-Info.plist"; sourceTree = "<group>"; };
 		BF5FFAD6176529720034600E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -1465,13 +1476,10 @@
 				BF5FFB2B176531D70034600E /* MainView.m */,
 				BF5FFB2D176535BD0034600E /* HeaderView.h */,
 				BF5FFB2E176535BD0034600E /* HeaderView.m */,
-				BF5FFB33176537580034600E /* ClientEngine.h */,
-				BF5FFB34176537580034600E /* ClientEngine.m */,
 				BF5FFBB017656F160034600E /* BaseView.h */,
 				BF5FFBB117656F160034600E /* BaseView.m */,
 				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
 				BF3349841767C91C00A6BEA6 /* UserInfoCell.m */,
-				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
 				BF5FFB30176536C90034600E /* HeaderLabel.h */,
 				BF5FFB31176536C90034600E /* HeaderLabel.m */,
 				BF3349861767CA8800A6BEA6 /* NameLabel.h */,
@@ -1480,6 +1488,7 @@
 				BF33498A1767CA9700A6BEA6 /* CountryLabel.m */,
 				BF33498C1767CAB000A6BEA6 /* PositionLabel.h */,
 				BF33498D1767CAB000A6BEA6 /* PositionLabel.m */,
+				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
 				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
 				BF5AD6CD176A5E0200810D4B /* H1Label.h */,
 				BF5AD6CE176A5E0200810D4B /* H1Label.m */,
@@ -1491,10 +1500,20 @@
 				BF5AD6CB176A4F3500810D4B /* H4Label.m */,
 				BF5AD4D11768D26600810D4B /* CountryImageView.h */,
 				BF5AD4D21768D26600810D4B /* CountryImageView.m */,
+				BF5FFB33176537580034600E /* ClientEngine.h */,
+				BF5FFB34176537580034600E /* ClientEngine.m */,
 				BF5AD6C71768E09E00810D4B /* PersonView.h */,
 				BF5AD6C81768E09E00810D4B /* PersonView.m */,
 				BF5AD6D0176A621200810D4B /* EntryDetailView.h */,
 				BF5AD6D1176A621300810D4B /* EntryDetailView.m */,
+				BF5AD6D9176B442600810D4B /* LineModel.h */,
+				BF5AD6DA176B442700810D4B /* LineModel.m */,
+				BF5AD6DC176B449800810D4B /* ColumnModel.h */,
+				BF5AD6DD176B449900810D4B /* ColumnModel.m */,
+				BF5AD6DF176B5C3900810D4B /* BaseLabel.h */,
+				BF5AD6E0176B5C3B00810D4B /* BaseLabel.m */,
+				BF5AD6E2176B5F4A00810D4B /* BaseImageView.h */,
+				BF5AD6E3176B5F4C00810D4B /* BaseImageView.m */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";
@@ -2146,7 +2165,6 @@
 				BF5FFBA417656BC60034600E /* FMResultSet.m in Sources */,
 				BF5FFB6C17656B170034600E /* BaseModel.m in Sources */,
 				BF5FFB6E17656B170034600E /* TableModel.m in Sources */,
-				BF5FFB7017656B170034600E /* ColumnModel.m in Sources */,
 				BF5FFB7217656B170034600E /* AgencyModel.m in Sources */,
 				BF5FFB7417656B170034600E /* ClientModel.m in Sources */,
 				BF5FFB7617656B170034600E /* GroupModel.m in Sources */,
@@ -2191,6 +2209,10 @@
 				BF5AD6D2176A621400810D4B /* EntryDetailView.m in Sources */,
 				BF5AD6D5176A623800810D4B /* H2Label.m in Sources */,
 				BF5AD6D8176A625D00810D4B /* H3Label.m in Sources */,
+				BF5AD6DB176B442900810D4B /* LineModel.m in Sources */,
+				BF5AD6DE176B449A00810D4B /* ColumnModel.m in Sources */,
+				BF5AD6E1176B5C3C00810D4B /* BaseLabel.m in Sources */,
+				BF5AD6E4176B5F4E00810D4B /* BaseImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

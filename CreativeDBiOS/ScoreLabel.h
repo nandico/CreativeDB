@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseLabel.h"
+#import "ClientEngine.h"
 
-@interface ScoreLabel : UILabel
+@interface ScoreLabel : BaseLabel <ClientLayoutable>
 
 @end

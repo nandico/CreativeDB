@@ -7,7 +7,6 @@
 //
 
 #import "ScoreLabel.h"
-#import "ClientEngine.h"
 
 @implementation ScoreLabel
 

@@ -13,8 +13,14 @@
 #import "H4Label.h"
 #import "EntryModel.h"
 #import "AwardModel.h"
+#import "ClientEngine.h"
 
-@interface EntryDetailView : UIView
+@interface EntryDetailView : UIView <ClientLayoutable>
+
+@property (assign) CGFloat offsetX;
+@property (assign) CGFloat offsetY;
+@property (assign) CGFloat prefferedWidth;
+@property (assign) CGFloat prefferedHeight;
 
 @property (strong, nonatomic) EntryModel *selectedEntry;
 @property (strong, nonatomic) AwardModel *selectedAward;

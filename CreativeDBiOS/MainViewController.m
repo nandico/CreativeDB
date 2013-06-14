@@ -45,7 +45,17 @@
                                                      name: UIDeviceOrientationDidChangeNotification
                                                    object: nil];
     
-}
+ 
+        // testing view
+        [self.scoreModule.view setHidden:YES];
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:[PersonModel loadModel:[PersonModel first]] forKey:PERSON_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+    
+    
+    }
     
     return self;
 }

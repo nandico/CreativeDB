@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseLabel.h"
+#import "ClientEngine.h"
 
-@interface H3Label : UILabel
+@interface H3Label : BaseLabel <ClientLayoutable>
 
 @end

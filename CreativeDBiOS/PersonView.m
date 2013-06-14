@@ -17,6 +17,8 @@
 #import "H1Label.h"
 #import "H4Label.h"
 #import "AwardModel.h"
+#import "LineModel.h"
+#import "ColumnModel.h"
 
 @interface PersonView()
 
@@ -57,6 +59,8 @@
         [self countryScore];
         
         [self titleEntries];
+        
+        [self configLayout];
 
    }
     return self;
@@ -84,12 +88,25 @@
     
     _entryLines = [[NSMutableArray alloc] init];
     
+    LineModel *line;
+    ColumnModel *column;
+    
+    [self layoutSubviews];
     
     for( EntryModel *entry in selectedPerson.entries )
     {
         for( AwardModel *award in entry.awards )
         {
-            EntryDetailView *entryView = [[EntryDetailView alloc] initWithFrame:CGRectMake(0, LIST_OFFSET_Y + 180.0f + (awardIndex * 180.0), 1024.0, 180.0f)];
+            column = [[ColumnModel alloc] initWithPercent:@100];
+            line = [[LineModel alloc] initWithOptions:
+                    [NSMutableArray arrayWithObjects:column, nil ]];
+            line.height = @200;
+            [ClientEngine addLine:line];
+            
+            EntryDetailView *entryView = [[EntryDetailView alloc] init];
+            
+            [ClientEngine applyFrame:entryView withLine:line andColumn:column];
+            
             entryView.selectedEntry = entry;
             entryView.selectedAward = award;
             [entryView updateData];
@@ -109,30 +126,95 @@
     {
         self.background.frame = LIST_PORTRAIT_FRAME ;
         _currentOrientation = orientation;
+        [ClientEngine setCurrentOrientation:_currentOrientation];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         self.background.frame = LIST_LANDSCAPE_FRAME;
         _currentOrientation = orientation;
+        [ClientEngine setCurrentOrientation:_currentOrientation];
     }
+}
+
+- (void) configLayout
+{
+    
 }
 
 - (void) layoutSubviews
 {
-    CGRect contentRect = self.background.bounds;
-    CGFloat boundsX = contentRect.origin.x;
-
-    _name.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 10, 200, 50 );
-    _country.frame = CGRectMake( boundsX + 50, LIST_OFFSET_Y + 50, 200, 50 );
-    _flag.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 70, 16, 11 );
+    [ClientEngine startEngine];
+    [ClientEngine setCurrentOrientation:_currentOrientation];
     
-    _globalStats.frame = CGRectMake( boundsX + 450, LIST_OFFSET_Y + 2, 200, 50 );
-    _globalScore.frame = CGRectMake( boundsX + 450, LIST_OFFSET_Y + 40, 200, 50 );
-    
-    _countryStats.frame = CGRectMake( boundsX + 650, LIST_OFFSET_Y + 2, 200, 50 );
-    _countryScore.frame = CGRectMake( boundsX + 650, LIST_OFFSET_Y + 40, 200, 50 );
+    ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@40];
+    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@30];
+    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@30];
 
-    _titleEntries.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 120, 200, 50 );
+    LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, nil]];
+    line1.height = @120;
+    [ClientEngine addLine:line1];
+    
+    _name.prefferedWidth = 200.0f;
+    _name.prefferedHeight = 50.0f;
+    _name.offsetX = 30.0f;
+    _name.offsetY = 10.0f;
+    
+    [ClientEngine applyFrame:_name withLine:line1 andColumn:column1];
+    
+    _country.prefferedWidth = 200.0f;
+    _country.prefferedHeight = 50.0f;
+    _country.offsetX = 50.0f;
+    _country.offsetY = 45.0f;
+    
+    [ClientEngine applyFrame:_country withLine:line1 andColumn:column1];
+    
+    _flag.prefferedWidth = 16.0f;
+    _flag.prefferedHeight = 11.0f;
+    _flag.offsetX = 30.0f;
+    _flag.offsetY = 64.0f;
+    
+    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column1];
+    
+    _globalStats.prefferedWidth = 200.0f;
+    _globalStats.prefferedHeight = 50.0f;
+    _globalStats.offsetX = 0.0f;
+    _globalStats.offsetY = 3.0f;
+    
+    [ClientEngine applyFrame:_globalStats withLine:line1 andColumn:column2];
+    
+    _globalScore.prefferedWidth = 200.0f;
+    _globalScore.prefferedHeight = 50.0f;
+    _globalScore.offsetX = 0.0f;
+    _globalScore.offsetY = 35.0f;
+    
+    [ClientEngine applyFrame:_globalScore withLine:line1 andColumn:column2];
+    
+    _countryStats.prefferedWidth = 200.0f;
+    _countryStats.prefferedHeight = 50.0f;
+    _countryStats.offsetX = 0.0f;
+    _countryStats.offsetY = 3.0f;
+    
+    [ClientEngine applyFrame:_countryStats withLine:line1 andColumn:column3];
+    
+    _countryScore.prefferedWidth = 200.0f;
+    _countryScore.prefferedHeight = 50.0f;
+    _countryScore.offsetX = 0.0f;
+    _countryScore.offsetY = 35.0f;
+    
+    [ClientEngine applyFrame:_countryScore withLine:line1 andColumn:column3];
+    
+    
+    column1 = [[ColumnModel alloc] initWithPercent:@100];
+    LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, nil]];
+    line2.height = @150.0;
+    [ClientEngine addLine:line2];
+
+    _titleEntries.prefferedWidth = 200.0f;
+    _titleEntries.prefferedHeight = 50.0f;
+    _titleEntries.offsetX = 30.0f;
+    _titleEntries.offsetY = 0.0f;
+    
+    [ClientEngine applyFrame:_titleEntries withLine:line2 andColumn:column1];
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 #import "HeaderLabel.h"
-#import "ClientEngine.h"
 
 @implementation HeaderLabel
 

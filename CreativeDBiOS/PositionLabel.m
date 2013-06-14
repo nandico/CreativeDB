@@ -7,7 +7,6 @@
 //
 
 #import "PositionLabel.h"
-#import "ClientEngine.h"
 
 @implementation PositionLabel
 

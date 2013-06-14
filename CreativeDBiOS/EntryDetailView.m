@@ -48,9 +48,7 @@
 {
     if( !_selectedEntry ) return;
     if( !_selectedAward ) return;
-    
-    NSLog( @"Entry: %@, Award: %@", _selectedEntry, _selectedAward );
-    
+        
     self.year.text = [NSString stringWithFormat:@"     %@", _selectedAward.year ];
     self.year.backgroundColor = [UIColor lightGrayColor];
     self.metal.text = _selectedAward.metal.name;

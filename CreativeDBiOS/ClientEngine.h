@@ -7,12 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LineModel.h"
+#import "ColumnModel.h"
+#import "BaseLabel.h"
 
 #define APP_NAME @"CreativeDB"
 
 #define NOTIFICATION_WAKE_PERSON_DETAIL @"NOTIFICATION_WAKE_PERSON_DETAIL"
 
 #define PERSON_ITEM @"PERSON_ITEM"
+
+#define SCREEN_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 768.0f)
+#define SCREEN_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 1024.0f)
 
 #define HEADER_TITLE_COLOR [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]
 #define HEADER_TITLE_BACKGROUND_COLOR nil
@@ -61,7 +67,26 @@
 #define LIST_PORTRAIT_FRAME CGRectMake(0, 100.0f, 768.0f, 924.0f)
 #define LIST_OFFSET_Y 100.0f
 
+@protocol ClientLayoutable <NSObject>
+
+@property (nonatomic) CGRect frame;
+@property (assign) CGFloat offsetX;
+@property (assign) CGFloat offsetY;
+@property (assign) CGFloat prefferedWidth;
+@property (assign) CGFloat prefferedHeight;
+
+@end
 
 @interface ClientEngine : NSObject
+
++ (void) startEngine;
++ (void) addLine:(LineModel *) line;
++ (UIDeviceOrientation) currentOrientation;
++ (void) setCurrentOrientation:(UIDeviceOrientation) newOrientation;
++ (CGRect) headerRect;
++ (CGRect) screenRect;
++ (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex;
++ (CGPoint) getOriginForLine:(LineModel *) line andColumn:(ColumnModel *) column;
++ (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
 
 @end
