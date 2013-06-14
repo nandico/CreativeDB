@@ -61,9 +61,12 @@
         // people ranking update
         for( CreditModel *credit in award.entry.credits )
         {
-            [self updateRanking:award forCredit:credit];
+            [self updateEntityScore:award forCredit:credit];
         }
     }
+    
+    // general ranking update
+    [PersonModel processRanking];
     
 }
 
@@ -95,24 +98,10 @@
     [score save];
 }
 
-+ (void) updateRanking:(AwardModel *) award forCredit:(CreditModel *) credit
++ (void) updateEntityScore:(AwardModel *) award forCredit:(CreditModel *) credit
 {
-    credit.person.scoreGlobal = @123;
-    credit.person.rankingGlobal = @456;
-    
+    credit.person.score = [NSNumber numberWithInteger:[credit.person calculateScore]];
     [credit.person save];
-    
-//    [ScoreModel setTableName:@"aa_person_score"];
-//    
-//    ScoreModel *score = [[ScoreModel alloc] init];
-//    score.origin = credit.person.pk;
-//    score.country = credit.person.country;
-//    score.entry = [EntryModel loadModel:award.entry.pk];
-//    score.festival = [FestivalModel loadModel:award.festival.pk];
-//    score.year = award.year;
-//    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
-//    
-//    [score save];
 }
 
 

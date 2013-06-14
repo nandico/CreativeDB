@@ -24,7 +24,7 @@
 
 + (NSString *) fields
 {
-    return @"id, country, name, portfolioURL, rankingGlobal, rankingCountry, scoreGlobal, scoreCountry ";
+    return @"id, country, name, portfolioURL, rankingGlobal, rankingCountry, score ";
 }
 
 - (NSString *) fields
@@ -43,8 +43,7 @@
     
     object.rankingGlobal = [NSNumber numberWithLong:[results longForColumn:@"rankingGlobal"]];
     object.rankingCountry = [NSNumber numberWithLong:[results longForColumn:@"rankingCountry"]];
-    object.scoreGlobal = [NSNumber numberWithLong:[results longForColumn:@"scoreGlobal"]];
-    object.scoreCountry = [NSNumber numberWithLong:[results longForColumn:@"scoreCountry"]];
+    object.score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
     
     return object;
 }
@@ -290,7 +289,7 @@
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, ?, ?, ?, 0, 0, 0, 0 ) ", [self tableName], [self fields] ];
+                     " ( null, ?, ?, ?, 0, 0, 0 ) ", [self tableName], [self fields] ];
     
     [db executeUpdate:sql,
      self.country.pk,
@@ -337,15 +336,10 @@
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET rankingCountry = %@ WHERE id = %@", [self tableName],
                            self.rankingCountry, self.pk ]];
     }
-    if( self.scoreGlobal )
+    if( self.score )
     {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET scoreGlobal = %@ WHERE id = %@", [self tableName],
-                           self.scoreGlobal, self.pk ]];
-    }
-    if( self.scoreCountry )
-    {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET scoreCountry = %@ WHERE id = %@", [self tableName],
-                           self.scoreCountry, self.pk ]];
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET score = %@ WHERE id = %@", [self tableName],
+                           self.score, self.pk ]];
     }
     
     [db close];
@@ -367,16 +361,86 @@
     NSString *sqlCountry = [NSString stringWithFormat:@" UPDATE aa_person SET rankingCountry = 0 "];
     [db executeUpdate:sqlCountry];
 
-    NSString *sqlGlobalScore = [NSString stringWithFormat:@" UPDATE aa_person SET scoreGlobal = 0 "];
-    [db executeUpdate:sqlGlobalScore];
+    NSString *sqlScore = [NSString stringWithFormat:@" UPDATE aa_person SET score = 0 "];
+    [db executeUpdate:sqlScore];
     
-    NSString *sqlCountryScore = [NSString stringWithFormat:@" UPDATE aa_person SET scoreCountry = 0 "];
-    [db executeUpdate:sqlCountryScore];
-
     
     [db close];
     
 }
 
+- (NSInteger) calculateScore
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *score;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
+                                             " SUM ( score ) AS score  "
+                                             " FROM aa_person_score "
+                                             " WHERE origin = %@ ", self.pk ] ];
+    if( [results next] )
+    {
+        score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( score ) ? [score integerValue] : 0;
+}
+
+- (NSInteger) calculateRankGlobal
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
+                                             " SELECT COUNT( * ) "
+                                             " FROM aa_person AS B "
+                                             " WHERE B.score > A.score "
+                                             " ) AS Rank "
+                                             " FROM aa_person AS A "
+                                             " WHERE id = %@", self.pk ] ];
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( ranking ) ? [ranking integerValue] : 0;
+}
+
++ (void) processRanking
+{
+    NSMutableArray *persons = [PersonModel loadAll];
+    
+    /*
+     SELECT A.*, (
+     SELECT COUNT( * )
+     FROM aa_person AS B
+     WHERE B.score > A.score
+     ) AS Rank
+     FROM aa_person AS A
+     WHERE id = 44
+    */
+    
+    for( PersonModel *person in persons )
+    {
+        person.rankingGlobal = [NSNumber numberWithInteger:[person calculateRankGlobal] + 1];
+        [person save];
+    }
+}
 
 @end

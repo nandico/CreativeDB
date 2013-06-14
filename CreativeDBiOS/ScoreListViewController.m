@@ -162,7 +162,7 @@
     cell.dataSource = self;
     cell.name.text = item.person.name;
     cell.country.text = item.person.country.name;
-    cell.position.text = [NSString stringWithFormat:@"    %@", [self addSuffixToNumber:(indexPath.row + 1 )]];
+    cell.position.text = [NSString stringWithFormat:@"    %@", [self addSuffixToNumber:([item.person.rankingGlobal longValue])]];
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
     cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
 

@@ -17,8 +17,7 @@
 @property (strong) NSURL *portfolioURL;
 @property (strong) NSNumber *rankingGlobal;
 @property (strong) NSNumber *rankingCountry;
-@property (strong) NSNumber *scoreGlobal;
-@property (strong) NSNumber *scoreCountry;
+@property (strong) NSNumber *score;
 
 + (NSString *) tableName;
 + (NSString *) fields;
@@ -37,5 +36,7 @@
 - (void) deleteModel;
 
 + (void) resetScore;
+- (NSInteger) calculateScore;
++ (void) processRanking;
 
 @end

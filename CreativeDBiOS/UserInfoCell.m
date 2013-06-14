@@ -37,8 +37,8 @@
     [ClientEngine setCurrentOrientation:[self.dataSource currentOrientation] ];
 
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
-    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@60];
-    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@20];
+    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@20];
+    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@60];
 
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, nil]];
     line1.height = @125;
@@ -51,23 +51,23 @@
     _name.offsetX = 30.0f;
     _name.offsetY = 20.0f;
     
-    [ClientEngine applyFrame:_name withLine:line1 andColumn:column2];
+    [ClientEngine applyFrame:_name withLine:line1 andColumn:column3];
     
     _country.prefferedHeight = 50.0f;
     _country.offsetX = 50.0f;
     _country.offsetY = 55.0f;
     
-    [ClientEngine applyFrame:_country withLine:line1 andColumn:column2];
+    [ClientEngine applyFrame:_country withLine:line1 andColumn:column3];
     
     _flag.prefferedWidth = 16.0f;
     _flag.prefferedHeight = 11.0f;
     _flag.offsetX = 30.0f;
     _flag.offsetY = 74.0f;
     
-    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column2];
+    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column3];
 
     _score.backgroundColor = [UIColor magentaColor];
-    [ClientEngine applyFrame:_score withLine:line1 andColumn:column3];
+    [ClientEngine applyFrame:_score withLine:line1 andColumn:column2];
     
 }
 
