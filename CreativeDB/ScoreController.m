@@ -54,6 +54,17 @@
         // product credits
         [self insertScore:award forProduct:award.entry.product];
     }
+    
+    // 2nd loop to update ranking
+    for( AwardModel *award in awards )
+    {
+        // people ranking update
+        for( CreditModel *credit in award.entry.credits )
+        {
+            [self updateRanking:award forCredit:credit];
+        }
+    }
+    
 }
 
 + (void) resetAwards
@@ -65,6 +76,8 @@
     [ScoreModel resetScore:@"aa_country_score"];
     [ScoreModel resetScore:@"aa_group_score"];
     [ScoreModel resetScore:@"aa_product_score"];
+    
+    [PersonModel resetScore];
 }
 
 + (void) insertScore:(AwardModel *) award forCredit:(CreditModel *) credit
@@ -81,6 +94,27 @@
     
     [score save];
 }
+
++ (void) updateRanking:(AwardModel *) award forCredit:(CreditModel *) credit
+{
+    credit.person.scoreGlobal = @123;
+    credit.person.rankingGlobal = @456;
+    
+    [credit.person save];
+    
+//    [ScoreModel setTableName:@"aa_person_score"];
+//    
+//    ScoreModel *score = [[ScoreModel alloc] init];
+//    score.origin = credit.person.pk;
+//    score.country = credit.person.country;
+//    score.entry = [EntryModel loadModel:award.entry.pk];
+//    score.festival = [FestivalModel loadModel:award.festival.pk];
+//    score.year = award.year;
+//    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
+//    
+//    [score save];
+}
+
 
 + (void) insertScore:(AwardModel *) award forProducer:(ProducerCreditModel *) producer
 {

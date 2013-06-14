@@ -73,11 +73,14 @@
 
 @protocol ClientLayoutable <NSObject>
 
-@property (nonatomic) CGRect frame;
 @property (assign) CGFloat offsetX;
 @property (assign) CGFloat offsetY;
 @property (assign) CGFloat prefferedWidth;
 @property (assign) CGFloat prefferedHeight;
+
+@optional
+
+@property (nonatomic) CGRect frame;
 
 @end
 

@@ -72,6 +72,28 @@
     }
 }
 
+-(NSString *) addSuffixToNumber:( long ) number
+{
+    NSString *suffix;
+    int ones = number % 10;
+    int temp = floor(number/10.0);
+    int tens = temp%10;
+    
+    if (tens ==1) {
+        suffix = @"th";
+    } else if (ones ==1){
+        suffix = @"st";
+    } else if (ones ==2){
+        suffix = @"nd";
+    } else if (ones ==3){
+        suffix = @"rd";
+    } else {
+        suffix = @"th";
+    }
+    
+    NSString *completeAsString = [NSString stringWithFormat:@"%ld%@",number,suffix];
+    return completeAsString;
+}
 
 - (void) updateData
 {
@@ -84,10 +106,10 @@
     self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedPerson.country.iso lowercaseString] ]];
     
     self.globalStats.text = @"GLOBAL";
-    self.globalScore.text = @"256th";
+    self.globalScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingGlobal longValue]]];
     
     self.countryStats.text = @"COUNTRY";
-    self.countryScore.text = @"22th";
+    self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingCountry longValue]]];
     
     self.titleEntries.text = @"Entries";
     

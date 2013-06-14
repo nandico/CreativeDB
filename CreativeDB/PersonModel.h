@@ -15,6 +15,10 @@
 @property (strong) CountryModel *country;
 @property (strong) NSString *name;
 @property (strong) NSURL *portfolioURL;
+@property (strong) NSNumber *rankingGlobal;
+@property (strong) NSNumber *rankingCountry;
+@property (strong) NSNumber *scoreGlobal;
+@property (strong) NSNumber *scoreCountry;
 
 + (NSString *) tableName;
 + (NSString *) fields;
@@ -31,5 +35,7 @@
 
 - (void) save;
 - (void) deleteModel;
+
++ (void) resetScore;
 
 @end
