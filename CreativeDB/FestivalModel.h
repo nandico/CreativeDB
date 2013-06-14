@@ -10,10 +10,10 @@
 
 @interface FestivalModel : BaseModel <BaseModelProtocol>
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) NSString *name;
 @property (strong) NSURL *siteURL;
-@property (assign) NSNumber *weight;
+@property (strong) NSNumber *weight;
 @property (strong) NSString *obs;
 @property (assign) NSInteger classify;
 

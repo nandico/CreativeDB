@@ -10,7 +10,7 @@
 
 @interface SubcategoryModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) NSString *name;
 
 + (NSString *) tableName;

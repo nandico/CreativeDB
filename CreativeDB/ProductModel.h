@@ -11,7 +11,7 @@
 
 @interface ProductModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) ClientModel *client;
 @property (strong) NSString *name;
 

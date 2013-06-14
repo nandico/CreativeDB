@@ -10,7 +10,7 @@
 
 @interface CountryModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) NSString *iso;
 @property (strong) NSString *language;
 @property (assign) NSInteger numcode;

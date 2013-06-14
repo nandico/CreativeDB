@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ScoreModel.h"
+#import "EntryDetailView.h"
 
 @protocol PersonDataSource <NSObject>
 
@@ -17,7 +18,7 @@
 
 @interface PersonView : UIView
 
-@property (assign) id <PersonDataSource> dataSource;
+@property (strong) id <PersonDataSource> dataSource;
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 - (void) updateData;

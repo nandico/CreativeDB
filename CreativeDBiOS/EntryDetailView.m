@@ -34,27 +34,35 @@
     CGRect contentRect = self.bounds;
     CGFloat boundsX = contentRect.origin.x;
     
-    _year.frame = CGRectMake( boundsX + 40, 10, 100, 50 );
+    _year.frame = CGRectMake( boundsX + 0, 10, 140, 50 );
     _metal.frame = CGRectMake( boundsX + 140, 10, 100, 50 );
-    _entry.frame = CGRectMake( boundsX + 240, 10, 100, 50 );
-    _client.frame = CGRectMake( boundsX + 240, 60, 100, 50 );
-    _product.frame = CGRectMake( boundsX + 240, 120, 100, 50 );
-    _festival.frame = CGRectMake( boundsX + 340, 10, 100, 50 );
-    _category.frame = CGRectMake( boundsX + 340, 60, 100, 50 );
-    _subcategory.frame = CGRectMake( boundsX + 340, 120, 100, 50 );
+    _entry.frame = CGRectMake( boundsX + 240, 10, 400, 50 );
+    _client.frame = CGRectMake( boundsX + 240, 50, 400, 50 );
+    _product.frame = CGRectMake( boundsX + 240, 100, 400, 50 );
+    _festival.frame = CGRectMake( boundsX + 640, 10, 200, 50 );
+    _category.frame = CGRectMake( boundsX + 640, 50, 200, 50 );
+    _subcategory.frame = CGRectMake( boundsX + 640, 100, 200, 50 );
 }
 
 - (void) updateData
 {
-    self.year.text = @"2013";
-    self.metal.text = @"Gold";
+    if( !_selectedEntry ) return;
+    if( !_selectedAward ) return;
+    
+    NSLog( @"Entry: %@, Award: %@", _selectedEntry, _selectedAward );
+    
+    self.year.text = [NSString stringWithFormat:@"     %@", _selectedAward.year ];
+    self.year.backgroundColor = [UIColor lightGrayColor];
+    self.metal.text = _selectedAward.metal.name;
     self.metal.backgroundColor = [UIColor yellowColor];
-    self.entry.text = @"Inonon lonenlita";
-    self.client.text = @"Fiat";
-    self.product.text = @"Cinquecento";
-    self.festival.text = @"One Show";
-    self.category.text = @"Interactive";
-    self.subcategory.text = @"Best use of Internet";
+    self.entry.text = _selectedEntry.name;
+    self.entry.backgroundColor = [UIColor cyanColor];
+    self.client.text = _selectedEntry.client.name;
+    self.product.text = ( _selectedEntry.product ) ? _selectedEntry.product.name : @"";
+    self.festival.text = _selectedAward.festival.name;
+    self.festival.backgroundColor = [UIColor lightGrayColor];
+    self.category.text = _selectedAward.category.name;
+    self.subcategory.text = ( _selectedAward.subcategory ) ? _selectedAward.subcategory.name : @"";
 }
 
 
@@ -113,11 +121,11 @@
     return _product;
 }
 
-- (H3Label *) festival
+- (H1Label *) festival
 {
     if( !_festival )
     {
-        _festival = [[H3Label alloc] init];
+        _festival = [[H1Label alloc] init];
         [self addSubview:_festival];
     }
     

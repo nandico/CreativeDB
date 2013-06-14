@@ -15,13 +15,13 @@
 
 @interface AwardModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) MetalModel *metal;
 @property (strong) CategoryModel *category;
 @property (strong) EntryModel *entry;
 @property (strong) FestivalModel *festival;
 @property (strong) SubcategoryModel *subcategory;
-@property (assign) NSNumber *year;
+@property (strong) NSNumber *year;
 
 + (NSString *) tableName;
 + (NSString *) fields;

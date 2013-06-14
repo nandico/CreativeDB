@@ -11,7 +11,7 @@
 
 @interface ProducerModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) CountryModel *country;
 @property (strong) NSString *name;
 @property (strong) NSURL *siteURL;

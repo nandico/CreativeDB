@@ -13,7 +13,7 @@
 
 @interface CalendarModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) FestivalModel *festival;
 @property (strong) CalendarTypeModel *type;
 @property (strong) CategoryModel *category;

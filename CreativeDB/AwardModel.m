@@ -46,7 +46,7 @@ static NSNumber *modelFilterValue;
     object.festival = [FestivalModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"festival"]]];
     object.subcategory = [SubcategoryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"subcategory"]]];
     object.year = [NSNumber numberWithLong:[results longForColumn:@"year"]];
-    
+
     return object;
 }
 

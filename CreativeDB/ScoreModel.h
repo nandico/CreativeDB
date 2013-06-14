@@ -19,7 +19,7 @@
 
 @interface ScoreModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) NSNumber *origin;
 @property (strong, nonatomic) AgencyModel *agency;
 @property (strong, nonatomic) ClientModel *client;

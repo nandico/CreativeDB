@@ -16,7 +16,6 @@
 #import "ClientEngine.h"
 #import "H1Label.h"
 #import "H4Label.h"
-#import "EntryDetailView.h"
 #import "AwardModel.h"
 
 @interface PersonView()
@@ -66,6 +65,8 @@
 - (void) updateData
 {
     PersonModel *selectedPerson = [self.dataSource selectedPerson];
+    
+    if( !selectedPerson ) return;
  
     self.name.text = selectedPerson.name;
     self.country.text = selectedPerson.country.name;
@@ -81,13 +82,20 @@
     
     NSInteger awardIndex = 0;
     
+    _entryLines = [[NSMutableArray alloc] init];
+    
+    
     for( EntryModel *entry in selectedPerson.entries )
     {
         for( AwardModel *award in entry.awards )
         {
-            EntryDetailView *entryView = [[EntryDetailView alloc] initWithFrame:CGRectMake(0, LIST_OFFSET_Y + 250.0f + (awardIndex * 300.0), 1024.0, 300.0f)];
+            EntryDetailView *entryView = [[EntryDetailView alloc] initWithFrame:CGRectMake(0, LIST_OFFSET_Y + 180.0f + (awardIndex * 180.0), 1024.0, 180.0f)];
+            entryView.selectedEntry = entry;
+            entryView.selectedAward = award;
             [entryView updateData];
             [self addSubview:entryView];
+            
+            [_entryLines addObject:entryView];
         
             awardIndex ++;
         }
@@ -124,7 +132,7 @@
     _countryStats.frame = CGRectMake( boundsX + 650, LIST_OFFSET_Y + 2, 200, 50 );
     _countryScore.frame = CGRectMake( boundsX + 650, LIST_OFFSET_Y + 40, 200, 50 );
 
-    _titleEntries.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 200, 200, 50 );
+    _titleEntries.frame = CGRectMake( boundsX + 30, LIST_OFFSET_Y + 120, 200, 50 );
 }
 
 

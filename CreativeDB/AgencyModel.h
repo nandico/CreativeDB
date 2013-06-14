@@ -12,7 +12,7 @@
 
 @interface AgencyModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong) NSString *type;
 @property (strong) GroupModel *group;
 @property (strong) CountryModel *country;

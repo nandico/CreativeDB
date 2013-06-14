@@ -14,7 +14,7 @@
 
 @interface EntryModel : BaseModel
 
-@property (assign) NSNumber *pk;
+@property (strong) NSNumber *pk;
 @property (strong, nonatomic) AgencyModel *agency;
 @property (strong, nonatomic) ClientModel *client;
 @property (strong, nonatomic) CountryModel *country;
@@ -23,7 +23,7 @@
 @property (strong) NSURL *caseURL;
 @property (strong) NSString *blurb;
 @property (strong) NSString *name;
-@property (assign) NSNumber *year;
+@property (strong) NSNumber *year;
 
 + (NSString *) tableName;
 + (NSString *) fields;
