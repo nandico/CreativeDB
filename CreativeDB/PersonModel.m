@@ -307,7 +307,7 @@
     
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
-    db.traceExecution = YES;
+//    db.traceExecution = YES;
     
     [db open];
     
@@ -422,6 +422,38 @@
     return ( ranking ) ? [ranking integerValue] : 0;
 }
 
+- (NSInteger) calculateRankCountry
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
+                                             " SELECT COUNT( * ) "
+                                             " FROM aa_person AS B "
+                                             " WHERE B.country = %@ AND B.score > A.score "
+                                             " ) AS Rank "
+                                             " FROM aa_person AS A "
+                                             " WHERE id = %@" , self.country.pk, self.pk ] ];
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
+    
+        NSLog( @"Ranking: %@", ranking );
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( ranking ) ? [ranking integerValue] : 0;
+}
+
 + (void) processRanking
 {
     NSMutableArray *persons = [PersonModel loadAll];
@@ -439,6 +471,7 @@
     for( PersonModel *person in persons )
     {
         person.rankingGlobal = [NSNumber numberWithInteger:[person calculateRankGlobal] + 1];
+        person.rankingCountry = [NSNumber numberWithInteger:[person calculateRankCountry] + 1];
         [person save];
     }
 }

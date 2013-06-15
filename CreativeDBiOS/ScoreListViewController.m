@@ -126,7 +126,9 @@
     }
     
     NSString *completeAsString = [NSString stringWithFormat:@"%ld%@",number,suffix];
+    
     return completeAsString;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
