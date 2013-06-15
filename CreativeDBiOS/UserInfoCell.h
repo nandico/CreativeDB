@@ -12,6 +12,7 @@
 #import "PositionLabel.h"
 #import "ScoreLabel.h"
 #import "CountryImageView.h"
+#import "PersonThumb.h"
 
 @protocol UserInfoDataSource <NSObject>
 
@@ -23,6 +24,7 @@
 
 @property (assign) id <UserInfoDataSource> dataSource;
 
+@property (nonatomic, strong) PersonThumb *thumb;
 @property (nonatomic, strong) NameLabel *name;
 @property (nonatomic, strong) CountryLabel *country;
 @property (nonatomic, strong) PositionLabel *position;

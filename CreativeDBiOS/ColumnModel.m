@@ -20,4 +20,14 @@
     return self;
 }
 
+- (id) initWithFixed:(NSNumber *) fixed
+{
+    self = [super init];
+    if (self) {
+        self.width = fixed;
+    }
+    
+    return self;
+}
+
 @end

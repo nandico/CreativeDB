@@ -87,11 +87,10 @@ static CGFloat spacingAfterHeader = 30.0f;
         ColumnModel *cursorColumn = [line.columns objectAtIndex:columnIndex];
         if( cursorColumn == column )
         {
-//            NSLog( @"Break for column!!" );
             break;
         }
         
-        columnOffset += [ClientEngine absoluteWidthForColumn:cursorColumn];
+        columnOffset += [ClientEngine absoluteWidthForColumn:cursorColumn andLine:line];
     }
     
     return CGPointMake( columnOffset, lineOffset );
@@ -103,35 +102,40 @@ static CGFloat spacingAfterHeader = 30.0f;
     CGFloat columnWidth = 0;
     CGFloat columnHeight = 0;
     
-    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : [ClientEngine absoluteWidthForColumn:column];
+    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : [ClientEngine absoluteWidthForColumn:column andLine:line];
     columnHeight = ( [label prefferedHeight] ) ? [label prefferedHeight] : [line.height floatValue];
-    
-//    NSLog( @"Object: %@", label );
-//    NSLog( @"Width: %f, height: %f", columnWidth, columnHeight );
-//    NSLog( @"Origin x: %f, y: %f", flatOrigin.x + [label offsetX], flatOrigin.y + [label offsetY] );
-
     
     label.frame = CGRectMake(flatOrigin.x + [label offsetX],
                              flatOrigin.y + [label offsetY],
                              columnWidth, columnHeight );
 }
 
-+ (CGFloat) absoluteWidthForColumn:(ColumnModel *) column
++ (CGFloat) absoluteWidthForColumn:(ColumnModel *) column andLine:(LineModel *) line
 {
     if( column.width )
     {
-//        NSLog( @"Returning absolute width: %f", [column.width floatValue] );
         return [column.width floatValue];
     }
     else if( column.percentWidth )
     {
-//        NSLog( @"Percent width: %f Screen size width: %f", [column.percentWidth floatValue], [ClientEngine screenRect].size.width );
-//        NSLog( @"Returning percent calculated width: %f", [column.percentWidth floatValue] / 100.0f * [ClientEngine screenRect].size.width );
-        
-        return floor( [column.percentWidth floatValue] / 100.0f * [ClientEngine screenRect].size.width );
+        CGFloat fixedColumnsTotal = [ClientEngine calculateFixedColumnsTotal:line];
+
+        return floor( [column.percentWidth floatValue] / 100.0f * ( [ClientEngine screenRect].size.width - fixedColumnsTotal ) );
     }
     
     return 0;
+}
+
++ (CGFloat) calculateFixedColumnsTotal:(LineModel *) line
+{
+    CGFloat total = 0;
+    
+    for( ColumnModel *column in line.columns )
+    {
+        if( column.width ) total += [column.width floatValue];
+    }
+    
+    return total;
 }
 
 + (UIDeviceOrientation) currentOrientation

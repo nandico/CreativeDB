@@ -16,5 +16,6 @@
 @property (strong) NSNumber *percentHeight;
 
 - (id) initWithPercent:(NSNumber *) percent;
+- (id) initWithFixed:(NSNumber *) fixed;
 
 @end

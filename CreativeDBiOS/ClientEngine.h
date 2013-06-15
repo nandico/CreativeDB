@@ -64,6 +64,9 @@
 #define MENU_BUTTON_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:40.0f]
 #define MENU_BUTTON_FONT_COLOR [UIColor cyanColor]
 
+#define THUMB_TEXT_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:80.0f]
+#define THUMB_TEXT_COLOR [UIColor whiteColor]
+#define THUMB_TEXT_BACKGROUND_COLOR [UIColor orangeColor]
 
 #define LIST_CONTENT_LANDSCAPE_HEIGHT CGSizeMake(668.0f, 668.0f)
 #define LIST_CONTENT_PORTRAIT_HEIGHT CGSizeMake(924.0f, 924.0f)
