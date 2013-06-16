@@ -1,14 +1,14 @@
 //
-//  PersonThumb.m
+//  PersonIdView.m
 //  CreativeDB
 //
 //  Created by Fernando Aquino on 6/15/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "PersonThumb.h"
+#import "PersonIdView.h"
 
-@implementation PersonThumb 
+@implementation PersonIdView
 
 - (id)init
 {
@@ -16,19 +16,19 @@
     if (self) {
         self.backgroundColor = [UIColor orangeColor];
         
-        [self addSubview:[self initials]];
+        [self addSubview:[self userInitials]];
     }
     return self;
 }
 
-- (PersonThumbLabel *) initials
+- (PersonThumbLabel *) userInitials
 {
-    if( !_initials )
+    if( !_userInitials )
     {
-        _initials = [[PersonThumbLabel alloc] init];
+        _userInitials = [[PersonThumbLabel alloc] init];
     }
     
-    return _initials;
+    return _userInitials;
 }
 
 - (NSString *) extractInitials:(NSString *) name

@@ -14,11 +14,20 @@ static NSMutableArray *lines;
 static BOOL considerHeader = YES;
 static CGFloat spacingAfterHeader = 30.0f;
 
+
 @implementation ClientEngine
 
 + (void) startEngine
 {
     lines = [[NSMutableArray alloc] init];
+}
+
++ (void) setSpacingAfterHeader:(CGFloat) spacing
+{
+    @synchronized( self )
+    {
+        spacingAfterHeader = spacing;
+    }
 }
 
 + (BOOL) mustConsiderHeader

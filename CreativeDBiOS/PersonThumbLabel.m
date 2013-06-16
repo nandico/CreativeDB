@@ -11,16 +11,26 @@
 
 @implementation PersonThumbLabel
 
+- (id) init
+{
+    self = [super init];
+    
+    if( self )
+    {
+        self.backgroundColor = [UIColor clearColor];
+        self.textColor = THUMB_TEXT_COLOR;
+        self.font = THUMB_TEXT_FONT;
+        
+        self.textAlignment = NSTextAlignmentCenter;
+        
+    }
+    
+    return self;
+}
+
 - (void) setText:(NSString *)text
 {
     self.frame = self.superview.bounds;
-
-    self.backgroundColor = THUMB_TEXT_BACKGROUND_COLOR;
-    self.textColor = THUMB_TEXT_COLOR;
-    self.font = THUMB_TEXT_FONT;
-    
-    self.textAlignment = NSTextAlignmentCenter;
-    
     [super setText:text];
 }
 

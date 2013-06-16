@@ -19,11 +19,13 @@
 #import "AwardModel.h"
 #import "LineModel.h"
 #import "ColumnModel.h"
+#import "PersonIdView.h"
 
 @interface PersonView()
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
+@property (nonatomic, strong) PersonIdView *thumb;
 @property (nonatomic, strong) NameLabel *name;
 @property (nonatomic, strong) CountryLabel *country;
 @property (nonatomic, strong) CountryImageView *flag;
@@ -49,6 +51,7 @@
         self.backgroundColor = [UIColor redColor];
 
         [self background];
+        [self thumb];
         [self name];
         [self country];
         [self flag];
@@ -101,6 +104,9 @@
     
     if( !selectedPerson ) return;
  
+    NSLog( @"Ae! %@", [self.thumb extractInitials:selectedPerson.name] );
+    
+    self.thumb.userInitials.text = [self.thumb extractInitials:selectedPerson.name];
     self.name.text = selectedPerson.name;
     self.country.text = selectedPerson.country.name;
     self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedPerson.country.iso lowercaseString] ]];
@@ -181,16 +187,19 @@
 {
     [ClientEngine startEngine];
     [ClientEngine setMustConsiderHeader:YES];
+    [ClientEngine setSpacingAfterHeader:0.0f];
     [ClientEngine setCurrentOrientation:_currentOrientation];
     
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@40];
     ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@30];
     ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@30];
+    ColumnModel *column4 = [[ColumnModel alloc] initWithFixed:@125];
 
-    LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, nil]];
-    line1.height = @120;
-    [ClientEngine addLine:line1];
     
+    LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
+    line1.height = @125;
+    [ClientEngine addLine:line1];
+        
     _name.prefferedWidth = 200.0f;
     _name.prefferedHeight = 50.0f;
     _name.offsetX = 30.0f;
@@ -240,6 +249,10 @@
     
     [ClientEngine applyFrame:_countryScore withLine:line1 andColumn:column3];
     
+    _thumb.prefferedWidth = 128.0f;
+    _thumb.prefferedHeight = 125.0f;
+    
+    [ClientEngine applyFrame:_thumb withLine:line1 andColumn:column4];
     
     column1 = [[ColumnModel alloc] initWithPercent:@100];
     LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, nil]];
@@ -252,6 +265,9 @@
     _titleEntries.offsetY = 0.0f;
     
     [ClientEngine applyFrame:_titleEntries withLine:line2 andColumn:column1];
+    
+
+
 }
 
 
@@ -265,6 +281,17 @@
     }
     
     return _background;
+}
+
+- (PersonIdView *) thumb
+{
+    if( !_thumb )
+    {
+        _thumb = [[PersonIdView alloc] init];
+        [self addSubview:_thumb];
+    }
+    
+    return _thumb;
 }
 
 - (NameLabel *) name

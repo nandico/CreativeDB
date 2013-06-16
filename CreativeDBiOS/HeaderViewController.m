@@ -32,10 +32,12 @@
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
         self.viewInstance.frame = HEADER_PORTRAIT_FRAME;
+        [self.viewInstance updateOrientation:orientation];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         self.viewInstance.frame = HEADER_LANDSCAPE_FRAME;
+        [self.viewInstance updateOrientation:orientation];
     }
 }
 

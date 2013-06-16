@@ -11,6 +11,6 @@
 
 @interface HeaderView : UIView
 
-
+- (void) updateOrientation:( UIDeviceOrientation ) orientation;
 
 @end

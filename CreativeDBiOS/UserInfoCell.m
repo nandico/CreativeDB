@@ -14,7 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _thumb = [[PersonThumb alloc] init];
+        _thumb = [[PersonIdView alloc] init];
         _name = [[NameLabel alloc] init];
         _country = [[CountryLabel alloc] init];
         _position = [[PositionLabel alloc] init];
@@ -40,41 +40,43 @@
 
     ColumnModel *column1 = [[ColumnModel alloc] initWithFixed:@125];
     ColumnModel *column2 = [[ColumnModel alloc] initWithFixed:@125];
-    ColumnModel *column3 = [[ColumnModel alloc] initWithFixed:@125];
-    ColumnModel *column4 = [[ColumnModel alloc] initWithPercent:@100];
+    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@100];
+    ColumnModel *column4 = [[ColumnModel alloc] initWithFixed:@125];
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
     line1.height = @125;
     [ClientEngine addLine:line1];
     
     _position.backgroundColor = [UIColor cyanColor];
+    _position.textAlignment = NSTextAlignmentCenter;
     [ClientEngine applyFrame:_position withLine:line1 andColumn:column1];
     
-    _score.backgroundColor = [UIColor magentaColor];
+    _score.backgroundColor = [UIColor lightGrayColor];
     _score.textAlignment = NSTextAlignmentCenter;
     [ClientEngine applyFrame:_score withLine:line1 andColumn:column2];
-
-    _thumb.backgroundColor = [UIColor orangeColor];
-    [ClientEngine applyFrame:_thumb withLine:line1 andColumn:column3];
     
     _name.prefferedHeight = 50.0f;
     _name.offsetX = 30.0f;
     _name.offsetY = 20.0f;
     
-    [ClientEngine applyFrame:_name withLine:line1 andColumn:column4];
+    [ClientEngine applyFrame:_name withLine:line1 andColumn:column3];
     
     _country.prefferedHeight = 50.0f;
     _country.offsetX = 50.0f;
     _country.offsetY = 55.0f;
     
-    [ClientEngine applyFrame:_country withLine:line1 andColumn:column4];
+    [ClientEngine applyFrame:_country withLine:line1 andColumn:column3];
     
     _flag.prefferedWidth = 16.0f;
     _flag.prefferedHeight = 11.0f;
     _flag.offsetX = 30.0f;
     _flag.offsetY = 74.0f;
     
-    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column4];
+    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column3];
+    
+    _thumb.backgroundColor = [UIColor orangeColor];
+    [ClientEngine applyFrame:_thumb withLine:line1 andColumn:column4];
+
 
     
 }
