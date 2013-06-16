@@ -44,13 +44,19 @@
 {
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
-        self.tableView.frame = LIST_PORTRAIT_FRAME;
+        if( self.tableView.frame.origin.x == 0 )
+        {
+            self.tableView.frame = LIST_PORTRAIT_FRAME;
+        }
         _currentOrientation = orientation;
         [self.tableView reloadData];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
-        self.tableView.frame = LIST_LANDSCAPE_FRAME;
+        if( self.tableView.frame.origin.x == 0 )
+        {
+            self.tableView.frame = LIST_LANDSCAPE_FRAME;
+        }
         _currentOrientation = orientation;
         [self.tableView reloadData];
     }
