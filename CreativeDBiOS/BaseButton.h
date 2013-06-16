@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ClientEngine.h"
 
-@interface BaseButton : UIButton
+@interface BaseButton : UIButton <ClientLayoutable>
+
+@property (assign) CGFloat offsetX;
+@property (assign) CGFloat offsetY;
+@property (assign) CGFloat prefferedWidth;
+@property (assign) CGFloat prefferedHeight;
 
 @end

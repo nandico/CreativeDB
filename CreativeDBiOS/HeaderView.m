@@ -101,6 +101,8 @@
     
     [ClientEngine applyFrame:_logo withLine:line1 andColumn:columnLogo];
     
+    [ClientEngine applyFrame:_scoreButton withLine:line1 andColumn:columnMenu1];
+    
     _logo.backgroundColor = [UIColor yellowColor];
     _logo.userInitials.textColor = [UIColor blackColor];
     _logo.userInitials.text = @"CD";

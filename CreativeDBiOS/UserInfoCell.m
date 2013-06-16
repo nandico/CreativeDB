@@ -44,7 +44,7 @@
     ColumnModel *column4 = [[ColumnModel alloc] initWithFixed:@125];
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
-    line1.height = @125;
+    line1.height = @130;
     [ClientEngine addLine:line1];
     
     _position.backgroundColor = [UIColor cyanColor];

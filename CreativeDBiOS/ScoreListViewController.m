@@ -169,6 +169,13 @@
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
     cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
 
+    /*
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor redColor]];
+    [cell setSelectedBackgroundView:bgColorView];
+    */
+    cell.selectionStyle = UITableViewCellSelectionStyleGray;
+     
     [cell layoutSubviews];
 }
 
