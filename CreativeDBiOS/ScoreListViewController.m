@@ -48,6 +48,11 @@
         {
             self.tableView.frame = LIST_PORTRAIT_FRAME;
         }
+        else
+        {
+            self.tableView.frame = LIST_PORTRAIT_FRAME_OUTSIDE;
+        }
+        
         _currentOrientation = orientation;
         [self.tableView reloadData];
     }
@@ -57,6 +62,11 @@
         {
             self.tableView.frame = LIST_LANDSCAPE_FRAME;
         }
+        else
+        {
+            self.tableView.frame = LIST_LANDSCAPE_FRAME_OUTSIDE;
+        }
+        
         _currentOrientation = orientation;
         [self.tableView reloadData];
     }

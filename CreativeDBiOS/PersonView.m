@@ -103,9 +103,7 @@
     PersonModel *selectedPerson = [self.dataSource selectedPerson];
     
     if( !selectedPerson ) return;
- 
-    NSLog( @"Ae! %@", [self.thumb extractInitials:selectedPerson.name] );
-    
+     
     self.thumb.userInitials.text = [self.thumb extractInitials:selectedPerson.name];
     self.name.text = selectedPerson.name;
     self.country.text = selectedPerson.country.name;
@@ -195,6 +193,8 @@
     ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@30];
     ColumnModel *column4 = [[ColumnModel alloc] initWithFixed:@125];
 
+    // 13.0 alinha embaixo
+    CGFloat rankingOffsetY = 10.0f;
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
     line1.height = @125;
@@ -202,50 +202,50 @@
         
     _name.prefferedWidth = 200.0f;
     _name.prefferedHeight = 50.0f;
-    _name.offsetX = 30.0f;
-    _name.offsetY = 10.0f;
+    _name.offsetX = APP_LEFT_PADDING;
+    _name.offsetY = 10.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_name withLine:line1 andColumn:column1];
     
     _country.prefferedWidth = 200.0f;
     _country.prefferedHeight = 50.0f;
-    _country.offsetX = 50.0f;
-    _country.offsetY = 45.0f;
+    _country.offsetX = 56.0f;
+    _country.offsetY = 48.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_country withLine:line1 andColumn:column1];
     
     _flag.prefferedWidth = 16.0f;
     _flag.prefferedHeight = 11.0f;
-    _flag.offsetX = 30.0f;
-    _flag.offsetY = 64.0f;
+    _flag.offsetX = APP_LEFT_PADDING;
+    _flag.offsetY = 67.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_flag withLine:line1 andColumn:column1];
     
     _globalStats.prefferedWidth = 200.0f;
     _globalStats.prefferedHeight = 50.0f;
     _globalStats.offsetX = 0.0f;
-    _globalStats.offsetY = 3.0f;
+    _globalStats.offsetY = 3.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_globalStats withLine:line1 andColumn:column2];
     
     _globalScore.prefferedWidth = 200.0f;
     _globalScore.prefferedHeight = 50.0f;
     _globalScore.offsetX = 0.0f;
-    _globalScore.offsetY = 35.0f;
+    _globalScore.offsetY = 38.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_globalScore withLine:line1 andColumn:column2];
     
     _countryStats.prefferedWidth = 200.0f;
     _countryStats.prefferedHeight = 50.0f;
     _countryStats.offsetX = 0.0f;
-    _countryStats.offsetY = 3.0f;
+    _countryStats.offsetY = 3.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_countryStats withLine:line1 andColumn:column3];
     
     _countryScore.prefferedWidth = 200.0f;
     _countryScore.prefferedHeight = 50.0f;
     _countryScore.offsetX = 0.0f;
-    _countryScore.offsetY = 35.0f;
+    _countryScore.offsetY = 38.0f + rankingOffsetY;
     
     [ClientEngine applyFrame:_countryScore withLine:line1 andColumn:column3];
     
@@ -261,7 +261,7 @@
 
     _titleEntries.prefferedWidth = 200.0f;
     _titleEntries.prefferedHeight = 50.0f;
-    _titleEntries.offsetX = 30.0f;
+    _titleEntries.offsetX = APP_LEFT_PADDING;
     _titleEntries.offsetY = 0.0f;
     
     [ClientEngine applyFrame:_titleEntries withLine:line2 andColumn:column1];

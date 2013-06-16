@@ -96,7 +96,7 @@
     line1.height = @125;
     [ClientEngine addLine:line1];
 
-    _title.offsetX = 30.0f;
+    _title.offsetX = APP_LEFT_PADDING;
     [ClientEngine applyFrame:_title withLine:line1 andColumn:columnTitle];
     
     [ClientEngine applyFrame:_logo withLine:line1 andColumn:columnLogo];
