@@ -28,16 +28,13 @@
 {
     self = [super init];
     if (self) {
-        self.viewInstance = [[PersonView alloc] initWithFrame:CONTENT_LANDSCAPE_FRAME];
-        [self.view addSubview:self.viewInstance];
-        
-        [self scrollView];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(updateData:)
-                                                     name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
     }
     return self;
+}
+
+- (void) loadView
+{
+    self.view = self.viewInstance = [[PersonView alloc] initWithFrame:CONTENT_LANDSCAPE_FRAME];
 }
 
 - (void) updateData:(NSNotification *) notification
@@ -138,8 +135,13 @@
 
 - (void)viewDidLoad
 {
-    NSLog( @"Did load!" );
+    [self scrollView];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateData:)
+                                                 name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
+
+    self.viewInstance.clipsToBounds = YES;
     [super viewDidLoad];
 }
 

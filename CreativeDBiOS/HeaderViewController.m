@@ -22,10 +22,13 @@
 {
     self = [super init];
     if (self) {
-        self.viewInstance = [[HeaderView alloc] initWithFrame:HEADER_LANDSCAPE_FRAME];
-        [self.view addSubview:self.viewInstance];
     }
     return self;
+}
+
+- (void) loadView
+{
+    self.view = self.viewInstance = [[HeaderView alloc] initWithFrame:HEADER_LANDSCAPE_FRAME];
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
@@ -44,6 +47,7 @@
 
 - (void)viewDidLoad
 {
+    self.viewInstance.clipsToBounds = YES;
     [super viewDidLoad];
 }
 

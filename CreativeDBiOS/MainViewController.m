@@ -29,25 +29,9 @@
 {
     self = [super init];
     if (self) {
-        self.viewInstance = [[MainView alloc] initWithFrame:SCREEN_LANDSCAPE_FRAME];
-        [self.view addSubview:self.viewInstance];
+//        self.viewInstance = [[MainView alloc] initWithFrame:SCREEN_LANDSCAPE_FRAME];
+//        [self.view addSubview:self.viewInstance];
         
-        self.personDetail = [[PersonViewController alloc] init];
-        [self.viewInstance addSubview:self.personDetail.view];
-
-//        self.header = [[HeaderViewController alloc] init];
-//        [self.viewInstance addSubview:self.header.view];
-       
-        
-        self.scoreModule = [[ScoreListViewController alloc] init];
-        [self.viewInstance addSubview:self.scoreModule.view];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(deviceOrientationDidChange:)
-                                                     name: UIDeviceOrientationDidChangeNotification
-                                                   object: nil];
-    
-        [self orientationChangedMethod];
 
 // Use to test the person detail view
 //        [self.scoreModule.view setHidden:YES];
@@ -61,6 +45,11 @@
     }
     
     return self;
+}
+
+- (void) loadView
+{
+    self.view = self.viewInstance = [[MainView alloc] initWithFrame:SCREEN_LANDSCAPE_FRAME];
 }
 
 - (void) deviceOrientationDidChange:(NSNotification *) notification
@@ -93,6 +82,23 @@
 
 - (void)viewDidLoad
 {
+    self.header = [[HeaderViewController alloc] init];
+    [self.viewInstance addSubview:self.header.view];
+    
+    self.personDetail = [[PersonViewController alloc] init];
+    [self.viewInstance addSubview:self.personDetail.view];
+    
+    self.scoreModule = [[ScoreListViewController alloc] init];
+    [self.viewInstance addSubview:self.scoreModule.view];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChange:)
+                                                 name: UIDeviceOrientationDidChangeNotification
+                                               object: nil];
+    
+    [self orientationChangedMethod];
+
+    
     [super viewDidLoad];
 }
 

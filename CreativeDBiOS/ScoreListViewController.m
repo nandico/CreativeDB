@@ -26,18 +26,13 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[BaseView alloc] initWithFrame:CONTENT_LANDSCAPE_FRAME];
-        
-        [ScoreModel setTableName:@"aa_person_score"];
-        _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
-        
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(wakeUpScore)
-                                                     name:NOTIFICATION_WAKE_SCORE object:nil];
-
-        [self createList];
     }
     return self;
+}
+
+- (void) loadView
+{
+    self.view = self.viewInstance = [[BaseView alloc] initWithFrame:CONTENT_LANDSCAPE_FRAME];
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
@@ -197,6 +192,16 @@
 
 - (void)viewDidLoad
 {
+    [ScoreModel setTableName:@"aa_person_score"];
+    _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(wakeUpScore)
+                                                 name:NOTIFICATION_WAKE_SCORE object:nil];
+    
+    [self createList];
+
+    
     [super viewDidLoad];
 }
 
