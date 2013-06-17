@@ -36,9 +36,9 @@
 @property (nonatomic, strong) H4Label *countryStats;
 @property (nonatomic, strong) ScoreLabel *countryScore;
 
-@property (nonatomic, strong) H1Label *titleEntries;
+//@property (nonatomic, strong) H1Label *titleEntries;
 
-@property (nonatomic, strong) NSMutableArray *entryLines;
+//@property (nonatomic, strong) NSMutableArray *entryLines;
 
 @end
 
@@ -61,7 +61,7 @@
         [self countryStats];
         [self countryScore];
         
-        [self titleEntries];
+//        [self titleEntries];
 
    }
     return self;
@@ -69,10 +69,10 @@
 
 - (void) removeData
 {
-    for( EntryDetailView *entry in _entryLines )
-    {
-        [entry removeFromSuperview];
-    }
+//    for( EntryDetailView *entry in _entryLines )
+//    {
+//        [entry removeFromSuperview];
+//    }
 }
 
 -(NSString *) addSuffixToNumber:( long ) number
@@ -115,7 +115,7 @@
     self.countryStats.text = @"COUNTRY";
     self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingCountry longValue]]];
     
-    self.titleEntries.text = @"Entries";
+//    self.titleEntries.text = @"Entries";
     
 //    NSInteger awardIndex = 0;
 //    
@@ -161,7 +161,7 @@
         _currentOrientation = orientation;
         [ClientEngine setCurrentOrientation:_currentOrientation];
         
-        [self updateChildOrientation:orientation];
+//        [self updateChildOrientation:orientation];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
@@ -169,17 +169,17 @@
         _currentOrientation = orientation;
         [ClientEngine setCurrentOrientation:_currentOrientation];
         
-        [self updateChildOrientation:orientation];
+//        [self updateChildOrientation:orientation];
     }
 }
 
-- (void) updateChildOrientation:( UIDeviceOrientation ) orientation
-{
-    for( EntryDetailView *child in _entryLines )
-    {
-        [child updateOrientation:orientation];
-    }
-}
+//- (void) updateChildOrientation:( UIDeviceOrientation ) orientation
+//{
+//    for( EntryDetailView *child in _entryLines )
+//    {
+//        [child updateOrientation:orientation];
+//    }
+//}
 
 - (void) layoutSubviews
 {
@@ -259,12 +259,12 @@
     line2.height = @80.0;
     [ClientEngine addLine:line2];
 
-    _titleEntries.prefferedWidth = 200.0f;
-    _titleEntries.prefferedHeight = 50.0f;
-    _titleEntries.offsetX = APP_LEFT_PADDING;
-    _titleEntries.offsetY = 0.0f;
-    
-    [ClientEngine applyFrame:_titleEntries withLine:line2 andColumn:column1];
+//    _titleEntries.prefferedWidth = 200.0f;
+//    _titleEntries.prefferedHeight = 50.0f;
+//    _titleEntries.offsetX = APP_LEFT_PADDING;
+//    _titleEntries.offsetY = 0.0f;
+//    
+//    [ClientEngine applyFrame:_titleEntries withLine:line2 andColumn:column1];
     
 
 
@@ -369,17 +369,6 @@
     }
     
     return _countryScore;
-}
-
-- (H1Label *) titleEntries
-{
-    if( !_titleEntries )
-    {
-        _titleEntries = [[H1Label alloc] init];
-        [self addSubview:_titleEntries];
-    }
-    
-    return _titleEntries;
 }
 
 @end

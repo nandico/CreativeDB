@@ -19,6 +19,7 @@
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
 @property (nonatomic, strong) NSMutableArray *entryLines;
+@property (nonatomic, strong) H1Label *titleEntries;
 
 @end
 
@@ -55,11 +56,24 @@
 {
     NSInteger awardIndex = 0;
     
+    NSLog( @"BEGINNING ENTRY UPDATE" );
+    
     [ClientEngine startEngine];
     [ClientEngine setMustConsiderHeader:NO];
     [ClientEngine setSpacingAfterHeader:0.0f];
     
     [ClientEngine setCurrentOrientation:_currentOrientation];
+    
+    ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
+    LineModel *line = [[LineModel alloc] initWithOptions:
+                       [NSMutableArray arrayWithObjects:column, nil ]];
+    line.height = @30;
+    [ClientEngine addLine:line];
+    _titleEntries.text = @"Entries";
+    [ClientEngine applyFrame:_titleEntries withLine:line andColumn:column];
+
+    [self.scrollView addSubview:_titleEntries];
+    
     
     for( EntryModel *entry in _selectedPerson.entries )
     {
@@ -77,9 +91,7 @@
             
             [ClientEngine applyFrame:entryView withLine:line andColumn:column];
             entryView.frame = CGRectMake(0, 150 * awardIndex, 1024, 1024 );
-            
-            NSLog( @"Entryview: %@", entryView );
-            
+                        
             entryView.selectedEntry = entry;
             entryView.selectedAward = award;
             [entryView updateData];
@@ -91,14 +103,12 @@
             awardIndex ++;
         }
     }
+    NSLog( @"ENDING ENTRY UPDATE" );
     
-    NSLog( @"End of processing." );
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
-{
-    NSLog( @"Person view Update orientation!" );
-    
+{    
     [self.viewInstance updateOrientation:orientation];
     _currentOrientation = orientation;
     [self updateChildOrientation:orientation];
@@ -133,9 +143,20 @@
     return _scrollView;
 }
 
+- (H1Label *) titleEntries
+{
+    if( !_titleEntries )
+    {
+        _titleEntries = [[H1Label alloc] init];
+    }
+    
+    return _titleEntries;
+}
+
 - (void)viewDidLoad
 {
     [self scrollView];
+    [self titleEntries];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateData:)

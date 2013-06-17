@@ -8,12 +8,10 @@
 
 #import "ClientEngine.h"
 
-
 static UIDeviceOrientation currentOrientation;
 static NSMutableArray *lines;
 static BOOL considerHeader = YES;
 static CGFloat spacingAfterHeader = 30.0f;
-
 
 @implementation ClientEngine
 
@@ -48,6 +46,8 @@ static CGFloat spacingAfterHeader = 30.0f;
 
 + (void) addLine:(LineModel *) line
 {
+    NSLog( @"Line added. %@", line );
+    
     line.lineIndex = [lines count];
     [lines addObject:line];
 }

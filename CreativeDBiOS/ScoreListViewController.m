@@ -201,7 +201,7 @@
     
     [self createList];
 
-    
+    self.viewInstance.clipsToBounds = YES;
     [super viewDidLoad];
 }
 
