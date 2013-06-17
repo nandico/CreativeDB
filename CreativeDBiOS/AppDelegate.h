@@ -13,6 +13,5 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) MainViewController *mainController;
-@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end

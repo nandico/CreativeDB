@@ -26,7 +26,7 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[BaseView alloc] init];
+        self.view = self.viewInstance = [[BaseView alloc] initWithFrame:CONTENT_LANDSCAPE_FRAME];
         
         [ScoreModel setTableName:@"aa_person_score"];
         _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];

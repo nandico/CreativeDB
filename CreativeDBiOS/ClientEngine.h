@@ -22,6 +22,13 @@
 #define SCREEN_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 724.0f)
 #define SCREEN_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 980.0f)
 
+#define CONTENT_LANDSCAPE_FRAME CGRectMake(0, 125.0f, 1024.0f, 643.0f)
+#define CONTENT_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 855.0f)
+
+#define INNER_CONTENT_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 599.0f)
+#define INNER_CONTENT_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 855.0f)
+
+
 #define HEADER_TITLE_COLOR [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]
 #define HEADER_TITLE_BACKGROUND_COLOR nil
 #define HEADER_TITLE_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:46.0f]
@@ -76,6 +83,8 @@
 #define LIST_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 855.0f)
 #define LIST_PORTRAIT_FRAME_OUTSIDE CGRectMake(-768.0f, 125.0f, 768.0f, 855.0f)
 #define LIST_OFFSET_Y 125.0f
+
+#define CONTENT_SCROLL_LANDSCAPE_FRAME CGRectMake(0, 250.0f, 1024.0f, 518.0f)
 
 @protocol ClientLayoutable <NSObject>
 

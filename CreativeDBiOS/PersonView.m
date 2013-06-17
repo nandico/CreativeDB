@@ -117,39 +117,39 @@
     
     self.titleEntries.text = @"Entries";
     
-    NSInteger awardIndex = 0;
-    
-    _entryLines = [[NSMutableArray alloc] init];
-    
-    LineModel *line;
-    ColumnModel *column;
-    
-    [self layoutSubviews];
-    
-    for( EntryModel *entry in selectedPerson.entries )
-    {
-        for( AwardModel *award in entry.awards )
-        {
-            column = [[ColumnModel alloc] initWithPercent:@100];
-            line = [[LineModel alloc] initWithOptions:
-                    [NSMutableArray arrayWithObjects:column, nil ]];
-            line.height = @180;
-            [ClientEngine addLine:line];
-            
-            EntryDetailView *entryView = [[EntryDetailView alloc] init];
-            
-            [ClientEngine applyFrame:entryView withLine:line andColumn:column];
-            
-            entryView.selectedEntry = entry;
-            entryView.selectedAward = award;
-            [entryView updateData];
-            [self addSubview:entryView];
-            
-            [_entryLines addObject:entryView];
-        
-            awardIndex ++;
-        }
-    }
+//    NSInteger awardIndex = 0;
+//    
+//    _entryLines = [[NSMutableArray alloc] init];
+//    
+//    LineModel *line;
+//    ColumnModel *column;
+//    
+//    [self layoutSubviews];
+//    
+//    for( EntryModel *entry in selectedPerson.entries )
+//    {
+//        for( AwardModel *award in entry.awards )
+//        {
+//            column = [[ColumnModel alloc] initWithPercent:@100];
+//            line = [[LineModel alloc] initWithOptions:
+//                    [NSMutableArray arrayWithObjects:column, nil ]];
+//            line.height = @180;
+//            [ClientEngine addLine:line];
+//            
+//            EntryDetailView *entryView = [[EntryDetailView alloc] init];
+//            
+//            [ClientEngine applyFrame:entryView withLine:line andColumn:column];
+//            
+//            entryView.selectedEntry = entry;
+//            entryView.selectedAward = award;
+//            [entryView updateData];
+//            [self addSubview:entryView];
+//            
+//            [_entryLines addObject:entryView];
+//        
+//            awardIndex ++;
+//        }
+//    }
 
 }
 
@@ -157,7 +157,7 @@
 {
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
-        self.background.frame = LIST_PORTRAIT_FRAME ;
+        self.background.frame = INNER_CONTENT_PORTRAIT_FRAME;
         _currentOrientation = orientation;
         [ClientEngine setCurrentOrientation:_currentOrientation];
         
@@ -165,7 +165,7 @@
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
-        self.background.frame = LIST_LANDSCAPE_FRAME;
+        self.background.frame = INNER_CONTENT_LANDSCAPE_FRAME;
         _currentOrientation = orientation;
         [ClientEngine setCurrentOrientation:_currentOrientation];
         
@@ -184,7 +184,7 @@
 - (void) layoutSubviews
 {
     [ClientEngine startEngine];
-    [ClientEngine setMustConsiderHeader:YES];
+    [ClientEngine setMustConsiderHeader:NO];
     [ClientEngine setSpacingAfterHeader:0.0f];
     [ClientEngine setCurrentOrientation:_currentOrientation];
     
@@ -275,7 +275,7 @@
 {
     if( !_background )
     {
-        _background = [[BaseView alloc] initWithFrame:LIST_LANDSCAPE_FRAME];
+        _background = [[BaseView alloc] init];
         _background.backgroundColor = [UIColor whiteColor];
         [self addSubview:_background];
     }

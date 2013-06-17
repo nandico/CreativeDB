@@ -22,7 +22,8 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[HeaderView alloc] initWithFrame:HEADER_LANDSCAPE_FRAME];
+        self.viewInstance = [[HeaderView alloc] initWithFrame:HEADER_LANDSCAPE_FRAME];
+        [self.view addSubview:self.viewInstance];
     }
     return self;
 }

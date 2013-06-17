@@ -84,7 +84,9 @@
 {
     if( !_selectedEntry ) return;
     if( !_selectedAward ) return;
-        
+    
+    NSLog( @"Begininig update.." );
+    
     self.year.text = [NSString stringWithFormat:@"      %@", _selectedAward.year ];
     self.year.backgroundColor = [UIColor lightGrayColor];
     self.metal.text = _selectedAward.metal.name;
@@ -97,6 +99,8 @@
     self.festival.backgroundColor = [UIColor lightGrayColor];
     self.category.text = _selectedAward.category.name;
     self.subcategory.text = ( _selectedAward.subcategory ) ? _selectedAward.subcategory.name : @"";
+    
+    NSLog( @"Opa: %@", self.category.text );
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;

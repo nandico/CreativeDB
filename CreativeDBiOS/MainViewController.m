@@ -29,13 +29,15 @@
 {
     self = [super init];
     if (self) {
-        self.view = self.viewInstance = [[MainView alloc] init];
-
-        self.header = [[HeaderViewController alloc] init];
-        [self.viewInstance addSubview:self.header.view];
-
+        self.viewInstance = [[MainView alloc] initWithFrame:SCREEN_LANDSCAPE_FRAME];
+        [self.view addSubview:self.viewInstance];
+        
         self.personDetail = [[PersonViewController alloc] init];
         [self.viewInstance addSubview:self.personDetail.view];
+
+//        self.header = [[HeaderViewController alloc] init];
+//        [self.viewInstance addSubview:self.header.view];
+       
         
         self.scoreModule = [[ScoreListViewController alloc] init];
         [self.viewInstance addSubview:self.scoreModule.view];
