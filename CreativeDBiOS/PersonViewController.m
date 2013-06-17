@@ -21,6 +21,8 @@
 @property (nonatomic, strong) NSMutableArray *entryLines;
 @property (nonatomic, strong) H1Label *titleEntries;
 
+@property (nonatomic, strong) ClientEngine *engine;
+
 @end
 
 @implementation PersonViewController
@@ -29,6 +31,8 @@
 {
     self = [super init];
     if (self) {
+        
+        _engine = [[ClientEngine alloc] init];
     }
     return self;
 }
@@ -56,21 +60,20 @@
 {
     NSInteger awardIndex = 0;
     
-    NSLog( @"BEGINNING ENTRY UPDATE" );
+    [_engine startEngine];
+    [_engine setMustConsiderHeader:NO];
+    [_engine setSpacingAfterHeader:0.0f];
     
-    [ClientEngine startEngine];
-    [ClientEngine setMustConsiderHeader:NO];
-    [ClientEngine setSpacingAfterHeader:0.0f];
-    
-    [ClientEngine setCurrentOrientation:_currentOrientation];
+    [_engine setCurrentOrientation:_currentOrientation];
     
     ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
     LineModel *line = [[LineModel alloc] initWithOptions:
                        [NSMutableArray arrayWithObjects:column, nil ]];
-    line.height = @30;
-    [ClientEngine addLine:line];
+    line.height = @100;
+    [_engine addLine:line];
+    _titleEntries.offsetX = APP_LEFT_PADDING;
     _titleEntries.text = @"Entries";
-    [ClientEngine applyFrame:_titleEntries withLine:line andColumn:column];
+    [_engine applyFrame:_titleEntries withLine:line andColumn:column];
 
     [self.scrollView addSubview:_titleEntries];
     
@@ -83,14 +86,14 @@
             LineModel *line = [[LineModel alloc] initWithOptions:
                     [NSMutableArray arrayWithObjects:column, nil ]];
             line.height = @180;
-            [ClientEngine addLine:line];
+            [_engine addLine:line];
             
             EntryDetailView *entryView = [[EntryDetailView alloc] init];
             
             [entryView updateOrientation:_currentOrientation];
             
-            [ClientEngine applyFrame:entryView withLine:line andColumn:column];
-            entryView.frame = CGRectMake(0, 150 * awardIndex, 1024, 1024 );
+            [_engine applyFrame:entryView withLine:line andColumn:column];
+            //entryView.frame = CGRectMake(0, 150 * awardIndex, 1024, 1024 );
                         
             entryView.selectedEntry = entry;
             entryView.selectedAward = award;
@@ -103,8 +106,6 @@
             awardIndex ++;
         }
     }
-    NSLog( @"ENDING ENTRY UPDATE" );
-    
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;

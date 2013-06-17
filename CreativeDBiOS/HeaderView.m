@@ -84,9 +84,11 @@
 
 - (void) layoutSubviews
 {
-    [ClientEngine startEngine];
-    [ClientEngine setMustConsiderHeader:NO];
-    [ClientEngine setCurrentOrientation:self.currentOrientation ];
+    ClientEngine *engine = [[ClientEngine alloc] init];
+    
+    [engine startEngine];
+    [engine setMustConsiderHeader:NO];
+    [engine setCurrentOrientation:self.currentOrientation ];
 
     ColumnModel *columnLogo = [[ColumnModel alloc] initWithFixed:@125];
     ColumnModel *columnTitle = [[ColumnModel alloc] initWithFixed:@200];
@@ -94,14 +96,14 @@
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:columnLogo, columnTitle, columnMenu1, nil]];
     line1.height = @125;
-    [ClientEngine addLine:line1];
+    [engine addLine:line1];
 
     _title.offsetX = APP_LEFT_PADDING;
-    [ClientEngine applyFrame:_title withLine:line1 andColumn:columnTitle];
+    [engine applyFrame:_title withLine:line1 andColumn:columnTitle];
     
-    [ClientEngine applyFrame:_logo withLine:line1 andColumn:columnLogo];
+    [engine applyFrame:_logo withLine:line1 andColumn:columnLogo];
     
-    [ClientEngine applyFrame:_scoreButton withLine:line1 andColumn:columnMenu1];
+    [engine applyFrame:_scoreButton withLine:line1 andColumn:columnMenu1];
     
     _logo.backgroundColor = [UIColor yellowColor];
     _logo.userInitials.textColor = [UIColor blackColor];

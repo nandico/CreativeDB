@@ -33,10 +33,11 @@
 
 - (void) layoutSubviews
 {
+    ClientEngine *engine = [[ClientEngine alloc] init];
     
-    [ClientEngine startEngine];
-    [ClientEngine setMustConsiderHeader:NO];
-    [ClientEngine setCurrentOrientation:[self.dataSource currentOrientation] ];
+    [engine startEngine];
+    [engine setMustConsiderHeader:NO];
+    [engine setCurrentOrientation:[self.dataSource currentOrientation] ];
 
     ColumnModel *column1 = [[ColumnModel alloc] initWithFixed:@125];
     ColumnModel *column2 = [[ColumnModel alloc] initWithFixed:@125];
@@ -45,40 +46,40 @@
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
     line1.height = @130;
-    [ClientEngine addLine:line1];
+    [engine addLine:line1];
     
     CGFloat rankingOffsetY = 3.0f;
     
     _position.backgroundColor = [UIColor cyanColor];
     _position.textAlignment = NSTextAlignmentCenter;
-    [ClientEngine applyFrame:_position withLine:line1 andColumn:column1];
+    [engine applyFrame:_position withLine:line1 andColumn:column1];
     
     _score.backgroundColor = [UIColor lightGrayColor];
     _score.textAlignment = NSTextAlignmentCenter;
-    [ClientEngine applyFrame:_score withLine:line1 andColumn:column2];
+    [engine applyFrame:_score withLine:line1 andColumn:column2];
 
     
     _name.prefferedHeight = 50.0f;
     _name.offsetX = 30.0f;
     _name.offsetY = 20.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_name withLine:line1 andColumn:column3];
+    [engine applyFrame:_name withLine:line1 andColumn:column3];
     
     _country.prefferedHeight = 50.0f;
     _country.offsetX = 50.0f;
     _country.offsetY = 57.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_country withLine:line1 andColumn:column3];
+    [engine applyFrame:_country withLine:line1 andColumn:column3];
     
     _flag.prefferedWidth = 16.0f;
     _flag.prefferedHeight = 11.0f;
     _flag.offsetX = 30.0f;
     _flag.offsetY = 76.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column3];
+    [engine applyFrame:_flag withLine:line1 andColumn:column3];
     
     _thumb.backgroundColor = [UIColor orangeColor];
-    [ClientEngine applyFrame:_thumb withLine:line1 andColumn:column4];
+    [engine applyFrame:_thumb withLine:line1 andColumn:column4];
 
 
     

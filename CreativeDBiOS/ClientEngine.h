@@ -101,17 +101,19 @@
 
 @interface ClientEngine : NSObject
 
-+ (void) startEngine;
-+ (BOOL) mustConsiderHeader;
-+ (void) setMustConsiderHeader:(BOOL) consider;
-+ (void) addLine:(LineModel *) line;
-+ (UIDeviceOrientation) currentOrientation;
-+ (void) setCurrentOrientation:(UIDeviceOrientation) newOrientation;
-+ (CGRect) headerRect;
-+ (CGRect) screenRect;
-+ (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex;
-+ (CGPoint) getOriginForLine:(LineModel *) line andColumn:(ColumnModel *) column;
-+ (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
-+ (void) setSpacingAfterHeader:(CGFloat) spacing;
+@property (nonatomic, assign) UIDeviceOrientation currentOrientation;
+
+- (void) startEngine;
+- (BOOL) mustConsiderHeader;
+- (void) setMustConsiderHeader:(BOOL) consider;
+- (void) addLine:(LineModel *) line;
+- (UIDeviceOrientation) currentOrientation;
+- (void) setCurrentOrientation:(UIDeviceOrientation) newOrientation;
+- (CGRect) headerRect;
+- (CGRect) screenRect;
+- (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex;
+- (CGPoint) getOriginForLine:(LineModel *) line andColumn:(ColumnModel *) column;
+- (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
+- (void) setSpacingAfterHeader:(CGFloat) spacing;
 
 @end

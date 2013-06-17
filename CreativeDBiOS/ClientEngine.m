@@ -8,53 +8,51 @@
 
 #import "ClientEngine.h"
 
-static UIDeviceOrientation currentOrientation;
-static NSMutableArray *lines;
-static BOOL considerHeader = YES;
-static CGFloat spacingAfterHeader = 30.0f;
+@interface ClientEngine()
+
+@property (nonatomic, assign) UIDeviceOrientation orientation;
+@property (nonatomic, strong) NSMutableArray *lines;
+@property (nonatomic, assign) BOOL considerHeader;
+@property (nonatomic, assign) CGFloat spacingAfterHeader;
+
+@end
 
 @implementation ClientEngine
 
-+ (void) startEngine
+- (void) startEngine
 {
-    lines = [[NSMutableArray alloc] init];
-}
-
-+ (void) setSpacingAfterHeader:(CGFloat) spacing
-{
-    @synchronized( self )
-    {
-        spacingAfterHeader = spacing;
-    }
-}
-
-+ (BOOL) mustConsiderHeader
-{
-    @synchronized( self )
-    {
-        return considerHeader;
-    }
-}
-
-+ (void) setMustConsiderHeader:(BOOL) consider
-{
-    @synchronized( self )
-    {
-        considerHeader = consider;
-    }
-}
-
-+ (void) addLine:(LineModel *) line
-{
-    NSLog( @"Line added. %@", line );
+    _considerHeader = YES; // default behavior
+    _spacingAfterHeader = 30.0f;
     
-    line.lineIndex = [lines count];
-    [lines addObject:line];
+    _lines = [[NSMutableArray alloc] init];
 }
 
-+ (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex
+- (void) setSpacingAfterHeader:(CGFloat) spacing
 {
-    LineModel *line = [lines objectAtIndex:lineIndex];
+    _spacingAfterHeader = spacing;
+}
+
+- (BOOL) mustConsiderHeader
+{
+    return _considerHeader;
+}
+
+- (void) setMustConsiderHeader:(BOOL) consider
+{
+    _considerHeader = consider;
+}
+
+- (void) addLine:(LineModel *) line
+{
+    line.lineIndex = [_lines count];
+    [_lines addObject:line];
+    
+    NSLog( @"Total: %i", [_lines count] );
+}
+
+- (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex
+{
+    LineModel *line = [_lines objectAtIndex:lineIndex];
     
     if( line )
     {
@@ -62,23 +60,23 @@ static CGFloat spacingAfterHeader = 30.0f;
         
         if( column )
         {
-            return [ClientEngine getOriginForLine:line andColumn:column];
+            return [self getOriginForLine:line andColumn:column];
         }
     }
 
     return CGPointZero;
 }
 
-+ (CGPoint) getOriginForLine:(LineModel *) line andColumn:(ColumnModel *) column
+- (CGPoint) getOriginForLine:(LineModel *) line andColumn:(ColumnModel *) column
 {
     CGFloat lineOffset = 0;
     
-    if( considerHeader )
+    if( _considerHeader )
     {
-        lineOffset += [ClientEngine headerRect].size.height + spacingAfterHeader;
+        lineOffset += [self headerRect].size.height + _spacingAfterHeader;
     }
         
-    for( LineModel *cursorLine in lines )
+    for( LineModel *cursorLine in _lines )
     {
         if( cursorLine.lineIndex == line.lineIndex )
         {
@@ -99,19 +97,19 @@ static CGFloat spacingAfterHeader = 30.0f;
             break;
         }
         
-        columnOffset += [ClientEngine absoluteWidthForColumn:cursorColumn andLine:line];
+        columnOffset += [self absoluteWidthForColumn:cursorColumn andLine:line];
     }
     
     return CGPointMake( columnOffset, lineOffset );
 }
 
-+ (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
+- (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
 {
-    CGPoint flatOrigin = [ClientEngine getOriginForLine:line andColumn:column];
+    CGPoint flatOrigin = [self getOriginForLine:line andColumn:column];
     CGFloat columnWidth = 0;
     CGFloat columnHeight = 0;
     
-    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : [ClientEngine absoluteWidthForColumn:column andLine:line];
+    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : [self absoluteWidthForColumn:column andLine:line];
     columnHeight = ( [label prefferedHeight] ) ? [label prefferedHeight] : [line.height floatValue];
     
     label.frame = CGRectMake(flatOrigin.x + [label offsetX],
@@ -119,7 +117,7 @@ static CGFloat spacingAfterHeader = 30.0f;
                              columnWidth, columnHeight );
 }
 
-+ (CGFloat) absoluteWidthForColumn:(ColumnModel *) column andLine:(LineModel *) line
+- (CGFloat) absoluteWidthForColumn:(ColumnModel *) column andLine:(LineModel *) line
 {
     if( column.width )
     {
@@ -127,15 +125,15 @@ static CGFloat spacingAfterHeader = 30.0f;
     }
     else if( column.percentWidth )
     {
-        CGFloat fixedColumnsTotal = [ClientEngine calculateFixedColumnsTotal:line];
+        CGFloat fixedColumnsTotal = [self calculateFixedColumnsTotal:line];
 
-        return floor( [column.percentWidth floatValue] / 100.0f * ( [ClientEngine screenRect].size.width - fixedColumnsTotal ) );
+        return floor( [column.percentWidth floatValue] / 100.0f * ( [self screenRect].size.width - fixedColumnsTotal ) );
     }
     
     return 0;
 }
 
-+ (CGFloat) calculateFixedColumnsTotal:(LineModel *) line
+- (CGFloat) calculateFixedColumnsTotal:(LineModel *) line
 {
     CGFloat total = 0;
     
@@ -147,57 +145,44 @@ static CGFloat spacingAfterHeader = 30.0f;
     return total;
 }
 
-+ (UIDeviceOrientation) currentOrientation
+- (UIDeviceOrientation) currentOrientation
 {
-    @synchronized( self )
-    {
-        return currentOrientation;
-    }
+    return _orientation;
 }
 
-+ (void) setCurrentOrientation:(UIDeviceOrientation) newOrientation
+- (void) setCurrentOrientation:(UIDeviceOrientation) newOrientation
 {
-    @synchronized( self )
-    {
-        currentOrientation = newOrientation;
-    }
+    _orientation = newOrientation;
 }
 
-+ (CGRect) headerRect
+- (CGRect) headerRect
 {
-    @synchronized( self )
+    if( UIDeviceOrientationIsLandscape( _orientation ) )
     {
-        if( UIDeviceOrientationIsLandscape( currentOrientation ) )
-        {
-            return HEADER_LANDSCAPE_FRAME;
-        }
-        else if( UIDeviceOrientationIsPortrait( currentOrientation ) )
-        {
-            return HEADER_PORTRAIT_FRAME;
-        }
-        
-        return CGRectZero;
+        return HEADER_LANDSCAPE_FRAME;
     }
-}
-
-+ (CGRect) screenRect
-{
-    @synchronized( self )
+    else if( UIDeviceOrientationIsPortrait( _orientation ) )
     {
-        if( UIDeviceOrientationIsLandscape( currentOrientation ) )
-        {
-            return SCREEN_LANDSCAPE_FRAME;
-        }
-        else if( UIDeviceOrientationIsPortrait( currentOrientation ) )
-        {
-            return SCREEN_PORTRAIT_FRAME;
-        }
-        
-        NSLog( @"ORIENTATION IS EMPTY %d", currentOrientation );
-        
-        return CGRectZero;
+        return HEADER_PORTRAIT_FRAME;
     }
     
+    return CGRectZero;
+}
+
+- (CGRect) screenRect
+{
+    if( UIDeviceOrientationIsLandscape( _orientation ) )
+    {
+        return SCREEN_LANDSCAPE_FRAME;
+    }
+    else if( UIDeviceOrientationIsPortrait( _orientation ) )
+    {
+        return SCREEN_PORTRAIT_FRAME;
+    }
+    
+    NSLog( @"ORIENTATION IS EMPTY %d", _orientation );
+    
+    return CGRectZero;
 }
 
 @end

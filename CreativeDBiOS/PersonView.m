@@ -36,6 +36,8 @@
 @property (nonatomic, strong) H4Label *countryStats;
 @property (nonatomic, strong) ScoreLabel *countryScore;
 
+@property (nonatomic, strong) ClientEngine *engine;
+
 //@property (nonatomic, strong) H1Label *titleEntries;
 
 //@property (nonatomic, strong) NSMutableArray *entryLines;
@@ -62,7 +64,9 @@
         [self countryScore];
         
 //        [self titleEntries];
-
+        
+        _engine = [[ClientEngine alloc] init];
+        
    }
     return self;
 }
@@ -159,7 +163,7 @@
     {
         self.background.frame = INNER_CONTENT_PORTRAIT_FRAME;
         _currentOrientation = orientation;
-        [ClientEngine setCurrentOrientation:_currentOrientation];
+        [_engine setCurrentOrientation:_currentOrientation];
         
 //        [self updateChildOrientation:orientation];
     }
@@ -167,7 +171,7 @@
     {
         self.background.frame = INNER_CONTENT_LANDSCAPE_FRAME;
         _currentOrientation = orientation;
-        [ClientEngine setCurrentOrientation:_currentOrientation];
+        [_engine setCurrentOrientation:_currentOrientation];
         
 //        [self updateChildOrientation:orientation];
     }
@@ -183,10 +187,10 @@
 
 - (void) layoutSubviews
 {
-    [ClientEngine startEngine];
-    [ClientEngine setMustConsiderHeader:NO];
-    [ClientEngine setSpacingAfterHeader:0.0f];
-    [ClientEngine setCurrentOrientation:_currentOrientation];
+    [_engine startEngine];
+    [_engine setMustConsiderHeader:NO];
+    [_engine setSpacingAfterHeader:0.0f];
+    [_engine setCurrentOrientation:_currentOrientation];
     
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@40];
     ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@30];
@@ -198,66 +202,66 @@
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
     line1.height = @125;
-    [ClientEngine addLine:line1];
+    [_engine addLine:line1];
         
     _name.prefferedWidth = 200.0f;
     _name.prefferedHeight = 50.0f;
     _name.offsetX = APP_LEFT_PADDING;
     _name.offsetY = 10.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_name withLine:line1 andColumn:column1];
+    [_engine applyFrame:_name withLine:line1 andColumn:column1];
     
     _country.prefferedWidth = 200.0f;
     _country.prefferedHeight = 50.0f;
     _country.offsetX = 56.0f;
     _country.offsetY = 48.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_country withLine:line1 andColumn:column1];
+    [_engine applyFrame:_country withLine:line1 andColumn:column1];
     
     _flag.prefferedWidth = 16.0f;
     _flag.prefferedHeight = 11.0f;
     _flag.offsetX = APP_LEFT_PADDING;
     _flag.offsetY = 67.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_flag withLine:line1 andColumn:column1];
+    [_engine applyFrame:_flag withLine:line1 andColumn:column1];
     
     _globalStats.prefferedWidth = 200.0f;
     _globalStats.prefferedHeight = 50.0f;
     _globalStats.offsetX = 0.0f;
     _globalStats.offsetY = 3.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_globalStats withLine:line1 andColumn:column2];
+    [_engine applyFrame:_globalStats withLine:line1 andColumn:column2];
     
     _globalScore.prefferedWidth = 200.0f;
     _globalScore.prefferedHeight = 50.0f;
     _globalScore.offsetX = 0.0f;
     _globalScore.offsetY = 38.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_globalScore withLine:line1 andColumn:column2];
+    [_engine applyFrame:_globalScore withLine:line1 andColumn:column2];
     
     _countryStats.prefferedWidth = 200.0f;
     _countryStats.prefferedHeight = 50.0f;
     _countryStats.offsetX = 0.0f;
     _countryStats.offsetY = 3.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_countryStats withLine:line1 andColumn:column3];
+    [_engine applyFrame:_countryStats withLine:line1 andColumn:column3];
     
     _countryScore.prefferedWidth = 200.0f;
     _countryScore.prefferedHeight = 50.0f;
     _countryScore.offsetX = 0.0f;
     _countryScore.offsetY = 38.0f + rankingOffsetY;
     
-    [ClientEngine applyFrame:_countryScore withLine:line1 andColumn:column3];
+    [_engine applyFrame:_countryScore withLine:line1 andColumn:column3];
     
     _thumb.prefferedWidth = 128.0f;
     _thumb.prefferedHeight = 125.0f;
     
-    [ClientEngine applyFrame:_thumb withLine:line1 andColumn:column4];
+    [_engine applyFrame:_thumb withLine:line1 andColumn:column4];
     
     column1 = [[ColumnModel alloc] initWithPercent:@100];
     LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, nil]];
     line2.height = @80.0;
-    [ClientEngine addLine:line2];
+    [_engine addLine:line2];
 
 //    _titleEntries.prefferedWidth = 200.0f;
 //    _titleEntries.prefferedHeight = 50.0f;

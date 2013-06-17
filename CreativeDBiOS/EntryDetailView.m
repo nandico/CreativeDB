@@ -11,6 +11,7 @@
 @interface EntryDetailView()
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
+@property (strong, nonatomic) ClientEngine *engine;
 
 @end
 
@@ -28,6 +29,9 @@
         [self festival];
         [self category];
         [self subcategory];
+        
+        _engine = [[ClientEngine alloc] init];
+
     }
     
     return self;
@@ -37,10 +41,10 @@
 - (void) layoutSubviews
 {
     CGFloat lineHeigth = 45.0f;
-
-    [ClientEngine startEngine];
-    [ClientEngine setMustConsiderHeader:NO];
-    [ClientEngine setCurrentOrientation:_currentOrientation];
+    
+    [_engine startEngine];
+    [_engine setMustConsiderHeader:NO];
+    [_engine setCurrentOrientation:_currentOrientation];
     
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
     ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@20];
@@ -50,33 +54,33 @@
 
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
     line1.height = [NSNumber numberWithFloat:lineHeigth];
-    [ClientEngine addLine:line1];
+    [_engine addLine:line1];
     
     _year.prefferedHeight = lineHeigth;
-    [ClientEngine applyFrame:_year withLine:line1 andColumn:column1];
+    [_engine applyFrame:_year withLine:line1 andColumn:column1];
     
     _metal.prefferedHeight = lineHeigth;
-    [ClientEngine applyFrame:_metal withLine:line1 andColumn:column2];
+    [_engine applyFrame:_metal withLine:line1 andColumn:column2];
     
     _entry.prefferedHeight = lineHeigth;
-    [ClientEngine applyFrame:_entry withLine:line1 andColumn:column3];
+    [_engine applyFrame:_entry withLine:line1 andColumn:column3];
     
     _festival.prefferedHeight = lineHeigth;
-    [ClientEngine applyFrame:_festival withLine:line1 andColumn:column4];
+    [_engine applyFrame:_festival withLine:line1 andColumn:column4];
     
     LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
     line2.height = [NSNumber numberWithFloat:lineHeigth];
-    [ClientEngine addLine:line2];
+    [_engine addLine:line2];
     
-    [ClientEngine applyFrame:_client withLine:line2 andColumn:column3];
-    [ClientEngine applyFrame:_category withLine:line2 andColumn:column4];
+    [_engine applyFrame:_client withLine:line2 andColumn:column3];
+    [_engine applyFrame:_category withLine:line2 andColumn:column4];
     
     LineModel *line3 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
     line3.height = [NSNumber numberWithFloat:lineHeigth];
-    [ClientEngine addLine:line3];
+    [_engine addLine:line3];
     
-    [ClientEngine applyFrame:_product withLine:line3 andColumn:column3];
-    [ClientEngine applyFrame:_subcategory withLine:line3 andColumn:column4];
+    [_engine applyFrame:_product withLine:line3 andColumn:column3];
+    [_engine applyFrame:_subcategory withLine:line3 andColumn:column4];
     
 }
 
@@ -105,13 +109,13 @@
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
         _currentOrientation = orientation;
-        [ClientEngine setCurrentOrientation:_currentOrientation];
+        [_engine setCurrentOrientation:_currentOrientation];
         [self layoutSubviews];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         _currentOrientation = orientation;
-        [ClientEngine setCurrentOrientation:_currentOrientation];
+        [_engine setCurrentOrientation:_currentOrientation];
         [self layoutSubviews];
     }
 }
