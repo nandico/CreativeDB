@@ -46,8 +46,6 @@
 {
     line.lineIndex = [_lines count];
     [_lines addObject:line];
-    
-    NSLog( @"Total: %i", [_lines count] );
 }
 
 - (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex
@@ -101,6 +99,23 @@
     }
     
     return CGPointMake( columnOffset, lineOffset );
+}
+
+- (CGFloat) getActualLineOffset
+{
+    CGFloat lineOffset = 0;
+    
+    if( _considerHeader )
+    {
+        lineOffset += [self headerRect].size.height + _spacingAfterHeader;
+    }
+    
+    for( LineModel *cursorLine in _lines )
+    {
+        lineOffset += [cursorLine.height floatValue];
+    }
+
+    return lineOffset;
 }
 
 - (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;

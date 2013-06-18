@@ -38,10 +38,6 @@
 
 @property (nonatomic, strong) ClientEngine *engine;
 
-//@property (nonatomic, strong) H1Label *titleEntries;
-
-//@property (nonatomic, strong) NSMutableArray *entryLines;
-
 @end
 
 @implementation PersonView
@@ -50,7 +46,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = [UIColor whiteColor];
 
         [self background];
         [self thumb];
@@ -62,22 +58,13 @@
         [self globalScore];
         [self countryStats];
         [self countryScore];
-        
-//        [self titleEntries];
-        
+                
         _engine = [[ClientEngine alloc] init];
         
    }
     return self;
 }
 
-- (void) removeData
-{
-//    for( EntryDetailView *entry in _entryLines )
-//    {
-//        [entry removeFromSuperview];
-//    }
-}
 
 -(NSString *) addSuffixToNumber:( long ) number
 {
@@ -119,42 +106,6 @@
     self.countryStats.text = @"COUNTRY";
     self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingCountry longValue]]];
     
-//    self.titleEntries.text = @"Entries";
-    
-//    NSInteger awardIndex = 0;
-//    
-//    _entryLines = [[NSMutableArray alloc] init];
-//    
-//    LineModel *line;
-//    ColumnModel *column;
-//    
-//    [self layoutSubviews];
-//    
-//    for( EntryModel *entry in selectedPerson.entries )
-//    {
-//        for( AwardModel *award in entry.awards )
-//        {
-//            column = [[ColumnModel alloc] initWithPercent:@100];
-//            line = [[LineModel alloc] initWithOptions:
-//                    [NSMutableArray arrayWithObjects:column, nil ]];
-//            line.height = @180;
-//            [ClientEngine addLine:line];
-//            
-//            EntryDetailView *entryView = [[EntryDetailView alloc] init];
-//            
-//            [ClientEngine applyFrame:entryView withLine:line andColumn:column];
-//            
-//            entryView.selectedEntry = entry;
-//            entryView.selectedAward = award;
-//            [entryView updateData];
-//            [self addSubview:entryView];
-//            
-//            [_entryLines addObject:entryView];
-//        
-//            awardIndex ++;
-//        }
-//    }
-
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
@@ -165,7 +116,6 @@
         _currentOrientation = orientation;
         [_engine setCurrentOrientation:_currentOrientation];
         
-//        [self updateChildOrientation:orientation];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
@@ -173,17 +123,9 @@
         _currentOrientation = orientation;
         [_engine setCurrentOrientation:_currentOrientation];
         
-//        [self updateChildOrientation:orientation];
     }
 }
 
-//- (void) updateChildOrientation:( UIDeviceOrientation ) orientation
-//{
-//    for( EntryDetailView *child in _entryLines )
-//    {
-//        [child updateOrientation:orientation];
-//    }
-//}
 
 - (void) layoutSubviews
 {
@@ -262,15 +204,6 @@
     LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, nil]];
     line2.height = @80.0;
     [_engine addLine:line2];
-
-//    _titleEntries.prefferedWidth = 200.0f;
-//    _titleEntries.prefferedHeight = 50.0f;
-//    _titleEntries.offsetX = APP_LEFT_PADDING;
-//    _titleEntries.offsetY = 0.0f;
-//    
-//    [ClientEngine applyFrame:_titleEntries withLine:line2 andColumn:column1];
-    
-
 
 }
 

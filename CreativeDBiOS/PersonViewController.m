@@ -33,6 +33,7 @@
     if (self) {
         
         _engine = [[ClientEngine alloc] init];
+        _entryLines = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -42,17 +43,39 @@
     self.view = self.viewInstance = [[PersonView alloc] initWithFrame:CONTENT_LANDSCAPE_FRAME];
 }
 
+- (void)viewDidLoad
+{
+    [self scrollView];
+    [self titleEntries];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateData:)
+                                                 name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
+    
+    [super viewDidLoad];
+}
+
 - (void) updateData:(NSNotification *) notification
 {
     self.selectedPerson = [notification.userInfo objectForKey:PERSON_ITEM];
     
     if( self.selectedPerson )
     {
-        [self.viewInstance removeData];
+        [self removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];
         [self updateEntries];
+    }
+}
+
+- (void) removeData
+{
+    [_titleEntries removeFromSuperview];
+    
+    for( EntryDetailView *entry in _entryLines )
+    {
+        [entry removeFromSuperview];
     }
 }
 
@@ -106,13 +129,50 @@
             awardIndex ++;
         }
     }
+    
+    [_scrollView setContentSize:CGSizeMake(0.0f, [_engine getActualLineOffset])];
+
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
-{    
-    [self.viewInstance updateOrientation:orientation];
+{
+    
     _currentOrientation = orientation;
-    [self updateChildOrientation:orientation];
+    
+    if( UIDeviceOrientationIsPortrait( orientation ) )
+    {
+        NSLog( @"Applying portrait." );
+        
+        self.scrollView.frame = CONTENT_SCROLL_PORTRAIT_FRAME;
+        [self removeData];
+        self.viewInstance.dataSource = self;
+        [self.viewInstance updateData];
+        [self.viewInstance updateOrientation:_currentOrientation];
+        [self updateEntries];
+        //self.viewInstance.clipsToBounds = YES;
+        [self updateChildOrientation:orientation];
+        //self.scrollView.contentOffset = CGPointMake( 768.0f, 754.0f );
+
+        
+    }
+    else if( UIDeviceOrientationIsLandscape( orientation ) )
+    {
+        NSLog( @"Applying landscape." );
+        
+        self.scrollView.frame = CONTENT_SCROLL_LANDSCAPE_FRAME;
+        [self removeData];
+        self.viewInstance.dataSource = self;
+        [self.viewInstance updateData];
+        [self.viewInstance updateOrientation:_currentOrientation];
+        [self updateEntries];
+        //self.viewInstance.clipsToBounds = YES;
+        [self updateChildOrientation:orientation];
+        //self.scrollView.contentOffset = CGPointMake( 1024.0f, 498.0f );
+
+    }
+
+
+    
 }
 
 - (void) updateChildOrientation:( UIDeviceOrientation ) orientation
@@ -130,15 +190,8 @@
         _scrollView = [[UIScrollView alloc] initWithFrame:CONTENT_SCROLL_LANDSCAPE_FRAME];
         [self.viewInstance addSubview:_scrollView];
         
-//        for( NSInteger testCount = 0; testCount < 10; testCount ++ )
-//        {
-//            UIView *testView = [[UIView alloc] initWithFrame:CGRectMake(0, testCount * 120, 130, 100)];
-//            testView.backgroundColor = [UIColor greenColor];
-//            [_scrollView addSubview:testView];
-//        }
     }
     
-    [_scrollView setContentSize:CGSizeMake(1024.0f, 5000.0f)];
     [self.view addSubview:_scrollView];
     
     return _scrollView;
@@ -152,19 +205,6 @@
     }
     
     return _titleEntries;
-}
-
-- (void)viewDidLoad
-{
-    [self scrollView];
-    [self titleEntries];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(updateData:)
-                                                 name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
-
-    self.viewInstance.clipsToBounds = YES;
-    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning

@@ -15,7 +15,6 @@
     self = [super init];
     if (self) {
         self.titleLabel.font = MENU_BUTTON_FONT;
-        self.titleLabel.backgroundColor = [UIColor redColor];
     }
     return self;
 }

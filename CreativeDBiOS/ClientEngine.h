@@ -25,7 +25,7 @@
 #define CONTENT_LANDSCAPE_FRAME CGRectMake(0, 125.0f, 1024.0f, 643.0f)
 #define CONTENT_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 855.0f)
 
-#define INNER_CONTENT_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 599.0f)
+#define INNER_CONTENT_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 643.0f)
 #define INNER_CONTENT_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 855.0f)
 
 
@@ -80,11 +80,13 @@
 #define LIST_CONTENT_PORTRAIT_HEIGHT CGSizeMake(855.0, 855.0f)
 #define LIST_LANDSCAPE_FRAME CGRectMake(0, 125.0f, 1024.0f, 623.0f)
 #define LIST_LANDSCAPE_FRAME_OUTSIDE CGRectMake(-1024.0f, 125.0f, 1024.0f, 623.0f)
-#define LIST_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 855.0f)
-#define LIST_PORTRAIT_FRAME_OUTSIDE CGRectMake(-768.0f, 125.0f, 768.0f, 855.0f)
+#define LIST_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 879.0f)
+#define LIST_PORTRAIT_FRAME_OUTSIDE CGRectMake(-768.0f, 125.0f, 768.0f, 879.0f)
 #define LIST_OFFSET_Y 125.0f
 
-#define CONTENT_SCROLL_LANDSCAPE_FRAME CGRectMake(0, 125.0f, 1024.0f, 518.0f)
+#define CONTENT_SCROLL_LANDSCAPE_FRAME CGRectMake(0, 125.0f, 1024.0f, 498.0f)
+//#define CONTENT_SCROLL_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 754.0f)
+#define CONTENT_SCROLL_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 754.0f)
 
 @protocol ClientLayoutable <NSObject>
 
@@ -113,7 +115,9 @@
 - (CGRect) screenRect;
 - (CGPoint) getOriginForLineIndex:(NSInteger) lineIndex andColumnIndex:(NSInteger) columnIndex;
 - (CGPoint) getOriginForLine:(LineModel *) line andColumn:(ColumnModel *) column;
+- (CGFloat) getActualLineOffset;
 - (void) applyFrame:(id <ClientLayoutable>) label withLine:(LineModel *) line andColumn:(ColumnModel *) column;
 - (void) setSpacingAfterHeader:(CGFloat) spacing;
+
 
 @end
