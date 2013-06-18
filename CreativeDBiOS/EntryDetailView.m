@@ -7,11 +7,13 @@
 //
 
 #import "EntryDetailView.h"
+#import "CreditModel.h"
 
 @interface EntryDetailView()
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 @property (strong, nonatomic) ClientEngine *engine;
+@property (nonatomic, strong) NSMutableArray *credits;
 
 @end
 
@@ -21,6 +23,7 @@
 {
     self = [super init];
     if (self) {
+        [self roles];
         [self year];
         [self metal];
         [self entry];
@@ -45,13 +48,22 @@
     [_engine startEngine];
     [_engine setMustConsiderHeader:NO];
     [_engine setCurrentOrientation:_currentOrientation];
+
+    ColumnModel *column_role = [[ColumnModel alloc] initWithPercent:@100];
+    ColumnModel *column_role_space = [[ColumnModel alloc] initWithFixed:@125];
+    LineModel *line0 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column_role, column_role_space, nil]];
+    line0.height = [NSNumber numberWithFloat:lineHeigth];
+    [_engine addLine:line0];
+    
+    _roles.offsetX = APP_LEFT_PADDING;
+    [_engine applyFrame:_roles withLine:line0 andColumn:column_role];
     
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
     ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@20];
     ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@30];
     ColumnModel *column4 = [[ColumnModel alloc] initWithPercent:@30];
     ColumnModel *column5 = [[ColumnModel alloc] initWithFixed:@125];
-
+    
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
     line1.height = [NSNumber numberWithFloat:lineHeigth];
     [_engine addLine:line1];
@@ -86,9 +98,15 @@
 
 - (void) updateData
 {
+    if( !_credits )
+    {
+        _credits = [CreditModel loadByEntryId:_selectedEntry.pk];
+    }
+        
     if( !_selectedEntry ) return;
     if( !_selectedAward ) return;
-        
+    
+    self.roles.text = [self stringfyRolesFromCredits:_credits forPersonId:_selectedPerson.pk];
     self.year.text = [NSString stringWithFormat:@"      %@", _selectedAward.year ];
     self.year.backgroundColor = [UIColor lightGrayColor];
     self.metal.text = _selectedAward.metal.name;
@@ -102,6 +120,23 @@
     self.category.text = _selectedAward.category.name;
     self.subcategory.text = ( _selectedAward.subcategory ) ? _selectedAward.subcategory.name : @"";
     
+}
+
+- (NSString *) stringfyRolesFromCredits:(NSMutableArray *) credits forPersonId:(NSNumber *) personId
+{
+    NSLog( @"Searching for %@ in %@", personId, credits );
+    
+    NSMutableString *roles = [[NSMutableString alloc] init];
+    
+    for( CreditModel *credit in credits )
+    {
+        if( credit.person.pk == personId )
+        {
+            [roles appendString:[NSString stringWithFormat:@"%@        ", credit.role.name]];
+        }
+    }
+    
+    return roles;
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
@@ -118,6 +153,17 @@
         [_engine setCurrentOrientation:_currentOrientation];
         [self layoutSubviews];
     }
+}
+
+- (H3Label *) roles
+{
+    if( !_roles )
+    {
+        _roles = [[H3Label alloc] init];
+        [self addSubview:_roles];
+    }
+    
+    return _roles;
 }
 
 - (H1Label *) year

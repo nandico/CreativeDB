@@ -9,6 +9,14 @@
 #import "CreditModel.h"
 #import "FMDBDataAccess.h"
 
+@interface CreditModel()
+
+@property (strong) NSNumber *personPK;
+@property (strong) NSNumber *entryPK;
+@property (strong) NSNumber *rolePK;
+
+@end
+
 @implementation CreditModel
 
 static NSString *modelFilterName;
@@ -39,11 +47,42 @@ static NSNumber *modelFilterValue;
 {
     CreditModel *object = [[CreditModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
-    object.person = [PersonModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"person"]]];
-    object.entry = [EntryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"entry"]]];
-    object.role = [RoleModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"role"]]];
+    
+    object.personPK = [NSNumber numberWithLong:[results longForColumn:@"person"]];
+    object.entryPK = [NSNumber numberWithLong:[results longForColumn:@"entry"]];
+    object.rolePK = [NSNumber numberWithLong:[results longForColumn:@"role"]];
     
     return object;
+}
+
+- (PersonModel *) person
+{
+    if( !_person )
+    {
+        [PersonModel loadModel:_personPK];
+    }
+    
+    return _person;
+}
+
+- (EntryModel *) entry
+{
+    if( !_entry )
+    {
+        [EntryModel loadModel:_entryPK];
+    }
+    
+    return _entry;
+}
+
+- (RoleModel *) role
+{
+    if( !_role )
+    {
+        [RoleModel loadModel:_rolePK];
+    }
+    
+    return _role;
 }
 
 + (CreditModel *) loadModel:(NSNumber *) pk

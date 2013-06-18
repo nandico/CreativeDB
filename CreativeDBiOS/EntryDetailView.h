@@ -14,6 +14,7 @@
 #import "EntryModel.h"
 #import "AwardModel.h"
 #import "ClientEngine.h"
+#import "PersonModel.h"
 
 @interface EntryDetailView : UIView <ClientLayoutable>
 
@@ -22,9 +23,11 @@
 @property (assign) CGFloat prefferedWidth;
 @property (assign) CGFloat prefferedHeight;
 
+@property (strong, nonatomic) PersonModel *selectedPerson;
 @property (strong, nonatomic) EntryModel *selectedEntry;
 @property (strong, nonatomic) AwardModel *selectedAward;
 
+@property (strong, nonatomic) H3Label *roles;
 @property (strong, nonatomic) H1Label *year;
 @property (strong, nonatomic) H2Label *metal;
 @property (strong, nonatomic) H3Label *entry;

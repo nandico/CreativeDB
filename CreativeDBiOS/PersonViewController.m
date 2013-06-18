@@ -117,7 +117,8 @@
             
             [_engine applyFrame:entryView withLine:line andColumn:column];
             //entryView.frame = CGRectMake(0, 150 * awardIndex, 1024, 1024 );
-                        
+            
+            entryView.selectedPerson = self.selectedPerson;
             entryView.selectedEntry = entry;
             entryView.selectedAward = award;
             [entryView updateData];
@@ -141,37 +142,24 @@
     
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
-        NSLog( @"Applying portrait." );
-        
         self.scrollView.frame = CONTENT_SCROLL_PORTRAIT_FRAME;
         [self removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];
         [self updateEntries];
-        //self.viewInstance.clipsToBounds = YES;
         [self updateChildOrientation:orientation];
-        //self.scrollView.contentOffset = CGPointMake( 768.0f, 754.0f );
-
-        
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
-        NSLog( @"Applying landscape." );
-        
         self.scrollView.frame = CONTENT_SCROLL_LANDSCAPE_FRAME;
         [self removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];
         [self updateEntries];
-        //self.viewInstance.clipsToBounds = YES;
         [self updateChildOrientation:orientation];
-        //self.scrollView.contentOffset = CGPointMake( 1024.0f, 498.0f );
-
     }
-
-
     
 }
 
