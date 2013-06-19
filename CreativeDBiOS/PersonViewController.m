@@ -57,7 +57,7 @@
 
 - (void) updateData:(NSNotification *) notification
 {
-    self.selectedPerson = [notification.userInfo objectForKey:PERSON_ITEM];
+    self.selectedPerson = [notification.userInfo objectForKey:NOTIFICATION_ITEM];
     
     if( self.selectedPerson )
     {

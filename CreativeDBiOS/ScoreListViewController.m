@@ -35,7 +35,11 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(wakeUpAgenciesScore)
                                                      name:NOTIFICATION_WAKE_AGENCIES_SCORE object:nil];
-        
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpEntriesScore)
+                                                     name:NOTIFICATION_WAKE_ENTRIES_SCORE object:nil];
+
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(wakeUpClientsScore)
                                                      name:NOTIFICATION_WAKE_CLIENTS_SCORE object:nil];
@@ -104,6 +108,12 @@
 - (void) wakeUpAgenciesScore
 {
     [self loadScoreTable:@"aa_agency_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpEntriesScore
+{
+    [self loadScoreTable:@"aa_entry_score"];
     [self wakeUpAnimation];
 }
 
@@ -220,17 +230,51 @@
 {
     ScoreModel *scoreEntry = [_items objectAtIndex:[indexPath indexAtPosition:1] ];
 
-    if( !scoreEntry.person ) return; // TEMPORARY BUG PREVENTION
+    if( scoreEntry.person )
+    {
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.person forKey:NOTIFICATION_ITEM];
     
-    NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.person forKey:PERSON_ITEM];
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
+    }
+    else if( scoreEntry.agency )
+    {
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.agency forKey:NOTIFICATION_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_AGENCIES_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
+    }
+    else if( [ScoreModel.tableName isEqualToString:@"aa_entry_score"] )
+    {
+        NSLog( @"Entry." );
+    }
+    else if( scoreEntry.client )
+    {
+        NSLog( @"Client." );
+    }
+    else if( [ScoreModel.tableName isEqualToString:@"aa_country_score"] )
+    {
+        NSLog( @"Country." );
+    }
+    else if( scoreEntry.group )
+    {
+        NSLog( @"Group." );
+    }
+    else if( scoreEntry.producer )
+    {
+        NSLog( @"Producer." );
+    }
+
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
-                                                        object:self
-                                                      userInfo:updateMessage];
-    
+}
+
+- (void) animateExit
+{
     CGRect frame = self.tableView.bounds;
-    
-    
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5f];
@@ -240,6 +284,7 @@
                                       frame.size.width,
                                       frame.size.height );
     [UIView commitAnimations];
+
 }
 
 
@@ -293,7 +338,16 @@
         cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
 
     }
-    else if( item.country.name )
+    else if( [item.entry.pk isEqualToNumber:item.origin] )
+    {
+        cell.name.text = item.entry.name;
+        [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.entry.name]];
+        cell.country.text = [NSString stringWithFormat:@"%@ - %@", item.country.name, item.entry.agency.name];
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.country.iso lowercaseString]]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+        
+    }
+    else if( [item.country.pk isEqualToNumber:item.country.pk] )
     {
         cell.name.text = item.country.name;
         [cell.thumb.userInitials setText:item.country.iso3];

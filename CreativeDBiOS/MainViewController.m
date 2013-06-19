@@ -29,19 +29,11 @@
 {
     self = [super init];
     if (self) {
-//        self.viewInstance = [[MainView alloc] initWithFrame:SCREEN_LANDSCAPE_FRAME];
-//        [self.view addSubview:self.viewInstance];
-        
-
-// Use to test the person detail view
-//        [self.scoreModule.view setHidden:YES];
-//        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:[PersonModel loadModel:[PersonModel first]] forKey:PERSON_ITEM];
-//        
-//        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
-//                                                            object:self
-//                                                          userInfo:updateMessage];
-    
-    
+     
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(deviceOrientationDidChange:)
+                                                     name: UIDeviceOrientationDidChangeNotification
+                                                   object: nil];
     }
     
     return self;
@@ -90,12 +82,7 @@
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(deviceOrientationDidChange:)
-                                                 name: UIDeviceOrientationDidChangeNotification
-                                               object: nil];
-    
+        
     [self orientationChangedMethod];
 
     

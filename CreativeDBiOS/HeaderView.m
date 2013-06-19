@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) BaseButton *peopleButton;
 @property (strong, nonatomic) BaseButton *agenciesButton;
+@property (strong, nonatomic) BaseButton *entriesButton;
 @property (strong, nonatomic) BaseButton *clientsButton;
 @property (strong, nonatomic) BaseButton *countriesButton;
 @property (strong, nonatomic) BaseButton *groupsButton;
@@ -45,6 +46,7 @@
         
         [self peopleButton];
         [self agenciesButton];
+        [self entriesButton];
         [self clientsButton];
         [self countriesButton];
         [self groupsButton];
@@ -130,6 +132,24 @@
     return _agenciesButton;
 }
 
+- (BaseButton *) entriesButton
+{
+    if( !_entriesButton )
+    {
+        _entriesButton = [BaseButton buttonWithType:UIButtonTypeCustom];
+        [_entriesButton setTitle:@"Entries" forState:UIControlStateNormal];
+        _entriesButton.titleLabel.font = MENU_BUTTON_FONT;
+        _entriesButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
+        [_entriesButton addTarget:self action:@selector(entriesButtonAction) forControlEvents:UIControlEventTouchDown];
+        _entriesButton.frame = CGRectMake(250.0f, 0, 125.0f, 125.0f);
+        
+        [self.menuScroll addSubview:_entriesButton];
+    }
+    
+    return _entriesButton;
+}
+
+
 - (BaseButton *) clientsButton
 {
     if( !_clientsButton )
@@ -139,7 +159,7 @@
         _clientsButton.titleLabel.font = MENU_BUTTON_FONT;
         _clientsButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_clientsButton addTarget:self action:@selector(clientsButtonAction) forControlEvents:UIControlEventTouchDown];
-        _clientsButton.frame = CGRectMake(250.0f, 0, 125.0f, 125.0f);
+        _clientsButton.frame = CGRectMake(375.0f, 0, 125.0f, 125.0f);
 
 
         [self.menuScroll addSubview:_clientsButton];
@@ -157,7 +177,7 @@
         _countriesButton.titleLabel.font = MENU_BUTTON_FONT;
         _countriesButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_countriesButton addTarget:self action:@selector(countriesButtonAction) forControlEvents:UIControlEventTouchDown];
-        _countriesButton.frame = CGRectMake(375.0f, 0, 125.0f, 125.0f);
+        _countriesButton.frame = CGRectMake(500.0f, 0, 125.0f, 125.0f);
 
         
         [self.menuScroll addSubview:_countriesButton];
@@ -175,7 +195,7 @@
         _groupsButton.titleLabel.font = MENU_BUTTON_FONT;
         _groupsButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_groupsButton addTarget:self action:@selector(groupsButtonAction) forControlEvents:UIControlEventTouchDown];
-        _groupsButton.frame = CGRectMake(500.0f, 0, 125.0f, 125.0f);
+        _groupsButton.frame = CGRectMake(625.0f, 0, 125.0f, 125.0f);
 
         
         [self.menuScroll addSubview:_groupsButton];
@@ -193,7 +213,7 @@
         _producersButton.titleLabel.font = MENU_BUTTON_FONT;
         _producersButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_producersButton addTarget:self action:@selector(producersButtonAction) forControlEvents:UIControlEventTouchDown];
-        _producersButton.frame = CGRectMake(625.0f, 0, 125.0f, 125.0f);
+        _producersButton.frame = CGRectMake(750.0f, 0, 125.0f, 125.0f);
 
         
         [self.menuScroll addSubview:_producersButton];
@@ -212,7 +232,7 @@
 
     ColumnModel *columnLogo = [[ColumnModel alloc] initWithFixed:@125];
     ColumnModel *columnTitle = [[ColumnModel alloc] initWithFixed:@250];
-    ColumnModel *columnMenu = [[ColumnModel alloc] initWithPercent:@125];
+    ColumnModel *columnMenu = [[ColumnModel alloc] initWithPercent:@100];
   
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:columnLogo, columnTitle,
                                                            columnMenu, nil]];
@@ -235,12 +255,13 @@
     
     _peopleButton.backgroundColor = [UIColor greenColor];
     _agenciesButton.backgroundColor = [UIColor brownColor];
+    _entriesButton.backgroundColor = [UIColor orangeColor];
     _clientsButton.backgroundColor = [UIColor blueColor];
     _countriesButton.backgroundColor = [UIColor magentaColor];
     _groupsButton.backgroundColor = [UIColor purpleColor];
     _producersButton.backgroundColor = [UIColor redColor];
 
-    _menuScroll.contentSize = CGSizeMake(125.0 * 8, 125.0);
+    _menuScroll.contentSize = CGSizeMake(125.0 * 7, 125.0);
 }
 
 - (void) peopleButtonAction
@@ -263,6 +284,14 @@
                                                         object:self
                                                       userInfo:nil];
 }
+
+- (void) entriesButtonAction
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_ENTRIES_SCORE
+                                                        object:self
+                                                      userInfo:nil];
+}
+
 
 - (void) countriesButtonAction
 {
