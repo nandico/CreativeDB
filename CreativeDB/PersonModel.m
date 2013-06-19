@@ -10,6 +10,12 @@
 #import "FMDBDataAccess.h"
 #import "EntryModel.h"
 
+@interface PersonModel()
+
+@property (nonatomic, strong) NSNumber *countryPK;
+
+@end
+
 @implementation PersonModel
 
 + (NSString *) tableName
@@ -36,7 +42,7 @@
 {
     PersonModel *object = [[PersonModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
-    object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
+    object.countryPK = [NSNumber numberWithLong:[results longForColumn:@"country"]];
     object.name = [results stringForColumn:@"name"];
     if([[results resultDictionary] objectForKey:@"portfolioURL"] != nil)
         object.portfolioURL = [[NSURL alloc] initWithString:[results stringForColumn:@"portfolioURL"]];
@@ -46,6 +52,16 @@
     object.score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
     
     return object;
+}
+
+- (CountryModel *) country
+{
+    if( !_country )
+    {
+        _country = [CountryModel loadModel:_countryPK];
+    }
+    
+    return _country;
 }
 
 + (PersonModel *) loadModel:(NSNumber *) pk

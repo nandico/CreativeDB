@@ -12,7 +12,7 @@
 @interface PersonModel : BaseModel
 
 @property (strong) NSNumber *pk;
-@property (strong) CountryModel *country;
+@property (strong, nonatomic) CountryModel *country;
 @property (strong) NSString *name;
 @property (strong) NSURL *portfolioURL;
 @property (strong) NSNumber *rankingGlobal;

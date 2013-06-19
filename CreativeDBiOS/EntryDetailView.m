@@ -124,8 +124,6 @@
 
 - (NSString *) stringfyRolesFromCredits:(NSMutableArray *) credits forPersonId:(NSNumber *) personId
 {
-    NSLog( @"Searching for %@ in %@", personId, credits );
-    
     NSMutableString *roles = [[NSMutableString alloc] init];
     
     for( CreditModel *credit in credits )
