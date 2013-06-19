@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) NSMutableArray *items;
 
+@property (nonatomic, strong) NSString *selectedTable;
 @end
 
 @implementation ScoreListViewController
@@ -26,6 +27,33 @@
 {
     self = [super init];
     if (self) {
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpPeopleScore)
+                                                     name:NOTIFICATION_WAKE_PERSON_SCORE object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpAgenciesScore)
+                                                     name:NOTIFICATION_WAKE_AGENCIES_SCORE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpClientsScore)
+                                                     name:NOTIFICATION_WAKE_CLIENTS_SCORE object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpCountriesScore)
+                                                     name:NOTIFICATION_WAKE_COUNTRIES_SCORE object:nil];
+
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpGroupsScore)
+                                                     name:NOTIFICATION_WAKE_GROUPS_SCORE object:nil];
+
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wakeUpProducersScore)
+                                                     name:NOTIFICATION_WAKE_PRODUCERS_SCORE object:nil];
+
     }
     return self;
 }
@@ -67,7 +95,43 @@
     }
 }
 
-- (void) wakeUpScore
+- (void) wakeUpPeopleScore
+{
+    [self loadScoreTable:@"aa_person_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpAgenciesScore
+{
+    [self loadScoreTable:@"aa_agency_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpClientsScore
+{
+    [self loadScoreTable:@"aa_client_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpCountriesScore
+{
+    [self loadScoreTable:@"aa_country_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpGroupsScore
+{
+    [self loadScoreTable:@"aa_group_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpProducersScore
+{
+    [self loadScoreTable:@"aa_producer_score"];
+    [self wakeUpAnimation];
+}
+
+- (void) wakeUpAnimation
 {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5f];
@@ -80,6 +144,16 @@
                                       frame.size.height );
     [UIView commitAnimations];
     
+}
+
+- (void) loadScoreTable:(NSString *) tableName
+{
+    _selectedTable = tableName;
+    
+    [ScoreModel setTableName:_selectedTable];
+    _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
+
+    [self.tableView reloadData];
 }
 
 - (void) createList
@@ -146,6 +220,8 @@
 {
     ScoreModel *scoreEntry = [_items objectAtIndex:[indexPath indexAtPosition:1] ];
 
+    if( !scoreEntry.person ) return; // TEMPORARY BUG PREVENTION
+    
     NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.person forKey:PERSON_ITEM];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PERSON_DETAIL
@@ -172,12 +248,62 @@
     ScoreModel *item = [_items objectAtIndex:indexPath.row];
     
     cell.dataSource = self;
-    cell.name.text = item.person.name;
-    [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.person.name]];
-    cell.country.text = item.person.country.name;
-    cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:([item.person.rankingGlobal longValue])]];
+    
+    if( item.person.name )
+    {
+        cell.name.text = item.person.name;
+        [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.person.name]];
+        cell.country.text = item.person.country.name;
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:([item.person.rankingGlobal longValue])]];
+    }
+    else if( item.agency.name )
+    {
+        cell.name.text = item.agency.name;
+        [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.agency.name]];
+        cell.country.text = item.agency.country.name;
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.agency.country.iso lowercaseString]]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+
+    }
+    else if( item.client.name )
+    {
+        cell.name.text = item.client.name;
+        [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.client.name]];
+        cell.country.text = item.client.country.name;
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.client.country.iso lowercaseString]]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+
+    }
+    else if( item.group.name )
+    {
+        cell.name.text = item.group.name;
+        [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.group.name]];
+        cell.country.text = @"";
+        cell.flag.image = nil;
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+
+    }
+    else if( item.producer.name )
+    {
+        cell.name.text = item.producer.name;
+        [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.producer.name]];
+        cell.country.text = item.producer.country.name;
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.producer.country.iso lowercaseString]]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+
+    }
+    else if( item.country.name )
+    {
+        cell.name.text = item.country.name;
+        [cell.thumb.userInitials setText:item.country.iso3];
+        cell.country.text = item.country.name;
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.country.iso lowercaseString]]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+
+    }
+    
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
-    cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
 
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
      
@@ -188,10 +314,6 @@
 {
     [ScoreModel setTableName:@"aa_person_score"];
     _items = [ScoreModel loadRankingByTableName:[ScoreModel tableName]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(wakeUpScore)
-                                                 name:NOTIFICATION_WAKE_PERSON_SCORE object:nil];
     
     [self createList];
 
