@@ -53,6 +53,11 @@
         
         // product credits
         [self insertScore:award forProduct:award.entry.product];
+        
+        // entry credits
+        // product credits
+        [self insertScoreForEntry:award];
+
     }
     
     // 2nd loop to update ranking
@@ -191,6 +196,21 @@
     score.origin = product.pk;
     score.country = product.client.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
+    score.festival = [FestivalModel loadModel:award.festival.pk];
+    score.year = award.year;
+    score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
+    
+    [score save];
+}
+
++ (void) insertScoreForEntry:(AwardModel *) award
+{
+    [ScoreModel setTableName:@"aa_entry_score"];
+    
+    ScoreModel *score = [[ScoreModel alloc] init];
+    score.origin = award.entry.pk;
+    score.country = award.entry.country;
+    score.entry = award.entry;
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;
     score.score = [NSNumber numberWithInteger:[award.festival.weight integerValue] * [award.metal.weight integerValue]];
