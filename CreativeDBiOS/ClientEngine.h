@@ -15,7 +15,12 @@
 #define APP_LEFT_PADDING 35.0f
 
 #define NOTIFICATION_WAKE_PERSON_DETAIL @"NOTIFICATION_WAKE_PERSON_DETAIL"
-#define NOTIFICATION_WAKE_SCORE @"NOTIFICATION_WAKE_SCORE"
+#define NOTIFICATION_WAKE_PERSON_SCORE @"NOTIFICATION_WAKE_PERSON_SCORE"
+#define NOTIFICATION_WAKE_AGENCIES_SCORE @"NOTIFICATION_WAKE_AGENCIES_SCORE"
+#define NOTIFICATION_WAKE_CLIENTS_SCORE @"NOTIFICATION_WAKE_CLIENTS_SCORE"
+#define NOTIFICATION_WAKE_COUNTRIES_SCORE @"NOTIFICATION_WAKE_COUNTRIES_SCORE"
+#define NOTIFICATION_WAKE_GROUPS_SCORE @"NOTIFICATION_WAKE_GROUPS_SCORE"
+#define NOTIFICATION_WAKE_PRODUCERS_SCORE @"NOTIFICATION_WAKE_PRODUCERS_SCORE"
 
 #define PERSON_ITEM @"PERSON_ITEM"
 
@@ -31,7 +36,7 @@
 
 #define HEADER_TITLE_COLOR [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]
 #define HEADER_TITLE_BACKGROUND_COLOR nil
-#define HEADER_TITLE_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:46.0f]
+#define HEADER_TITLE_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:60.0f]
 #define HEADER_BACKGROUND_COLOR [UIColor blackColor]
 #define HEADER_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 125.0f)
 #define HEADER_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 125.0f)
@@ -104,6 +109,8 @@
 @interface ClientEngine : NSObject
 
 @property (nonatomic, assign) UIDeviceOrientation currentOrientation;
+@property (assign) CGRect screenRectPortrait;
+@property (assign) CGRect screenRectLandscape;
 
 - (void) startEngine;
 - (BOOL) mustConsiderHeader;

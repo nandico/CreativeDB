@@ -170,7 +170,6 @@
 - (void)configureCell:(UserInfoCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     ScoreModel *item = [_items objectAtIndex:indexPath.row];
-    //cell.textLabel.text = [NSString stringWithFormat:@"%@", item.person.name];
     
     cell.dataSource = self;
     cell.name.text = item.person.name;
@@ -180,11 +179,6 @@
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
     cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.person.country.iso lowercaseString]]];
 
-    /*
-    UIView *bgColorView = [[UIView alloc] init];
-    [bgColorView setBackgroundColor:[UIColor redColor]];
-    [cell setSelectedBackgroundView:bgColorView];
-    */
     cell.selectionStyle = UITableViewCellSelectionStyleGray;
      
     [cell layoutSubviews];
@@ -197,7 +191,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(wakeUpScore)
-                                                 name:NOTIFICATION_WAKE_SCORE object:nil];
+                                                 name:NOTIFICATION_WAKE_PERSON_SCORE object:nil];
     
     [self createList];
 

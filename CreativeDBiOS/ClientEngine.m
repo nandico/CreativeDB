@@ -21,6 +21,8 @@
 
 - (void) startEngine
 {
+    _screenRectPortrait = SCREEN_PORTRAIT_FRAME;
+    _screenRectLandscape = SCREEN_LANDSCAPE_FRAME;
     _considerHeader = YES; // default behavior
     _spacingAfterHeader = 30.0f;
     
@@ -188,11 +190,11 @@
 {
     if( UIDeviceOrientationIsLandscape( _orientation ) )
     {
-        return SCREEN_LANDSCAPE_FRAME;
+        return _screenRectLandscape;
     }
     else if( UIDeviceOrientationIsPortrait( _orientation ) )
     {
-        return SCREEN_PORTRAIT_FRAME;
+        return _screenRectPortrait;
     }
     
     NSLog( @"ORIENTATION IS EMPTY %d", _orientation );

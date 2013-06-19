@@ -34,6 +34,7 @@
 		BF0384E9176B9FAF002D0CF9 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0384E8176B9FAE002D0CF9 /* BaseButton.m */; };
 		BF0384EF176D18F4002D0CF9 /* PersonThumbLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */; };
 		BF09DB0D176D383C00ADB020 /* PersonIdView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB0C176D383C00ADB020 /* PersonIdView.m */; };
+		BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB7E1771625D00ADB020 /* BaseScrollView.m */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
@@ -515,6 +516,8 @@
 		BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonThumbLabel.m; sourceTree = "<group>"; };
 		BF09DB0B176D383C00ADB020 /* PersonIdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonIdView.h; sourceTree = "<group>"; };
 		BF09DB0C176D383C00ADB020 /* PersonIdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonIdView.m; sourceTree = "<group>"; };
+		BF09DB7D1771625D00ADB020 /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
+		BF09DB7E1771625D00ADB020 /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
 		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
 		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
 		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
@@ -1529,6 +1532,8 @@
 				BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */,
 				BF09DB0B176D383C00ADB020 /* PersonIdView.h */,
 				BF09DB0C176D383C00ADB020 /* PersonIdView.m */,
+				BF09DB7D1771625D00ADB020 /* BaseScrollView.h */,
+				BF09DB7E1771625D00ADB020 /* BaseScrollView.m */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";
@@ -2231,6 +2236,7 @@
 				BF0384E9176B9FAF002D0CF9 /* BaseButton.m in Sources */,
 				BF0384EF176D18F4002D0CF9 /* PersonThumbLabel.m in Sources */,
 				BF09DB0D176D383C00ADB020 /* PersonIdView.m in Sources */,
+				BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
