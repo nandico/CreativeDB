@@ -113,8 +113,6 @@
 
 - (void) scoreButtonAction
 {
-    NSLog( @"ACTION!" );
-    
     [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_SCORE
                                                         object:self
                                                       userInfo:nil];

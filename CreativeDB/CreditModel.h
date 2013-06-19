@@ -14,6 +14,7 @@
 @interface CreditModel : BaseModel
 
 @property (strong) NSNumber *pk;
+@property (strong) NSNumber *personPK;
 @property (strong, nonatomic) PersonModel *person;
 @property (strong, nonatomic) EntryModel *entry;
 @property (strong, nonatomic) RoleModel *role;

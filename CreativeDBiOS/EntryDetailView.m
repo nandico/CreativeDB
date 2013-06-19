@@ -128,9 +128,9 @@
     
     for( CreditModel *credit in credits )
     {
-        if( credit.person.pk == personId )
+        if( [credit.personPK isEqualToNumber:personId] )
         {
-            [roles appendString:[NSString stringWithFormat:@"%@        ", credit.role.name]];
+            [roles appendString:[NSString stringWithFormat:@"%@          ", credit.role.name ]];
         }
     }
     

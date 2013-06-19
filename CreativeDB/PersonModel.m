@@ -448,8 +448,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_person AS B "

@@ -49,13 +49,9 @@
     EntryModel *object = [[EntryModel alloc] init];
 
     object.pk = [NSNumber numberWithInt:[results intForColumn:@"id"]];
-    //object.agency = [AgencyModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"agency"]]];
     object.agencyPK = [NSNumber numberWithLong:[results longForColumn:@"agency"]];
-    //object.client = [ClientModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"client"]]];
     object.clientPK = [NSNumber numberWithLong:[results longForColumn:@"client"]];
-    //object.country = [CountryModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"country"]]];
     object.countryPK = [NSNumber numberWithLong:[results longForColumn:@"country"]];
-    //object.product = [ProductModel loadModel:[NSNumber numberWithLong:[results longForColumn:@"product"]]];
     object.productPK = [NSNumber numberWithLong:[results longForColumn:@"product"]];
     if([[results resultDictionary] objectForKey:@"accessURL"])
         object.accessURL = [[NSURL alloc] initWithString:[results stringForColumn:@"accessURL"]];

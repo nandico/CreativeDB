@@ -11,7 +11,6 @@
 
 @interface CreditModel()
 
-@property (strong) NSNumber *personPK;
 @property (strong) NSNumber *entryPK;
 @property (strong) NSNumber *rolePK;
 
@@ -59,7 +58,7 @@ static NSNumber *modelFilterValue;
 {
     if( !_person )
     {
-        [PersonModel loadModel:_personPK];
+        _person = [PersonModel loadModel:_personPK];
     }
     
     return _person;
@@ -69,7 +68,7 @@ static NSNumber *modelFilterValue;
 {
     if( !_entry )
     {
-        [EntryModel loadModel:_entryPK];
+        _entry = [EntryModel loadModel:_entryPK];
     }
     
     return _entry;
@@ -79,7 +78,7 @@ static NSNumber *modelFilterValue;
 {
     if( !_role )
     {
-        [RoleModel loadModel:_rolePK];
+        _role = [RoleModel loadModel:_rolePK];
     }
     
     return _role;
