@@ -7,7 +7,8 @@
 //
 
 #import "BaseLabel.h"
+#import "ClientEngine.h"
 
-@interface PersonThumbLabel : BaseLabel
+@interface PersonThumbLabel : BaseLabel <ClientLayoutable>
 
 @end

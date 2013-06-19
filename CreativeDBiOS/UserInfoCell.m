@@ -80,7 +80,7 @@
     
     _thumb.backgroundColor = [UIColor orangeColor];
     [engine applyFrame:_thumb withLine:line1 andColumn:column4];
-
+    
 
     
 }

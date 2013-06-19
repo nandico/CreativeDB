@@ -174,7 +174,7 @@
     
     cell.dataSource = self;
     cell.name.text = item.person.name;
-    cell.thumb.userInitials.text = [cell.thumb extractInitials:item.person.name];
+    [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.person.name]];
     cell.country.text = item.person.country.name;
     cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:([item.person.rankingGlobal longValue])]];
     cell.score.text = [NSString stringWithFormat:@"%@ pts", [item.score stringValue]];
