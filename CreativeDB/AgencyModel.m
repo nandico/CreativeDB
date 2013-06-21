@@ -9,6 +9,7 @@
 #import "AgencyModel.h"
 #import "GroupModel.h"
 #import "FMDBDataAccess.h"
+#import "EntryModel.h"
 
 @implementation AgencyModel
 
@@ -124,6 +125,11 @@
     [db close];
     
     return collection;
+}
+
+- (NSMutableArray *) entries
+{
+    return [EntryModel loadByAgencyId:self.pk];
 }
 
 - (NSNumber *) next

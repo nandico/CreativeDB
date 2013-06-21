@@ -16,6 +16,7 @@
 #import "PersonModel.h"
 #import "ProducerModel.h"
 #import "ProductModel.h"
+#import "AwardModel.h"
 
 @interface ScoreModel : BaseModel
 
@@ -44,6 +45,12 @@
 
 + (NSMutableArray *) loadRankingByTableName: (NSString *) tableName;
 + (NSMutableArray *) loadRankingByTableName: (NSString *) tableName andFilters:(NSMutableDictionary *) filters;
+
++ (void) updateScoreForTablename:(NSString *) tableName
+                       withAward:(AwardModel *) award
+                       forOrigin:(NSNumber *) origin
+                       withScore:(NSNumber *) score;
++ (NSInteger) calculateScoreWithTablename:(NSString *) tableName forOrigin:(NSNumber *) origin andYear:(NSNumber *) year;
 
 - (void) save;
 - (void) deleteModel;

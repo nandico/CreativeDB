@@ -420,13 +420,15 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
-                                             " FROM aa_person AS B "
-                                             " WHERE B.score > A.score "
+                                             " FROM aa_person_score_year AS B "
+                                             " WHERE B.score > A.score AND year = 2013 "
                                              " ) AS Rank "
-                                             " FROM aa_person AS A "
-                                             " WHERE id = %@", self.pk ] ];
+                                             " FROM aa_person_score_year AS A "
+                                             " WHERE id = %@ and year = 2013 ", self.pk ] ];
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
@@ -448,13 +450,17 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
+    // TODO: Make subquery to calculate rank country
+    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
-                                             " FROM aa_person AS B "
-                                             " WHERE B.country = %@ AND B.score > A.score "
+                                             " FROM aa_person_score_year AS B "
+                                             " WHERE B.country = %@ AND year = 2013 AND B.score > A.score "
                                              " ) AS Rank "
                                              " FROM aa_person AS A "
-                                             " WHERE id = %@" , self.country.pk, self.pk ] ];
+                                             " WHERE id = %@ AND year = 2013" , self.country.pk, self.pk ] ];
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];

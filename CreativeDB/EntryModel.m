@@ -468,5 +468,34 @@
     return collection;
 }
 
++ (NSMutableArray *) loadByAgencyId:(NSNumber *)agencyPK
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE agency = %@", [self fields], [self tableName], agencyPK] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
 
 @end

@@ -25,6 +25,8 @@
 + (AgencyModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 
+- (NSMutableArray *) entries;
+
 - (NSNumber *) next;
 - (NSNumber *) previous;
 + (NSNumber *) first;

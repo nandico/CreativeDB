@@ -33,6 +33,8 @@
 		BF0010E517012CDC007B8A80 /* CalendarModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0010E417012CD8007B8A80 /* CalendarModel.m */; };
 		BF0384E9176B9FAF002D0CF9 /* BaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0384E8176B9FAE002D0CF9 /* BaseButton.m */; };
 		BF0384EF176D18F4002D0CF9 /* PersonThumbLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */; };
+		BF073C2A17726A430094F2FE /* AgencyView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF073C2917726A430094F2FE /* AgencyView.m */; };
+		BF073C2D17726B860094F2FE /* AgencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF073C2C17726B860094F2FE /* AgencyViewController.m */; };
 		BF09DB0D176D383C00ADB020 /* PersonIdView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB0C176D383C00ADB020 /* PersonIdView.m */; };
 		BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB7E1771625D00ADB020 /* BaseScrollView.m */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
@@ -514,6 +516,10 @@
 		BF0384E8176B9FAE002D0CF9 /* BaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseButton.m; sourceTree = "<group>"; };
 		BF0384ED176D18F2002D0CF9 /* PersonThumbLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonThumbLabel.h; sourceTree = "<group>"; };
 		BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonThumbLabel.m; sourceTree = "<group>"; };
+		BF073C2817726A430094F2FE /* AgencyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyView.h; sourceTree = "<group>"; };
+		BF073C2917726A430094F2FE /* AgencyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyView.m; sourceTree = "<group>"; };
+		BF073C2B17726B850094F2FE /* AgencyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgencyViewController.h; sourceTree = "<group>"; };
+		BF073C2C17726B860094F2FE /* AgencyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgencyViewController.m; sourceTree = "<group>"; };
 		BF09DB0B176D383C00ADB020 /* PersonIdView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonIdView.h; sourceTree = "<group>"; };
 		BF09DB0C176D383C00ADB020 /* PersonIdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonIdView.m; sourceTree = "<group>"; };
 		BF09DB7D1771625D00ADB020 /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
@@ -1486,12 +1492,16 @@
 				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
 				BF5AD6C41768DFAF00810D4B /* PersonViewController.h */,
 				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
+				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
+				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
 				BF5AD6D0176A621200810D4B /* EntryDetailView.h */,
 				BF5AD6D1176A621300810D4B /* EntryDetailView.m */,
 				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
 				BF3349841767C91C00A6BEA6 /* UserInfoCell.m */,
 				BF5AD6C71768E09E00810D4B /* PersonView.h */,
 				BF5AD6C81768E09E00810D4B /* PersonView.m */,
+				BF073C2817726A430094F2FE /* AgencyView.h */,
+				BF073C2917726A430094F2FE /* AgencyView.m */,
 				BF5FFB2A176531D70034600E /* MainView.h */,
 				BF5FFB2B176531D70034600E /* MainView.m */,
 				BF5FFB2D176535BD0034600E /* HeaderView.h */,
@@ -1506,8 +1516,8 @@
 				BF33498A1767CA9700A6BEA6 /* CountryLabel.m */,
 				BF33498C1767CAB000A6BEA6 /* PositionLabel.h */,
 				BF33498D1767CAB000A6BEA6 /* PositionLabel.m */,
-				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
 				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
+				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
 				BF5AD6CD176A5E0200810D4B /* H1Label.h */,
 				BF5AD6CE176A5E0200810D4B /* H1Label.m */,
 				BF5AD6D3176A623700810D4B /* H2Label.h */,
@@ -2237,6 +2247,8 @@
 				BF0384EF176D18F4002D0CF9 /* PersonThumbLabel.m in Sources */,
 				BF09DB0D176D383C00ADB020 /* PersonIdView.m in Sources */,
 				BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */,
+				BF073C2A17726A430094F2FE /* AgencyView.m in Sources */,
+				BF073C2D17726B860094F2FE /* AgencyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

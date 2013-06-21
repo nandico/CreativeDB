@@ -52,7 +52,7 @@
         [self insertScore:award forGroup:award.entry.agency.group];
         
         // product credits
-        [self insertScore:award forProduct:award.entry.product];
+        if( award.entry.product ) [self insertScore:award forProduct:award.entry.product];
         
         // entry credits
         // product credits
@@ -63,13 +63,38 @@
     // 2nd loop to update ranking
     for( AwardModel *award in awards )
     {
-        // people ranking update
+        // ranking for agency
+        [self updateEntityScore:award forAgency:award.entry.agency];
+
+        // ranking for entry
+        [self updateEntityScore:award forEntry:award.entry];
+        
+        // ranking for people
         for( CreditModel *credit in award.entry.credits )
         {
             [self updateEntityScore:award forCredit:credit];
         }
+        
+        // ranking for client
+        [self updateEntityScore:award forClient:award.entry.client];
+
+        // ranking for country
+        [self updateEntityScore:award forCountry:award.entry.country];
+
+        // ranking for group
+        [self updateEntityScore:award forGroup:award.entry.agency.group];
+        
+        // ranking for product
+        if( award.entry.product ) [self updateEntityScore:award forProduct:award.entry.product];
+        
+        // ranking producer credits
+        for( ProducerCreditModel *producer in award.entry.producers )
+        {
+            [self updateEntityScore:award forProducer:producer.producer];
+        }
+
     }
-    
+
     // general ranking update
     [PersonModel processRanking];
     
@@ -78,12 +103,21 @@
 + (void) resetAwards
 {
     [ScoreModel resetScore:@"aa_person_score"];
+    [ScoreModel resetScore:@"aa_person_score_year"];
     [ScoreModel resetScore:@"aa_producer_score"];
+    [ScoreModel resetScore:@"aa_producer_score_year"];
     [ScoreModel resetScore:@"aa_agency_score"];
+    [ScoreModel resetScore:@"aa_agency_score_year"];
     [ScoreModel resetScore:@"aa_client_score"];
+    [ScoreModel resetScore:@"aa_client_score_year"];
     [ScoreModel resetScore:@"aa_country_score"];
+    [ScoreModel resetScore:@"aa_country_score_year"];
     [ScoreModel resetScore:@"aa_group_score"];
+    [ScoreModel resetScore:@"aa_group_score_year"];
     [ScoreModel resetScore:@"aa_product_score"];
+    [ScoreModel resetScore:@"aa_product_score_year"];
+    [ScoreModel resetScore:@"aa_entry_score"];
+    [ScoreModel resetScore:@"aa_entry_score_year"];
     
     [PersonModel resetScore];
 }
@@ -105,8 +139,90 @@
 
 + (void) updateEntityScore:(AwardModel *) award forCredit:(CreditModel *) credit
 {
-    credit.person.score = [NSNumber numberWithInteger:[credit.person calculateScore]];
-    [credit.person save];
+
+    [ScoreModel updateScoreForTablename:@"aa_person_score_year"
+                              withAward:award forOrigin:credit.personPK
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_person_score"
+                                                                                                  forOrigin:credit.personPK
+                                                                                                    andYear:award.year]]];
+
+}
+
++ (void) updateEntityScore:(AwardModel *) award forAgency:(AgencyModel *) agency
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_agency_score_year"
+                              withAward:award forOrigin:agency.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_agency_score"
+                                                                                                  forOrigin:agency.pk
+                                                                                                    andYear:award.year]]];
+    
+}
+
++ (void) updateEntityScore:(AwardModel *) award forEntry:(EntryModel *) entry
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_entry_score_year"
+                              withAward:award forOrigin:entry.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_entry_score"
+                                                                                                  forOrigin:entry.pk
+                                                                                                    andYear:award.year]]];
+    
+}
+
++ (void) updateEntityScore:(AwardModel *) award forProducer:(ProducerModel *) producer
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_producer_score_year"
+                              withAward:award forOrigin:producer.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_producer_score"
+                                                                                                  forOrigin:producer.pk
+                                                                                                    andYear:award.year]]];
+    
+}
+
++ (void) updateEntityScore:(AwardModel *) award forClient:(ClientModel *) client
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_client_score_year"
+                              withAward:award forOrigin:client.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_client_score"
+                                                                                                  forOrigin:client.pk
+                                                                                                    andYear:award.year]]];
+    
+}
+
++ (void) updateEntityScore:(AwardModel *) award forCountry:(CountryModel *) country
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_country_score_year"
+                              withAward:award forOrigin:country.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_country_score"
+                                                                                                  forOrigin:country.pk
+                                                                                                    andYear:award.year]]];
+    
+}
+
++ (void) updateEntityScore:(AwardModel *) award forGroup:(GroupModel *) group
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_group_score_year"
+                              withAward:award forOrigin:group.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_group_score"
+                                                                                                  forOrigin:group.pk
+                                                                                                    andYear:award.year]]];
+    
+}
+
++ (void) updateEntityScore:(AwardModel *) award forProduct:(ProductModel *) product
+{
+    
+    [ScoreModel updateScoreForTablename:@"aa_product_score_year"
+                              withAward:award forOrigin:product.pk
+                              withScore:[NSNumber numberWithInteger:[ScoreModel calculateScoreWithTablename:@"aa_product_score"
+                                                                                                  forOrigin:product.pk
+                                                                                                    andYear:award.year]]];
+    
 }
 
 

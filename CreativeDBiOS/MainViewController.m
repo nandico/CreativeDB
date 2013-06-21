@@ -11,6 +11,7 @@
 #import "HeaderViewController.h"
 #import "ScoreListViewController.h"
 #import "PersonViewController.h"
+#import "AgencyViewController.h"
 
 @interface MainViewController()
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) HeaderViewController *header;
 @property (strong, nonatomic) ScoreListViewController *scoreModule;
 @property (strong, nonatomic) PersonViewController *personDetail;
+@property (strong, nonatomic) AgencyViewController *agencyDetail;
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
@@ -34,9 +36,30 @@
                                                  selector:@selector(deviceOrientationDidChange:)
                                                      name: UIDeviceOrientationDidChangeNotification
                                                    object: nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enablePersonDetail)
+                                                     name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableAgencyDetail)
+                                                     name:NOTIFICATION_WAKE_AGENCIES_DETAIL object:nil];
+
     }
     
     return self;
+}
+
+- (void) enablePersonDetail
+{
+    [self.personDetail.view setHidden:NO];
+    [self.agencyDetail.view setHidden:YES];
+}
+
+- (void) enableAgencyDetail
+{
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:NO];
 }
 
 - (void) loadView
@@ -69,6 +92,7 @@
     
     [self.header updateOrientation:_currentOrientation];
     [self.personDetail updateOrientation:_currentOrientation];
+    [self.agencyDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
 }
 
@@ -79,6 +103,11 @@
     
     self.personDetail = [[PersonViewController alloc] init];
     [self.viewInstance addSubview:self.personDetail.view];
+    [self.personDetail.view setHidden:YES];
+    
+    self.agencyDetail = [[AgencyViewController alloc] init];
+    [self.viewInstance addSubview:self.agencyDetail.view];
+    [self.personDetail.view setHidden:YES];
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];

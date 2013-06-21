@@ -32,6 +32,7 @@
 + (EntryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 + (NSMutableArray *) loadByPersonId:(NSNumber *) personPK;
++ (NSMutableArray *) loadByAgencyId:(NSNumber *) agencyPK;
 
 - (NSNumber *) next;
 - (NSNumber *) previous;

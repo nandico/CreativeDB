@@ -49,18 +49,21 @@
     [_engine setMustConsiderHeader:NO];
     [_engine setCurrentOrientation:_currentOrientation];
 
-    ColumnModel *column_role = [[ColumnModel alloc] initWithPercent:@100];
-    ColumnModel *column_role_space = [[ColumnModel alloc] initWithFixed:@125];
-    LineModel *line0 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column_role, column_role_space, nil]];
-    line0.height = [NSNumber numberWithFloat:lineHeigth];
-    [_engine addLine:line0];
-    
-    _roles.offsetX = APP_LEFT_PADDING;
-    [_engine applyFrame:_roles withLine:line0 andColumn:column_role];
+    if( _selectedPerson )
+    {
+        ColumnModel *column_role = [[ColumnModel alloc] initWithPercent:@100];
+        ColumnModel *column_role_space = [[ColumnModel alloc] initWithFixed:@125];
+        LineModel *line0 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column_role, column_role_space, nil]];
+        line0.height = [NSNumber numberWithFloat:lineHeigth];
+        [_engine addLine:line0];
+        
+        _roles.offsetX = APP_LEFT_PADDING;
+        [_engine applyFrame:_roles withLine:line0 andColumn:column_role];
+    }
     
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
-    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@20];
-    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@30];
+    ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@21.8];
+    ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@29.2];
     ColumnModel *column4 = [[ColumnModel alloc] initWithPercent:@30];
     ColumnModel *column5 = [[ColumnModel alloc] initWithFixed:@125];
     
@@ -106,7 +109,7 @@
     if( !_selectedEntry ) return;
     if( !_selectedAward ) return;
     
-    self.roles.text = [self stringfyRolesFromCredits:_credits forPersonId:_selectedPerson.pk];
+    if( _selectedPerson ) self.roles.text = [self stringfyRolesFromCredits:_credits forPersonId:_selectedPerson.pk];
     self.year.text = [NSString stringWithFormat:@"      %@", _selectedAward.year ];
     self.year.backgroundColor = [UIColor lightGrayColor];
     self.metal.text = _selectedAward.metal.name;

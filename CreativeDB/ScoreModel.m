@@ -97,6 +97,59 @@ static NSString *tableName;
     return object;
 }
 
++ (void) updateScoreForTablename:(NSString *) tableName
+                       withAward:(AwardModel *) award
+                       forOrigin:(NSNumber *) origin
+                       withScore:(NSNumber *) score
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    NSString *sqlDelete = [NSString stringWithFormat:@" DELETE FROM %@ "
+                                                    " WHERE origin = %@ "
+                                                    " AND YEAR = %@", tableName, origin, award.year ];
+    
+    [db executeUpdate:sqlDelete];
+
+    NSString *sqlInsert = [NSString stringWithFormat:@" INSERT INTO %@ "
+                           " ( origin, year, score ) "
+                           " VALUES "
+                           " ( %@, %@, %@ ) ", tableName, origin, award.year, score ];
+    
+    [db executeUpdate:sqlInsert];
+    
+    [db close];
+}
+
++ (NSInteger) calculateScoreWithTablename:(NSString *) tableName forOrigin:(NSNumber *) origin andYear:(NSNumber *) year
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *score;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
+                                             " SUM ( score ) AS score  "
+                                             " FROM %@ "
+                                             " WHERE origin = %@ AND year = %@ ", tableName, origin, year ] ];
+    if( [results next] )
+    {
+        score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
+    }
+        
+    [results close];
+    [db close];
+    
+    return ( score ) ? [score integerValue] : 0;
+}
+
 - (CountryModel *) country
 {
     if( !_country )

@@ -1,27 +1,22 @@
 //
-//  PersonView.m
+//  AgencyView.m
 //  CreativeDB
 //
-//  Created by Fernando Aquino on 6/12/13.
+//  Created by Fernando Aquino on 6/19/13.
 //  Copyright (c) 2013 Cacau. All rights reserved.
 //
 
-#import "PersonView.h"
+#import "AgencyView.h"
 #import "NameLabel.h"
 #import "CountryLabel.h"
-#import "PositionLabel.h"
-#import "ScoreLabel.h"
 #import "CountryImageView.h"
-#import "BaseView.h"
-#import "ClientEngine.h"
-#import "H1Label.h"
-#import "H4Label.h"
-#import "AwardModel.h"
-#import "LineModel.h"
-#import "ColumnModel.h"
 #import "PersonIdView.h"
+#import "BaseView.h"
+#import "H4Label.h"
+#import "ScoreLabel.h"
+#import "ClientEngine.h"
 
-@interface PersonView()
+@interface AgencyView()
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
@@ -40,14 +35,14 @@
 
 @end
 
-@implementation PersonView
+@implementation AgencyView
 
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
-
+        
         [self background];
         [self thumb];
         [self name];
@@ -58,10 +53,10 @@
         [self globalScore];
         [self countryStats];
         [self countryScore];
-                
+        
         _engine = [[ClientEngine alloc] init];
         
-   }
+    }
     return self;
 }
 
@@ -91,20 +86,20 @@
 
 - (void) updateData
 {
-    PersonModel *selectedPerson = [self.dataSource selectedPerson];
+    AgencyModel *selectedAgency = [self.dataSource selectedAgency];
     
-    if( !selectedPerson ) return;
-     
-    self.thumb.userInitials.text = [self.thumb extractInitials:selectedPerson.name];
-    self.name.text = selectedPerson.name;
-    self.country.text = selectedPerson.country.name;
-    self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedPerson.country.iso lowercaseString] ]];
+    if( !selectedAgency ) return;
+    
+    self.thumb.userInitials.text = [self.thumb extractInitials:selectedAgency.name];
+    self.name.text = selectedAgency.name;
+    self.country.text = selectedAgency.country.name;
+    self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedAgency.country.iso lowercaseString] ]];
     
     self.globalStats.text = @"GLOBAL";
-    self.globalScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingGlobal longValue]]];
+//    self.globalScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingGlobal longValue]]];
     
     self.countryStats.text = @"COUNTRY";
-    self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingCountry longValue]]];
+//    self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingCountry longValue]]];
     
 }
 
@@ -138,13 +133,13 @@
     ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@29];
     ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@29];
     ColumnModel *column4 = [[ColumnModel alloc] initWithFixed:@125];
-
+    
     CGFloat rankingOffsetY = 10.0f;
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, nil]];
     line1.height = @125;
     [_engine addLine:line1];
-        
+    
     _name.prefferedHeight = 50.0f;
     _name.offsetX = APP_LEFT_PADDING;
     _name.offsetY = 10.0f + rankingOffsetY;
@@ -197,7 +192,7 @@
     LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, nil]];
     line2.height = @80.0;
     [_engine addLine:line2];
-
+    
 }
 
 
@@ -302,3 +297,4 @@
 }
 
 @end
+
