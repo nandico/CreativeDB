@@ -420,15 +420,13 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_person_score_year AS B "
                                              " WHERE B.score > A.score AND year = 2013 "
                                              " ) AS Rank "
                                              " FROM aa_person_score_year AS A "
-                                             " WHERE id = %@ and year = 2013 ", self.pk ] ];
+                                             " WHERE A.origin = %@ and year = 2013 ", self.pk ] ];
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
@@ -452,15 +450,13 @@
     
     db.traceExecution = YES;
     
-    // TODO: Make subquery to calculate rank country
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_person_score_year AS B "
-                                             " WHERE B.country = %@ AND year = 2013 AND B.score > A.score "
+                                             " INNER JOIN aa_person AS C ON B.origin = C.id WHERE C.country = %@ AND B.year = 2013 AND B.score > A.score "
                                              " ) AS Rank "
-                                             " FROM aa_person AS A "
-                                             " WHERE id = %@ AND year = 2013" , self.country.pk, self.pk ] ];
+                                             " FROM aa_person_score_year AS A "
+                                             " WHERE A.origin = %@ " , self.country.pk, self.pk ] ];
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
