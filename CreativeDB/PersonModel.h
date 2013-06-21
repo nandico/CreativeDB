@@ -15,9 +15,6 @@
 @property (strong, nonatomic) CountryModel *country;
 @property (strong) NSString *name;
 @property (strong) NSURL *portfolioURL;
-@property (strong) NSNumber *rankingGlobal;
-@property (strong) NSNumber *rankingCountry;
-@property (strong) NSNumber *score;
 
 + (NSString *) tableName;
 + (NSString *) fields;
@@ -35,8 +32,7 @@
 - (void) save;
 - (void) deleteModel;
 
-+ (void) resetScore;
-- (NSInteger) calculateScore;
-+ (void) processRanking;
+- (NSInteger) calculateRankGlobal:(NSNumber *) year;
+- (NSInteger) calculateRankCountry:(NSNumber *) year;
 
 @end

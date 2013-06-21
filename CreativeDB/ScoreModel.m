@@ -498,6 +498,54 @@ static NSString *tableName;
     
 }
 
++ (void) processRanking:(NSNumber *) year
+{
+    NSMutableArray *persons = [PersonModel loadAll];
+    
+    for( PersonModel *person in persons )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[person calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[person calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_person_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:person.pk andYear:year];
+    }
+}
+
++ (void) updateRankingGlobalForTablename:(NSString *) tableName
+                               andGlobal:(NSNumber *) rankingGlobal
+                              andCountry:(NSNumber *) rankingCountry
+                               forOrigin:(NSNumber *) origin
+                                 andYear:(NSNumber *) year
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    db.traceExecution = YES;
+    
+    [db open];
+    
+    NSString *sqlGlobal = [NSString stringWithFormat:@" UPDATE %@ "
+                           " SET rankingGlobal = %@ "
+                           " WHERE year = %@ "
+                           " AND origin = %@ ", tableName, rankingGlobal, year, origin];
+    
+    [db executeUpdate:sqlGlobal];
+    
+    NSString *sqlCountry = [NSString stringWithFormat:@" UPDATE %@ "
+                            " SET rankingCountry = %@ "
+                            " WHERE year = %@ "
+                            " AND origin = %@ ", tableName, rankingCountry, year, origin];
+    
+    [db executeUpdate:sqlCountry];
+    
+    
+    [db close];
+    
+    
+}
+
 
 
 @end

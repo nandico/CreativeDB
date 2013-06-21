@@ -96,7 +96,7 @@
     }
 
     // general ranking update
-    [PersonModel processRanking];
+    [ScoreModel processRanking:@2013];
     
 }
 
@@ -118,8 +118,6 @@
     [ScoreModel resetScore:@"aa_product_score_year"];
     [ScoreModel resetScore:@"aa_entry_score"];
     [ScoreModel resetScore:@"aa_entry_score_year"];
-    
-    [PersonModel resetScore];
 }
 
 + (void) insertScore:(AwardModel *) award forCredit:(CreditModel *) credit

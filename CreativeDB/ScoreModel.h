@@ -55,4 +55,6 @@
 - (void) save;
 - (void) deleteModel;
 
++ (void) processRanking:(NSNumber *) year;
+
 @end

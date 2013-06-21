@@ -30,7 +30,7 @@
 
 + (NSString *) fields
 {
-    return @"id, country, name, portfolioURL, rankingGlobal, rankingCountry, score ";
+    return @"id, country, name, portfolioURL ";
 }
 
 - (NSString *) fields
@@ -46,10 +46,6 @@
     object.name = [results stringForColumn:@"name"];
     if([[results resultDictionary] objectForKey:@"portfolioURL"] != nil)
         object.portfolioURL = [[NSURL alloc] initWithString:[results stringForColumn:@"portfolioURL"]];
-    
-    object.rankingGlobal = [NSNumber numberWithLong:[results longForColumn:@"rankingGlobal"]];
-    object.rankingCountry = [NSNumber numberWithLong:[results longForColumn:@"rankingCountry"]];
-    object.score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
     
     return object;
 }
@@ -342,75 +338,12 @@
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET portfolioURL = '%@' WHERE id = %@", [self tableName],
                            self.portfolioURL, self.pk ]];
     }
-    if( self.rankingGlobal )
-    {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET rankingGlobal = %@ WHERE id = %@", [self tableName],
-                           self.rankingGlobal, self.pk ]];
-    }
-    if( self.rankingCountry )
-    {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET rankingCountry = %@ WHERE id = %@", [self tableName],
-                           self.rankingCountry, self.pk ]];
-    }
-    if( self.score )
-    {
-        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET score = %@ WHERE id = %@", [self tableName],
-                           self.score, self.pk ]];
-    }
     
     [db close];
     
 }
 
-+ (void) resetScore
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
-                                                     ofType:@"sqlite"];
-    
-    FMDatabase *db = [FMDatabase databaseWithPath:path];
-    
-    [db open];
-    
-    NSString *sqlGlobal = [NSString stringWithFormat:@" UPDATE aa_person SET rankingGlobal = 0 "];
-    [db executeUpdate:sqlGlobal];
-    
-    NSString *sqlCountry = [NSString stringWithFormat:@" UPDATE aa_person SET rankingCountry = 0 "];
-    [db executeUpdate:sqlCountry];
-
-    NSString *sqlScore = [NSString stringWithFormat:@" UPDATE aa_person SET score = 0 "];
-    [db executeUpdate:sqlScore];
-    
-    
-    [db close];
-    
-}
-
-- (NSInteger) calculateScore
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
-                                                     ofType:@"sqlite"];
-    
-    NSNumber *score;
-    FMDatabase *db = [FMDatabase databaseWithPath:path];
-    
-    [db open];
-    
-    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT "
-                                             " SUM ( score ) AS score  "
-                                             " FROM aa_person_score "
-                                             " WHERE origin = %@ ", self.pk ] ];
-    if( [results next] )
-    {
-        score = [NSNumber numberWithLong:[results longForColumn:@"score"]];
-    }
-    
-    [results close];
-    [db close];
-    
-    return ( score ) ? [score integerValue] : 0;
-}
-
-- (NSInteger) calculateRankGlobal
+- (NSInteger) calculateRankGlobal:(NSNumber *) year
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -423,10 +356,10 @@
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_person_score_year AS B "
-                                             " WHERE B.score > A.score AND year = 2013 "
+                                             " WHERE B.score > A.score AND year = %@ "
                                              " ) AS Rank "
                                              " FROM aa_person_score_year AS A "
-                                             " WHERE A.origin = %@ and year = 2013 ", self.pk ] ];
+                                             " WHERE A.origin = %@ and year = %@ ", year, self.pk, year ] ];
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
@@ -438,7 +371,7 @@
     return ( ranking ) ? [ranking integerValue] : 0;
 }
 
-- (NSInteger) calculateRankCountry
+- (NSInteger) calculateRankCountry:(NSNumber *) year
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
@@ -453,10 +386,10 @@
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_person_score_year AS B "
-                                             " INNER JOIN aa_person AS C ON B.origin = C.id WHERE C.country = %@ AND B.year = 2013 AND B.score > A.score "
+                                             " INNER JOIN aa_person AS C ON B.origin = C.id WHERE C.country = %@ AND B.year = %@ AND B.score > A.score "
                                              " ) AS Rank "
                                              " FROM aa_person_score_year AS A "
-                                             " WHERE A.origin = %@ " , self.country.pk, self.pk ] ];
+                                             " WHERE A.origin = %@ " , self.country.pk, year, self.pk ] ];
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
@@ -470,26 +403,5 @@
     return ( ranking ) ? [ranking integerValue] : 0;
 }
 
-+ (void) processRanking
-{
-    NSMutableArray *persons = [PersonModel loadAll];
-    
-    /*
-     SELECT A.*, (
-     SELECT COUNT( * )
-     FROM aa_person AS B
-     WHERE B.score > A.score
-     ) AS Rank
-     FROM aa_person AS A
-     WHERE id = 44
-    */
-    
-    for( PersonModel *person in persons )
-    {
-        person.rankingGlobal = [NSNumber numberWithInteger:[person calculateRankGlobal] + 1];
-        person.rankingCountry = [NSNumber numberWithInteger:[person calculateRankCountry] + 1];
-        [person save];
-    }
-}
 
 @end
