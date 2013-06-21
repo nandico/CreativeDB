@@ -15,6 +15,8 @@
 @property (strong, nonatomic) CountryModel *country;
 @property (strong) NSString *name;
 @property (strong) NSURL *portfolioURL;
+@property (strong, nonatomic) NSNumber *rankingGlobal;
+@property (strong, nonatomic) NSNumber *rankingCountry;
 
 + (NSString *) tableName;
 + (NSString *) fields;

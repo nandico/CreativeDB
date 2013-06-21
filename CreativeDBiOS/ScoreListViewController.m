@@ -308,8 +308,9 @@
         [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.agency.name]];
         cell.country.text = item.agency.country.name;
         cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.agency.country.iso lowercaseString]]];
-        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
-
+        //cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:([item.agency.rankingGlobal longValue])]];
+        
     }
     else if( item.client.name )
     {

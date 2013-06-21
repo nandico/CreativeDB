@@ -9,6 +9,7 @@
 #import "PersonModel.h"
 #import "FMDBDataAccess.h"
 #import "EntryModel.h"
+#import "ScoreModel.h"
 
 @interface PersonModel()
 
@@ -60,6 +61,67 @@
     return _country;
 }
 
+- (NSNumber *) rankingGlobal
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " rankingGlobal "
+                                                       " FROM aa_person_score_year "
+                                                       " WHERE "
+                                                       " origin = %@ "
+                                                       " AND year = %@", self.pk, [ScoreModel rankYear] ] ];
+    
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"rankingGlobal"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ranking;
+
+}
+
+- (NSNumber *) rankingCountry
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " rankingCountry "
+                                                       " FROM aa_person_score_year "
+                                                       " WHERE "
+                                                       " origin = %@ "
+                                                       " AND year = %@", self.pk, [ScoreModel rankYear] ] ];
+    
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"rankingCountry"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ranking;
+}
+
 + (PersonModel *) loadModel:(NSNumber *) pk
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
@@ -69,7 +131,7 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
+        
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                             " %@ "
                             " FROM %@ "

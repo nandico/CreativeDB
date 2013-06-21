@@ -126,7 +126,7 @@
     CGFloat columnWidth = 0;
     CGFloat columnHeight = 0;
     
-    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : [self absoluteWidthForColumn:column andLine:line];
+    columnWidth = ( [label prefferedWidth] ) ? [label prefferedWidth] : ( [self absoluteWidthForColumn:column andLine:line] - [label offsetX] );
     columnHeight = ( [label prefferedHeight] ) ? [label prefferedHeight] : [line.height floatValue];
     
     label.frame = CGRectMake(flatOrigin.x + [label offsetX],

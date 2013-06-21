@@ -12,6 +12,7 @@
 #import "ScoreListViewController.h"
 #import "PersonViewController.h"
 #import "AgencyViewController.h"
+#import "ScoreModel.h"
 
 @interface MainViewController()
 
@@ -98,6 +99,9 @@
 
 - (void)viewDidLoad
 {
+    // set current application year
+    [ScoreModel setRankYear:@2013];
+    
     self.header = [[HeaderViewController alloc] init];
     [self.viewInstance addSubview:self.header.view];
     

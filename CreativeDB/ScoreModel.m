@@ -26,6 +26,8 @@
 @implementation ScoreModel
 
 static NSString *tableName;
+static NSNumber *actualRankYear;
+
 
 + (NSString *) tableName
 {
@@ -509,6 +511,17 @@ static NSString *tableName;
         
         [self updateRankingGlobalForTablename:@"aa_person_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:person.pk andYear:year];
     }
+    
+    NSMutableArray *agencies = [AgencyModel loadAll];
+    
+    for( AgencyModel *agency in agencies )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[agency calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[agency calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_agency_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:agency.pk andYear:year];
+        
+    }
 }
 
 + (void) updateRankingGlobalForTablename:(NSString *) tableName
@@ -544,6 +557,22 @@ static NSString *tableName;
     [db close];
     
     
+}
+
++ (NSNumber *) rankYear
+{
+    @synchronized( self )
+    {
+        return actualRankYear;
+    }
+}
+
++ (void) setRankYear:(NSNumber *)rankYear
+{
+    @synchronized( self )
+    {
+        actualRankYear = rankYear;
+    }
 }
 
 

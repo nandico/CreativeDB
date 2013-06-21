@@ -96,10 +96,10 @@
     self.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [selectedAgency.country.iso lowercaseString] ]];
     
     self.globalStats.text = @"GLOBAL";
-//    self.globalScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingGlobal longValue]]];
+    self.globalScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedAgency.rankingGlobal longValue]]];
     
     self.countryStats.text = @"COUNTRY";
-//    self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedPerson.rankingCountry longValue]]];
+    self.countryScore.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:[selectedAgency.rankingCountry longValue]]];
     
 }
 

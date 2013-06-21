@@ -57,4 +57,7 @@
 
 + (void) processRanking:(NSNumber *) year;
 
++ (NSNumber *) rankYear;
++ (void) setRankYear:(NSNumber *) rankYear;
+
 @end
