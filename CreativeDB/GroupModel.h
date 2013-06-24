@@ -18,6 +18,8 @@
 + (GroupModel *) objectWithResults:(FMResultSet *)results;
 + (GroupModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
++ (NSNumber *) modelActiveCount;
 + (NSMutableArray *) loadFiltered;
 + (GroupModel *) loadModelByStringValue:(NSString *) stringValue;
 

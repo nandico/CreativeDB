@@ -22,6 +22,7 @@
 + (ProducerModel *) loadModel:(NSNumber *) pk;
 + (ProducerModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
 
 - (NSNumber *) next;
 - (NSNumber *) previous;

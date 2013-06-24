@@ -124,6 +124,32 @@
     return collection;
 }
 
++ (NSNumber *) modelCount
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *count = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " COUNT( * ) total "
+                                                       " FROM %@ ", [self tableName]] ];
+    
+    while( [results next] )
+    {
+        count = [NSNumber numberWithLong:[results longForColumn:@"total"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return count;
+}
+
+
 - (NSNumber *) next
 {
     if( !_pk ) return nil;

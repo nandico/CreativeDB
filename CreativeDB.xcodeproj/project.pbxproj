@@ -40,6 +40,8 @@
 		BF17830617789946007585DA /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17830517789946007585DA /* DashboardViewController.m */; };
 		BF17830917789A22007585DA /* DashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17830817789A22007585DA /* DashboardView.m */; };
 		BF1783121778CBCE007585DA /* DashboardSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1783111778CBCD007585DA /* DashboardSquare.m */; };
+		BF1783141778FD15007585DA /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1783131778FD14007585DA /* Icon-72.png */; };
+		BF1783161778FD1A007585DA /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1783151778FD19007585DA /* Icon-72@2x.png */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
@@ -533,6 +535,8 @@
 		BF17830817789A22007585DA /* DashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardView.m; sourceTree = "<group>"; };
 		BF1783101778CBCD007585DA /* DashboardSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSquare.h; sourceTree = "<group>"; };
 		BF1783111778CBCD007585DA /* DashboardSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSquare.m; sourceTree = "<group>"; };
+		BF1783131778FD14007585DA /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
+		BF1783151778FD19007585DA /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
 		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
 		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
 		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
@@ -1685,6 +1689,8 @@
 		BF8D841716F7EEA2006906D8 = {
 			isa = PBXGroup;
 			children = (
+				BF1783151778FD19007585DA /* Icon-72@2x.png */,
+				BF1783131778FD14007585DA /* Icon-72.png */,
 				BF8D844016F7F746006906D8 /* libsqlite3.0.dylib */,
 				BF8D842916F7EEA4006906D8 /* CreativeDB */,
 				BF5FFAD2176529720034600E /* CreativeDBiOS */,
@@ -2236,6 +2242,8 @@
 				BF5AD6C01768D6CF00810D4B /* zm.png in Resources */,
 				BF5AD6C11768D6CF00810D4B /* zw.png in Resources */,
 				BF5AD6C31768D70300810D4B /* aa.png in Resources */,
+				BF1783141778FD15007585DA /* Icon-72.png in Resources */,
+				BF1783161778FD1A007585DA /* Icon-72@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

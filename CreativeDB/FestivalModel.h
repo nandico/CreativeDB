@@ -22,6 +22,8 @@
 + (FestivalModel *) objectWithResults:(FMResultSet *)results;
 + (FestivalModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
++ (NSNumber *) modelActiveCount;
 + (FestivalModel *) loadModelByStringValue:(NSString *) stringValue;
 
 @end

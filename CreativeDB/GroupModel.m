@@ -95,6 +95,61 @@
     return collection;
 }
 
++ (NSNumber *) modelCount
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *count = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " COUNT( * ) total "
+                                                       " FROM %@ ", [self tableName]] ];
+    
+    while( [results next] )
+    {
+        count = [NSNumber numberWithLong:[results longForColumn:@"total"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return count;
+}
+
++ (NSNumber *) modelActiveCount
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *count = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " COUNT( * ) total "
+                                                       " FROM %@ "
+                                                       " WHERE id IN ( "
+                                                       "    SELECT DISTINCT( C.agency_group ) from aa_entry AS A "
+                                                       "    INNER JOIN aa_award AS B on A.id = B.entry "
+                                                       "    INNER JOIN aa_agency AS C ON A.agency = C.id "
+                                                       " ) ", [self tableName]] ];
+    
+    while( [results next] )
+    {
+        count = [NSNumber numberWithLong:[results longForColumn:@"total"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return count;
+}
+
 + (NSMutableArray *) loadFiltered
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

@@ -20,6 +20,7 @@
 + (ClientModel *) loadModel:(NSNumber *) pk;
 + (ClientModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
 
 - (NSNumber *) next;
 - (NSNumber *) previous;

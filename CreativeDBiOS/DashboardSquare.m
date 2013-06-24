@@ -38,8 +38,6 @@
     CGRect container = self.frame;
     CGFloat backgroundMargin = 10;
     
-    NSLog( @"Container: %f, %f, %f, %f", container.origin.x, container.origin.y, container.size.width, container.size.height );
-    
     _background.frame = CGRectMake( backgroundMargin,
                                    backgroundMargin,
                                    container.size.width - ( backgroundMargin * 2 ),

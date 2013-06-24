@@ -25,7 +25,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor brownColor];
+        self.backgroundColor = [UIColor whiteColor];
         
         [self background];
         
@@ -53,14 +53,14 @@
 {
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
-        self.background.frame = INNER_CONTENT_PORTRAIT_FRAME;
+        self.background.frame = DASHBOARD_CONTENT_PORTRAIT_FRAME;
         _currentOrientation = orientation;
         [_engine setCurrentOrientation:_currentOrientation];
         
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
-        self.background.frame = INNER_CONTENT_LANDSCAPE_FRAME;
+        self.background.frame = DASHBOARD_CONTENT_LANDSCAPE_FRAME;
         _currentOrientation = orientation;
         [_engine setCurrentOrientation:_currentOrientation];
     }

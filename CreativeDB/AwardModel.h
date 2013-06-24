@@ -29,6 +29,7 @@
 + (AwardModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadByEntryId:(NSNumber *) entryPK;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
 
 + (NSString *) modelFilterName;
 + (void) setModelFilterName:(NSString *) filterName;

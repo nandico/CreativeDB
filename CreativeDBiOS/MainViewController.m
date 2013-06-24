@@ -92,8 +92,6 @@
 
 - (void) enableScore
 {
-    NSLog( @"Score." );
-    
     [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
@@ -102,8 +100,6 @@
 
 - (void) enableDashboard
 {
-    NSLog( @"Dashboard." );
-    
     [self.dashboard.view setHidden:NO];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
@@ -112,8 +108,6 @@
 
 - (void) enablePersonDetail
 {
-    NSLog( @"Person detail." );
-    
     [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:NO];
     [self.agencyDetail.view setHidden:YES];
@@ -122,8 +116,6 @@
 
 - (void) enableAgencyDetail
 {
-    NSLog( @"Agency detail." );
-    
     [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:NO];
@@ -163,7 +155,6 @@
     [self.personDetail updateOrientation:_currentOrientation];
     [self.agencyDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
-    NSLog( @"Update orientation sent." );
 }
 
 - (void)viewDidLoad
@@ -189,7 +180,6 @@
     self.dashboard = [[DashboardViewController alloc] init];
     [self.viewInstance addSubview:self.dashboard.view];    
     
-    NSLog( @"Forcing orientation change." );
     [self orientationChangedMethod];
 
     

@@ -26,6 +26,8 @@
 + (CountryModel *) loadModel:(NSNumber *) pk;
 + (CountryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
++ (NSNumber *) modelActiveCount;
 + (NSMutableArray *) loadFiltered;
 
 - (NSInteger) calculateRankGlobal:(NSNumber *) year;
