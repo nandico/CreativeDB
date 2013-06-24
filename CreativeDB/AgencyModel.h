@@ -26,6 +26,7 @@
 + (AgencyModel *) loadModel:(NSNumber *) pk;
 + (AgencyModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
 
 - (NSMutableArray *) entries;
 

@@ -39,6 +39,7 @@
 		BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB7E1771625D00ADB020 /* BaseScrollView.m */; };
 		BF17830617789946007585DA /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17830517789946007585DA /* DashboardViewController.m */; };
 		BF17830917789A22007585DA /* DashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17830817789A22007585DA /* DashboardView.m */; };
+		BF1783121778CBCE007585DA /* DashboardSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1783111778CBCD007585DA /* DashboardSquare.m */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
@@ -530,6 +531,8 @@
 		BF17830517789946007585DA /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		BF17830717789A22007585DA /* DashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardView.h; sourceTree = "<group>"; };
 		BF17830817789A22007585DA /* DashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardView.m; sourceTree = "<group>"; };
+		BF1783101778CBCD007585DA /* DashboardSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardSquare.h; sourceTree = "<group>"; };
+		BF1783111778CBCD007585DA /* DashboardSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSquare.m; sourceTree = "<group>"; };
 		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
 		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
 		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
@@ -1166,6 +1169,8 @@
 			children = (
 				BF5AD6D0176A621200810D4B /* EntryDetailView.h */,
 				BF5AD6D1176A621300810D4B /* EntryDetailView.m */,
+				BF1783101778CBCD007585DA /* DashboardSquare.h */,
+				BF1783111778CBCD007585DA /* DashboardSquare.m */,
 				BF5AD6C71768E09E00810D4B /* PersonView.h */,
 				BF5AD6C81768E09E00810D4B /* PersonView.m */,
 				BF073C2817726A430094F2FE /* AgencyView.h */,
@@ -2325,6 +2330,7 @@
 				BF073C2D17726B860094F2FE /* AgencyViewController.m in Sources */,
 				BF17830617789946007585DA /* DashboardViewController.m in Sources */,
 				BF17830917789A22007585DA /* DashboardView.m in Sources */,
+				BF1783121778CBCE007585DA /* DashboardSquare.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

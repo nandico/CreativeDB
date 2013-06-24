@@ -34,8 +34,11 @@
 + (EntryModel *) loadModel:(NSNumber *) pk;
 + (EntryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
 + (NSMutableArray *) loadByPersonId:(NSNumber *) personPK;
 + (NSMutableArray *) loadByAgencyId:(NSNumber *) agencyPK;
+
+
 
 - (NSNumber *) next;
 - (NSNumber *) previous;

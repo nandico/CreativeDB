@@ -23,6 +23,7 @@
 + (PersonModel *) objectWithResults:(FMResultSet *)results;
 + (PersonModel *) loadModel:(NSNumber *) pk;
 + (NSMutableArray *) loadAll;
++ (NSNumber *) modelCount;
 
 - (NSMutableArray *) entries;
 

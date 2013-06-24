@@ -163,6 +163,7 @@
     [self.personDetail updateOrientation:_currentOrientation];
     [self.agencyDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
+    NSLog( @"Update orientation sent." );
 }
 
 - (void)viewDidLoad
@@ -188,6 +189,7 @@
     self.dashboard = [[DashboardViewController alloc] init];
     [self.viewInstance addSubview:self.dashboard.view];    
     
+    NSLog( @"Forcing orientation change." );
     [self orientationChangedMethod];
 
     
