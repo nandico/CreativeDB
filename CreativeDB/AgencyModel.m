@@ -364,8 +364,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_agency_score_year AS B "
@@ -396,8 +394,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " rankingGlobal "
                                                        " FROM aa_agency_score_year "
@@ -426,8 +422,6 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    db.traceExecution = YES;
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " rankingCountry "

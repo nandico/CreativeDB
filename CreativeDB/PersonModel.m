@@ -360,15 +360,19 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, ?, ?, ?, 0, 0, 0 ) ", [self tableName], [self fields] ];
+                     " ( null, %@, \"%@\", %@ ) ",
+                     [self tableName],
+                     [self fields],
+                     self.country.pk,
+                     self.name,
+                     ( self.portfolioURL ) ? [NSString stringWithFormat:@"\"%@\"", self.portfolioURL ] : @"null"  ];
     
-    [db executeUpdate:sql,
-     self.country.pk,
-     self.name,
-     self.portfolioURL];
+    [db executeUpdate:sql];
     
     [db close];
     
@@ -381,7 +385,7 @@
     
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
-//    db.traceExecution = YES;
+    db.traceExecution = YES;
     
     [db open];
     

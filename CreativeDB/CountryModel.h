@@ -17,6 +17,8 @@
 @property (strong) NSString *printable_name;
 @property (strong) NSString *iso3;
 @property (strong) NSString *name;
+@property (strong, nonatomic) NSNumber *rankingGlobal;
+@property (strong, nonatomic) NSNumber *rankingCountry;
 
 + (NSString *) tableName;
 + (NSString *) fields;
@@ -25,5 +27,8 @@
 + (CountryModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
 + (NSMutableArray *) loadFiltered;
+
+- (NSInteger) calculateRankGlobal:(NSNumber *) year;
+- (NSInteger) calculateRankCountry:(NSNumber *) year;
 
 @end

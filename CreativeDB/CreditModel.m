@@ -312,6 +312,8 @@ static NSNumber *modelFilterValue;
     
     [db open];
     
+    db.traceExecution = YES;
+    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
@@ -333,6 +335,8 @@ static NSNumber *modelFilterValue;
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
+    
+    db.traceExecution = YES;
     
     if( self.person )
     {

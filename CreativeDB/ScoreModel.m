@@ -522,6 +522,29 @@ static NSNumber *actualRankYear;
         [self updateRankingGlobalForTablename:@"aa_agency_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:agency.pk andYear:year];
         
     }
+    
+    NSMutableArray *entries = [EntryModel loadAll];
+    
+    for( EntryModel *entry in entries )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[entry calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[entry calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_entry_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:entry.pk andYear:year];
+        
+    }
+    
+    NSMutableArray *countries = [CountryModel loadAll];
+ 
+    for( CountryModel *country in countries )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[country calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[country calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_country_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:country.pk andYear:year];
+        
+    }
+    
 }
 
 + (void) updateRankingGlobalForTablename:(NSString *) tableName
@@ -534,8 +557,6 @@ static NSNumber *actualRankYear;
                                                      ofType:@"sqlite"];
     
     FMDatabase *db = [FMDatabase databaseWithPath:path];
-    
-    db.traceExecution = YES;
     
     [db open];
     
