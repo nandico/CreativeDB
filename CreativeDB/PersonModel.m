@@ -71,8 +71,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " rankingGlobal "
                                                        " FROM aa_person_score_year "
@@ -101,8 +99,6 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
-    
-    db.traceExecution = YES;
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " rankingCountry "
@@ -366,8 +362,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
@@ -417,8 +411,6 @@
                                                      ofType:@"sqlite"];
     
     FMDatabase *db = [FMDatabase databaseWithPath:path];
-    
-    db.traceExecution = YES;
     
     [db open];
     
@@ -480,8 +472,6 @@
     
     [db open];
     
-    db.traceExecution = YES;
-    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_person_score_year AS B "
@@ -492,8 +482,6 @@
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
-    
-        NSLog( @"Ranking: %@", ranking );
     }
     
     [results close];

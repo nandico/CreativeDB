@@ -1115,6 +1115,126 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		BF1782FC17788CFB007585DA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF1782FE17788D57007585DA /* Modules */,
+				BF17830317788DE2007585DA /* Cell */,
+				BF17830217788DD3007585DA /* Image */,
+				BF1782FD17788D25007585DA /* Label */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		BF1782FD17788D25007585DA /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FFB30176536C90034600E /* HeaderLabel.h */,
+				BF5FFB31176536C90034600E /* HeaderLabel.m */,
+				BF3349861767CA8800A6BEA6 /* NameLabel.h */,
+				BF3349871767CA8800A6BEA6 /* NameLabel.m */,
+				BF3349891767CA9700A6BEA6 /* CountryLabel.h */,
+				BF33498A1767CA9700A6BEA6 /* CountryLabel.m */,
+				BF33498C1767CAB000A6BEA6 /* PositionLabel.h */,
+				BF33498D1767CAB000A6BEA6 /* PositionLabel.m */,
+				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
+				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
+				BF5AD6CD176A5E0200810D4B /* H1Label.h */,
+				BF5AD6CE176A5E0200810D4B /* H1Label.m */,
+				BF5AD6D3176A623700810D4B /* H2Label.h */,
+				BF5AD6D4176A623700810D4B /* H2Label.m */,
+				BF5AD6D6176A625C00810D4B /* H3Label.h */,
+				BF5AD6D7176A625C00810D4B /* H3Label.m */,
+				BF5AD6CA176A4F3400810D4B /* H4Label.h */,
+				BF5AD6CB176A4F3500810D4B /* H4Label.m */,
+				BF5AD6DF176B5C3900810D4B /* BaseLabel.h */,
+				BF5AD6E0176B5C3B00810D4B /* BaseLabel.m */,
+				BF0384ED176D18F2002D0CF9 /* PersonThumbLabel.h */,
+				BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */,
+			);
+			name = Label;
+			sourceTree = "<group>";
+		};
+		BF1782FE17788D57007585DA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BF5AD6D0176A621200810D4B /* EntryDetailView.h */,
+				BF5AD6D1176A621300810D4B /* EntryDetailView.m */,
+				BF5AD6C71768E09E00810D4B /* PersonView.h */,
+				BF5AD6C81768E09E00810D4B /* PersonView.m */,
+				BF073C2817726A430094F2FE /* AgencyView.h */,
+				BF073C2917726A430094F2FE /* AgencyView.m */,
+				BF5FFB2A176531D70034600E /* MainView.h */,
+				BF5FFB2B176531D70034600E /* MainView.m */,
+				BF5FFB2D176535BD0034600E /* HeaderView.h */,
+				BF5FFB2E176535BD0034600E /* HeaderView.m */,
+				BF5FFBB017656F160034600E /* BaseView.h */,
+				BF5FFBB117656F160034600E /* BaseView.m */,
+				BF09DB0B176D383C00ADB020 /* PersonIdView.h */,
+				BF09DB0C176D383C00ADB020 /* PersonIdView.m */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		BF1782FF17788D78007585DA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FFB36176545CB0034600E /* HeaderViewController.h */,
+				BF5FFB37176545CB0034600E /* HeaderViewController.m */,
+				BF5FFBAD17656EE80034600E /* ScoreListViewController.h */,
+				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
+				BF5AD6C41768DFAF00810D4B /* PersonViewController.h */,
+				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
+				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
+				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BF17830017788D95007585DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF5AD6D9176B442600810D4B /* LineModel.h */,
+				BF5AD6DA176B442700810D4B /* LineModel.m */,
+				BF5AD6DC176B449800810D4B /* ColumnModel.h */,
+				BF5AD6DD176B449900810D4B /* ColumnModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BF17830117788DB0007585DA /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				BF5FFB33176537580034600E /* ClientEngine.h */,
+				BF5FFB34176537580034600E /* ClientEngine.m */,
+				BF5AD6E2176B5F4A00810D4B /* BaseImageView.h */,
+				BF5AD6E3176B5F4C00810D4B /* BaseImageView.m */,
+				BF09DB7D1771625D00ADB020 /* BaseScrollView.h */,
+				BF09DB7E1771625D00ADB020 /* BaseScrollView.m */,
+				BF0384E7176B9FAE002D0CF9 /* BaseButton.h */,
+				BF0384E8176B9FAE002D0CF9 /* BaseButton.m */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
+		BF17830217788DD3007585DA /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				BF5AD4D11768D26600810D4B /* CountryImageView.h */,
+				BF5AD4D21768D26600810D4B /* CountryImageView.m */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		BF17830317788DE2007585DA /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
+				BF3349841767C91C00A6BEA6 /* UserInfoCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		BF302AD8174082D300195DE8 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1479,71 +1599,15 @@
 		BF5FFAD2176529720034600E /* CreativeDBiOS */ = {
 			isa = PBXGroup;
 			children = (
+				BF17830117788DB0007585DA /* Engine */,
+				BF17830017788D95007585DA /* Model */,
+				BF1782FC17788CFB007585DA /* View */,
+				BF1782FF17788D78007585DA /* Controllers */,
 				BF5FFADB176529720034600E /* AppDelegate.h */,
 				BF5FFADC176529720034600E /* AppDelegate.m */,
-				BF5FFAD3176529720034600E /* Supporting Files */,
 				BF5FFB2717652D9B0034600E /* MainViewController.h */,
 				BF5FFB2817652D9B0034600E /* MainViewController.m */,
-				BF5FFB33176537580034600E /* ClientEngine.h */,
-				BF5FFB34176537580034600E /* ClientEngine.m */,
-				BF5FFB36176545CB0034600E /* HeaderViewController.h */,
-				BF5FFB37176545CB0034600E /* HeaderViewController.m */,
-				BF5FFBAD17656EE80034600E /* ScoreListViewController.h */,
-				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
-				BF5AD6C41768DFAF00810D4B /* PersonViewController.h */,
-				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
-				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
-				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
-				BF5AD6D0176A621200810D4B /* EntryDetailView.h */,
-				BF5AD6D1176A621300810D4B /* EntryDetailView.m */,
-				BF3349831767C91C00A6BEA6 /* UserInfoCell.h */,
-				BF3349841767C91C00A6BEA6 /* UserInfoCell.m */,
-				BF5AD6C71768E09E00810D4B /* PersonView.h */,
-				BF5AD6C81768E09E00810D4B /* PersonView.m */,
-				BF073C2817726A430094F2FE /* AgencyView.h */,
-				BF073C2917726A430094F2FE /* AgencyView.m */,
-				BF5FFB2A176531D70034600E /* MainView.h */,
-				BF5FFB2B176531D70034600E /* MainView.m */,
-				BF5FFB2D176535BD0034600E /* HeaderView.h */,
-				BF5FFB2E176535BD0034600E /* HeaderView.m */,
-				BF5FFBB017656F160034600E /* BaseView.h */,
-				BF5FFBB117656F160034600E /* BaseView.m */,
-				BF5FFB30176536C90034600E /* HeaderLabel.h */,
-				BF5FFB31176536C90034600E /* HeaderLabel.m */,
-				BF3349861767CA8800A6BEA6 /* NameLabel.h */,
-				BF3349871767CA8800A6BEA6 /* NameLabel.m */,
-				BF3349891767CA9700A6BEA6 /* CountryLabel.h */,
-				BF33498A1767CA9700A6BEA6 /* CountryLabel.m */,
-				BF33498C1767CAB000A6BEA6 /* PositionLabel.h */,
-				BF33498D1767CAB000A6BEA6 /* PositionLabel.m */,
-				BF3349901767CADC00A6BEA6 /* ScoreLabel.m */,
-				BF33498F1767CADC00A6BEA6 /* ScoreLabel.h */,
-				BF5AD6CD176A5E0200810D4B /* H1Label.h */,
-				BF5AD6CE176A5E0200810D4B /* H1Label.m */,
-				BF5AD6D3176A623700810D4B /* H2Label.h */,
-				BF5AD6D4176A623700810D4B /* H2Label.m */,
-				BF5AD6D6176A625C00810D4B /* H3Label.h */,
-				BF5AD6D7176A625C00810D4B /* H3Label.m */,
-				BF5AD6CA176A4F3400810D4B /* H4Label.h */,
-				BF5AD6CB176A4F3500810D4B /* H4Label.m */,
-				BF5AD4D11768D26600810D4B /* CountryImageView.h */,
-				BF5AD4D21768D26600810D4B /* CountryImageView.m */,
-				BF5AD6D9176B442600810D4B /* LineModel.h */,
-				BF5AD6DA176B442700810D4B /* LineModel.m */,
-				BF5AD6DC176B449800810D4B /* ColumnModel.h */,
-				BF5AD6DD176B449900810D4B /* ColumnModel.m */,
-				BF5AD6DF176B5C3900810D4B /* BaseLabel.h */,
-				BF5AD6E0176B5C3B00810D4B /* BaseLabel.m */,
-				BF5AD6E2176B5F4A00810D4B /* BaseImageView.h */,
-				BF5AD6E3176B5F4C00810D4B /* BaseImageView.m */,
-				BF0384E7176B9FAE002D0CF9 /* BaseButton.h */,
-				BF0384E8176B9FAE002D0CF9 /* BaseButton.m */,
-				BF0384ED176D18F2002D0CF9 /* PersonThumbLabel.h */,
-				BF0384EE176D18F3002D0CF9 /* PersonThumbLabel.m */,
-				BF09DB0B176D383C00ADB020 /* PersonIdView.h */,
-				BF09DB0C176D383C00ADB020 /* PersonIdView.m */,
-				BF09DB7D1771625D00ADB020 /* BaseScrollView.h */,
-				BF09DB7E1771625D00ADB020 /* BaseScrollView.m */,
+				BF5FFAD3176529720034600E /* Supporting Files */,
 			);
 			path = CreativeDBiOS;
 			sourceTree = "<group>";

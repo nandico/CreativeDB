@@ -546,8 +546,6 @@
     if( [results next] )
     {
         ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
-        
-        NSLog( @"Ranking: %@", ranking );
     }
     
     [results close];

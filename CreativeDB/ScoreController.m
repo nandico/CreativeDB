@@ -21,6 +21,8 @@
 
 + (void) processAwards
 {
+    NSLog( @"Begin of awards processing..." );
+    
     [self resetAwards];
     
     NSMutableArray *awards = [AwardModel loadAll];
@@ -97,6 +99,8 @@
 
     // general ranking update
     [ScoreModel processRanking:@2013];
+    
+    NSLog( @"End of awards processing..." );
     
 }
 
