@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) BaseScrollView *menuScroll;
 
+@property (strong, nonatomic) BaseButton *dashboardButton;
+@property (strong, nonatomic) BaseButton *calendarButton;
 @property (strong, nonatomic) BaseButton *peopleButton;
 @property (strong, nonatomic) BaseButton *agenciesButton;
 @property (strong, nonatomic) BaseButton *entriesButton;
@@ -43,7 +45,9 @@
         [self title];
         [self logo];
         [self menuScroll];
-        
+
+        [self dashboardButton];
+//        [self calendarButton]; // disabled
         [self peopleButton];
         [self agenciesButton];
         [self entriesButton];
@@ -98,6 +102,40 @@
     return _logo;
 }
 
+- (BaseButton *) dashboardButton
+{
+    if( !_dashboardButton )
+    {
+        _dashboardButton = [BaseButton buttonWithType:UIButtonTypeCustom];
+        [_dashboardButton setTitle:@"Dashboard" forState:UIControlStateNormal];
+        _dashboardButton.titleLabel.font = MENU_BUTTON_FONT;
+        _dashboardButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
+        [_dashboardButton addTarget:self action:@selector(dashboardButtonAction) forControlEvents:UIControlEventTouchDown];
+        _dashboardButton.frame = CGRectMake(125.0f * 0, 0, 125.0f, 125.0f);
+        
+        [self.menuScroll addSubview:_dashboardButton];
+    }
+    
+    return _dashboardButton;
+}
+
+- (BaseButton *) calendarButton
+{
+    if( !_calendarButton )
+    {
+        _calendarButton = [BaseButton buttonWithType:UIButtonTypeCustom];
+        [_calendarButton setTitle:@"Calendar" forState:UIControlStateNormal];
+        _calendarButton.titleLabel.font = MENU_BUTTON_FONT;
+        _calendarButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
+        [_calendarButton addTarget:self action:@selector(calendarButtonAction) forControlEvents:UIControlEventTouchDown];
+        _calendarButton.frame = CGRectMake(125.0f * 1.0f, 0, 125.0f, 125.0f);
+        
+        [self.menuScroll addSubview:_calendarButton];
+    }
+    
+    return _dashboardButton;
+}
+
 - (BaseButton *) peopleButton
 {
     if( !_peopleButton )
@@ -107,7 +145,7 @@
         _peopleButton.titleLabel.font = MENU_BUTTON_FONT;
         _peopleButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_peopleButton addTarget:self action:@selector(peopleButtonAction) forControlEvents:UIControlEventTouchDown];
-        _peopleButton.frame = CGRectMake(0, 0, 125.0f, 125.0f);
+        _peopleButton.frame = CGRectMake(125.0f * 1.0f, 0, 125.0f, 125.0f);
 
         [self.menuScroll addSubview:_peopleButton];
     }
@@ -124,7 +162,7 @@
         _agenciesButton.titleLabel.font = MENU_BUTTON_FONT;
         _agenciesButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_agenciesButton addTarget:self action:@selector(agenciesButtonAction) forControlEvents:UIControlEventTouchDown];
-        _agenciesButton.frame = CGRectMake(125.0f, 0, 125.0f, 125.0f);
+        _agenciesButton.frame = CGRectMake(125.0f * 2.0f, 0, 125.0f, 125.0f);
         
         [self.menuScroll addSubview:_agenciesButton];
     }
@@ -141,7 +179,7 @@
         _entriesButton.titleLabel.font = MENU_BUTTON_FONT;
         _entriesButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_entriesButton addTarget:self action:@selector(entriesButtonAction) forControlEvents:UIControlEventTouchDown];
-        _entriesButton.frame = CGRectMake(250.0f, 0, 125.0f, 125.0f);
+        _entriesButton.frame = CGRectMake(125.0f * 3.0f, 0, 125.0f, 125.0f);
         
         [self.menuScroll addSubview:_entriesButton];
     }
@@ -159,7 +197,7 @@
         _clientsButton.titleLabel.font = MENU_BUTTON_FONT;
         _clientsButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_clientsButton addTarget:self action:@selector(clientsButtonAction) forControlEvents:UIControlEventTouchDown];
-        _clientsButton.frame = CGRectMake(375.0f, 0, 125.0f, 125.0f);
+        _clientsButton.frame = CGRectMake(125.0f * 4.0f, 0, 125.0f, 125.0f);
 
 
         [self.menuScroll addSubview:_clientsButton];
@@ -177,7 +215,7 @@
         _countriesButton.titleLabel.font = MENU_BUTTON_FONT;
         _countriesButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_countriesButton addTarget:self action:@selector(countriesButtonAction) forControlEvents:UIControlEventTouchDown];
-        _countriesButton.frame = CGRectMake(500.0f, 0, 125.0f, 125.0f);
+        _countriesButton.frame = CGRectMake(125.0f * 5.0f, 0, 125.0f, 125.0f);
 
         
         [self.menuScroll addSubview:_countriesButton];
@@ -195,7 +233,7 @@
         _groupsButton.titleLabel.font = MENU_BUTTON_FONT;
         _groupsButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_groupsButton addTarget:self action:@selector(groupsButtonAction) forControlEvents:UIControlEventTouchDown];
-        _groupsButton.frame = CGRectMake(625.0f, 0, 125.0f, 125.0f);
+        _groupsButton.frame = CGRectMake(125.0f * 6.0f, 0, 125.0f, 125.0f);
 
         
         [self.menuScroll addSubview:_groupsButton];
@@ -213,7 +251,7 @@
         _producersButton.titleLabel.font = MENU_BUTTON_FONT;
         _producersButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_producersButton addTarget:self action:@selector(producersButtonAction) forControlEvents:UIControlEventTouchDown];
-        _producersButton.frame = CGRectMake(750.0f, 0, 125.0f, 125.0f);
+        _producersButton.frame = CGRectMake(125.0f * 7.0f, 0, 125.0f, 125.0f);
 
         
         [self.menuScroll addSubview:_producersButton];
@@ -252,16 +290,32 @@
     _logo.backgroundColor = [UIColor yellowColor];
     _logo.userInitials.textColor = [UIColor blackColor];
     _logo.userInitials.text = @"CD";
-    
-    _peopleButton.backgroundColor = [UIColor greenColor];
+
+    _dashboardButton.backgroundColor = [UIColor redColor];
+    _calendarButton.backgroundColor = [UIColor greenColor];
+    _peopleButton.backgroundColor = [UIColor blueColor];
     _agenciesButton.backgroundColor = [UIColor brownColor];
     _entriesButton.backgroundColor = [UIColor orangeColor];
-    _clientsButton.backgroundColor = [UIColor blueColor];
+    _clientsButton.backgroundColor = [UIColor grayColor];
     _countriesButton.backgroundColor = [UIColor magentaColor];
     _groupsButton.backgroundColor = [UIColor purpleColor];
     _producersButton.backgroundColor = [UIColor redColor];
 
-    _menuScroll.contentSize = CGSizeMake(125.0 * 7, 125.0);
+    _menuScroll.contentSize = CGSizeMake(125.0 * 8, 125.0);
+}
+
+- (void) dashboardButtonAction
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_DASHBOARD
+                                                        object:self
+                                                      userInfo:nil];
+}
+
+- (void) calendarButtonAction
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_CALENDAR
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 - (void) peopleButtonAction

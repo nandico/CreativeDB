@@ -45,6 +45,8 @@
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     [self scrollView];
     [self titleEntries];
     
@@ -52,7 +54,6 @@
                                              selector:@selector(updateData:)
                                                  name:NOTIFICATION_WAKE_PERSON_DETAIL object:nil];
     
-    [super viewDidLoad];
 }
 
 - (void) updateData:(NSNotification *) notification

@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MainView.h"
 #import "HeaderViewController.h"
+#import "DashboardViewController.h"
 #import "ScoreListViewController.h"
 #import "PersonViewController.h"
 #import "AgencyViewController.h"
@@ -18,6 +19,7 @@
 
 @property (strong, nonatomic) MainView *viewInstance;
 @property (strong, nonatomic) HeaderViewController *header;
+@property (strong, nonatomic) DashboardViewController *dashboard;
 @property (strong, nonatomic) ScoreListViewController *scoreModule;
 @property (strong, nonatomic) PersonViewController *personDetail;
 @property (strong, nonatomic) AgencyViewController *agencyDetail;
@@ -32,11 +34,47 @@
 {
     self = [super init];
     if (self) {
+        
+        // scores
      
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(deviceOrientationDidChange:)
                                                      name: UIDeviceOrientationDidChangeNotification
                                                    object: nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_PERSON_SCORE object:nil];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_AGENCIES_SCORE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_ENTRIES_SCORE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_CLIENTS_SCORE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_COUNTRIES_SCORE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_GROUPS_SCORE object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableScore)
+                                                     name:NOTIFICATION_WAKE_PRODUCERS_SCORE object:nil];
+        
+        // details
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableDashboard)
+                                                     name:NOTIFICATION_WAKE_DASHBOARD object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(enablePersonDetail)
@@ -45,22 +83,51 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(enableAgencyDetail)
                                                      name:NOTIFICATION_WAKE_AGENCIES_DETAIL object:nil];
-
+        
+ 
     }
     
     return self;
 }
 
+- (void) enableScore
+{
+    NSLog( @"Score." );
+    
+    [self.dashboard.view setHidden:YES];
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
+    [self.scoreModule.view setHidden:NO];
+}
+
+- (void) enableDashboard
+{
+    NSLog( @"Dashboard." );
+    
+    [self.dashboard.view setHidden:NO];
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
+    [self.scoreModule.view setHidden:NO];
+}
+
 - (void) enablePersonDetail
 {
+    NSLog( @"Person detail." );
+    
+    [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:NO];
     [self.agencyDetail.view setHidden:YES];
+    [self.scoreModule.view setHidden:NO];
 }
 
 - (void) enableAgencyDetail
 {
+    NSLog( @"Agency detail." );
+    
+    [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:NO];
+    [self.scoreModule.view setHidden:NO];
 }
 
 - (void) loadView
@@ -92,6 +159,7 @@
     }
     
     [self.header updateOrientation:_currentOrientation];
+    [self.dashboard updateOrientation:_currentOrientation];
     [self.personDetail updateOrientation:_currentOrientation];
     [self.agencyDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
@@ -111,11 +179,15 @@
     
     self.agencyDetail = [[AgencyViewController alloc] init];
     [self.viewInstance addSubview:self.agencyDetail.view];
-    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];
-        
+    [self.scoreModule.view setHidden:YES];
+
+    self.dashboard = [[DashboardViewController alloc] init];
+    [self.viewInstance addSubview:self.dashboard.view];    
+    
     [self orientationChangedMethod];
 
     

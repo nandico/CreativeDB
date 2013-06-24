@@ -37,6 +37,8 @@
 		BF073C2D17726B860094F2FE /* AgencyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF073C2C17726B860094F2FE /* AgencyViewController.m */; };
 		BF09DB0D176D383C00ADB020 /* PersonIdView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB0C176D383C00ADB020 /* PersonIdView.m */; };
 		BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF09DB7E1771625D00ADB020 /* BaseScrollView.m */; };
+		BF17830617789946007585DA /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17830517789946007585DA /* DashboardViewController.m */; };
+		BF17830917789A22007585DA /* DashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17830817789A22007585DA /* DashboardView.m */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
@@ -524,6 +526,10 @@
 		BF09DB0C176D383C00ADB020 /* PersonIdView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonIdView.m; sourceTree = "<group>"; };
 		BF09DB7D1771625D00ADB020 /* BaseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseScrollView.h; sourceTree = "<group>"; };
 		BF09DB7E1771625D00ADB020 /* BaseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseScrollView.m; sourceTree = "<group>"; };
+		BF17830417789946007585DA /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
+		BF17830517789946007585DA /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		BF17830717789A22007585DA /* DashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardView.h; sourceTree = "<group>"; };
+		BF17830817789A22007585DA /* DashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardView.m; sourceTree = "<group>"; };
 		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
 		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
 		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
@@ -1172,6 +1178,8 @@
 				BF5FFBB117656F160034600E /* BaseView.m */,
 				BF09DB0B176D383C00ADB020 /* PersonIdView.h */,
 				BF09DB0C176D383C00ADB020 /* PersonIdView.m */,
+				BF17830717789A22007585DA /* DashboardView.h */,
+				BF17830817789A22007585DA /* DashboardView.m */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -1187,6 +1195,8 @@
 				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
 				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
 				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
+				BF17830417789946007585DA /* DashboardViewController.h */,
+				BF17830517789946007585DA /* DashboardViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1599,14 +1609,14 @@
 		BF5FFAD2176529720034600E /* CreativeDBiOS */ = {
 			isa = PBXGroup;
 			children = (
-				BF17830117788DB0007585DA /* Engine */,
-				BF17830017788D95007585DA /* Model */,
-				BF1782FC17788CFB007585DA /* View */,
-				BF1782FF17788D78007585DA /* Controllers */,
 				BF5FFADB176529720034600E /* AppDelegate.h */,
 				BF5FFADC176529720034600E /* AppDelegate.m */,
 				BF5FFB2717652D9B0034600E /* MainViewController.h */,
 				BF5FFB2817652D9B0034600E /* MainViewController.m */,
+				BF17830117788DB0007585DA /* Engine */,
+				BF17830017788D95007585DA /* Model */,
+				BF1782FC17788CFB007585DA /* View */,
+				BF1782FF17788D78007585DA /* Controllers */,
 				BF5FFAD3176529720034600E /* Supporting Files */,
 			);
 			path = CreativeDBiOS;
@@ -2313,6 +2323,8 @@
 				BF09DB7F1771625E00ADB020 /* BaseScrollView.m in Sources */,
 				BF073C2A17726A430094F2FE /* AgencyView.m in Sources */,
 				BF073C2D17726B860094F2FE /* AgencyViewController.m in Sources */,
+				BF17830617789946007585DA /* DashboardViewController.m in Sources */,
+				BF17830917789A22007585DA /* DashboardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
