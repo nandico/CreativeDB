@@ -353,6 +353,12 @@
 
 - (void) insert
 {
+    if( [PersonModel isNameAlreadyExists:self.name] )
+    {
+        NSLog( @"Name %@ already exists.", self.name );
+        return;
+    }
+    
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
                                                      ofType:@"sqlite"];
     
@@ -376,6 +382,33 @@
     
     [db close];
     
+}
+
++ (BOOL) isNameAlreadyExists:(NSString *) name
+{
+    BOOL nameFound = NO;
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " name "
+                                                       " FROM aa_person "
+                                                       " WHERE name = '%@' ", name ]];
+    
+    if( [results next] )
+    {
+        nameFound = YES;
+    }
+    
+    [results close];
+    [db close];
+    
+    return nameFound;
 }
 
 - (void) update
