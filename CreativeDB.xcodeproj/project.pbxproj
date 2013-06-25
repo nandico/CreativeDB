@@ -42,6 +42,8 @@
 		BF1783121778CBCE007585DA /* DashboardSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1783111778CBCD007585DA /* DashboardSquare.m */; };
 		BF1783141778FD15007585DA /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1783131778FD14007585DA /* Icon-72.png */; };
 		BF1783161778FD1A007585DA /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF1783151778FD19007585DA /* Icon-72@2x.png */; };
+		BF17831917793830007585DA /* EntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17831817793830007585DA /* EntryViewController.m */; };
+		BF17831C17793867007585DA /* EntryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF17831B17793867007585DA /* EntryView.m */; };
 		BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */; };
 		BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787F617498F5900057FF4 /* MainManagerViewController.m */; };
 		BF1787FD1749928B00057FF4 /* ManagerMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */; };
@@ -537,6 +539,10 @@
 		BF1783111778CBCD007585DA /* DashboardSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardSquare.m; sourceTree = "<group>"; };
 		BF1783131778FD14007585DA /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
 		BF1783151778FD19007585DA /* Icon-72@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72@2x.png"; sourceTree = "<group>"; };
+		BF17831717793830007585DA /* EntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryViewController.h; sourceTree = "<group>"; };
+		BF17831817793830007585DA /* EntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryViewController.m; sourceTree = "<group>"; };
+		BF17831A17793866007585DA /* EntryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryView.h; sourceTree = "<group>"; };
+		BF17831B17793867007585DA /* EntryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryView.m; sourceTree = "<group>"; };
 		BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuManagerViewController.h; sourceTree = "<group>"; };
 		BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuManagerViewController.m; sourceTree = "<group>"; };
 		BF1787F517498F5900057FF4 /* MainManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainManagerViewController.h; sourceTree = "<group>"; };
@@ -1179,6 +1185,8 @@
 				BF5AD6C81768E09E00810D4B /* PersonView.m */,
 				BF073C2817726A430094F2FE /* AgencyView.h */,
 				BF073C2917726A430094F2FE /* AgencyView.m */,
+				BF17831A17793866007585DA /* EntryView.h */,
+				BF17831B17793867007585DA /* EntryView.m */,
 				BF5FFB2A176531D70034600E /* MainView.h */,
 				BF5FFB2B176531D70034600E /* MainView.m */,
 				BF5FFB2D176535BD0034600E /* HeaderView.h */,
@@ -1204,6 +1212,8 @@
 				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
 				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
 				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
+				BF17831717793830007585DA /* EntryViewController.h */,
+				BF17831817793830007585DA /* EntryViewController.m */,
 				BF17830417789946007585DA /* DashboardViewController.h */,
 				BF17830517789946007585DA /* DashboardViewController.m */,
 			);
@@ -2339,6 +2349,8 @@
 				BF17830617789946007585DA /* DashboardViewController.m in Sources */,
 				BF17830917789A22007585DA /* DashboardView.m in Sources */,
 				BF1783121778CBCE007585DA /* DashboardSquare.m in Sources */,
+				BF17831917793830007585DA /* EntryViewController.m in Sources */,
+				BF17831C17793867007585DA /* EntryView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

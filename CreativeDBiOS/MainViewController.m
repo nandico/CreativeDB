@@ -13,6 +13,7 @@
 #import "ScoreListViewController.h"
 #import "PersonViewController.h"
 #import "AgencyViewController.h"
+#import "EntryViewController.h"
 #import "ScoreModel.h"
 
 @interface MainViewController()
@@ -23,6 +24,8 @@
 @property (strong, nonatomic) ScoreListViewController *scoreModule;
 @property (strong, nonatomic) PersonViewController *personDetail;
 @property (strong, nonatomic) AgencyViewController *agencyDetail;
+@property (strong, nonatomic) EntryViewController *entryDetail;
+
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
@@ -83,7 +86,11 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(enableAgencyDetail)
                                                      name:NOTIFICATION_WAKE_AGENCIES_DETAIL object:nil];
-        
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableEntryDetail)
+                                                     name:NOTIFICATION_WAKE_ENTRIES_DETAIL object:nil];
+
  
     }
     
@@ -95,6 +102,7 @@
     [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -103,6 +111,7 @@
     [self.dashboard.view setHidden:NO];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -111,6 +120,7 @@
     [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:NO];
     [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -119,6 +129,16 @@
     [self.dashboard.view setHidden:YES];
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:NO];
+    [self.entryDetail.view setHidden:YES];
+    [self.scoreModule.view setHidden:NO];
+}
+
+- (void) enableEntryDetail
+{
+    [self.dashboard.view setHidden:YES];
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:NO];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -154,6 +174,7 @@
     [self.dashboard updateOrientation:_currentOrientation];
     [self.personDetail updateOrientation:_currentOrientation];
     [self.agencyDetail updateOrientation:_currentOrientation];
+    [self.entryDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
 }
 
@@ -172,6 +193,10 @@
     self.agencyDetail = [[AgencyViewController alloc] init];
     [self.viewInstance addSubview:self.agencyDetail.view];
     [self.agencyDetail.view setHidden:YES];
+
+    self.entryDetail = [[EntryViewController alloc] init];
+    [self.viewInstance addSubview:self.entryDetail.view];
+    [self.entryDetail.view setHidden:YES];
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];

@@ -23,5 +23,4 @@
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 - (void) updateData;
 
-
 @end

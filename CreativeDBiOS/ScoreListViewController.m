@@ -250,7 +250,12 @@
     }
     else if( [ScoreModel.tableName isEqualToString:@"aa_entry_score"] )
     {
-        NSLog( @"Entry." );
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.entry forKey:NOTIFICATION_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_ENTRIES_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
     }
     else if( scoreEntry.client )
     {
