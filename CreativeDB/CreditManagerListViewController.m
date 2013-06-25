@@ -23,6 +23,7 @@
 
 @property (nonatomic, strong) NSTableColumn *personColumn;
 @property (nonatomic, strong) NSTableColumn *roleColumn;
+@property (nonatomic, strong) NSTableColumn *producerColumn;
 
 @property (nonatomic, strong) NSMutableArray *items;
 
@@ -93,15 +94,19 @@
 
     _personColumn = [[NSTableColumn alloc] initWithIdentifier:@"person"];
     _roleColumn = [[NSTableColumn alloc] initWithIdentifier:@"role"];
+    _producerColumn = [[NSTableColumn alloc] initWithIdentifier:@"producer"];
     
-    [_personColumn setWidth:252.0f];
-    [_roleColumn setWidth:252.0f];
+    [_personColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_roleColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
+    [_producerColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0f];
     
     [_personColumn.headerCell setStringValue:@"Person"];
     [_roleColumn.headerCell setStringValue:@"Role"];
+    [_producerColumn.headerCell setStringValue:@"Company"];    
 
     [_tableView addTableColumn:_personColumn];
     [_tableView addTableColumn:_roleColumn];
+    [_tableView addTableColumn:_producerColumn];
     
     [_tableContainer setDocumentView:_tableView];
     [_tableContainer setHasVerticalScroller:YES];
@@ -159,6 +164,17 @@
     else if( [tableColumn.identifier isEqualToString:@"role"] )
     {
         [cell setStringValue:item.role.name];
+    }
+    else if( [tableColumn.identifier isEqualToString:@"producer"] )
+    {
+        if( item.producer )
+        {
+            [cell setStringValue:item.producer.name];
+        }
+        else
+        {
+            [cell setStringValue:item.entry.agency.name];
+        }
     }
     
     return cell;

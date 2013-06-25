@@ -15,6 +15,7 @@
 @property (nonatomic, strong) ManagerFieldContainer *person;
 @property (nonatomic, strong) ManagerFieldContainer *entry;
 @property (nonatomic, strong) ManagerFieldContainer *role;
+@property (nonatomic, strong) ManagerFieldContainer *producer;
 
 @end
 
@@ -39,6 +40,7 @@
     [_engine addFieldContainer:[self entry]];
     [_engine addFieldContainer:[self person]];
     [_engine addFieldContainer:[self role]];
+    [_engine addFieldContainer:[self producer]];
     
     [_engine addActionBar:[self actionBar]];
     
@@ -53,10 +55,12 @@
     [self.person removeFromSuperview];
     [self.entry removeFromSuperview];
     [self.role removeFromSuperview];
+    [self.producer removeFromSuperview];
     
     _person = nil;
     _entry = nil;
     _role = nil;
+    _producer = nil;
 }
 
 - (ManagerHeader *) header
@@ -114,7 +118,7 @@
     return _entry;
 }
 
-- (ManagerFieldContainer *)role 
+- (ManagerFieldContainer *)role
 {
     if(!_role)
     {
@@ -124,6 +128,18 @@
     }
     
     return _role;
+}
+
+- (ManagerFieldContainer *)producer
+{
+    if(!_producer)
+    {
+        NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"producer"];
+        _producer = [[ManagerFieldContainer alloc] initWithOptions:options];
+        [self addSubview:_producer];
+    }
+    
+    return _producer;
 }
 
 - (void) dealloc

@@ -13,6 +13,7 @@
 
 @property (strong) NSNumber *entryPK;
 @property (strong) NSNumber *rolePK;
+@property (strong) NSNumber *producerPK;
 
 @end
 
@@ -33,7 +34,7 @@ static NSNumber *modelFilterValue;
 
 + (NSString *) fields
 {
-    return @"id, person, entry, role";
+    return @"id, person, entry, role, producer";
 }
 
 - (NSString *) fields
@@ -50,6 +51,7 @@ static NSNumber *modelFilterValue;
     object.personPK = [NSNumber numberWithLong:[results longForColumn:@"person"]];
     object.entryPK = [NSNumber numberWithLong:[results longForColumn:@"entry"]];
     object.rolePK = [NSNumber numberWithLong:[results longForColumn:@"role"]];
+    object.producerPK = [NSNumber numberWithLong:[results longForColumn:@"producer"]];
     
     return object;
 }
@@ -82,6 +84,23 @@ static NSNumber *modelFilterValue;
     }
     
     return _role;
+}
+
+- (ProducerModel *) producer
+{
+    if( !_producer )
+    {
+        if( _producerPK )
+        {
+            _producer = [ProducerModel loadModel:_producerPK];
+        }
+        else
+        {
+            _producer = nil;
+        }
+    }
+    
+    return _producer;
 }
 
 + (CreditModel *) loadModel:(NSNumber *) pk
@@ -315,9 +334,10 @@ static NSNumber *modelFilterValue;
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, %@, %@, %@ ) ",[self tableName], [self fields], self.person.pk,
+                     " ( null, %@, %@, %@, %@ ) ",[self tableName], [self fields], self.person.pk,
                      self.entry.pk,
-                     self.role.pk ];
+                     self.role.pk,
+                     ( self.producer.pk ) ? [self.producer.pk stringValue] : @"null" ];
     
     [db executeUpdate:sql];
     
@@ -349,6 +369,12 @@ static NSNumber *modelFilterValue;
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET role = %@ WHERE id = %@", [self tableName],
          self.role.pk, self.pk ] ];
     }
+    if( self.producer )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET producer = %@ WHERE id = %@", [self tableName],
+                           self.producer.pk, self.pk ] ];
+    }
+
     
     [db close];
     

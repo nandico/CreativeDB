@@ -51,6 +51,10 @@
         if( [self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE] )
             self.modelFilterValue = [self unpackNSNull:[self.options objectForKey:MLE_FIELDSET_MODEL_FILTERVALUE]];
         
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(updateList:)
+                                                     name:ENTRY_MANAGER_UPDATE_CREDITS object:nil];
+        
         self.view = self.viewInstance = [[BaseLayeredView alloc] init];
         
         self.modelItem = @1;
@@ -61,6 +65,12 @@
     }
     
     return self;
+}
+
+- (void) updateList:(NSNotification *) notification
+{
+    _items = [EntryModel loadAll];
+    [_tableView reloadData];
 }
 
 - (void) createList

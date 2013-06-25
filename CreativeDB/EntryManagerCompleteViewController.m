@@ -161,7 +161,7 @@
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
     _creditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
-                                           COMPLETE_VIEW_OFFSET_Y + 298.0f,
+                                           COMPLETE_VIEW_OFFSET_Y + 261.0f,
                                            COMPLETE_VIEW_CONTAINER_WIDTH,
                                            COMPLETE_VIEW_CONTAINER_HEIGHT );
     [_scrollContent addSubview:_creditManager.view];

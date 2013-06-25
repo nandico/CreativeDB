@@ -196,6 +196,21 @@
                            nil];
     
     [self.fieldData setObject:role forKey:@"role"];
+
+    NSDictionary *producer = [NSDictionary dictionaryWithObjectsAndKeys:
+                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                              @"producer", MLE_FIELD_NAME_KEY,
+                              @"Producer", MLE_FIELD_LABEL_KEY,
+                              @"ProducerModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                              @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                              [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                              [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                              [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                              [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
+                              nil];
+    
+    [self.fieldData setObject:producer forKey:@"producer"];
+
     
 
 }

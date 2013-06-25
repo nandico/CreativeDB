@@ -117,7 +117,7 @@ static NSNumber *modelFilterValue;
                             " %@ "
                             " FROM %@ "
                             " WHERE "
-                            " name = '%@' ", [self fields], [self tableName], stringValue ] ];
+                            " name = \"%@\" ", [self fields], [self tableName], stringValue ] ];
     
     if( [results next] )
     {

@@ -10,6 +10,7 @@
 #import "PersonModel.h"
 #import "EntryModel.h"
 #import "RoleModel.h"
+#import "ProducerModel.h"
 
 @interface CreditModel : BaseModel
 
@@ -18,6 +19,7 @@
 @property (strong, nonatomic) PersonModel *person;
 @property (strong, nonatomic) EntryModel *entry;
 @property (strong, nonatomic) RoleModel *role;
+@property (strong, nonatomic) ProducerModel *producer;
 
 + (NSString *) tableName;
 + (NSString *) fields;
