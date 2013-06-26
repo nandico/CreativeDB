@@ -106,7 +106,7 @@
     _countrySummary = [[DashboardSquare alloc] init];
     _countrySummary.backgroundColor = [UIColor magentaColor];
     [self.scrollView addSubview:_countrySummary];
-    _countrySummary.title.text = [[CountryModel modelCount] stringValue];
+    _countrySummary.title.text = [[CountryModel modelActiveCount] stringValue];
     _countrySummary.content.text = @"Countries";
 
     
@@ -120,7 +120,7 @@
     _festivalSummary = [[DashboardSquare alloc] init];
     _festivalSummary.backgroundColor = [UIColor cyanColor];
     [self.scrollView addSubview:_festivalSummary];
-    _festivalSummary.title.text = [[FestivalModel modelActiveCount] stringValue];
+    _festivalSummary.title.text = [NSString stringWithFormat:@"%@ of %@", [[FestivalModel modelActiveCount] stringValue], [[FestivalModel modelCount] stringValue] ];
     _festivalSummary.content.text = @"Festivals";
     _festivalSummary.title.textColor = [UIColor blackColor];
     _festivalSummary.content.textColor = [UIColor blackColor];
