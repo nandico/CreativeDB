@@ -396,6 +396,8 @@
 		BF62E8C3173DC0AE00B75C07 /* ProducerCreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62E8C2173DC0AE00B75C07 /* ProducerCreditManagerView.m */; };
 		BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */; };
 		BF6A81C41741959200F8557E /* BaseManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81C31741959200F8557E /* BaseManagerListView.m */; };
+		BF8A3B15177B1E4A00343C87 /* CountryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B14177B1E4A00343C87 /* CountryView.m */; };
+		BF8A3B18177B212200343C87 /* CountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B17177B212200343C87 /* CountryViewController.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -916,6 +918,10 @@
 		BF6A81BC1741903A00F8557E /* AwardManagerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardManagerListViewController.m; sourceTree = "<group>"; };
 		BF6A81C21741959200F8557E /* BaseManagerListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerListView.h; sourceTree = "<group>"; };
 		BF6A81C31741959200F8557E /* BaseManagerListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerListView.m; sourceTree = "<group>"; };
+		BF8A3B13177B1E4A00343C87 /* CountryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryView.h; sourceTree = "<group>"; };
+		BF8A3B14177B1E4A00343C87 /* CountryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryView.m; sourceTree = "<group>"; };
+		BF8A3B16177B212200343C87 /* CountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryViewController.h; sourceTree = "<group>"; };
+		BF8A3B17177B212200343C87 /* CountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryViewController.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -1195,6 +1201,8 @@
 				BF17831B17793867007585DA /* EntryView.m */,
 				BF17831D177A7D89007585DA /* ClientView.h */,
 				BF17831E177A7D8A007585DA /* ClientView.m */,
+				BF8A3B13177B1E4A00343C87 /* CountryView.h */,
+				BF8A3B14177B1E4A00343C87 /* CountryView.m */,
 				BF5FFB2A176531D70034600E /* MainView.h */,
 				BF5FFB2B176531D70034600E /* MainView.m */,
 				BF5FFB2D176535BD0034600E /* HeaderView.h */,
@@ -1224,6 +1232,8 @@
 				BF17831817793830007585DA /* EntryViewController.m */,
 				BF178320177A80DB007585DA /* ClientViewController.h */,
 				BF178321177A80DC007585DA /* ClientViewController.m */,
+				BF8A3B16177B212200343C87 /* CountryViewController.h */,
+				BF8A3B17177B212200343C87 /* CountryViewController.m */,
 				BF17830417789946007585DA /* DashboardViewController.h */,
 				BF17830517789946007585DA /* DashboardViewController.m */,
 			);
@@ -2363,6 +2373,8 @@
 				BF17831C17793867007585DA /* EntryView.m in Sources */,
 				BF17831F177A7D8B007585DA /* ClientView.m in Sources */,
 				BF178322177A80DD007585DA /* ClientViewController.m in Sources */,
+				BF8A3B15177B1E4A00343C87 /* CountryView.m in Sources */,
+				BF8A3B18177B212200343C87 /* CountryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

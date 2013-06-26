@@ -269,7 +269,12 @@
     }
     else if( [ScoreModel.tableName isEqualToString:@"aa_country_score"] )
     {
-        NSLog( @"Country." );
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.country forKey:NOTIFICATION_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_COUNTRIES_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
     }
     else if( scoreEntry.group )
     {
