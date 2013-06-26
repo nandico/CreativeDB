@@ -71,6 +71,7 @@
 #define SCORE_LABEL_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:45.0f]
 
 #define LABEL_BIGGEST_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:120.0f];
+#define LABEL_BIG_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:76.0f];
 
 #define H1_LABEL_COLOR [UIColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]
 #define H1_LABEL_BACKGROUND_COLOR [UIColor clearColor]
