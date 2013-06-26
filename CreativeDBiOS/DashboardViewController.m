@@ -46,7 +46,7 @@
 @property (strong, nonatomic) DashboardSquare *fromBlock;
 @property (strong, nonatomic) DashboardSquare *andBlock;
 @property (strong, nonatomic) DashboardSquare *forBlock;
-@property (strong, nonatomic) DashboardSquare *from2Block;
+@property (strong, nonatomic) DashboardSquare *ofBlock;
 
 @property (strong, nonatomic) DashboardSquare *thisBlock;
 @property (strong, nonatomic) DashboardSquare *isBlock;
@@ -193,12 +193,12 @@
     _productSummary.title.text = [[ProductModel modelCount] stringValue];
     _productSummary.content.text = @"Products";
     
-    _from2Block = [[DashboardSquare alloc] init];
-    _from2Block.backgroundColor = baseBackgroundColor;
-    [self.scrollView addSubview:_from2Block];
-    _from2Block.title.font = LABEL_BIG_FONT;
-    _from2Block.title.text = @"FROM";
-    _from2Block.title.textColor = baseTextColor;
+    _ofBlock = [[DashboardSquare alloc] init];
+    _ofBlock.backgroundColor = baseBackgroundColor;
+    [self.scrollView addSubview:_ofBlock];
+    _ofBlock.title.font = LABEL_BIG_FONT;
+    _ofBlock.title.text = @"OF";
+    _ofBlock.title.textColor = baseTextColor;
 
     _countrySummary = [[DashboardSquare alloc] init];
     _countrySummary.backgroundColor = [UIColor magentaColor];
@@ -282,7 +282,7 @@
     line4.height = @250;
     [_engine addLine:line4];
     
-    [_engine applyFrame:_from2Block withLine:line4 andColumn:columnImage1];
+    [_engine applyFrame:_ofBlock withLine:line4 andColumn:columnImage1];
     [_engine applyFrame:_countrySummary withLine:line4 andColumn:columnSquare1];
     [_engine applyFrame:_thisBlock withLine:line4 andColumn:columnImage2];
     [_engine applyFrame:_isBlock withLine:line4 andColumn:columnSquare2];
