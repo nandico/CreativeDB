@@ -555,6 +555,17 @@ static NSNumber *actualRankYear;
         [self updateRankingGlobalForTablename:@"aa_client_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:client.pk andYear:year];
         
     }
+    
+    NSMutableArray *groups = [GroupModel loadAll];
+    
+    for( ClientModel *group in groups )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[group calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[group calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_group_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:group.pk andYear:year];
+        
+    }
 
     
 }

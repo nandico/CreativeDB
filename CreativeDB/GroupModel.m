@@ -8,6 +8,13 @@
 
 #import "GroupModel.h"
 #import "FMDBDataAccess.h"
+#import "ScoreModel.h"
+
+@interface GroupModel()
+
+@property (nonatomic, strong) NSNumber *countryPK;
+
+@end
 
 @implementation GroupModel
 
@@ -23,7 +30,7 @@
 
 + (NSString *) fields
 {
-    return @"id, name";
+    return @"id, name, country";
 }
 
 - (NSString *) fields
@@ -36,9 +43,21 @@
     GroupModel *object = [[GroupModel alloc] init];
     object.pk = [NSNumber numberWithLong:[results longForColumn:@"id"]];
     object.name = [results stringForColumn:@"name"];
+    object.countryPK = [NSNumber numberWithLong:[results longForColumn:@"country"]];
     
     return object;
 }
+
+- (CountryModel *) country
+{
+    if( !_country )
+    {
+        _country = [CountryModel loadModel:_countryPK];
+    }
+    
+    return _country;
+}
+
 
 + (GroupModel *) loadModel:(NSNumber *) pk
 {
@@ -364,10 +383,10 @@
     NSString *sql = [NSString stringWithFormat:@" INSERT INTO %@ "
                      " ( %@ ) "
                      " VALUES "
-                     " ( null, ? ) ", [self tableName], [self fields] ];
+                     " ( null, ?, ? ) ", [self tableName], [self fields] ];
     
     [db executeUpdate:sql,
-     self.name];
+     self.name, self.country.pk];
     
     [db close];
     
@@ -387,9 +406,128 @@
         [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET name = '%@' WHERE id = %@", [self tableName],
                            self.name, self.pk ]];
     }
+    if( self.country )
+    {
+        [db executeUpdate:[NSString stringWithFormat:@"UPDATE %@ SET country = %@ WHERE id = %@", [self tableName],
+                           self.country.pk, self.pk ]];
+    }
     
     [db close];
     
 }
+
+- (NSInteger) calculateRankGlobal:(NSNumber *) year
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
+                                             " SELECT COUNT( * ) "
+                                             " FROM aa_group_score_year AS B "
+                                             " WHERE B.score > A.score AND year = %@ "
+                                             " ) AS Rank "
+                                             " FROM aa_group_score_year AS A "
+                                             " WHERE A.origin = %@ and year = %@ ", year, self.pk, year ] ];
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( ranking ) ? [ranking integerValue] : 0;
+}
+
+- (NSInteger) calculateRankCountry:(NSNumber *) year
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
+                                             " SELECT COUNT( * ) "
+                                             " FROM aa_group_score_year AS B "
+                                             " INNER JOIN aa_agency AS C ON B.origin = C.id WHERE C.country = %@ AND B.year = %@ AND B.score > A.score "
+                                             " ) AS Rank "
+                                             " FROM aa_group_score_year AS A "
+                                             " WHERE A.origin = %@ " , self.country.pk, year, self.pk ] ];
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"Rank"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ( ranking ) ? [ranking integerValue] : 0;
+}
+
+- (NSNumber *) rankingGlobal
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " rankingGlobal "
+                                                       " FROM aa_group_score_year "
+                                                       " WHERE "
+                                                       " origin = %@ "
+                                                       " AND year = %@", self.pk, [ScoreModel rankYear] ] ];
+    
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"rankingGlobal"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ranking;
+    
+}
+
+- (NSNumber *) rankingCountry
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    NSNumber *ranking = @0;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " rankingCountry "
+                                                       " FROM aa_group_score_year "
+                                                       " WHERE "
+                                                       " origin = %@ "
+                                                       " AND year = %@", self.pk, [ScoreModel rankYear] ] ];
+    
+    if( [results next] )
+    {
+        ranking = [NSNumber numberWithLong:[results longForColumn:@"rankingCountry"]];
+    }
+    
+    [results close];
+    [db close];
+    
+    return ranking;
+}
+
 
 @end

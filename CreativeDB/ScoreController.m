@@ -295,7 +295,7 @@
         
     ScoreModel *score = [[ScoreModel alloc] init];
     score.origin = group.pk;
-    score.country = nil;
+    score.country = group.country;
     score.entry = [EntryModel loadModel:award.entry.pk];
     score.festival = [FestivalModel loadModel:award.festival.pk];
     score.year = award.year;

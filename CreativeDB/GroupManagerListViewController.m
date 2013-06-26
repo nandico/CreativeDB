@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSTableView *tableView;
 
 @property (nonatomic, strong) NSTableColumn *nameColumn;
+@property (nonatomic, strong) NSTableColumn *countryColumn;
 
 @property (nonatomic, strong) NSMutableArray *items;
 
@@ -81,11 +82,16 @@
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_LIST_WIDTH, 0)];
     
     _nameColumn = [[NSTableColumn alloc] initWithIdentifier:@"name"];
-    [_nameColumn.headerCell setStringValue:@"Name"];
+    _countryColumn = [[NSTableColumn alloc] initWithIdentifier:@"country"];
     
-    [_nameColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 1.0];
+    [_nameColumn.headerCell setStringValue:@"Name"];
+    [_countryColumn.headerCell setStringValue:@"Country"];
+    
+    [_nameColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 2.0];
+    [_countryColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 2.0];
     
     [_tableView addTableColumn:_nameColumn];
+    [_tableView addTableColumn:_countryColumn];
     
     [_tableContainer setDocumentView:_tableView];
     [_tableContainer setHasVerticalScroller:YES];
@@ -140,6 +146,10 @@
     if( [tableColumn.identifier isEqualToString:@"name"] )
     {
         if( item.name ) [cell setStringValue:item.name];
+    }
+    else if( [tableColumn.identifier isEqualToString:@"country"] )
+    {
+        if( item.country ) [cell setStringValue:item.country.name];
     }
     
     return cell;

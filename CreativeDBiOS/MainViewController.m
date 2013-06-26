@@ -16,6 +16,7 @@
 #import "EntryViewController.h"
 #import "ClientViewController.h"
 #import "CountryViewController.h"
+#import "GroupViewController.h"
 #import "ScoreModel.h"
 
 @interface MainViewController()
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) AgencyViewController *agencyDetail;
 @property (strong, nonatomic) EntryViewController *entryDetail;
 @property (strong, nonatomic) ClientViewController *clientDetail;
+@property (strong, nonatomic) GroupViewController *groupDetail;
 @property (strong, nonatomic) CountryViewController *countryDetail;
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
@@ -101,6 +103,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(enableCountryDetail)
                                                      name:NOTIFICATION_WAKE_COUNTRIES_DETAIL object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableGroupDetail)
+                                                     name:NOTIFICATION_WAKE_GROUPS_DETAIL object:nil];
  
     }
     
@@ -115,6 +121,7 @@
     [self.entryDetail.view setHidden:YES];
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -126,6 +133,7 @@
     [self.entryDetail.view setHidden:YES];
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -137,6 +145,7 @@
     [self.entryDetail.view setHidden:YES];
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -148,6 +157,7 @@
     [self.entryDetail.view setHidden:YES];
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -159,6 +169,7 @@
     [self.entryDetail.view setHidden:NO];
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -170,6 +181,7 @@
     [self.entryDetail.view setHidden:YES];
     [self.clientDetail.view setHidden:NO];
     [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -181,6 +193,19 @@
     [self.entryDetail.view setHidden:YES];
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:NO];
+    [self.groupDetail.view setHidden:YES];
+    [self.scoreModule.view setHidden:NO];
+}
+
+- (void) enableGroupDetail
+{
+    [self.dashboard.view setHidden:YES];
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:YES];
+    [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:NO];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -220,6 +245,7 @@
     [self.clientDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
     [self.countryDetail updateOrientation:_currentOrientation];
+    [self.groupDetail updateOrientation:_currentOrientation];
     
 }
 
@@ -250,6 +276,10 @@
     self.countryDetail = [[CountryViewController alloc] init];
     [self.viewInstance addSubview:self.countryDetail.view];
     [self.countryDetail.view setHidden:YES];
+
+    self.groupDetail = [[GroupViewController alloc] init];
+    [self.viewInstance addSubview:self.groupDetail.view];
+    [self.groupDetail.view setHidden:YES];
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];

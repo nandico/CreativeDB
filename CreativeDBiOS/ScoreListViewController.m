@@ -278,7 +278,13 @@
     }
     else if( scoreEntry.group )
     {
-        NSLog( @"Group." );
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.group forKey:NOTIFICATION_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_GROUPS_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
+
     }
     else if( scoreEntry.producer )
     {
@@ -341,8 +347,8 @@
     {
         cell.name.text = item.group.name;
         [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.group.name]];
-        cell.country.text = @"";
-        cell.flag.image = nil;
+        cell.country.text = item.group.country.name;
+        cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.group.country.iso lowercaseString]]];;
         cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
 
     }

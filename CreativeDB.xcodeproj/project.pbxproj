@@ -398,6 +398,8 @@
 		BF6A81C41741959200F8557E /* BaseManagerListView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6A81C31741959200F8557E /* BaseManagerListView.m */; };
 		BF8A3B15177B1E4A00343C87 /* CountryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B14177B1E4A00343C87 /* CountryView.m */; };
 		BF8A3B18177B212200343C87 /* CountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B17177B212200343C87 /* CountryViewController.m */; };
+		BF8A3B1B177B330300343C87 /* GroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B1A177B330300343C87 /* GroupView.m */; };
+		BF8A3B1E177B414400343C87 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B1D177B414400343C87 /* GroupViewController.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -922,6 +924,10 @@
 		BF8A3B14177B1E4A00343C87 /* CountryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryView.m; sourceTree = "<group>"; };
 		BF8A3B16177B212200343C87 /* CountryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryViewController.h; sourceTree = "<group>"; };
 		BF8A3B17177B212200343C87 /* CountryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryViewController.m; sourceTree = "<group>"; };
+		BF8A3B19177B330300343C87 /* GroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupView.h; sourceTree = "<group>"; };
+		BF8A3B1A177B330300343C87 /* GroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupView.m; sourceTree = "<group>"; };
+		BF8A3B1C177B414400343C87 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
+		BF8A3B1D177B414400343C87 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -1201,6 +1207,8 @@
 				BF17831B17793867007585DA /* EntryView.m */,
 				BF17831D177A7D89007585DA /* ClientView.h */,
 				BF17831E177A7D8A007585DA /* ClientView.m */,
+				BF8A3B19177B330300343C87 /* GroupView.h */,
+				BF8A3B1A177B330300343C87 /* GroupView.m */,
 				BF8A3B13177B1E4A00343C87 /* CountryView.h */,
 				BF8A3B14177B1E4A00343C87 /* CountryView.m */,
 				BF5FFB2A176531D70034600E /* MainView.h */,
@@ -1226,6 +1234,8 @@
 				BF5FFBAE17656EE90034600E /* ScoreListViewController.m */,
 				BF5AD6C41768DFAF00810D4B /* PersonViewController.h */,
 				BF5AD6C51768DFAF00810D4B /* PersonViewController.m */,
+				BF8A3B1C177B414400343C87 /* GroupViewController.h */,
+				BF8A3B1D177B414400343C87 /* GroupViewController.m */,
 				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
 				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
 				BF17831717793830007585DA /* EntryViewController.h */,
@@ -2375,6 +2385,8 @@
 				BF178322177A80DD007585DA /* ClientViewController.m in Sources */,
 				BF8A3B15177B1E4A00343C87 /* CountryView.m in Sources */,
 				BF8A3B18177B212200343C87 /* CountryViewController.m in Sources */,
+				BF8A3B1B177B330300343C87 /* GroupView.m in Sources */,
+				BF8A3B1E177B414400343C87 /* GroupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
