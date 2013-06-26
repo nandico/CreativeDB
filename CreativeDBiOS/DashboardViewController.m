@@ -90,6 +90,9 @@
 
 - (void) createSquares
 {
+    UIColor *baseBackgroundColor = [UIColor whiteColor];
+    UIColor *baseTextColor = [UIColor lightGrayColor];
+    
     _entriesSummary = [[DashboardSquare alloc] init];
     _entriesSummary.backgroundColor = [UIColor orangeColor];
     [self.scrollView addSubview:_entriesSummary];
@@ -97,11 +100,11 @@
     _entriesSummary.content.text = @"Entries";
     
     _wonBlock = [[DashboardSquare alloc] init];
-    _wonBlock.backgroundColor = [UIColor lightGrayColor];
+    _wonBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_wonBlock];
     _wonBlock.title.font = LABEL_BIG_FONT;
     _wonBlock.title.text = @"WON";
-    _wonBlock.title.textColor = [UIColor grayColor];
+    _wonBlock.title.textColor = baseTextColor;
 
     _awardsSummary = [[DashboardSquare alloc] init];
     _awardsSummary.backgroundColor = [UIColor yellowColor];
@@ -112,11 +115,11 @@
     _awardsSummary.content.textColor = [UIColor blackColor];
 
     _coveringBlock = [[DashboardSquare alloc] init];
-    _coveringBlock.backgroundColor = [UIColor lightGrayColor];
+    _coveringBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_coveringBlock];
     _coveringBlock.title.font = LABEL_BIG_FONT;
     _coveringBlock.title.text = @"COVERING";
-    _coveringBlock.title.textColor = [UIColor grayColor];
+    _coveringBlock.title.textColor = baseTextColor;
     
     _festivalSummary = [[DashboardSquare alloc] init];
     _festivalSummary.backgroundColor = [UIColor cyanColor];
@@ -127,11 +130,11 @@
     _festivalSummary.content.textColor = [UIColor blackColor];
     
     _rewardingBlock = [[DashboardSquare alloc] init];
-    _rewardingBlock.backgroundColor = [UIColor lightGrayColor];
+    _rewardingBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_rewardingBlock];
     _rewardingBlock.title.font = LABEL_BIG_FONT;
     _rewardingBlock.title.text = @"REWARDING";
-    _rewardingBlock.title.textColor = [UIColor grayColor];
+    _rewardingBlock.title.textColor = baseTextColor;
     
     _personSummary = [[DashboardSquare alloc] init];
     _personSummary.backgroundColor = [UIColor blueColor];
@@ -140,11 +143,11 @@
     _personSummary.content.text = @"People";
     
     _fromBlock = [[DashboardSquare alloc] init];
-    _fromBlock.backgroundColor = [UIColor lightGrayColor];
+    _fromBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_fromBlock];
     _fromBlock.title.font = LABEL_BIG_FONT;
     _fromBlock.title.text = @"FROM";
-    _fromBlock.title.textColor = [UIColor grayColor];
+    _fromBlock.title.textColor = baseTextColor;
     
     _agencySummary = [[DashboardSquare alloc] init];
     _agencySummary.backgroundColor = [UIColor brownColor];
@@ -165,11 +168,11 @@
     _producerSummary.content.text = @"Producer companies";
     
     _forBlock = [[DashboardSquare alloc] init];
-    _forBlock.backgroundColor = [UIColor lightGrayColor];
+    _forBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_forBlock];
     _forBlock.title.font = LABEL_BIG_FONT;
     _forBlock.title.text = @"FOR";
-    _forBlock.title.textColor = [UIColor grayColor];
+    _forBlock.title.textColor = baseTextColor;
     
     _clientSummary = [[DashboardSquare alloc] init];
     _clientSummary.backgroundColor = [UIColor redColor];
@@ -178,11 +181,11 @@
     _clientSummary.content.text = @"Clients";
     
     _andBlock = [[DashboardSquare alloc] init];
-    _andBlock.backgroundColor = [UIColor lightGrayColor];
+    _andBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_andBlock];
     _andBlock.title.font = LABEL_BIG_FONT;
     _andBlock.title.text = @"AND";
-    _andBlock.title.textColor = [UIColor grayColor];
+    _andBlock.title.textColor = baseTextColor;
     
     _productSummary = [[DashboardSquare alloc] init];
     _productSummary.backgroundColor = [UIColor grayColor];
@@ -191,11 +194,11 @@
     _productSummary.content.text = @"Products";
     
     _from2Block = [[DashboardSquare alloc] init];
-    _from2Block.backgroundColor = [UIColor lightGrayColor];
+    _from2Block.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_from2Block];
     _from2Block.title.font = LABEL_BIG_FONT;
     _from2Block.title.text = @"FROM";
-    _from2Block.title.textColor = [UIColor grayColor];
+    _from2Block.title.textColor = baseTextColor;
 
     _countrySummary = [[DashboardSquare alloc] init];
     _countrySummary.backgroundColor = [UIColor magentaColor];
@@ -204,18 +207,18 @@
     _countrySummary.content.text = @"Countries";
     
     _thisBlock = [[DashboardSquare alloc] init];
-    _thisBlock.backgroundColor = [UIColor lightGrayColor];
+    _thisBlock.backgroundColor = baseBackgroundColor;
     [self.scrollView addSubview:_thisBlock];
     _thisBlock.title.font = LABEL_BIG_FONT;
     _thisBlock.title.text = @"THIS";
-    _thisBlock.title.textColor = [UIColor grayColor];
+    _thisBlock.title.textColor = baseTextColor;
     
     _isBlock = [[DashboardSquare alloc] init];
-    _isBlock.backgroundColor = [UIColor grayColor];
+    _isBlock.backgroundColor = baseTextColor;
     [self.scrollView addSubview:_isBlock];
     _isBlock.title.font = LABEL_BIG_FONT;
     _isBlock.title.text = @"IS";
-    _isBlock.title.textColor = [UIColor lightGrayColor];
+    _isBlock.title.textColor = baseBackgroundColor;
     
     _creativeDBBlock = [[DashboardSquare alloc] init];
     _creativeDBBlock.backgroundColor = [UIColor yellowColor];
