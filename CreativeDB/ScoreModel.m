@@ -544,6 +544,18 @@ static NSNumber *actualRankYear;
         [self updateRankingGlobalForTablename:@"aa_country_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:country.pk andYear:year];
         
     }
+
+    NSMutableArray *clients = [ClientModel loadAll];
+    
+    for( ClientModel *client in clients )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[client calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[client calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_client_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:client.pk andYear:year];
+        
+    }
+
     
 }
 

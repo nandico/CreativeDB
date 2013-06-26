@@ -13,6 +13,8 @@
 @property (strong) NSNumber *pk;
 @property (strong) CountryModel *country;
 @property (strong) NSString *name;
+@property (strong, nonatomic) NSNumber *rankingGlobal;
+@property (strong, nonatomic) NSNumber *rankingCountry;
 
 + (NSString *) tableName;
 + (NSString *) fields;
@@ -29,6 +31,10 @@
 
 - (void) save;
 - (void) deleteModel;
+
+- (NSInteger) calculateRankGlobal:(NSNumber *) year;
+- (NSInteger) calculateRankCountry:(NSNumber *) year;
+
 
 
 @end

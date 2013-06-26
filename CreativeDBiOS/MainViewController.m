@@ -14,6 +14,7 @@
 #import "PersonViewController.h"
 #import "AgencyViewController.h"
 #import "EntryViewController.h"
+#import "ClientViewController.h"
 #import "ScoreModel.h"
 
 @interface MainViewController()
@@ -25,6 +26,7 @@
 @property (strong, nonatomic) PersonViewController *personDetail;
 @property (strong, nonatomic) AgencyViewController *agencyDetail;
 @property (strong, nonatomic) EntryViewController *entryDetail;
+@property (strong, nonatomic) ClientViewController *clientDetail;
 
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
@@ -90,6 +92,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(enableEntryDetail)
                                                      name:NOTIFICATION_WAKE_ENTRIES_DETAIL object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableClientDetail)
+                                                     name:NOTIFICATION_WAKE_CLIENTS_DETAIL object:nil];
 
  
     }
@@ -103,6 +109,7 @@
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
     [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -112,6 +119,7 @@
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
     [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -121,6 +129,7 @@
     [self.personDetail.view setHidden:NO];
     [self.agencyDetail.view setHidden:YES];
     [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -130,6 +139,7 @@
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:NO];
     [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -139,6 +149,17 @@
     [self.personDetail.view setHidden:YES];
     [self.agencyDetail.view setHidden:YES];
     [self.entryDetail.view setHidden:NO];
+    [self.clientDetail.view setHidden:YES];
+    [self.scoreModule.view setHidden:NO];
+}
+
+- (void) enableClientDetail
+{
+    [self.dashboard.view setHidden:YES];
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:NO];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -175,7 +196,9 @@
     [self.personDetail updateOrientation:_currentOrientation];
     [self.agencyDetail updateOrientation:_currentOrientation];
     [self.entryDetail updateOrientation:_currentOrientation];
+    [self.clientDetail updateOrientation:_currentOrientation];
     [self.scoreModule updateOrientation:_currentOrientation];
+    
 }
 
 - (void)viewDidLoad
@@ -197,6 +220,10 @@
     self.entryDetail = [[EntryViewController alloc] init];
     [self.viewInstance addSubview:self.entryDetail.view];
     [self.entryDetail.view setHidden:YES];
+
+    self.clientDetail = [[ClientViewController alloc] init];
+    [self.viewInstance addSubview:self.clientDetail.view];
+    [self.clientDetail.view setHidden:YES];
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];

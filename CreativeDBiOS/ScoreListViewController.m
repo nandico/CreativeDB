@@ -259,7 +259,13 @@
     }
     else if( scoreEntry.client )
     {
-        NSLog( @"Client." );
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.client forKey:NOTIFICATION_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_CLIENTS_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
+
     }
     else if( [ScoreModel.tableName isEqualToString:@"aa_country_score"] )
     {
@@ -323,7 +329,7 @@
         [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.client.name]];
         cell.country.text = item.client.country.name;
         cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.client.country.iso lowercaseString]]];
-        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:([item.client.rankingGlobal longValue])]];
 
     }
     else if( item.group.name )
