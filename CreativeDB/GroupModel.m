@@ -454,10 +454,12 @@
     
     [db open];
     
+    db.traceExecution = YES;
+    
     FMResultSet *results = [db executeQuery:[NSString stringWithFormat:@"SELECT A.*, ( "
                                              " SELECT COUNT( * ) "
                                              " FROM aa_group_score_year AS B "
-                                             " INNER JOIN aa_agency AS C ON B.origin = C.id WHERE C.country = %@ AND B.year = %@ AND B.score > A.score "
+                                             " INNER JOIN aa_group AS C ON B.origin = C.id WHERE C.country = %@ AND B.year = %@ AND B.score > A.score "
                                              " ) AS Rank "
                                              " FROM aa_group_score_year AS A "
                                              " WHERE A.origin = %@ " , self.country.pk, year, self.pk ] ];
@@ -481,6 +483,8 @@
     FMDatabase *db = [FMDatabase databaseWithPath:path];
     
     [db open];
+    
+    db.traceExecution = YES;
     
     FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
                                                        " rankingGlobal "

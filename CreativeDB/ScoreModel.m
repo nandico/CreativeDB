@@ -558,7 +558,7 @@ static NSNumber *actualRankYear;
     
     NSMutableArray *groups = [GroupModel loadAll];
     
-    for( ClientModel *group in groups )
+    for( GroupModel *group in groups )
     {
         NSNumber *rankingGlobal = [NSNumber numberWithInteger:[group calculateRankGlobal:year] + 1];
         NSNumber *rankingCountry = [NSNumber numberWithInteger:[group calculateRankCountry:year] + 1];
