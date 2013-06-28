@@ -567,6 +567,17 @@ static NSNumber *actualRankYear;
         
     }
 
+    NSMutableArray *producers = [ProducerModel loadAll];
+    
+    for( ProducerModel *producer in producers )
+    {
+        NSNumber *rankingGlobal = [NSNumber numberWithInteger:[producer calculateRankGlobal:year] + 1];
+        NSNumber *rankingCountry = [NSNumber numberWithInteger:[producer calculateRankCountry:year] + 1];
+        
+        [self updateRankingGlobalForTablename:@"aa_producer_score_year" andGlobal:rankingGlobal andCountry:rankingCountry forOrigin:producer.pk andYear:year];
+        
+    }
+
     
 }
 

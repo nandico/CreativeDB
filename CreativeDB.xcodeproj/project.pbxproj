@@ -400,6 +400,8 @@
 		BF8A3B18177B212200343C87 /* CountryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B17177B212200343C87 /* CountryViewController.m */; };
 		BF8A3B1B177B330300343C87 /* GroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B1A177B330300343C87 /* GroupView.m */; };
 		BF8A3B1E177B414400343C87 /* GroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B1D177B414400343C87 /* GroupViewController.m */; };
+		BF8A3B21177DCB4900343C87 /* ProducerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B20177DCB4900343C87 /* ProducerView.m */; };
+		BF8A3B24177DCD4600343C87 /* ProducerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8A3B23177DCD4500343C87 /* ProducerViewController.m */; };
 		BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF8D842316F7EEA4006906D8 /* Cocoa.framework */; };
 		BF8D842E16F7EEA4006906D8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF8D842C16F7EEA4006906D8 /* InfoPlist.strings */; };
 		BF8D843016F7EEA4006906D8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D842F16F7EEA4006906D8 /* main.m */; };
@@ -928,6 +930,10 @@
 		BF8A3B1A177B330300343C87 /* GroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupView.m; sourceTree = "<group>"; };
 		BF8A3B1C177B414400343C87 /* GroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupViewController.h; sourceTree = "<group>"; };
 		BF8A3B1D177B414400343C87 /* GroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupViewController.m; sourceTree = "<group>"; };
+		BF8A3B1F177DCB4800343C87 /* ProducerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerView.h; sourceTree = "<group>"; };
+		BF8A3B20177DCB4900343C87 /* ProducerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerView.m; sourceTree = "<group>"; };
+		BF8A3B22177DCD4500343C87 /* ProducerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProducerViewController.h; sourceTree = "<group>"; };
+		BF8A3B23177DCD4500343C87 /* ProducerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProducerViewController.m; sourceTree = "<group>"; };
 		BF8D842016F7EEA4006906D8 /* CreativeDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CreativeDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF8D842316F7EEA4006906D8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BF8D842616F7EEA4006906D8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -1108,6 +1114,8 @@
 				BF62E8C4173DC98200B75C07 /* Engine */,
 				BF0010A716FEBDD7007B8A80 /* AgencyModel.h */,
 				BF0010A816FEBDD7007B8A80 /* AgencyModel.m */,
+				BF0010B316FF230D007B8A80 /* ProducerModel.h */,
+				BF0010B416FF230E007B8A80 /* ProducerModel.m */,
 				BF0010B616FF252A007B8A80 /* ClientModel.h */,
 				BF0010B716FF252A007B8A80 /* ClientModel.m */,
 				BF0010AA16FEBEBC007B8A80 /* GroupModel.h */,
@@ -1128,8 +1136,6 @@
 				BF0010C616FF362D007B8A80 /* DisciplineModel.m */,
 				BF0010C816FF385F007B8A80 /* PersonModel.h */,
 				BF0010C916FF3860007B8A80 /* PersonModel.m */,
-				BF0010B316FF230D007B8A80 /* ProducerModel.h */,
-				BF0010B416FF230E007B8A80 /* ProducerModel.m */,
 				BF0010CB16FF3BAF007B8A80 /* FestivalModel.h */,
 				BF0010CC16FF3BB0007B8A80 /* FestivalModel.m */,
 				BF0010CE16FF9C44007B8A80 /* EntryModel.h */,
@@ -1203,6 +1209,8 @@
 				BF5AD6C81768E09E00810D4B /* PersonView.m */,
 				BF073C2817726A430094F2FE /* AgencyView.h */,
 				BF073C2917726A430094F2FE /* AgencyView.m */,
+				BF8A3B1F177DCB4800343C87 /* ProducerView.h */,
+				BF8A3B20177DCB4900343C87 /* ProducerView.m */,
 				BF17831A17793866007585DA /* EntryView.h */,
 				BF17831B17793867007585DA /* EntryView.m */,
 				BF17831D177A7D89007585DA /* ClientView.h */,
@@ -1238,6 +1246,8 @@
 				BF8A3B1D177B414400343C87 /* GroupViewController.m */,
 				BF073C2B17726B850094F2FE /* AgencyViewController.h */,
 				BF073C2C17726B860094F2FE /* AgencyViewController.m */,
+				BF8A3B22177DCD4500343C87 /* ProducerViewController.h */,
+				BF8A3B23177DCD4500343C87 /* ProducerViewController.m */,
 				BF17831717793830007585DA /* EntryViewController.h */,
 				BF17831817793830007585DA /* EntryViewController.m */,
 				BF178320177A80DB007585DA /* ClientViewController.h */,
@@ -2387,6 +2397,8 @@
 				BF8A3B18177B212200343C87 /* CountryViewController.m in Sources */,
 				BF8A3B1B177B330300343C87 /* GroupView.m in Sources */,
 				BF8A3B1E177B414400343C87 /* GroupViewController.m in Sources */,
+				BF8A3B21177DCB4900343C87 /* ProducerView.m in Sources */,
+				BF8A3B24177DCD4600343C87 /* ProducerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

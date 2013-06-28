@@ -17,6 +17,7 @@
 #import "ClientViewController.h"
 #import "CountryViewController.h"
 #import "GroupViewController.h"
+#import "ProducerViewController.h"
 #import "ScoreModel.h"
 
 @interface MainViewController()
@@ -31,6 +32,7 @@
 @property (strong, nonatomic) ClientViewController *clientDetail;
 @property (strong, nonatomic) GroupViewController *groupDetail;
 @property (strong, nonatomic) CountryViewController *countryDetail;
+@property (strong, nonatomic) ProducerViewController *producerDetail;
 
 @property (nonatomic) UIDeviceOrientation currentOrientation;
 
@@ -107,6 +109,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(enableGroupDetail)
                                                      name:NOTIFICATION_WAKE_GROUPS_DETAIL object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(enableProducerDetail)
+                                                     name:NOTIFICATION_WAKE_PRODUCERS_DETAIL object:nil];
  
     }
     
@@ -122,6 +128,7 @@
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
     [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -134,6 +141,7 @@
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
     [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -158,6 +166,7 @@
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
     [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -170,6 +179,7 @@
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
     [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -182,6 +192,7 @@
     [self.clientDetail.view setHidden:NO];
     [self.countryDetail.view setHidden:YES];
     [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -194,6 +205,7 @@
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:NO];
     [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
 
@@ -206,8 +218,23 @@
     [self.clientDetail.view setHidden:YES];
     [self.countryDetail.view setHidden:YES];
     [self.groupDetail.view setHidden:NO];
+    [self.producerDetail.view setHidden:YES];
     [self.scoreModule.view setHidden:NO];
 }
+
+- (void) enableProducerDetail
+{
+    [self.dashboard.view setHidden:YES];
+    [self.personDetail.view setHidden:YES];
+    [self.agencyDetail.view setHidden:YES];
+    [self.entryDetail.view setHidden:YES];
+    [self.clientDetail.view setHidden:YES];
+    [self.countryDetail.view setHidden:YES];
+    [self.groupDetail.view setHidden:YES];
+    [self.producerDetail.view setHidden:NO];
+    [self.scoreModule.view setHidden:NO];
+}
+
 
 - (void) loadView
 {
@@ -246,6 +273,7 @@
     [self.scoreModule updateOrientation:_currentOrientation];
     [self.countryDetail updateOrientation:_currentOrientation];
     [self.groupDetail updateOrientation:_currentOrientation];
+    [self.producerDetail updateOrientation:_currentOrientation];
     
 }
 
@@ -280,6 +308,10 @@
     self.groupDetail = [[GroupViewController alloc] init];
     [self.viewInstance addSubview:self.groupDetail.view];
     [self.groupDetail.view setHidden:YES];
+    
+    self.producerDetail = [[ProducerViewController alloc] init];
+    [self.viewInstance addSubview:self.producerDetail.view];
+    [self.producerDetail.view setHidden:YES];
     
     self.scoreModule = [[ScoreListViewController alloc] init];
     [self.viewInstance addSubview:self.scoreModule.view];

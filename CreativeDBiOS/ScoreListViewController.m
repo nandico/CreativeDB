@@ -288,7 +288,13 @@
     }
     else if( scoreEntry.producer )
     {
-        NSLog( @"Producer." );
+        NSDictionary *updateMessage = [NSDictionary dictionaryWithObject:scoreEntry.producer forKey:NOTIFICATION_ITEM];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_WAKE_PRODUCERS_DETAIL
+                                                            object:self
+                                                          userInfo:updateMessage];
+        [self animateExit];
+
     }
 
     
@@ -358,7 +364,7 @@
         [cell.thumb.userInitials setText:[cell.thumb extractInitials:item.producer.name]];
         cell.country.text = item.producer.country.name;
         cell.flag.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [item.producer.country.iso lowercaseString]]];
-        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:(indexPath.row + 1)]];
+        cell.position.text = [NSString stringWithFormat:@"%@", [self addSuffixToNumber:([item.producer.rankingGlobal longValue])]];
 
     }
     else if( [item.entry.pk isEqualToNumber:item.origin] )
