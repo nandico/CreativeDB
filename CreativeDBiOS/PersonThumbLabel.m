@@ -17,7 +17,7 @@
     
     if( self )
     {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = PALLETE_CLEAR;
         self.textColor = THUMB_TEXT_COLOR;
         self.font = THUMB_TEXT_FONT;
         

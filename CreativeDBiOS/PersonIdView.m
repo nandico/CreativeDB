@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor orangeColor];
+        self.backgroundColor = PALLETE_BASE_COLOR_A;
         
         [self addSubview:[self userInitials]];
     }

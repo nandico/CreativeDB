@@ -7,6 +7,7 @@
 //
 
 #import "MainView.h"
+#import "ClientEngine.h"
 
 @implementation MainView
 
@@ -14,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        [self setBackgroundColor:[UIColor blackColor]];
+        [self setBackgroundColor:PALLETE_BLACK_FOR_BACKGROUND];
     }
     return self;
 }

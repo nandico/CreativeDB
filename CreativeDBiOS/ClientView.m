@@ -41,7 +41,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
         
         [self background];
         [self thumb];
@@ -201,7 +201,7 @@
     if( !_background )
     {
         _background = [[BaseView alloc] init];
-        _background.backgroundColor = [UIColor whiteColor];
+        _background.backgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
         [self addSubview:_background];
     }
     

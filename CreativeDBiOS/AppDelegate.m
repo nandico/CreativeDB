@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ClientEngine.h"
 
 @implementation AppDelegate
 
@@ -16,7 +17,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
     
     self.mainController = [[MainViewController alloc] init];
     [self.window setRootViewController:self.mainController];

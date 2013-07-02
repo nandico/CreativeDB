@@ -50,11 +50,11 @@
     
     CGFloat rankingOffsetY = 3.0f;
     
-    _position.backgroundColor = [UIColor cyanColor];
+    _position.backgroundColor = PALLETE_BASE_COLOR_C;
     _position.textAlignment = NSTextAlignmentCenter;
     [engine applyFrame:_position withLine:line1 andColumn:column1];
     
-    _score.backgroundColor = [UIColor lightGrayColor];
+    _score.backgroundColor = PALLETE_AUXILIARY_COLOR_A;
     _score.textAlignment = NSTextAlignmentCenter;
     [engine applyFrame:_score withLine:line1 andColumn:column2];
 
@@ -78,7 +78,7 @@
     
     [engine applyFrame:_flag withLine:line1 andColumn:column3];
     
-    _thumb.backgroundColor = [UIColor orangeColor];
+    _thumb.backgroundColor = PALLETE_BASE_COLOR_A;
     [engine applyFrame:_thumb withLine:line1 andColumn:column4];
     
 

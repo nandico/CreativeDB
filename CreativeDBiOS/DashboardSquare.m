@@ -62,7 +62,7 @@
     if( !_background )
     {
         _background = [[BaseView alloc] init];
-        _background.backgroundColor = [UIColor clearColor];
+        _background.backgroundColor = PALLETE_CLEAR;
         [self addSubview:_background];
     }
     
@@ -75,7 +75,7 @@
     {
         _title = [[H1Label alloc] init];
         _title.textAlignment = NSTextAlignmentCenter;
-        _title.textColor = [UIColor whiteColor];
+        _title.textColor = PALLETE_WHITE_FOR_ELEMENTS;
         
         _title.font = LABEL_BIGGEST_FONT;
         
@@ -95,7 +95,7 @@
     {
         _content = [[H2Label alloc] init];
         _content.textAlignment = NSTextAlignmentCenter;
-        _content.textColor = [UIColor whiteColor];
+        _content.textColor = PALLETE_WHITE_FOR_ELEMENTS;
         [self addSubview:_content];
     }
     

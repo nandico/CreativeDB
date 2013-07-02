@@ -285,21 +285,21 @@
     [engine applyFrame:_logo withLine:line1 andColumn:columnLogo];
 
     [engine applyFrame:_menuScroll withLine:line1 andColumn:columnMenu];
-    _menuScroll.backgroundColor = [UIColor blackColor];
+    _menuScroll.backgroundColor = PALLETE_BASE_COLOR_FOR_TEXT;
     
-    _logo.backgroundColor = [UIColor yellowColor];
-    _logo.userInitials.textColor = [UIColor blackColor];
+    _logo.backgroundColor = PALLETE_BASE_COLOR_B;
+    _logo.userInitials.textColor = PALLETE_BASE_COLOR_FOR_TEXT;
     _logo.userInitials.text = @"CD";
 
-    _dashboardButton.backgroundColor = [UIColor redColor];
-    _calendarButton.backgroundColor = [UIColor greenColor];
-    _peopleButton.backgroundColor = [UIColor blueColor];
-    _agenciesButton.backgroundColor = [UIColor brownColor];
-    _entriesButton.backgroundColor = [UIColor orangeColor];
-    _clientsButton.backgroundColor = [UIColor grayColor];
-    _countriesButton.backgroundColor = [UIColor magentaColor];
-    _groupsButton.backgroundColor = [UIColor purpleColor];
-    _producersButton.backgroundColor = [UIColor redColor];
+    _dashboardButton.backgroundColor = PALLETE_BASE_COLOR_G;
+    _calendarButton.backgroundColor = PALLETE_BASE_COLOR_I;
+    _peopleButton.backgroundColor = PALLETE_BASE_COLOR_D;
+    _agenciesButton.backgroundColor = PALLETE_BASE_COLOR_E;
+    _entriesButton.backgroundColor = PALLETE_BASE_COLOR_A;
+    _clientsButton.backgroundColor = PALLETE_BASE_COLOR_H;
+    _countriesButton.backgroundColor = PALLETE_BASE_COLOR_J;
+    _groupsButton.backgroundColor = PALLETE_BASE_COLOR_F;
+    _producersButton.backgroundColor = PALLETE_BASE_COLOR_C;
 
     _menuScroll.contentSize = CGSizeMake(125.0 * 8, 125.0);
 }

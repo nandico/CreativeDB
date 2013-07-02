@@ -90,11 +90,11 @@
 
 - (void) createSquares
 {
-    UIColor *baseBackgroundColor = [UIColor whiteColor];
-    UIColor *baseTextColor = [UIColor lightGrayColor];
+    UIColor *baseBackgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
+    UIColor *baseTextColor = PALLETE_AUXILIARY_COLOR_A;
     
     _entriesSummary = [[DashboardSquare alloc] init];
-    _entriesSummary.backgroundColor = [UIColor orangeColor];
+    _entriesSummary.backgroundColor = PALLETE_BASE_COLOR_A;
     [self.scrollView addSubview:_entriesSummary];
     _entriesSummary.title.text = [[EntryModel modelCount] stringValue];
     _entriesSummary.content.text = @"Entries";
@@ -107,12 +107,10 @@
     _wonBlock.title.textColor = baseTextColor;
 
     _awardsSummary = [[DashboardSquare alloc] init];
-    _awardsSummary.backgroundColor = [UIColor yellowColor];
+    _awardsSummary.backgroundColor = PALLETE_BASE_COLOR_H;
     [self.scrollView addSubview:_awardsSummary];
     _awardsSummary.title.text = [[AwardModel modelCount] stringValue];
     _awardsSummary.content.text = @"Awards";
-    _awardsSummary.title.textColor = [UIColor blackColor];
-    _awardsSummary.content.textColor = [UIColor blackColor];
 
     _coveringBlock = [[DashboardSquare alloc] init];
     _coveringBlock.backgroundColor = baseBackgroundColor;
@@ -122,12 +120,10 @@
     _coveringBlock.title.textColor = baseTextColor;
     
     _festivalSummary = [[DashboardSquare alloc] init];
-    _festivalSummary.backgroundColor = [UIColor cyanColor];
+    _festivalSummary.backgroundColor = PALLETE_BASE_COLOR_C;
     [self.scrollView addSubview:_festivalSummary];
     _festivalSummary.title.text = [NSString stringWithFormat:@"%@ of %@", [[FestivalModel modelActiveCount] stringValue], [[FestivalModel modelCount] stringValue] ];
     _festivalSummary.content.text = @"Festivals";
-    _festivalSummary.title.textColor = [UIColor blackColor];
-    _festivalSummary.content.textColor = [UIColor blackColor];
     
     _rewardingBlock = [[DashboardSquare alloc] init];
     _rewardingBlock.backgroundColor = baseBackgroundColor;
@@ -137,7 +133,7 @@
     _rewardingBlock.title.textColor = baseTextColor;
     
     _personSummary = [[DashboardSquare alloc] init];
-    _personSummary.backgroundColor = [UIColor blueColor];
+    _personSummary.backgroundColor = PALLETE_BASE_COLOR_D;
     [self.scrollView addSubview:_personSummary];
     _personSummary.title.text = [[PersonModel modelCount] stringValue];
     _personSummary.content.text = @"People";
@@ -150,19 +146,19 @@
     _fromBlock.title.textColor = baseTextColor;
     
     _agencySummary = [[DashboardSquare alloc] init];
-    _agencySummary.backgroundColor = [UIColor brownColor];
+    _agencySummary.backgroundColor = PALLETE_BASE_COLOR_E;
     [self.scrollView addSubview:_agencySummary];
     _agencySummary.title.text = [[AgencyModel modelCount] stringValue];
     _agencySummary.content.text = @"Agencies";
     
     _groupSummary = [[DashboardSquare alloc] init];
-    _groupSummary.backgroundColor = [UIColor purpleColor];
+    _groupSummary.backgroundColor = PALLETE_BASE_COLOR_F;
     [self.scrollView addSubview:_groupSummary];
     _groupSummary.title.text = [[GroupModel modelActiveCount] stringValue];
     _groupSummary.content.text = @"Groups";
     
     _producerSummary = [[DashboardSquare alloc] init];
-    _producerSummary.backgroundColor = [UIColor redColor];
+    _producerSummary.backgroundColor = PALLETE_BASE_COLOR_G;
     [self.scrollView addSubview:_producerSummary];
     _producerSummary.title.text = [[ProducerModel modelCount] stringValue];
     _producerSummary.content.text = @"Producer companies";
@@ -175,7 +171,7 @@
     _forBlock.title.textColor = baseTextColor;
     
     _clientSummary = [[DashboardSquare alloc] init];
-    _clientSummary.backgroundColor = [UIColor redColor];
+    _clientSummary.backgroundColor = PALLETE_BASE_COLOR_G;
     [self.scrollView addSubview:_clientSummary];
     _clientSummary.title.text = [[ClientModel modelCount] stringValue];
     _clientSummary.content.text = @"Clients";
@@ -188,7 +184,7 @@
     _andBlock.title.textColor = baseTextColor;
     
     _productSummary = [[DashboardSquare alloc] init];
-    _productSummary.backgroundColor = [UIColor grayColor];
+    _productSummary.backgroundColor = PALLETE_BASE_COLOR_H;
     [self.scrollView addSubview:_productSummary];
     _productSummary.title.text = [[ProductModel modelCount] stringValue];
     _productSummary.content.text = @"Products";
@@ -201,7 +197,7 @@
     _ofBlock.title.textColor = baseTextColor;
 
     _countrySummary = [[DashboardSquare alloc] init];
-    _countrySummary.backgroundColor = [UIColor magentaColor];
+    _countrySummary.backgroundColor = PALLETE_BASE_COLOR_J;
     [self.scrollView addSubview:_countrySummary];
     _countrySummary.title.text = [[CountryModel modelActiveCount] stringValue];
     _countrySummary.content.text = @"Countries";
@@ -221,11 +217,11 @@
     _isBlock.title.textColor = baseBackgroundColor;
     
     _creativeDBBlock = [[DashboardSquare alloc] init];
-    _creativeDBBlock.backgroundColor = [UIColor yellowColor];
+    _creativeDBBlock.backgroundColor = PALLETE_BASE_COLOR_B;
     [self.scrollView addSubview:_creativeDBBlock];
     _creativeDBBlock.title.font = LABEL_BIG_FONT;
     _creativeDBBlock.title.text = @"CreativeDB";
-    _creativeDBBlock.title.textColor = [UIColor blackColor];
+    _creativeDBBlock.title.textColor = PALLETE_BASE_COLOR_FOR_TEXT;
     
 }
 
