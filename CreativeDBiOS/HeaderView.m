@@ -12,6 +12,7 @@
 #import "PersonIdView.h"
 #import "ClientEngine.h"
 #import "BaseScrollView.h"
+#import "MarkerView.h"
 
 @interface HeaderView()
 
@@ -47,7 +48,6 @@
         [self menuScroll];
 
         [self dashboardButton];
-//        [self calendarButton]; // disabled
         [self peopleButton];
         [self agenciesButton];
         [self entriesButton];
@@ -56,9 +56,20 @@
         [self groupsButton];
         [self producersButton];
         
+        [self grid];
 
     }
     return self;
+}
+
+- (void) grid
+{
+   for( NSInteger gridCounter = 0; gridCounter < 10; gridCounter ++ )
+    {
+        MarkerView *marker = [[MarkerView alloc] initWithFrame:CGRectMake(( gridCounter * 125.0f ) - 6.0f, 118.0f, 50.0f, 50.0f)];
+        [self.menuScroll addSubview:marker];
+    }
+    
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation

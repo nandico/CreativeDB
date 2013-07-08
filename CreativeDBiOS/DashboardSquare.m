@@ -7,6 +7,7 @@
 //
 
 #import "DashboardSquare.h"
+#import "MarkerView.h"
 
 @interface DashboardSquare()
 
@@ -24,7 +25,7 @@
         [self background];
         [self title];
         [self content];
-         
+        
         _engine = [[ClientEngine alloc] init];
         
     }
@@ -32,6 +33,7 @@
     return self;
     
 }
+
 
 - (void) layoutSubviews
 {

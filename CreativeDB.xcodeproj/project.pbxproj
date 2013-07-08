@@ -420,6 +420,7 @@
 		BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
 		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
+		BF9C642F178A5255004158DD /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C642E178A5255004158DD /* MarkerView.m */; };
 		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
 		BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2EA2171BA2360044262E /* BaseManagerView.m */; };
 		BFBC5EB6174E771E0004E022 /* AgencyManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */; };
@@ -970,6 +971,8 @@
 		BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
 		BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
 		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
+		BF9C642D178A5255004158DD /* MarkerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerView.h; sourceTree = "<group>"; };
+		BF9C642E178A5255004158DD /* MarkerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerView.m; sourceTree = "<group>"; };
 		BFA5E7131744383200466F5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerViewController.h; sourceTree = "<group>"; };
 		BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerViewController.m; sourceTree = "<group>"; };
@@ -1167,6 +1170,7 @@
 		BF1782FC17788CFB007585DA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF9C642C178A5239004158DD /* Others */,
 				BF1782FE17788D57007585DA /* Modules */,
 				BF17830317788DE2007585DA /* Cell */,
 				BF17830217788DD3007585DA /* Image */,
@@ -1859,6 +1863,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		BF9C642C178A5239004158DD /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				BF9C642D178A5255004158DD /* MarkerView.h */,
+				BF9C642E178A5255004158DD /* MarkerView.m */,
+			);
+			name = Others;
+			sourceTree = "<group>";
+		};
 		BFBC5EF31751B2C60004E022 /* ManagerViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -2411,6 +2424,7 @@
 				BF8A3B24177DCD4600343C87 /* ProducerViewController.m in Sources */,
 				BF8A3B2A177DF16F00343C87 /* RadialView.m in Sources */,
 				BF8A3B2D177DFDEF00343C87 /* RadialViewController.m in Sources */,
+				BF9C642F178A5255004158DD /* MarkerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
