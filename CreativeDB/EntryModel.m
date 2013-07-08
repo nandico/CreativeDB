@@ -552,6 +552,100 @@
     return collection;
 }
 
++ (NSMutableArray *) loadByCountryId:(NSNumber *)countryPK
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE country = %@", [self fields], [self tableName], countryPK] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
++ (NSMutableArray *) loadByGroupId:(NSNumber *) groupPK
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " A.id, agency, client, A.country, product, accessURL, caseURL, blurb, A.name, year "
+                                                       " FROM %@ AS A "
+                                                       " INNER JOIN aa_agency AS B ON A.agency = B.id "
+                                                       " WHERE B.agency_group = %@", [self tableName], groupPK] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
++ (NSMutableArray *) loadByProducerId:(NSNumber *)producerPK
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    db.traceExecution = YES;
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE id in ( "
+                                                       " SELECT DISTINCT entry FROM aa_entry_producer WHERE producer = %@ "
+                                                       " ) ", [self fields], [self tableName], producerPK] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
 - (NSInteger) calculateRankGlobal:(NSNumber *) year
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

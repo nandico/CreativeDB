@@ -182,6 +182,12 @@
     return count;
 }
 
+- (NSMutableArray *) entries
+{
+    return [EntryModel loadByCountryId:self.pk];
+}
+
+
 
 + (NSMutableArray *) loadFiltered
 {

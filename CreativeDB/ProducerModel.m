@@ -153,6 +153,11 @@
     return count;
 }
 
+- (NSMutableArray *) entries
+{
+    return [EntryModel loadByProducerId:self.pk];
+}
+
 
 - (NSNumber *) next
 {

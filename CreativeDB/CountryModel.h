@@ -30,6 +30,8 @@
 + (NSNumber *) modelActiveCount;
 + (NSMutableArray *) loadFiltered;
 
+- (NSMutableArray *) entries;
+
 - (NSInteger) calculateRankGlobal:(NSNumber *) year;
 - (NSInteger) calculateRankCountry:(NSNumber *) year;
 

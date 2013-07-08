@@ -38,6 +38,9 @@
 + (NSMutableArray *) loadByPersonId:(NSNumber *) personPK;
 + (NSMutableArray *) loadByAgencyId:(NSNumber *) agencyPK;
 + (NSMutableArray *) loadByClientId:(NSNumber *) clientPK;
++ (NSMutableArray *) loadByCountryId:(NSNumber *) countryPK;
++ (NSMutableArray *) loadByGroupId:(NSNumber *) groupPK;
++ (NSMutableArray *) loadByProducerId:(NSNumber *) producerPK;
 
 
 

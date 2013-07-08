@@ -170,6 +170,11 @@
     return count;
 }
 
+- (NSMutableArray *) entries
+{
+    return [EntryModel loadByGroupId:self.pk];
+}
+
 + (NSMutableArray *) loadFiltered
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

@@ -32,6 +32,8 @@
 + (NSNumber *) first;
 + (NSNumber *) last;
 
+- (NSMutableArray *) entries;
+
 - (void) save;
 - (void) deleteModel;
 
