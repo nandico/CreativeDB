@@ -91,7 +91,7 @@
 - (void) createSquares
 {
     UIColor *baseBackgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
-    UIColor *baseTextColor = PALLETE_AUXILIARY_COLOR_A;
+    UIColor *baseTextColor = PALLETE_BLACK_FOR_ELEMENTS;
     
     _entriesSummary = [[DashboardSquare alloc] init];
     _entriesSummary.backgroundColor = PALLETE_BASE_COLOR_A;

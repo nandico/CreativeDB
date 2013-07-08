@@ -111,15 +111,17 @@
     
     if( _selectedPerson ) self.roles.text = [self stringfyRolesFromCredits:_credits forPersonId:_selectedPerson.pk];
     self.year.text = [NSString stringWithFormat:@"      %@", _selectedAward.year ];
-    self.year.backgroundColor = PALLETE_AUXILIARY_COLOR_A;
+    self.year.backgroundColor = PALLETE_BASE_COLOR_I;
     self.metal.text = _selectedAward.metal.name;
     self.metal.backgroundColor = PALLETE_BASE_COLOR_B;
+    self.metal.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     self.entry.text = _selectedEntry.name;
     self.entry.backgroundColor = PALLETE_BASE_COLOR_C;
+    self.entry.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     self.client.text = _selectedEntry.client.name;
     self.product.text = ( _selectedEntry.product ) ? _selectedEntry.product.name : @"";
     self.festival.text = _selectedAward.festival.name;
-    self.festival.backgroundColor = PALLETE_AUXILIARY_COLOR_A;
+    self.festival.backgroundColor = PALLETE_BASE_COLOR_I;
     self.category.text = _selectedAward.category.name;
     self.subcategory.text = ( _selectedAward.subcategory ) ? _selectedAward.subcategory.name : @"";
     

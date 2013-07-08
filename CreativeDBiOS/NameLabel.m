@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textAlignment = NSTextAlignmentLeft;
-        self.textColor = NAME_LABEL_COLOR;
+        self.textColor = PALLETE_BLACK_FOR_ELEMENTS;
         self.font = NAME_LABEL_FONT;
         self.backgroundColor = NAME_LABEL_BACKGROUND_COLOR;
     }

@@ -7,8 +7,20 @@
 //
 
 #import "BaseLabel.h"
+#import "ClientEngine.h"
 
 @implementation BaseLabel
 
+- (id) init
+{
+    self = [super init];
+    
+    if( self )
+    {
+        self.textColor = PALLETE_BLACK_FOR_ELEMENTS;
+    }
+    
+    return self;
+}
 
 @end

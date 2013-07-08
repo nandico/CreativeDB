@@ -50,24 +50,28 @@
     
     CGFloat rankingOffsetY = 3.0f;
     
-    _position.backgroundColor = PALLETE_BASE_COLOR_C;
+    _position.backgroundColor = PALLETE_BASE_COLOR_G;
     _position.textAlignment = NSTextAlignmentCenter;
+    _position.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     [engine applyFrame:_position withLine:line1 andColumn:column1];
     
-    _score.backgroundColor = PALLETE_AUXILIARY_COLOR_A;
+    _score.backgroundColor = PALLETE_BASE_COLOR_D;
     _score.textAlignment = NSTextAlignmentCenter;
+    _score.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     [engine applyFrame:_score withLine:line1 andColumn:column2];
 
     
     _name.prefferedHeight = 50.0f;
     _name.offsetX = 30.0f;
     _name.offsetY = 20.0f + rankingOffsetY;
+    _name.textColor = PALLETE_BLACK_FOR_ELEMENTS;
     
     [engine applyFrame:_name withLine:line1 andColumn:column3];
     
     _country.prefferedHeight = 50.0f;
     _country.offsetX = 50.0f;
     _country.offsetY = 57.0f + rankingOffsetY;
+    _country.textColor = PALLETE_BLACK_FOR_ELEMENTS;
     
     [engine applyFrame:_country withLine:line1 andColumn:column3];
     
@@ -75,6 +79,7 @@
     _flag.prefferedHeight = 11.0f;
     _flag.offsetX = 30.0f;
     _flag.offsetY = 76.0f + rankingOffsetY;
+    [_flag setAlpha:0.7f];
     
     [engine applyFrame:_flag withLine:line1 andColumn:column3];
     

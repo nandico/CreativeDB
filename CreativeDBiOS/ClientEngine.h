@@ -46,10 +46,10 @@
 #define DASHBOARD_CONTENT_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 879.0f)
 
 
-#define HEADER_TITLE_COLOR [UIColor colorWithRed:0.9f green:0.9f blue:0.9f alpha:1.0f]
+#define HEADER_TITLE_COLOR [UIColor colorWithRed:0.6f green:0.6f blue:0.6f alpha:1.0f]
 #define HEADER_TITLE_BACKGROUND_COLOR nil
 #define HEADER_TITLE_FONT [UIFont fontWithName:@"LeagueGothic-Regular" size:60.0f]
-#define HEADER_BACKGROUND_COLOR [UIColor blackColor]
+#define HEADER_BACKGROUND_COLOR [UIColor whiteColor]
 #define HEADER_LANDSCAPE_FRAME CGRectMake(0, 0, 1024.0f, 125.0f)
 #define HEADER_PORTRAIT_FRAME CGRectMake(0, 0, 768.0f, 125.0f)
 #define HEADER_LOGO_FRAME CGRectMake( 30.0f, 0, 200.0f, 125.0f)
@@ -111,20 +111,21 @@
 #define PALLETE_WHITE_FOR_BACKGROUND [UIColor whiteColor]
 #define PALLETE_BLACK_FOR_BACKGROUND [UIColor blackColor]
 #define PALLETE_WHITE_FOR_ELEMENTS [UIColor whiteColor]
+#define PALLETE_BLACK_FOR_ELEMENTS [UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.0f]
 #define PALLETE_CLEAR [UIColor clearColor]
 
 #define PALLETE_AUXILIARY_COLOR_A [UIColor lightGrayColor]
 
-#define PALLETE_BASE_COLOR_A [UIColor colorWithRed:255.0f / 255.0f green:128.0f / 255.0f blue:77.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_B [UIColor yellowColor]
+#define PALLETE_BASE_COLOR_A [UIColor colorWithRed:255.0f / 255.0f green:128.0f / 255.0f blue:77.0f / 255.0f alpha:1.0f]    // ORANGE
+#define PALLETE_BASE_COLOR_B [UIColor colorWithRed:234.0f / 255.0 green:195.0f / 255.0f blue:78.0f / 255.0f alpha:1.0f]
 #define PALLETE_BASE_COLOR_C [UIColor colorWithRed:71.0f / 255.0 green:179.0f / 255.0f blue:157.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_D [UIColor colorWithRed:89.0 / 255.0f green:218.0f / 255.0f blue:154.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_E [UIColor colorWithRed:118.0f / 255.0 green:88.0f / 255.0f blue:226.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_F [UIColor colorWithRed:204.0f / 255.0 green:111.0f / 255.0f blue:215.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_G [UIColor colorWithRed:0.0f green:193.0f / 255.0f blue:226.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_H [UIColor colorWithRed:234.0f / 255.0 green:195.0f / 255.0f blue:78.0f / 255.0f alpha:1.0f]
-#define PALLETE_BASE_COLOR_I [UIColor greenColor]
-#define PALLETE_BASE_COLOR_J [UIColor colorWithRed:228.0f / 255.0 green:87.0f / 255.0f blue:121.0f / 255.0f alpha:1.0f]
+#define PALLETE_BASE_COLOR_D [UIColor colorWithRed:89.0 / 255.0f green:218.0f / 255.0f blue:154.0f / 255.0f alpha:1.0f]     // LIGHT GREEN
+#define PALLETE_BASE_COLOR_E [UIColor colorWithRed:118.0f / 255.0 green:88.0f / 255.0f blue:226.0f / 255.0f alpha:1.0f]     // BLUE
+#define PALLETE_BASE_COLOR_F [UIColor colorWithRed:204.0f / 255.0 green:111.0f / 255.0f blue:215.0f / 255.0f alpha:1.0f]    // MAGENTA
+#define PALLETE_BASE_COLOR_G [UIColor colorWithRed:0.0f green:193.0f / 255.0f blue:226.0f / 255.0f alpha:1.0f]              // CYAN
+#define PALLETE_BASE_COLOR_H [UIColor colorWithRed:234.0f / 255.0 green:195.0f / 255.0f blue:78.0f / 255.0f alpha:1.0f]     // GOLD
+#define PALLETE_BASE_COLOR_I [UIColor colorWithRed:0.9f green:0.9f blue:0.9 alpha:1.0f]
+#define PALLETE_BASE_COLOR_J [UIColor colorWithRed:228.0f / 255.0 green:87.0f / 255.0f blue:121.0f / 255.0f alpha:1.0f]     // RED
 
 #define PALLETE_BASE_COLOR_FOR_TEXT [UIColor blackColor]
 

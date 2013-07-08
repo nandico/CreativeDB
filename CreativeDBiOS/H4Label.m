@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textAlignment = NSTextAlignmentLeft;
-        self.textColor = H4_LABEL_COLOR;
+        self.textColor = PALLETE_BLACK_FOR_ELEMENTS;
         self.font = H4_LABEL_FONT;
         self.backgroundColor = H4_LABEL_BACKGROUND_COLOR;
     }

@@ -285,10 +285,10 @@
     [engine applyFrame:_logo withLine:line1 andColumn:columnLogo];
 
     [engine applyFrame:_menuScroll withLine:line1 andColumn:columnMenu];
-    _menuScroll.backgroundColor = PALLETE_BASE_COLOR_FOR_TEXT;
+    _menuScroll.backgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
     
     _logo.backgroundColor = PALLETE_BASE_COLOR_B;
-    _logo.userInitials.textColor = PALLETE_BASE_COLOR_FOR_TEXT;
+    _logo.userInitials.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     _logo.userInitials.text = @"CD";
 
     _dashboardButton.backgroundColor = PALLETE_BASE_COLOR_G;

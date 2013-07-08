@@ -15,8 +15,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.textAlignment = NSTextAlignmentLeft;
-        self.textColor = HEADER_TITLE_COLOR;
-        self.backgroundColor = HEADER_TITLE_BACKGROUND_COLOR;
+        self.textColor = PALLETE_BLACK_FOR_ELEMENTS;
+        //self.backgroundColor = HEADER_TITLE_BACKGROUND_COLOR;
         self.font = HEADER_TITLE_FONT;
     }
     return self;
