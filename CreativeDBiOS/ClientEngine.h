@@ -108,7 +108,7 @@
 //#define CONTENT_SCROLL_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 754.0f)
 #define CONTENT_SCROLL_PORTRAIT_FRAME CGRectMake(0, 125.0f, 768.0f, 754.0f)
 
-#define PALLETE_WHITE_FOR_BACKGROUND [UIColor whiteColor]
+#define PALLETE_WHITE_FOR_BACKGROUND [UIColor colorWithRed:0.96f green:0.96f blue:0.96f alpha:1.0f]
 #define PALLETE_BLACK_FOR_BACKGROUND [UIColor blackColor]
 #define PALLETE_WHITE_FOR_ELEMENTS [UIColor whiteColor]
 #define PALLETE_BLACK_FOR_ELEMENTS [UIColor colorWithRed:0.4f green:0.4f blue:0.4f alpha:1.0f]

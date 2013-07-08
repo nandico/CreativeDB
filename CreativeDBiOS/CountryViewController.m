@@ -97,7 +97,7 @@
 //    line.height = @100;
 //    [_engine addLine:line];
 //    _titleEntries.offsetX = APP_LEFT_PADDING;
-//    _titleEntries.text = @"Entries";
+//    _titleEntries.text = @"Awards";
 //    [_engine applyFrame:_titleEntries withLine:line andColumn:column];
 //
 //    [self.scrollView addSubview:_titleEntries];

@@ -64,7 +64,7 @@
     ColumnModel *column1 = [[ColumnModel alloc] initWithPercent:@20];
     ColumnModel *column2 = [[ColumnModel alloc] initWithPercent:@21.8];
     ColumnModel *column3 = [[ColumnModel alloc] initWithPercent:@29.2];
-    ColumnModel *column4 = [[ColumnModel alloc] initWithPercent:@30];
+    ColumnModel *column4 = [[ColumnModel alloc] initWithPercent:@29];
     ColumnModel *column5 = [[ColumnModel alloc] initWithFixed:@125];
     
     LineModel *line1 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];

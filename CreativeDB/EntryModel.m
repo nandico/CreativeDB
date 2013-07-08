@@ -523,6 +523,35 @@
     return collection;
 }
 
++ (NSMutableArray *) loadByClientId:(NSNumber *) clientPK
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    EntryModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[ NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE client = %@", [self fields], [self tableName], clientPK] ];
+    
+    while( [results next] )
+    {
+        model = [EntryModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+}
+
 - (NSInteger) calculateRankGlobal:(NSNumber *) year
 {
     NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME

@@ -35,6 +35,8 @@
 - (NSInteger) calculateRankGlobal:(NSNumber *) year;
 - (NSInteger) calculateRankCountry:(NSNumber *) year;
 
+- (NSMutableArray *) entries;
+
 
 
 @end

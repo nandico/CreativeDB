@@ -14,6 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         _thumb = [[PersonIdView alloc] init];
         _name = [[NameLabel alloc] init];
         _country = [[CountryLabel alloc] init];
@@ -27,6 +28,10 @@
         [self.contentView addSubview:_position];
         [self.contentView addSubview:_score];
         [self.contentView addSubview:_flag];
+        
+        self.contentView.backgroundColor = PALLETE_WHITE_FOR_BACKGROUND;
+        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        
     }
     return self;
 }

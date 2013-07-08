@@ -150,6 +150,12 @@
     return count;
 }
 
+- (NSMutableArray *) entries
+{
+    return [EntryModel loadByClientId:self.pk];
+}
+
+
 
 - (NSNumber *) next
 {

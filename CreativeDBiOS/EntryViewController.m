@@ -7,6 +7,7 @@
 //
 
 #import "EntryViewController.h"
+#import "EntryDetailView.h"
 #import "H1Label.h"
 
 @interface EntryViewController ()
@@ -61,77 +62,74 @@
     
     if( self.selectedEntry )
     {
-//        [self removeData];
+        [self removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];
-//        [self updateEntries];
+        [self updateEntries];
     }
 }
 
-//- (void) removeData
-//{
-//    [_titleEntries removeFromSuperview];
-//    
-//    for( EntryDetailView *entry in _entryLines )
-//    {
-//        [entry removeFromSuperview];
-//    }
-//}
+- (void) removeData
+{
+    [_titleEntries removeFromSuperview];
+    
+    for( EntryDetailView *entry in _entryLines )
+    {
+        [entry removeFromSuperview];
+    }
+}
 
-//- (void) updateEntries
-//{
-//    NSInteger awardIndex = 0;
-//    
-//    [_engine startEngine];
-//    [_engine setMustConsiderHeader:NO];
-//    [_engine setSpacingAfterHeader:0.0f];
-//    
-//    [_engine setCurrentOrientation:_currentOrientation];
-//    
-//    ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
-//    LineModel *line = [[LineModel alloc] initWithOptions:
-//                       [NSMutableArray arrayWithObjects:column, nil ]];
-//    line.height = @100;
-//    [_engine addLine:line];
-//    _titleEntries.offsetX = APP_LEFT_PADDING;
-//    _titleEntries.text = @"Entries";
-//    [_engine applyFrame:_titleEntries withLine:line andColumn:column];
-//    
-//    [self.scrollView addSubview:_titleEntries];
-//    
-//    
-//    for( EntryModel *entry in _selectedAgency.entries )
-//    {
-//        for( AwardModel *award in entry.awards )
-//        {
-//            ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
-//            LineModel *line = [[LineModel alloc] initWithOptions:
-//                               [NSMutableArray arrayWithObjects:column, nil ]];
-//            line.height = @180;
-//            [_engine addLine:line];
-//            
-//            EntryDetailView *entryView = [[EntryDetailView alloc] init];
-//            
-//            [entryView updateOrientation:_currentOrientation];
-//            
-//            [_engine applyFrame:entryView withLine:line andColumn:column];
-//            
-//            entryView.selectedEntry = entry;
-//            entryView.selectedAward = award;
-//            [entryView updateData];
-//            
-//            [self.scrollView addSubview:entryView];
-//            
-//            [_entryLines addObject:entryView];
-//            
-//            awardIndex ++;
-//        }
-//    }
-//    
-//    [_scrollView setContentSize:CGSizeMake(0.0f, [_engine getActualLineOffset])];
-//    
-//}
+- (void) updateEntries
+{
+    NSInteger awardIndex = 0;
+    
+    [_engine startEngine];
+    [_engine setMustConsiderHeader:NO];
+    [_engine setSpacingAfterHeader:0.0f];
+    
+    [_engine setCurrentOrientation:_currentOrientation];
+    
+    ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
+    LineModel *line = [[LineModel alloc] initWithOptions:
+                       [NSMutableArray arrayWithObjects:column, nil ]];
+    line.height = @100;
+    [_engine addLine:line];
+    _titleEntries.offsetX = APP_LEFT_PADDING;
+    _titleEntries.text = @"Awards";
+    [_engine applyFrame:_titleEntries withLine:line andColumn:column];
+    
+    [self.scrollView addSubview:_titleEntries];
+    
+    
+    for( AwardModel *award in _selectedEntry.awards )
+    {
+        ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
+        LineModel *line = [[LineModel alloc] initWithOptions:
+                           [NSMutableArray arrayWithObjects:column, nil ]];
+        line.height = @180;
+        [_engine addLine:line];
+        
+        EntryDetailView *entryView = [[EntryDetailView alloc] init];
+        
+        [entryView updateOrientation:_currentOrientation];
+        
+        [_engine applyFrame:entryView withLine:line andColumn:column];
+        
+        entryView.selectedEntry = award.entry;
+        entryView.selectedAward = award;
+        [entryView updateData];
+        
+        [self.scrollView addSubview:entryView];
+        
+        [_entryLines addObject:entryView];
+        
+        awardIndex ++;
+    }
+
+    [_scrollView setContentSize:CGSizeMake(0.0f, [_engine getActualLineOffset])];
+    
+}
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
 {
@@ -141,21 +139,21 @@
     if( UIDeviceOrientationIsPortrait( orientation ) )
     {
         self.scrollView.frame = CONTENT_SCROLL_PORTRAIT_FRAME;
-//        [self removeData];
+        [self removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];
-//        [self updateEntries];
+        [self updateEntries];
         [self updateChildOrientation:orientation];
     }
     else if( UIDeviceOrientationIsLandscape( orientation ) )
     {
         self.scrollView.frame = CONTENT_SCROLL_LANDSCAPE_FRAME;
-//        [self removeData];
+        [self removeData];
         self.viewInstance.dataSource = self;
         [self.viewInstance updateData];
         [self.viewInstance updateOrientation:_currentOrientation];
-//        [self updateEntries];
+        [self updateEntries];
         [self updateChildOrientation:orientation];
     }
     
@@ -163,10 +161,10 @@
 
 - (void) updateChildOrientation:( UIDeviceOrientation ) orientation
 {
-//    for( EntryDetailView *child in _entryLines )
-//    {
-//        [child updateOrientation:orientation];
-//    }
+    for( EntryDetailView *child in _entryLines )
+    {
+        [child updateOrientation:orientation];
+    }
 }
 
 - (UIScrollView *) scrollView

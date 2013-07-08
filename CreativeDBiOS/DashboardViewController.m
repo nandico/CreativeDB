@@ -158,7 +158,7 @@
     _groupSummary.content.text = @"Groups";
     
     _producerSummary = [[DashboardSquare alloc] init];
-    _producerSummary.backgroundColor = PALLETE_BASE_COLOR_G;
+    _producerSummary.backgroundColor = PALLETE_BASE_COLOR_D;
     [self.scrollView addSubview:_producerSummary];
     _producerSummary.title.text = [[ProducerModel modelCount] stringValue];
     _producerSummary.content.text = @"Producer companies";
@@ -171,7 +171,7 @@
     _forBlock.title.textColor = baseTextColor;
     
     _clientSummary = [[DashboardSquare alloc] init];
-    _clientSummary.backgroundColor = PALLETE_BASE_COLOR_G;
+    _clientSummary.backgroundColor = PALLETE_BASE_COLOR_H;
     [self.scrollView addSubview:_clientSummary];
     _clientSummary.title.text = [[ClientModel modelCount] stringValue];
     _clientSummary.content.text = @"Clients";
@@ -184,7 +184,7 @@
     _andBlock.title.textColor = baseTextColor;
     
     _productSummary = [[DashboardSquare alloc] init];
-    _productSummary.backgroundColor = PALLETE_BASE_COLOR_H;
+    _productSummary.backgroundColor = PALLETE_BASE_COLOR_G;
     [self.scrollView addSubview:_productSummary];
     _productSummary.title.text = [[ProductModel modelCount] stringValue];
     _productSummary.content.text = @"Products";
@@ -210,7 +210,7 @@
     _thisBlock.title.textColor = baseTextColor;
     
     _isBlock = [[DashboardSquare alloc] init];
-    _isBlock.backgroundColor = baseTextColor;
+    _isBlock.backgroundColor = PALLETE_BASE_COLOR_A;
     [self.scrollView addSubview:_isBlock];
     _isBlock.title.font = LABEL_BIG_FONT;
     _isBlock.title.text = @"IS";
@@ -221,7 +221,7 @@
     [self.scrollView addSubview:_creativeDBBlock];
     _creativeDBBlock.title.font = LABEL_BIG_FONT;
     _creativeDBBlock.title.text = @"CreativeDB";
-    _creativeDBBlock.title.textColor = PALLETE_BASE_COLOR_FOR_TEXT;
+    _creativeDBBlock.title.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     
 }
 
