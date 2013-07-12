@@ -49,7 +49,7 @@
     
     _roleManager = [[RoleManagerViewController alloc] initWithOptions:roleOptions];
     CGRect contentFrame = NSMakeRect( 10,
-                                     279,
+                                     277,
                                      COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
     _roleManager.view.frame = contentFrame;

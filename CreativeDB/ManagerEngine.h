@@ -34,7 +34,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_CONTAINER_HEIGHT 32.0f
 #define MLE_TEXTAREA_CONTAINER_HEIGHT 108.0f
 #define MLE_CONTAINER_CORNER_RADIUS 5.0f
-#define MLE_CONTAINER_SPACING 5.0f
+#define MLE_CONTAINER_SPACING 2.0f
 
 #define MLE_FIELD_ALPHA 1.0f
 
@@ -62,8 +62,8 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_HEADER_OFFSET_X 5.0f
 #define MLE_HEADER_OFFSET_Y 0.0f
 #define MLE_HEADER_WIDTH 450.0f
-#define MLE_HEADER_HEIGHT 25.0f
-#define MLE_HEADER_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 16.0f]
+#define MLE_HEADER_HEIGHT 42.0f
+#define MLE_HEADER_FONT [NSFont fontWithName : @ "LeagueGothic-Regular" size : 30.0f]
 #define MLE_HEADER_COLOR [NSColor colorWithCalibratedRed:0.3f green:0.3f blue:0.3f alpha:1.0f]
 
 #define MLE_LABEL_OFFSET_X 5.0f
@@ -89,7 +89,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_BUTTON_HEIGHT 35.0f
 #define MLE_BUTTON_OFFSET_X 10.0f
 #define MLE_BUTTON_OFFSET_Y -3.0f
-#define MLE_BUTTON_FONT [NSFont fontWithName : @ "Montserrat-Regular" size : 12.0f]
+#define MLE_BUTTON_FONT [NSFont fontWithName : @ "LeagueGothic-Regular" size : 23.0f]
 
 #define MLE_MENU_BUTTON_WIDTH 100.0f
 #define MLE_MENU_BUTTON_HEIGHT 80.0f
@@ -122,6 +122,7 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_FIELDSET_MODEL_ITEM @"FIELDSET_MODEL_ITEM"
 #define MLE_FIELDSET_MODEL_FILTERNAME @"FIELDSET_MODEL_FILTERNAME"
 #define MLE_FIELDSET_MODEL_FILTERVALUE @"FIELDSET_MODEL_FILTERVALUE"
+#define MLE_FIELDSET_MODEL_BACKGROUND_COLOR @"MLE_FIELDSET_MODEL_BACKGROUND_COLOR"
 
 #define MLE_CONTAINER_COLOR [NSColor colorWithCalibratedRed:0.58f green:0.58f blue :0.58f alpha:0.2f]
 
@@ -130,6 +131,17 @@ enum ManagerFieldDataType : NSInteger {
 #define MLE_NOTIFICATION_DELETE @"NOTIFICATION_DELETE"
 #define MLE_NOTIFICATION_PREVIOUS @"NOTIFICATION_PREVIOUS"
 #define MLE_NOTIFICATION_NEXT @"NOTIFICATION_NEXT"
+
+#define PALLETE_BASE_COLOR_A [NSColor colorWithCalibratedRed:255.0f / 255.0f green:128.0f / 255.0f blue:77.0f / 255.0f alpha:1.0f]    // ORANGE
+#define PALLETE_BASE_COLOR_B [NSColor colorWithCalibratedRed:234.0f / 255.0 green:195.0f / 255.0f blue:78.0f / 255.0f alpha:1.0f]
+#define PALLETE_BASE_COLOR_C [NSColor colorWithCalibratedRed:71.0f / 255.0 green:179.0f / 255.0f blue:157.0f / 255.0f alpha:1.0f]
+#define PALLETE_BASE_COLOR_D [NSColor colorWithCalibratedRed:89.0 / 255.0f green:218.0f / 255.0f blue:154.0f / 255.0f alpha:1.0f]     // LIGHT GREEN
+#define PALLETE_BASE_COLOR_E [NSColor colorWithCalibratedRed:118.0f / 255.0 green:88.0f / 255.0f blue:226.0f / 255.0f alpha:1.0f]     // BLUE
+#define PALLETE_BASE_COLOR_F [NSColor colorWithCalibratedRed:204.0f / 255.0 green:111.0f / 255.0f blue:215.0f / 255.0f alpha:1.0f]    // MAGENTA
+#define PALLETE_BASE_COLOR_G [NSColor colorWithCalibratedRed:0.0f green:193.0f / 255.0f blue:226.0f / 255.0f alpha:1.0f]              // CYAN
+#define PALLETE_BASE_COLOR_H [NSColor colorWithCalibratedRed:234.0f / 255.0 green:195.0f / 255.0f blue:78.0f / 255.0f alpha:1.0f]     // GOLD
+#define PALLETE_BASE_COLOR_I [NSColor colorWithCalibratedRed:0.9f green:0.9f blue:0.9 alpha:1.0f]
+#define PALLETE_BASE_COLOR_J [NSColor colorWithCalibratedRed:228.0f / 255.0 green:87.0f / 255.0f blue:121.0f / 255.0f alpha:1.0f]     // RED
 
 @interface ManagerEngine : NSObject
 

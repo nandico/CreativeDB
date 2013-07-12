@@ -129,6 +129,8 @@
 
 #define PALLETE_BASE_COLOR_FOR_TEXT [UIColor blackColor]
 
+#define ENTRY_LIST_ENTRY_HEIGHT @260
+
 @protocol ClientLayoutable <NSObject>
 
 @property (assign) CGFloat offsetX;

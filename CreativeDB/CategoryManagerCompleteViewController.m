@@ -45,7 +45,7 @@
     
     _categoryManager = [[CategoryManagerViewController alloc] initWithOptions:categoryOptions];
     CGRect contentFrame = NSMakeRect( 10,
-                                     392,
+                                     387,
                                      COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
     _categoryManager.view.frame = contentFrame;

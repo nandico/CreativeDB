@@ -421,6 +421,7 @@
 		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
 		BF9C642F178A5255004158DD /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C642E178A5255004158DD /* MarkerView.m */; };
+		BF9EAF9D1790A75300B03FFD /* ManagerMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9EAF9C1790A75300B03FFD /* ManagerMenuButtonCell.m */; };
 		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
 		BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2EA2171BA2360044262E /* BaseManagerView.m */; };
 		BFBC5EB6174E771E0004E022 /* AgencyManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */; };
@@ -973,6 +974,8 @@
 		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
 		BF9C642D178A5255004158DD /* MarkerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerView.h; sourceTree = "<group>"; };
 		BF9C642E178A5255004158DD /* MarkerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerView.m; sourceTree = "<group>"; };
+		BF9EAF9B1790A75300B03FFD /* ManagerMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerMenuButtonCell.h; sourceTree = "<group>"; };
+		BF9EAF9C1790A75300B03FFD /* ManagerMenuButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerMenuButtonCell.m; sourceTree = "<group>"; };
 		BFA5E7131744383200466F5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerViewController.h; sourceTree = "<group>"; };
 		BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerViewController.m; sourceTree = "<group>"; };
@@ -1973,6 +1976,8 @@
 				BF567C5F1755957800466128 /* ManagerSubmenuButton.m */,
 				BF1787FB1749928A00057FF4 /* ManagerMenuButton.h */,
 				BF1787FC1749928A00057FF4 /* ManagerMenuButton.m */,
+				BF9EAF9B1790A75300B03FFD /* ManagerMenuButtonCell.h */,
+				BF9EAF9C1790A75300B03FFD /* ManagerMenuButtonCell.m */,
 				BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */,
 				BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */,
 				BFAD2EA1171BA2350044262E /* BaseManagerView.h */,
@@ -2545,6 +2550,7 @@
 				BF5472F3175EC4D60056499B /* ManagerFilterComboBox.m in Sources */,
 				BF5472F6175EC8430056499B /* ManagerFilterTextField.m in Sources */,
 				BF4F3B0C1764133E0038C761 /* ManagerListMessage.m in Sources */,
+				BF9EAF9D1790A75300B03FFD /* ManagerMenuButtonCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

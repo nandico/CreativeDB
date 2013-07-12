@@ -31,6 +31,7 @@
 @property (strong, nonatomic) H1Label *year;
 @property (strong, nonatomic) H2Label *metal;
 @property (strong, nonatomic) H3Label *entry;
+@property (strong, nonatomic) H3Label *agency;
 @property (strong, nonatomic) H3Label *client;
 @property (strong, nonatomic) H3Label *product;
 @property (strong, nonatomic) H1Label *festival;

@@ -27,6 +27,7 @@
         [self year];
         [self metal];
         [self entry];
+        [self agency];
         [self client];
         [self product];
         [self festival];
@@ -83,19 +84,30 @@
     _festival.prefferedHeight = lineHeigth;
     [_engine applyFrame:_festival withLine:line1 andColumn:column4];
     
-    LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
+    ColumnModel *column1L2 = [[ColumnModel alloc] initWithPercent:@20];
+    ColumnModel *column2L2 = [[ColumnModel alloc] initWithPercent:@51];
+    ColumnModel *column3L2 = [[ColumnModel alloc] initWithPercent:@29];
+    ColumnModel *column4L2 = [[ColumnModel alloc] initWithFixed:@125];
+    
+    LineModel *line2 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1L2, column2L2, column3L2, column4L2, nil]];
     line2.height = [NSNumber numberWithFloat:lineHeigth];
     [_engine addLine:line2];
     
-    [_engine applyFrame:_client withLine:line2 andColumn:column3];
-    [_engine applyFrame:_category withLine:line2 andColumn:column4];
+    [_engine applyFrame:_category withLine:line2 andColumn:column3L2];
     
-    LineModel *line3 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1, column2, column3, column4, column5, nil]];
+    LineModel *line3 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1L2, column2L2, column3L2, column4L2, nil]];
     line3.height = [NSNumber numberWithFloat:lineHeigth];
     [_engine addLine:line3];
+
+    [_engine applyFrame:_client withLine:line3 andColumn:column2L2];
+    [_engine applyFrame:_agency withLine:line2 andColumn:column2L2];
+ 
+    LineModel *line4 = [[LineModel alloc] initWithOptions:[NSMutableArray arrayWithObjects:column1L2, column2L2, column3L2, column4L2, nil]];
+    line4.height = [NSNumber numberWithFloat:lineHeigth];
+    [_engine addLine:line4];
     
-    [_engine applyFrame:_product withLine:line3 andColumn:column3];
-    [_engine applyFrame:_subcategory withLine:line3 andColumn:column4];
+    [_engine applyFrame:_product withLine:line4 andColumn:column2L2];
+    [_engine applyFrame:_subcategory withLine:line3 andColumn:column3L2];
     
 }
 
@@ -109,7 +121,17 @@
     if( !_selectedEntry ) return;
     if( !_selectedAward ) return;
     
-    if( _selectedPerson ) self.roles.text = [self stringfyRolesFromCredits:_credits forPersonId:_selectedPerson.pk];
+    if( _selectedPerson )
+    {
+        self.roles.text = [NSString stringWithFormat:@"%@ - %@",
+                           _selectedPerson.name,
+                           [self stringfyRolesFromCredits:_credits forPersonId:_selectedPerson.pk]];
+    }
+    else
+    {
+        self.roles.text = @"";
+    }
+    
     self.year.text = [NSString stringWithFormat:@"      %@", _selectedAward.year ];
     self.year.backgroundColor = PALLETE_BASE_COLOR_I;
     self.metal.text = _selectedAward.metal.name;
@@ -119,6 +141,7 @@
     self.entry.backgroundColor = PALLETE_BASE_COLOR_C;
     self.entry.textColor = PALLETE_WHITE_FOR_ELEMENTS;
     self.client.text = _selectedEntry.client.name;
+    self.agency.text = _selectedEntry.agency.name;
     self.product.text = ( _selectedEntry.product ) ? _selectedEntry.product.name : @"";
     self.festival.text = _selectedAward.festival.name;
     self.festival.backgroundColor = PALLETE_BASE_COLOR_I;
@@ -135,11 +158,18 @@
     {
         if( [credit.personPK isEqualToNumber:personId] )
         {
-            [roles appendString:[NSString stringWithFormat:@"%@          ", credit.role.name ]];
+            if( roles.length > 0 )
+            {
+                [roles appendString:[NSString stringWithFormat:@" / %@", credit.role.name ]];
+            }
+            else
+            {
+                [roles appendString:[NSString stringWithFormat:@"%@", credit.role.name ]];
+            }
         }
     }
     
-    return roles;
+    return [roles stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
 - (void) updateOrientation:( UIDeviceOrientation ) orientation;
@@ -211,6 +241,17 @@
     }
     
     return _client;
+}
+
+- (H3Label *) agency
+{
+    if( !_agency )
+    {
+        _agency = [[H3Label alloc] init];
+        [self addSubview:_agency];
+    }
+    
+    return _agency;
 }
 
 - (H3Label *) product

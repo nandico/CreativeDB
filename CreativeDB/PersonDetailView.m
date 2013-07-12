@@ -49,7 +49,7 @@
         
         _personName = [[ManagerHeader alloc] initWithOptions:options];
         _personName.frame = NSMakeRect(_personName.frame.origin.x,
-                                       COMPLETE_VIEW_CONTAINER_HEADER_HEIGHT,
+                                       COMPLETE_VIEW_CONTAINER_HEADER_HEIGHT - 8.0f,
                                        _personName.frame.size.width,
                                        _personName.frame.size.height);
         

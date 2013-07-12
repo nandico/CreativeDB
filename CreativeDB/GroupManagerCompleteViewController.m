@@ -45,7 +45,7 @@
     
     _groupManager = [[GroupManagerViewController alloc] initWithOptions:groupOptions];
     CGRect contentFrame = NSMakeRect( 10,
-                                     355,
+                                     353,
                                      COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
     _groupManager.view.frame = contentFrame;

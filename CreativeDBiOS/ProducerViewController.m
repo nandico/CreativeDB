@@ -110,7 +110,7 @@
             ColumnModel *column = [[ColumnModel alloc] initWithPercent:@100];
             LineModel *line = [[LineModel alloc] initWithOptions:
                                [NSMutableArray arrayWithObjects:column, nil ]];
-            line.height = @180;
+            line.height = ENTRY_LIST_ENTRY_HEIGHT;
             [_engine addLine:line];
 
             EntryDetailView *entryView = [[EntryDetailView alloc] init];

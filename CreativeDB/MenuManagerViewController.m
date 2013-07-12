@@ -73,8 +73,8 @@
     [_menuButtons addObject:[self groups]];
     [_menuButtons addObject:[self clients]];
     [_menuButtons addObject:[self persons]];
-    [_menuButtons addObject:[self roles]];
     [_menuButtons addObject:[self producers]];
+    [_menuButtons addObject:[self roles]];
     [_menuButtons addObject:[self categories]];
     [_menuButtons addObject:[self subcategories]];
     [_menuButtons addObject:[self reports]];
@@ -141,6 +141,7 @@
         _entries.title = @"Entries";
         [_entries setTarget:self];
         [_entries setAction:@selector(entriesAction)];
+        [_entries.cell setBackgroundColor:PALLETE_BASE_COLOR_A];
         [self.viewInstance addSubview:_entries];
     }
     
@@ -155,6 +156,7 @@
         _agencies.title = @"Agencies";
         [_agencies setTarget:self];
         [_agencies setAction:@selector(agenciesAction)];
+        [_agencies.cell setBackgroundColor:PALLETE_BASE_COLOR_E];
         [self.viewInstance addSubview:_agencies];
     }
     
@@ -169,6 +171,7 @@
         _groups.title = @"Groups";
         [_groups setTarget:self];
         [_groups setAction:@selector(groupsAction)];
+        [_groups.cell setBackgroundColor:PALLETE_BASE_COLOR_F];
         [self.viewInstance addSubview:_groups];
     }
     
@@ -183,6 +186,7 @@
         _clients.title = @"Clients";
         [_clients setTarget:self];
         [_clients setAction:@selector(clientsAction)];
+        [_clients.cell setBackgroundColor:PALLETE_BASE_COLOR_H];
         [self.viewInstance addSubview:_clients];
     }
     
@@ -197,6 +201,7 @@
         _persons.title = @"Persons";
         [_persons setTarget:self];
         [_persons setAction:@selector(personsAction)];
+        [_persons.cell setBackgroundColor:PALLETE_BASE_COLOR_D];
         [self.viewInstance addSubview:_persons];
     }
     
@@ -225,6 +230,7 @@
         _producers.title = @"Producers";
         [_producers setTarget:self];
         [_producers setAction:@selector(producersAction)];
+        [_producers.cell setBackgroundColor:PALLETE_BASE_COLOR_C];
         [self.viewInstance addSubview:_producers];
     }
     
@@ -239,6 +245,7 @@
         _reports.title = @"Reports";
         [_reports setTarget:self];
         [_reports setAction:@selector(reportsAction)];
+        [_reports.cell setBackgroundColor:PALLETE_BASE_COLOR_G];
         [self.viewInstance addSubview:_reports];
     }
     

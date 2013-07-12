@@ -74,8 +74,8 @@
                                    nil];
     
     _entryListHeader = [[ManagerHeader alloc] initWithOptions:entryListHeaderOptions];
-    _entryListHeader.frame = NSMakeRect(COMPLETE_VIEW_OFFSET_X,
-                                        COMPLETE_VIEW_CONTAINER_MEDIUMLIST_HEIGHT + 7.0f,
+    _entryListHeader.frame = NSMakeRect(COMPLETE_VIEW_OFFSET_X + MLE_HEADER_OFFSET_X,
+                                        COMPLETE_VIEW_CONTAINER_MEDIUMLIST_HEIGHT,
                                         _entryListHeader.frame.size.width,
                                         _entryListHeader.frame.size.height);
     [_scrollContent addSubview:_entryListHeader];
@@ -104,7 +104,7 @@
     
     _entryManager = [[EntryManagerViewController alloc] initWithOptions:entryOptions];
     _entryManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X,
-                                          COMPLETE_VIEW_OFFSET_Y,
+                                          COMPLETE_VIEW_OFFSET_Y + 19.0f,
                                           COMPLETE_VIEW_CONTAINER_WIDTH,
                                           COMPLETE_VIEW_CONTAINER_HEIGHT );
     [_scrollContent addSubview:_entryManager.view];
@@ -124,7 +124,7 @@
     
     _awardManager = [[AwardManagerViewController alloc] initWithOptions:awardOptions];
     _awardManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH  ),
-                                          COMPLETE_VIEW_OFFSET_Y + 187.0f,
+                                          COMPLETE_VIEW_OFFSET_Y + 197.0f,
                                           COMPLETE_VIEW_CONTAINER_WIDTH,
                                           COMPLETE_VIEW_CONTAINER_HEIGHT );
     [_scrollContent addSubview:_awardManager.view];
@@ -161,7 +161,7 @@
     
     _creditManager = [[CreditManagerViewController alloc] initWithOptions:creditOptions];
     _creditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 2 ),
-                                           COMPLETE_VIEW_OFFSET_Y + 261.0f,
+                                           COMPLETE_VIEW_OFFSET_Y + 265.0f,
                                            COMPLETE_VIEW_CONTAINER_WIDTH,
                                            COMPLETE_VIEW_CONTAINER_HEIGHT );
     [_scrollContent addSubview:_creditManager.view];
@@ -198,7 +198,7 @@
     
     _producerCreditManager = [[ProducerCreditManagerViewController alloc] initWithOptions:producerCreditOptions];
     _producerCreditManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_MEDIUMLIST_WIDTH + COMPLETE_VIEW_OFFSET_X + ( COMPLETE_VIEW_CONTAINER_WIDTH * 3 ),
-                                                   COMPLETE_VIEW_OFFSET_Y + 298.0f,
+                                                   COMPLETE_VIEW_OFFSET_Y + 299.0f,
                                                    COMPLETE_VIEW_CONTAINER_WIDTH,
                                                    COMPLETE_VIEW_CONTAINER_HEIGHT );
     [_scrollContent addSubview:_producerCreditManager.view];

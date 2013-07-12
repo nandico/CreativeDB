@@ -52,7 +52,7 @@
     
     _clientManager = [[ClientManagerViewController alloc] initWithOptions:clientOptions];
     CGRect contentFrame = NSMakeRect( 10,
-                                     355,
+                                     353,
                                      COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
     _clientManager.view.frame = contentFrame;
@@ -87,7 +87,7 @@
     _productManager = [[ProductManagerViewController alloc] initWithOptions:productOptions];
     
     _productManager.view.frame = NSMakeRect( ( COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH ),
-                                            355,
+                                            353,
                                             COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                             COMPLETE_VIEW_CONTAINER_HEIGHT );
     

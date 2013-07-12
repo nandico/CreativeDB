@@ -45,7 +45,7 @@
     
     _subcategoryManager = [[SubcategoryManagerViewController alloc] initWithOptions:subcategoryOptions];
     CGRect contentFrame = NSMakeRect( 10,
-                                     392,
+                                     387,
                                      COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
     _subcategoryManager.view.frame = contentFrame;

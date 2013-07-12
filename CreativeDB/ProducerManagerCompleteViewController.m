@@ -47,7 +47,7 @@
     
     _producerManager = [[ProducerManagerViewController alloc] initWithOptions:producerOptions];
     CGRect contentFrame = NSMakeRect( 10,
-                                     318,
+                                     319,
                                      COMPLETE_VIEW_OFFSET_X + COMPLETE_VIEW_CONTAINER_WIDTH,
                                      COMPLETE_VIEW_CONTAINER_HEIGHT );
     _producerManager.view.frame = contentFrame;
