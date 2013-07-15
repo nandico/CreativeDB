@@ -38,6 +38,9 @@
 @property (nonatomic, strong) ManagerSubmenuButton *reportsProducer;
 @property (nonatomic, strong) ManagerSubmenuButton *reportsProduct;
 
+@property (nonatomic, strong) BaseLayeredView *entriesMenu;
+@property (nonatomic, strong) ManagerSubmenuButton *entriesImport;
+
 @property (nonatomic,strong) NSMutableArray *menuButtons;
 @property (nonatomic,strong) NSMutableArray *submenuButtons;
 
@@ -54,10 +57,16 @@
         
         _submenuButtons = [[NSMutableArray alloc] init];
 
+        _entriesMenu = [[BaseLayeredView alloc] init];
+        _entriesMenu.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+        [self.viewInstance addSubview:_entriesMenu];
+        [self prepareEntriesSubmenu];
+        [_entriesMenu setHidden:NO];
+        
         _reportsMenu = [[BaseLayeredView alloc] init];
         _reportsMenu.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
         [self.viewInstance addSubview:_reportsMenu];
-        [self prepareSubmenus:_reportsMenu];
+        [self prepareReportsSubmenu];
         [_reportsMenu setHidden:YES];
     }
     
@@ -95,7 +104,7 @@
     }
 }
 
-- (void) prepareSubmenus:(BaseLayeredView *) submenuView
+- (void) prepareReportsSubmenu
 {
     [_submenuButtons addObject:[self reportsRefresh]];
     [_submenuButtons addObject:[self reportsPerson]];
@@ -106,12 +115,25 @@
     [_submenuButtons addObject:[self reportsProducer]];
     [_submenuButtons addObject:[self reportsProduct]];
     
-    for( ManagerSubmenuButton *button in _submenuButtons )
-    {
-        [submenuView addSubview:button];
-    }
+    [_reportsMenu addSubview:self.reportsRefresh];
+    [_reportsMenu addSubview:self.reportsPerson];
+    [_reportsMenu addSubview:self.reportsAgency];
+    [_reportsMenu addSubview:self.reportsClient];
+    [_reportsMenu addSubview:self.reportsCountry];
+    [_reportsMenu addSubview:self.reportsGroup];
+    [_reportsMenu addSubview:self.reportsProducer];
+    [_reportsMenu addSubview:self.reportsProduct];
     
-    [self arrangeSubmenu:submenuView];
+    [self arrangeSubmenu:_reportsMenu];
+}
+
+- (void) prepareEntriesSubmenu
+{
+    [_submenuButtons addObject:[self entriesImport]];
+    
+    [_entriesMenu addSubview:self.entriesImport];
+    
+    [self arrangeSubmenu:_entriesMenu];
 }
 
 - (void) arrangeSubmenu:(BaseLayeredView *) submenuView
@@ -285,7 +307,7 @@
     if(!_reportsRefresh)
     {
         _reportsRefresh = [[ManagerSubmenuButton alloc] init];
-        _reportsRefresh.title = @"REFRESH REPORT";
+        _reportsRefresh.title = @"REFRESH";
         [_reportsRefresh setTarget:self];
         [_reportsRefresh setAction:@selector(reportsRefreshAction:)];
         [self.viewInstance addSubview:_reportsRefresh];
@@ -408,15 +430,37 @@
 - (void) entriesAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:NO];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_ENTRIES
                                                         object:self
                                                       userInfo:nil];
 }
 
+- (ManagerSubmenuButton *) entriesImport
+{
+    if(!_entriesImport)
+    {
+        _entriesImport = [[ManagerSubmenuButton alloc] init];
+        _entriesImport.title = @"Import";
+        [_entriesImport setTarget:self];
+        [_entriesImport setAction:@selector(entriesImportAction)];
+        [self.viewInstance addSubview:_entriesImport];
+    }
+    
+    return _entriesImport;
+}
+
+- (void) entriesImportAction
+{
+    NSLog( @"Import." );
+}
+
+
 - (void) agenciesAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_AGENCIES
                                                         object:self
@@ -426,6 +470,7 @@
 - (void) groupsAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_GROUPS
                                                         object:self
@@ -436,6 +481,7 @@
 - (void) clientsAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_CLIENTS
                                                         object:self
@@ -445,6 +491,7 @@
 - (void) personsAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_PERSONS
                                                         object:self
@@ -454,6 +501,7 @@
 - (void) rolesAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_ROLES
                                                         object:self
@@ -463,6 +511,7 @@
 - (void) producersAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_PRODUCERS
                                                         object:self
@@ -472,6 +521,7 @@
 - (void) categoriesAction
 {
     [_reportsMenu setHidden:YES];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_CATEGORIES
                                                         object:self
@@ -490,6 +540,7 @@
 - (void) reportsAction
 {
     [_reportsMenu setHidden:NO];
+    [_entriesMenu setHidden:YES];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:MENU_REPORTS
                                                         object:self

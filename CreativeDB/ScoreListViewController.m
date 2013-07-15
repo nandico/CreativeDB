@@ -93,7 +93,7 @@
     [ScoreModel setTableName:@"aa_person_score"];
     _items = [ScoreModel loadRankingByTableName:@"aa_person_score" andFilters:_filters];
     
-    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
+    _tableContainer = [[NSScrollView alloc] initWithFrame:NSMakeRect(COMPLETE_VIEW_OFFSET_X, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
     _tableView = [[NSTableView alloc] initWithFrame:NSMakeRect(0, 0, COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH, COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT)];
     
     [_tableView setRowHeight:50.0f];

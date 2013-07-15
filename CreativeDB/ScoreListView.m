@@ -8,6 +8,7 @@
 
 #import "ScoreListView.h"
 #import "ManagerFilterContainer.h"
+#import "BaseManagerCompleteViewController.h"
 
 @interface  ScoreListView()
 
@@ -55,7 +56,7 @@
     {
         ManagerFilterContainer *filter = [_filters objectAtIndex:i];
         
-        filter.frame = NSMakeRect( filter.frame.origin.x,
+        filter.frame = NSMakeRect( filter.frame.origin.x + COMPLETE_VIEW_OFFSET_X,
                                   MLE_FILTER_CONTAINER_OFFSET_Y - ( MLE_FILTER_CONTAINER_HEIGHT * i ) ,
                                   filter.frame.size.width,
                                   filter.frame.size.height);
