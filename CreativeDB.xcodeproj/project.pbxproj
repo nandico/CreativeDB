@@ -420,6 +420,8 @@
 		BF8D845916F7F85D006906D8 /* CreativeDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845816F7F85D006906D8 /* CreativeDB.sqlite */; };
 		BF8D846116F7FAD5006906D8 /* SORelativeDateTransformer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */; };
 		BF8D846216F7FAD5006906D8 /* SORelativeDateTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */; };
+		BF94EEF71795635000396E56 /* ImportView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF94EEF61795635000396E56 /* ImportView.m */; };
+		BF94EEFD1795645600396E56 /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF94EEFC1795645600396E56 /* ImportViewController.m */; };
 		BF9C642F178A5255004158DD /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C642E178A5255004158DD /* MarkerView.m */; };
 		BF9EAF9D1790A75300B03FFD /* ManagerMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9EAF9C1790A75300B03FFD /* ManagerMenuButtonCell.m */; };
 		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
@@ -972,6 +974,10 @@
 		BF8D845D16F7FAD5006906D8 /* SORelativeDateTransformer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SORelativeDateTransformer.bundle; sourceTree = "<group>"; };
 		BF8D845E16F7FAD5006906D8 /* SORelativeDateTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SORelativeDateTransformer.h; sourceTree = "<group>"; };
 		BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SORelativeDateTransformer.m; sourceTree = "<group>"; };
+		BF94EEF51795635000396E56 /* ImportView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportView.h; sourceTree = "<group>"; };
+		BF94EEF61795635000396E56 /* ImportView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportView.m; sourceTree = "<group>"; };
+		BF94EEFB1795645600396E56 /* ImportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportViewController.h; sourceTree = "<group>"; };
+		BF94EEFC1795645600396E56 /* ImportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportViewController.m; sourceTree = "<group>"; };
 		BF9C642D178A5255004158DD /* MarkerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerView.h; sourceTree = "<group>"; };
 		BF9C642E178A5255004158DD /* MarkerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkerView.m; sourceTree = "<group>"; };
 		BF9EAF9B1790A75300B03FFD /* ManagerMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerMenuButtonCell.h; sourceTree = "<group>"; };
@@ -1646,6 +1652,7 @@
 				BF1787EF17498D0F00057FF4 /* MenuManagerViewController.h */,
 				BF1787F017498D0F00057FF4 /* MenuManagerViewController.m */,
 				BFF4C5A01705539A0098A633 /* Engine */,
+				BF94EEF9179563FB00396E56 /* Import */,
 				BF302AD8174082D300195DE8 /* List */,
 				BFD3A373173DB8F10015E04F /* View */,
 				BF302AD91740836500195DE8 /* Complete */,
@@ -1864,6 +1871,17 @@
 				BF8D845F16F7FAD5006906D8 /* SORelativeDateTransformer.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		BF94EEF9179563FB00396E56 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				BF94EEF51795635000396E56 /* ImportView.h */,
+				BF94EEF61795635000396E56 /* ImportView.m */,
+				BF94EEFB1795645600396E56 /* ImportViewController.h */,
+				BF94EEFC1795645600396E56 /* ImportViewController.m */,
+			);
+			name = Import;
 			sourceTree = "<group>";
 		};
 		BF9C642C178A5239004158DD /* Others */ = {
@@ -2551,6 +2569,8 @@
 				BF5472F6175EC8430056499B /* ManagerFilterTextField.m in Sources */,
 				BF4F3B0C1764133E0038C761 /* ManagerListMessage.m in Sources */,
 				BF9EAF9D1790A75300B03FFD /* ManagerMenuButtonCell.m in Sources */,
+				BF94EEF71795635000396E56 /* ImportView.m in Sources */,
+				BF94EEFD1795645600396E56 /* ImportViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

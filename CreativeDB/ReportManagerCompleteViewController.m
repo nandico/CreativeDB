@@ -16,6 +16,8 @@
 @property (nonatomic, strong) BaseLayeredView *viewInstance;
 @property (nonatomic, strong) ScoreListViewController *scoreListManager;
 
+@property (nonatomic, strong) ManagerHeader *listHeader;
+
 @end
 
 @implementation ReportManagerCompleteViewController
@@ -44,16 +46,23 @@
                             initWithOptions:scoreListOptions];
     
     
-    /*
-    _scoreListManager.view.frame = NSMakeRect( COMPLETE_VIEW_OFFSET_X,
-                                                 0.0f,
-                                                 COMPLETE_VIEW_CONTAINER_BIGLIST_WIDTH,
-                                                 COMPLETE_VIEW_CONTAINER_BIGLIST_HEIGHT);
-    */
     _scoreListManager.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-     
+    
     [self.viewInstance addSubview:_scoreListManager.view];
     
+    NSDictionary *listHeaderOptions = [NSDictionary dictionaryWithObjectsAndKeys:
+                                       @"Reports", MLE_FIELDSET_MODEL_HEADERTITLE,
+                                       nil];
+    
+    _listHeader = [[ManagerHeader alloc] initWithOptions:listHeaderOptions];
+    _listHeader.frame = NSMakeRect(COMPLETE_VIEW_OFFSET_X + MLE_HEADER_OFFSET_X,
+                                   COMPLETE_VIEW_CONTAINER_MEDIUMLIST_HEIGHT,
+                                   _listHeader.frame.size.width,
+                                   _listHeader.frame.size.height);
+    [self.viewInstance addSubview:_listHeader];
+    
+    NSLog( @"_listHeader: %f, %f", _listHeader.frame.origin.x, _listHeader.frame.origin.y );
+
 }
 
 @end
