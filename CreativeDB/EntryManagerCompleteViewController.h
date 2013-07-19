@@ -14,4 +14,6 @@
 
 @interface EntryManagerCompleteViewController : BaseManagerCompleteViewController
 
+
+
 @end

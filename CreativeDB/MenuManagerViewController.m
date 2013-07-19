@@ -453,7 +453,9 @@
 
 - (void) entriesImportAction
 {
-    NSLog( @"Import." );
+    [[NSNotificationCenter defaultCenter] postNotificationName:SUBMENU_IMPORT
+                                                        object:self
+                                                      userInfo:nil];
 }
 
 

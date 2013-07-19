@@ -19,6 +19,7 @@
 #import "SubcategoryManagerCompleteViewController.h"
 #import "ReportManagerCompleteViewController.h"
 #import "GroupManagerCompleteViewController.h"
+#import "ImportCompleteViewController.h"
 
 @interface MainManagerViewController ()
 
@@ -34,6 +35,7 @@
 @property (nonatomic, strong) CategoryManagerCompleteViewController *categoryManager;
 @property (nonatomic, strong) SubcategoryManagerCompleteViewController *subcategoryManager;
 @property (nonatomic, strong) ReportManagerCompleteViewController *reportsManager;
+@property (nonatomic, strong) ImportCompleteViewController *importModule;
 
 @property (nonatomic, strong) NSMutableDictionary *modules;
 
@@ -87,6 +89,10 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(showReports:)
                                                      name:MENU_REPORTS object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(showSubImport:)
+                                                     name:SUBMENU_IMPORT object:nil];
     }
     
     return self;
@@ -161,6 +167,12 @@
     [_reportsManager.view setHidden:NO];
 }
 
+- (void) showSubImport:(NSNotification *) notification
+{
+    [self hideAll];
+    [_importModule.view setHidden:NO];
+}
+
 - (void) prepareMain
 {
     _modules = [[NSMutableDictionary alloc] init];
@@ -228,6 +240,12 @@
     [self.viewInstance addSubview:_reportsManager.view positioned:NSWindowBelow relativeTo:_producerManager.view];
     [_reportsManager.view setHidden:YES];
     [_modules setObject:_reportsManager forKey:MENU_REPORTS];
+    
+    _importModule = [[ImportCompleteViewController alloc] init];
+    _importModule.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [self.viewInstance addSubview:_importModule.view positioned:NSWindowBelow relativeTo:_reportsManager.view];
+    [_importModule.view setHidden:YES];
+    [_modules setObject:_importModule forKey:SUBMENU_IMPORT];
 }
 
 @end

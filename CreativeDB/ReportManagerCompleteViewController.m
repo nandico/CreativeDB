@@ -60,8 +60,6 @@
                                    _listHeader.frame.size.width,
                                    _listHeader.frame.size.height);
     [self.viewInstance addSubview:_listHeader];
-    
-    NSLog( @"_listHeader: %f, %f", _listHeader.frame.origin.x, _listHeader.frame.origin.y );
 
 }
 

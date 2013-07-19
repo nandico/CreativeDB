@@ -466,6 +466,8 @@
 		BFC69791175C007600B3A9DA /* PersonDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69790175C007600B3A9DA /* PersonDetailViewController.m */; };
 		BFC69794175C07F100B3A9DA /* PersonDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69793175C07F100B3A9DA /* PersonDetailView.m */; };
 		BFC69797175C111E00B3A9DA /* PersonEntryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFC69796175C111D00B3A9DA /* PersonEntryListViewController.m */; };
+		BFD40CD91798BAD4007627C6 /* ImportCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFD40CD81798BAD4007627C6 /* ImportCompleteViewController.m */; };
+		BFD40CDB1798CDE8007627C6 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFD40CDA1798CDE7007627C6 /* WebKit.framework */; };
 		BFE703371724F24C0030E255 /* CreditManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703361724F24B0030E255 /* CreditManagerViewController.m */; };
 		BFE7033A1724F29D0030E255 /* CreditManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFE703391724F29C0030E255 /* CreditManagerView.m */; };
 		BFF4C58C170544F50098A633 /* AgencyManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C58B170544F50098A633 /* AgencyManagerViewController.m */; };
@@ -1067,6 +1069,9 @@
 		BFC69793175C07F100B3A9DA /* PersonDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonDetailView.m; sourceTree = "<group>"; };
 		BFC69795175C111D00B3A9DA /* PersonEntryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonEntryListViewController.h; sourceTree = "<group>"; };
 		BFC69796175C111D00B3A9DA /* PersonEntryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonEntryListViewController.m; sourceTree = "<group>"; };
+		BFD40CD71798BAD3007627C6 /* ImportCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImportCompleteViewController.h; sourceTree = "<group>"; };
+		BFD40CD81798BAD4007627C6 /* ImportCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImportCompleteViewController.m; sourceTree = "<group>"; };
+		BFD40CDA1798CDE7007627C6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BFE703351724F24A0030E255 /* CreditManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerViewController.h; sourceTree = "<group>"; };
 		BFE703361724F24B0030E255 /* CreditManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditManagerViewController.m; sourceTree = "<group>"; };
 		BFE703381724F29B0030E255 /* CreditManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditManagerView.h; sourceTree = "<group>"; };
@@ -1118,6 +1123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD40CDB1798CDE8007627C6 /* WebKit.framework in Frameworks */,
 				BF8D844116F7F746006906D8 /* libsqlite3.0.dylib in Frameworks */,
 				BF8D842416F7EEA4006906D8 /* Cocoa.framework in Frameworks */,
 			);
@@ -1763,6 +1769,7 @@
 		BF8D841716F7EEA2006906D8 = {
 			isa = PBXGroup;
 			children = (
+				BFD40CDA1798CDE7007627C6 /* WebKit.framework */,
 				BF1783151778FD19007585DA /* Icon-72@2x.png */,
 				BF1783131778FD14007585DA /* Icon-72.png */,
 				BF8D844016F7F746006906D8 /* libsqlite3.0.dylib */,
@@ -1880,6 +1887,8 @@
 				BF94EEF61795635000396E56 /* ImportView.m */,
 				BF94EEFB1795645600396E56 /* ImportViewController.h */,
 				BF94EEFC1795645600396E56 /* ImportViewController.m */,
+				BFD40CD71798BAD3007627C6 /* ImportCompleteViewController.h */,
+				BFD40CD81798BAD4007627C6 /* ImportCompleteViewController.m */,
 			);
 			name = Import;
 			sourceTree = "<group>";
@@ -2571,6 +2580,7 @@
 				BF9EAF9D1790A75300B03FFD /* ManagerMenuButtonCell.m in Sources */,
 				BF94EEF71795635000396E56 /* ImportView.m in Sources */,
 				BF94EEFD1795645600396E56 /* ImportViewController.m in Sources */,
+				BFD40CD91798BAD4007627C6 /* ImportCompleteViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

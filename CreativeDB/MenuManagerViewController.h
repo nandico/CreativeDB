@@ -19,6 +19,9 @@
 #define MENU_SUBCATEGORIES @"MENU_SUBCATEGORIES"
 #define MENU_REPORTS @"MENU_REPORTS"
 
+
+#define SUBMENU_IMPORT @"SUBMENU_IMPORT"
+
 @interface MenuManagerViewController : NSViewController
 
 @end
