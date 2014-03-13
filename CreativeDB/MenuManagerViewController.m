@@ -249,7 +249,7 @@
     if(!_producers)
     {
         _producers = [[ManagerMenuButton alloc] init];
-        _producers.title = @"Producers";
+        _producers.title = @"Production";
         [_producers setTarget:self];
         [_producers setAction:@selector(producersAction)];
         [_producers.cell setBackgroundColor:PALLETE_BASE_COLOR_C];

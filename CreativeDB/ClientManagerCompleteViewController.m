@@ -77,7 +77,7 @@
     ProductModel.modelFilterValue = [ClientModel first];
 
     NSDictionary *productOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    @"Products for this client", MLE_FIELDSET_MODEL_HEADERTITLE,
+                                    @"Products/Brands for this client", MLE_FIELDSET_MODEL_HEADERTITLE,
                                     @"ProductModel", MLE_FIELDSET_MODEL_KEY,
                                    [self packNSNull:[ProductModel first]], MLE_FIELDSET_MODEL_ITEM,
                                     @"client", MLE_FIELDSET_MODEL_FILTERNAME,

@@ -40,7 +40,7 @@
 - (void) createForm
 {
     NSDictionary *producerOptions = [NSDictionary dictionaryWithObjectsAndKeys:
-                                 @"Producer companies", MLE_FIELDSET_MODEL_HEADERTITLE,
+                                 @"Production companies", MLE_FIELDSET_MODEL_HEADERTITLE,
                                  @"ProducerModel", MLE_FIELDSET_MODEL_KEY,
                                  [self packNSNull:[ProducerModel first]], MLE_FIELDSET_MODEL_ITEM,
                                  nil];

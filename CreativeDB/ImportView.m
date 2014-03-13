@@ -44,12 +44,7 @@
         _webviewContent = [[WebView alloc] init];
         _webviewContent.frame = CGRectMake(0, 0, COMPLETE_VIEW_CONTAINER_WIDTH, COMPLETE_VIEW_CONTAINER_LIST_HEIGHT);
         [self addSubview:_webviewContent];
-        
-        // test
-        NSString * path = [[NSBundle mainBundle] bundlePath];
-        NSURL * baseURL = [NSURL fileURLWithPath:path];
-        
-        [[self.webviewContent mainFrame] loadHTMLString:@"<body bgcolor='gray'><b>Webkit instance for code processing.</b></body>" baseURL:baseURL];
+
     }
     
     return _webviewContent;
@@ -108,7 +103,10 @@
 
 - (void) processAction
 {
-    NSLog( @"Process!!" );
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSURL *baseURL = [NSURL fileURLWithPath:path];
+    
+    [[self.webviewContent mainFrame] loadHTMLString:[_importContent stringValue] baseURL:baseURL];
 }
 
 @end

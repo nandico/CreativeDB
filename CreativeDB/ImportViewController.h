@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 
+#define IMPORT_PROCESS_ACTION @"IMPORT_PROCESS_ACTION"
+
 @interface ImportViewController : NSViewController
 
 @end

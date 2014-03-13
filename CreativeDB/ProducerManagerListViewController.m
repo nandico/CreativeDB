@@ -94,8 +94,8 @@
     [_nameColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0];
     [_siteURLColumn setWidth:COMPLETE_VIEW_CONTAINER_LIST_WIDTH / 3.0];
     
-    [_tableView addTableColumn:_countryColumn];
     [_tableView addTableColumn:_nameColumn];
+    [_tableView addTableColumn:_countryColumn];
     [_tableView addTableColumn:_siteURLColumn];
     
     [_tableContainer setDocumentView:_tableView];

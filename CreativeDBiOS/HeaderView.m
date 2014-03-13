@@ -258,7 +258,7 @@
     if( !_producersButton )
     {
         _producersButton = [BaseButton buttonWithType:UIButtonTypeCustom];
-        [_producersButton setTitle:@"Producers" forState:UIControlStateNormal];
+        [_producersButton setTitle:@"Production" forState:UIControlStateNormal];
         _producersButton.titleLabel.font = MENU_BUTTON_FONT;
         _producersButton.titleLabel.textColor = MENU_BUTTON_FONT_COLOR;
         [_producersButton addTarget:self action:@selector(producersButtonAction) forControlEvents:UIControlEventTouchDown];

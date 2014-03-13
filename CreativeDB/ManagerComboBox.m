@@ -20,9 +20,18 @@
         [self setTextColor:MLE_COMBO_COLOR];
         [self setBezelStyle:NSTextFieldRoundedBezel];
         [self setCompletes:YES];
+        
+        // listener
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectSpeed:) name:NSComboBoxSelectionDidChangeNotification object:self];
     }
     
     return self;
 }
+
+- (void)didSelectSpeed:(NSNotification *)theNotification
+{
+    NSLog(@"Teste: %@", theNotification);
+}
+
 
 @end
