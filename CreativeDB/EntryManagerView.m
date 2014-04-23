@@ -8,6 +8,7 @@
 
 #import "EntryManagerView.h"
 #import "ManagerEngine.h"
+#import "ProductModel.h"
 
 
 @interface  EntryManagerView()
@@ -146,10 +147,26 @@
     {
         NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"client"];
         _client = [[ManagerFieldContainer alloc] initWithOptions:options];
+        
+        // listener: client selected, update products
+        ManagerComboBox *clientCombo = [_client comboField];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didSelectClient:) name:NSComboBoxSelectionDidChangeNotification object:clientCombo];
+        
         [self addSubview:_client];
+        
+        clientCombo = Nil;
     }
     
     return _client;
+}
+
+- (void)didSelectClient:(NSNotification *)theNotification
+{
+    ManagerComboBox *clientCombo = (ManagerComboBox *) [theNotification object];
+    
+    NSLog(@"Updated: %@", [clientCombo objectValueOfSelectedItem]);
+    [ProductModel setModelFilterName:@"client"];
+    [ProductModel setModelFilterValue:[clientCombo objectValueOfSelectedItem]];
 }
 
 
