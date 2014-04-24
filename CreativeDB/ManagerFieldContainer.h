@@ -25,6 +25,8 @@
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, assign) BOOL isPk;
 
++ (void)teste;
++ (void)applyFilterWithName:(NSString *)filterName andValue:(NSString *)filterValue;
 - (id)initWithOptions:(NSDictionary *)options;
 - (NSString *) stringValue;
 

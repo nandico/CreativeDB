@@ -105,6 +105,16 @@
     return self;
 }
 
++ (void)teste
+{
+    NSLog(@"Testou");
+}
+
++ (void)applyFilterWithName:(NSString *)filterName andValue:(NSString *)filterValue
+{
+    NSLog(@"Trying to apply filter name %@ wih value %@", filterName, filterName);
+}
+
 - (id) unpackNSNull:(id) value
 {
     if( value == (id)[NSNull null] )
