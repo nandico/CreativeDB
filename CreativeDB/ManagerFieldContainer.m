@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSString *fieldLabel;
 @property (nonatomic, strong) NSString *fieldLookupName;
 @property (nonatomic, strong) NSString *fieldLookupModel;
+@property (nonatomic, strong) NSNumber *fieldLookupDelayLoading;
 @property (nonatomic,strong) NSNumber *fieldDataType;
 @property (nonatomic, strong) NSMutableArray *staticDomainData;
 
@@ -73,6 +74,15 @@
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] )
             _fieldLookupModel = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY]];
         
+        if( [self.options objectForKey:MLE_FIELD_LOOKUP_DELAY_LOADING ] )
+        {
+            _fieldLookupDelayLoading = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LOOKUP_DELAY_LOADING]];
+        }
+        else
+        {
+            _fieldLookupDelayLoading = [NSNumber numberWithBool:NO];
+        }
+        
         if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] )
             _staticDomainData = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY]];
         
@@ -105,14 +115,12 @@
     return self;
 }
 
-+ (void)teste
-{
-    NSLog(@"Testou");
-}
 
-+ (void)applyFilterWithName:(NSString *)filterName andValue:(NSString *)filterValue
+- (void)applyFilterWithName:(NSString *)filterName andValue:(NSString *)filterValue
 {
-    NSLog(@"Trying to apply filter name %@ wih value %@", filterName, filterName);
+    [_comboField removeAllItems];
+    [self bindComboWithFilterName:filterName andValue:filterValue];
+    
 }
 
 - (id) unpackNSNull:(id) value
@@ -212,6 +220,14 @@
     return [lookupModel performSelector:staticLoadSelector withObject:nil];
 }
 
+- (NSMutableArray *) lookupDataFilteredByName:(NSString *) name andValue:(NSString *)value
+{
+    SEL staticLoadSelector = NSSelectorFromString( @"loadFilteredWithName:andValue:" );
+    id lookupModel = NSClassFromString( _fieldLookupModel );
+    
+    return [lookupModel performSelector:staticLoadSelector withObject:name withObject:value];
+}
+
 - (ManagerLabel *) label
 {
     if(!_label)
@@ -288,8 +304,27 @@
 
 - (void) bindCombo
 {
-    NSMutableArray *comboItems = [self lookupData];
-    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );    
+    if([_fieldLookupDelayLoading isEqualToNumber:[NSNumber numberWithBool:YES]])
+    {
+        return;
+    }
+    else
+    {
+        NSMutableArray *comboItems = [self lookupData];
+        SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );    
+        
+        for( NSInteger comboIndex = 0; comboIndex < comboItems.count; comboIndex ++ )
+        {
+            id lookupModel = [comboItems objectAtIndex:comboIndex];
+            [_comboField addItemWithObjectValue:[lookupModel performSelector:lookupNameSelector withObject:nil]];
+        }
+    }
+}
+
+- (void) bindComboWithFilterName:(NSString *)name andValue:(NSString *) value
+{
+    NSMutableArray *comboItems = [self lookupDataFilteredByName:name andValue:value];
+    SEL lookupNameSelector = NSSelectorFromString( _fieldLookupName );
     
     for( NSInteger comboIndex = 0; comboIndex < comboItems.count; comboIndex ++ )
     {

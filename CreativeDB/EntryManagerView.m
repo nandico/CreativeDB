@@ -47,8 +47,8 @@
     [_engine addFieldContainer:[self name]];
     [_engine addFieldContainer:[self agency]];
     [_engine addFieldContainer:[self client]];
-    [_engine addFieldContainer:[self country]];
     [_engine addFieldContainer:[self product]];
+    [_engine addFieldContainer:[self country]];
     [_engine addFieldContainer:[self accessURL]];
     [_engine addFieldContainer:[self caseURL]];
     [_engine addFieldContainer:[self blurb]];
@@ -162,13 +162,10 @@
 
 - (void)didSelectClient:(NSNotification *)theNotification
 {
+    [[[self product] comboField] setStringValue:@""];
     ManagerComboBox *clientCombo = (ManagerComboBox *) [theNotification object];
-    
-    NSLog(@"Updated: %@", [clientCombo objectValueOfSelectedItem]);
-    [ProductModel setModelFilterName:@"client"];
-    [ProductModel setModelFilterValue:[clientCombo objectValueOfSelectedItem]];
+    [[self product] applyFilterWithName:@"client" andValue:[clientCombo objectValueOfSelectedItem]];
 }
-
 
 - (ManagerFieldContainer *)country
 {
@@ -188,10 +185,16 @@
     {
         NSDictionary *options = [[self.dataSource fieldData] objectForKey:@"product"];
         _product = [[ManagerFieldContainer alloc] initWithOptions:options];
+        
         [self addSubview:_product];
     }
     
     return _product;
+}
+
+- (void) applyProductFilter
+{    
+    [[self product] applyFilterWithName:@"client" andValue:[[_client comboField] objectValueOfSelectedItem]];
 }
 
 - (ManagerFieldContainer *)accessURL

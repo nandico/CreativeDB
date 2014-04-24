@@ -15,18 +15,22 @@
 
 @interface ManagerFieldContainer : NSView
 
++ (NSString *)teste;
+
 @property (nonatomic, strong) ManagerLabel *label;
 @property (nonatomic,strong) NSNumber *fieldType;
 @property (nonatomic, strong) ManagerTextField *textField;
 @property (nonatomic, strong) ManagerTextAreaField *textAreaField;
 @property (nonatomic, strong) ManagerComboBox *comboField;
 
+@property (nonatomic, strong) NSString *banana;
+
 @property (nonatomic, assign) BOOL isNullable;
 @property (nonatomic, strong) NSString *type;
 @property (nonatomic, assign) BOOL isPk;
 
-+ (void)teste;
-+ (void)applyFilterWithName:(NSString *)filterName andValue:(NSString *)filterValue;
+
+- (void)applyFilterWithName:(NSString *)filterName andValue:(NSString *)filterValue;
 - (id)initWithOptions:(NSDictionary *)options;
 - (NSString *) stringValue;
 

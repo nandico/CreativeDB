@@ -7,7 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ManagerFieldContainer.h"
 #import "ManagerActionBar.h"
 #import "ManagerEngine.h"
 #import "BaseManagerView.h"

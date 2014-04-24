@@ -424,6 +424,7 @@
 		BF94EEFD1795645600396E56 /* ImportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF94EEFC1795645600396E56 /* ImportViewController.m */; };
 		BF9C642F178A5255004158DD /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9C642E178A5255004158DD /* MarkerView.m */; };
 		BF9EAF9D1790A75300B03FFD /* ManagerMenuButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9EAF9C1790A75300B03FFD /* ManagerMenuButtonCell.m */; };
+		BFABAAFC19089A6400F97874 /* ManagerFieldContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFABAAFB19089A6400F97874 /* ManagerFieldContainer.m */; };
 		BFAD2EA0171B9AE20044262E /* BaseManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */; };
 		BFAD2EA3171BA2370044262E /* BaseManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFAD2EA2171BA2360044262E /* BaseManagerView.m */; };
 		BFBC5EB6174E771E0004E022 /* AgencyManagerCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFBC5EB5174E771E0004E022 /* AgencyManagerCompleteViewController.m */; };
@@ -476,7 +477,6 @@
 		BFF4C595170549D50098A633 /* ManagerComboBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C594170549D50098A633 /* ManagerComboBox.m */; };
 		BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59817054B980098A633 /* ManagerLabel.m */; };
 		BFF4C59C1705525E0098A633 /* ManagerEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59B1705525E0098A633 /* ManagerEngine.m */; };
-		BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C59E170553910098A633 /* ManagerFieldContainer.m */; };
 		BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */; };
 		BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A51707A5DF0098A633 /* EntryManagerView.m */; };
 		BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */ = {isa = PBXBuildFile; fileRef = BFF4C5A81707C2010098A633 /* ManagerTextAreaField.m */; };
@@ -985,6 +985,8 @@
 		BF9EAF9B1790A75300B03FFD /* ManagerMenuButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerMenuButtonCell.h; sourceTree = "<group>"; };
 		BF9EAF9C1790A75300B03FFD /* ManagerMenuButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerMenuButtonCell.m; sourceTree = "<group>"; };
 		BFA5E7131744383200466F5C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BFABAAFA19089A6400F97874 /* ManagerFieldContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFieldContainer.h; sourceTree = "<group>"; };
+		BFABAAFB19089A6400F97874 /* ManagerFieldContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFieldContainer.m; sourceTree = "<group>"; };
 		BFAD2E9E171B9ADF0044262E /* BaseManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerViewController.h; sourceTree = "<group>"; };
 		BFAD2E9F171B9AE00044262E /* BaseManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseManagerViewController.m; sourceTree = "<group>"; };
 		BFAD2EA1171BA2350044262E /* BaseManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseManagerView.h; sourceTree = "<group>"; };
@@ -1088,8 +1090,6 @@
 		BFF4C59817054B980098A633 /* ManagerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerLabel.m; sourceTree = "<group>"; };
 		BFF4C59A1705525E0098A633 /* ManagerEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerEngine.h; sourceTree = "<group>"; };
 		BFF4C59B1705525E0098A633 /* ManagerEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerEngine.m; sourceTree = "<group>"; };
-		BFF4C59D170553900098A633 /* ManagerFieldContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagerFieldContainer.h; sourceTree = "<group>"; };
-		BFF4C59E170553910098A633 /* ManagerFieldContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagerFieldContainer.m; sourceTree = "<group>"; };
 		BFF4C5A11707A5B20098A633 /* EntryManagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerViewController.h; sourceTree = "<group>"; };
 		BFF4C5A21707A5B30098A633 /* EntryManagerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntryManagerViewController.m; sourceTree = "<group>"; };
 		BFF4C5A41707A5DE0098A633 /* EntryManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntryManagerView.h; sourceTree = "<group>"; };
@@ -1973,6 +1973,8 @@
 		BFF4C5A01705539A0098A633 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				BFABAAFA19089A6400F97874 /* ManagerFieldContainer.h */,
+				BFABAAFB19089A6400F97874 /* ManagerFieldContainer.m */,
 				BFF4C59A1705525E0098A633 /* ManagerEngine.h */,
 				BFF4C59B1705525E0098A633 /* ManagerEngine.m */,
 				BFBC5EFD1753097E0004E022 /* ManagerHeader.h */,
@@ -1989,8 +1991,6 @@
 				BFF4C59817054B980098A633 /* ManagerLabel.m */,
 				BF4F3B0A1764133D0038C761 /* ManagerListMessage.h */,
 				BF4F3B0B1764133E0038C761 /* ManagerListMessage.m */,
-				BFF4C59D170553900098A633 /* ManagerFieldContainer.h */,
-				BFF4C59E170553910098A633 /* ManagerFieldContainer.m */,
 				BF5472EE175EC4300056499B /* ManagerFilterContainer.h */,
 				BF5472EF175EC4300056499B /* ManagerFilterContainer.m */,
 				BFF4C5A71707C2010098A633 /* ManagerTextAreaField.h */,
@@ -2062,7 +2062,7 @@
 		BF8D841816F7EEA3006906D8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Cacau;
 				TargetAttributes = {
 					BF5FFACD176529720034600E = {
@@ -2508,7 +2508,6 @@
 				BFF4C595170549D50098A633 /* ManagerComboBox.m in Sources */,
 				BFF4C59917054B980098A633 /* ManagerLabel.m in Sources */,
 				BFF4C59C1705525E0098A633 /* ManagerEngine.m in Sources */,
-				BFF4C59F170553910098A633 /* ManagerFieldContainer.m in Sources */,
 				BFF4C5A31707A5B30098A633 /* EntryManagerViewController.m in Sources */,
 				BFF4C5A61707A5E40098A633 /* EntryManagerView.m in Sources */,
 				BFF4C5A91707C2020098A633 /* ManagerTextAreaField.m in Sources */,
@@ -2528,6 +2527,7 @@
 				BFFCE80E174084B400987656 /* AwardManagerViewController.m in Sources */,
 				BFFCE8111740853000987656 /* AwardManagerView.m in Sources */,
 				BF6A81BD1741903A00F8557E /* AwardManagerListViewController.m in Sources */,
+				BFABAAFC19089A6400F97874 /* ManagerFieldContainer.m in Sources */,
 				BF6A81C41741959200F8557E /* BaseManagerListView.m in Sources */,
 				BF1787F117498D1000057FF4 /* MenuManagerViewController.m in Sources */,
 				BF1787F717498F5900057FF4 /* MainManagerViewController.m in Sources */,
@@ -2631,7 +2631,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2645,7 +2644,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2655,7 +2654,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2670,7 +2668,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C911A98B-8A47-489C-BEF9-E771A4EBCC12";
-				SDKROOT = iphoneos6.1;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -2681,7 +2679,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -2714,7 +2711,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;

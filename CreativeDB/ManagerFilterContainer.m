@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *fieldLabel;
 @property (nonatomic, strong) NSString *fieldLookupName;
 @property (nonatomic, strong) NSString *fieldLookupModel;
+@property (nonatomic, strong) NSNumber *fieldLookupDelayLoading;
 @property (nonatomic,strong) NSNumber *fieldDataType;
 @property (nonatomic, strong) NSMutableArray *staticDomainData;
 
@@ -75,6 +76,15 @@
         
         if( [self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY ] )
             _fieldLookupModel = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LOOKUP_MODEL_KEY]];
+
+        if( [self.options objectForKey:MLE_FIELD_LOOKUP_DELAY_LOADING ] )
+        {
+            _fieldLookupDelayLoading = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_LOOKUP_DELAY_LOADING]];
+        }
+        else
+        {
+            _fieldLookupDelayLoading = [NSNumber numberWithBool:NO];
+        }
         
         if( [self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY ] )
             _staticDomainData = [self unpackNSNull:[self.options objectForKey:MLE_FIELD_STATIC_DOMAIN_KEY]];

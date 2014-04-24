@@ -177,6 +177,21 @@
     
     [self.fieldData setObject:client forKey:@"client"];
     
+    NSDictionary *product = [NSDictionary dictionaryWithObjectsAndKeys:
+                             [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
+                             @"product", MLE_FIELD_NAME_KEY,
+                             @"Product", MLE_FIELD_LABEL_KEY,
+                             @"ProductModel", MLE_FIELD_LOOKUP_MODEL_KEY,
+                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
+                             [NSNumber numberWithBool:YES], MLE_FIELD_LOOKUP_DELAY_LOADING,
+                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
+                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
+                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
+                             [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
+                             nil];
+    
+    [self.fieldData setObject:product forKey:@"product"];
+    
     NSDictionary *country = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
                              @"country", MLE_FIELD_NAME_KEY,
@@ -191,19 +206,6 @@
     
     [self.fieldData setObject:country forKey:@"country"];
 
-    NSDictionary *product = [NSDictionary dictionaryWithObjectsAndKeys:
-                             [NSNumber numberWithInteger:MLEComboFieldType], MLE_FIELD_TYPE_KEY,
-                             @"product", MLE_FIELD_NAME_KEY,
-                             @"Product", MLE_FIELD_LABEL_KEY,
-                             @"ProductModel", MLE_FIELD_LOOKUP_MODEL_KEY,
-                             @"name", MLE_FIELD_LOOKUP_NAME_KEY,
-                             [self packNSNull:self.modelName], MLE_FIELDSET_MODEL_KEY,
-                             [self packNSNull:self.modelItem], MLE_FIELDSET_MODEL_ITEM,
-                             [self packNSNull:self.modelFilterName], MLE_FIELDSET_MODEL_FILTERNAME,
-                             [self packNSNull:self.modelFilterValue], MLE_FIELDSET_MODEL_FILTERVALUE,
-                             nil];
-    
-    [self.fieldData setObject:product forKey:@"product"];
     
     NSDictionary *accessURL = [NSDictionary dictionaryWithObjectsAndKeys:
                              [NSNumber numberWithInteger:MLETextFieldType], MLE_FIELD_TYPE_KEY,

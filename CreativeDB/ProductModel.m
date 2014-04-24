@@ -159,6 +159,12 @@ static NSNumber *modelFilterValue;
     return collection;
 }
 
++ (NSMutableArray *) loadByClientName:(NSString *) clientName
+{
+    ClientModel *client = [ClientModel loadModelByStringValue:clientName];    
+    return [self loadByClientId:client.pk];
+}
+
 
 + (NSMutableArray *) loadAll
 {
@@ -187,6 +193,53 @@ static NSNumber *modelFilterValue;
     
     return collection;
 }
+
++ (NSMutableArray *) loadFilteredWithName:(NSString *) name andValue:(NSString *) value
+{
+    NSMutableArray *collection;
+    
+    if([name isEqualToString:@"client"])
+    {
+        collection = [self loadByClientName:value];
+    }
+    else
+    {
+        collection = [[NSMutableArray alloc] init];
+    }
+    
+    return collection;
+    
+   /*
+    NSLog(@"Loading filtered with name %@ and value %@ ", name, value);
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:SQLITE_FILE_NAME
+                                                     ofType:@"sqlite"];
+    
+    ProductModel *model;
+    FMDatabase *db = [FMDatabase databaseWithPath:path];
+    
+    NSMutableArray *collection = [[NSMutableArray alloc] init];
+    
+    [db open];
+    
+    FMResultSet *results = [db executeQueryWithFormat:[NSString stringWithFormat:@"SELECT "
+                                                       " %@ "
+                                                       " FROM %@ "
+                                                       " WHERE %@ = %@ ", [self fields], [self tableName], name, value ] ];
+    
+    while( [results next] )
+    {
+        model = [ProductModel objectWithResults:results];
+        [collection addObject:model];
+    }
+    
+    [results close];
+    [db close];
+    
+    return collection;
+    */
+}
+
 
 + (NSNumber *) modelCount
 {

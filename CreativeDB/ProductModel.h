@@ -21,6 +21,7 @@
 + (ProductModel *) loadModel:(NSNumber *) pk;
 + (ProductModel *) loadModelByStringValue:(NSString *) stringValue;
 + (NSMutableArray *) loadAll;
++ (NSMutableArray *) loadFiltered;
 + (NSNumber *) modelCount;
 + (NSMutableArray *) loadByClientId:(NSNumber *) clientPK;
 
